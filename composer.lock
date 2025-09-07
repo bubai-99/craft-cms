@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da188b8a5f4fd6fd3c6564b9b4a9e2c6",
+    "content-hash": "3d5252c18a638ecd01d5da7ada23b568",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -588,6 +588,70 @@
                 "source": "https://github.com/craftcms/cms"
             },
             "time": "2025-09-05T23:56:04+00:00"
+        },
+        {
+            "name": "craftcms/contact-form",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/craftcms/contact-form.git",
+                "reference": "1cfc5cfeb137e868d094ea15c90c6b9c4bf02ea5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/contact-form/zipball/1cfc5cfeb137e868d094ea15c90c6b9c4bf02ea5",
+                "reference": "1cfc5cfeb137e868d094ea15c90c6b9c4bf02ea5",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0-beta.1|^5.0.0-beta.1",
+                "php": "^8.0.2"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "craftcms/rector": "dev-main"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Contact Form",
+                "handle": "contact-form",
+                "components": {
+                    "mailer": "craft\\contactform\\Mailer"
+                },
+                "documentationUrl": "https://github.com/craftcms/contact-form/blob/v2/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\contactform\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Add a simple contact form to your Craft CMS site",
+            "keywords": [
+                "cms",
+                "contact",
+                "craftcms",
+                "form",
+                "yii2"
+            ],
+            "support": {
+                "docs": "https://github.com/craftcms/contact-form/blob/v2/README.md",
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/contact-form/issues?state=open",
+                "rss": "https://github.com/craftcms/contact-form/commits/v2.atom",
+                "source": "https://github.com/craftcms/contact-form"
+            },
+            "time": "2024-03-11T22:40:47+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -2788,11 +2852,17 @@
         },
         {
             "name": "mycompany/menu-manager",
-            "version": "3.0.12",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bubai-99/menu-manager.git",
+                "reference": "d9f621252497fd34be35bfb2c6361f45869dd51a"
+            },
             "dist": {
-                "type": "path",
-                "url": "./plugins/menu-manager",
-                "reference": "874609631a0005bb949edbba218ebf56512ab4c2"
+                "type": "zip",
+                "url": "https://api.github.com/repos/bubai-99/menu-manager/zipball/d9f621252497fd34be35bfb2c6361f45869dd51a",
+                "reference": "d9f621252497fd34be35bfb2c6361f45869dd51a",
+                "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^5.0.0",
@@ -2835,10 +2905,7 @@
                 "docs": "https://github.com/mycompany/menu-manager",
                 "rss": "https://github.com/mycompany/menu-manager/commits/main.atom"
             },
-            "transport-options": {
-                "symlink": false,
-                "relative": true
-            }
+            "time": "2025-09-07T12:24:49+00:00"
         },
         {
             "name": "nystudio107/craft-code-editor",
@@ -9266,13 +9333,11 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "mycompany/menu-manager": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.2"
     },
