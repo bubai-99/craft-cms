@@ -6,7 +6,7 @@ body:
       value: |
         Before you send through your bug report, please ensure you have taken these steps first:
 
-          ✅ I‘ve searched the [documentation](https://verbb.io/craft-plugins/navigation/docs).
+          ✅ I've searched the [documentation](https://github.com/mycompany/menu-manager/tree/main/docs).
           ✅ I‘ve searched open and closed issues.
 
   - type: textarea

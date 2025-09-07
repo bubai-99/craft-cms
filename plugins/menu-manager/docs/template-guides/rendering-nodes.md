@@ -3,11 +3,11 @@ You have two options for outputting your menu:
 
 ## Render Function
 
-### craft.navigation.render()
-The easy option - let Navigation output the list items for you. This will generate a nested `<ul>` list of navigation items. You can also pass in additional classes for each element.
+### craft.menuManager.render()
+The easy option - let Menu Manager output the list items for you. This will generate a nested `<ul>` list of navigation items. You can also pass in additional classes for each element.
 
 ```twig
-{{ craft.navigation.render('navHandle', {
+{{ craft.menuManager.render('navHandle', {
     ulClass: 'nav-items',
     liClass: 'nav-item',
     aClass: 'nav-link',
@@ -27,7 +27,7 @@ The easy option - let Navigation output the list items for you. This will genera
 
 ## Querying Nodes
 
-### craft.navigation.nodes()
+### craft.menuManager.nodes()
 For more fine-grained control over the navigation output, you can call nodes directly. As nodes are elements, output is a breeze using Craft's `{% nav %}` tag, so you don't have to deal with recursive macros.
 
 :::tip
@@ -35,12 +35,12 @@ Once you've mastered rendering your nodes, check out the [Eager-Loading](docs:te
 :::
 
 ```twig
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .handle('mainMenu')
     .all() %}
 
 {# Or - alternatively #}
-{% set nodes = craft.navigation.nodes('mainMenu').all() %}
+{% set nodes = craft.menuManager.nodes('mainMenu').all() %}
 
 <ul>
     {% nav node in nodes %}
@@ -62,7 +62,7 @@ If you'd rather not use the `{% nav %}` functionality, you can create your own r
 ```twig
 {% import _self as macros %}
 
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .handle('mainMenu')
     .level(1)
     .all() %}
@@ -90,13 +90,13 @@ If you'd rather not use the `{% nav %}` functionality, you can create your own r
 {% endmacro %}
 ```
 
-Don't forget, that calling `craft.navigation.nodes()` means you're querying Nodes, so it's a good idea to brush up on [querying elements](docs:getting-elements/node-queries).
+Don't forget, that calling `craft.menuManager.nodes()` means you're querying Nodes, so it's a good idea to brush up on [querying elements](docs:getting-elements/node-queries).
 
 ### Custom rendering
-When looping through each node, you'll have access to all the attributes of a [Node](docs:developers/node), and you have full control over what to show. Take a look at the following example, that the `craft.navigation.render()` function uses under the hood:
+When looping through each node, you'll have access to all the attributes of a [Node](docs:developers/node), and you have full control over what to show. Take a look at the following example, that the `craft.menuManager.render()` function uses under the hood:
 
 ```twig
-{% set nodes = craft.navigation.nodes('mainMenu').all() %}
+{% set nodes = craft.menuManager.nodes('mainMenu').all() %}
 
 <ul>
     {% nav node in nodes %}
@@ -115,18 +115,18 @@ When looping through each node, you'll have access to all the attributes of a [N
 </ul>
 ```
 
-## craft.navigation.getActiveNode()
+## craft.menuManager.getActiveNode()
 You can get the active node of any navigation through this tag. Often useful if you want to output an additional navigation area on your site that's contextual to the current node you're on.
 
-You can also provide any of the normal query parameters you normally would with `craft.navigation.nodes()`.
+You can also provide any of the normal query parameters you normally would with `craft.menuManager.nodes()`.
 
 ```twig
 {# Represents a Node element #}
-{% set activeNode = craft.navigation.getActiveNode({ handle: 'mainMenu' }) %}
+{% set activeNode = craft.menuManager.getActiveNode({ handle: 'mainMenu' }) %}
 
 <ul>
     {# Start looping through any nested nodes, starting at the currently active one #}
-    {% set nodes = craft.navigation.nodes()
+    {% set nodes = craft.menuManager.nodes()
         .descendantOf(activeNode)
         .all() %}
 
@@ -154,7 +154,7 @@ To illustrate, take for example two URLs:
 And the navigation included a node with the URL for `/news` (either a manual link, or linked to an entry element). You output the following in your templates: 
 
 ```twig
-{{ craft.navigation.getActiveNode({ handle: 'mainMenu' }) }}
+{{ craft.menuManager.getActiveNode({ handle: 'mainMenu' }) }}
 ```
 
 If you were on the URL `/news` it would return that you're on the active node. If you were on `/news/some-article` it would return that this is **not** the active node. Navigation would be looking for a node with a URL that matches `/news/some-article`, and because it can't find one, it will not return an active page.
@@ -162,7 +162,7 @@ If you were on the URL `/news` it would return that you're on the active node. I
 However, its common you'll want to highlight the News node as being active, if your site uses nested navigation. That way, it shows to your users that you're in the "News" section of the site. In this instance you can pass a second attribute to `getActiveNode()` to include child and parent matching. For example:
 
 ```twig
-{{ craft.navigation.getActiveNode({ handle: 'mainMenu' }, true) }}
+{{ craft.menuManager.getActiveNode({ handle: 'mainMenu' }, true) }}
 ```
 
 In this case, when you are on the URL `/news`, `/news/some-article` or any other URL that includes `/news` it would return that "News" is the active node.

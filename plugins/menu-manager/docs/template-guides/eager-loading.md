@@ -3,10 +3,10 @@ Craft features a concept called [Eager-Loading](https://craftcms.com/docs/3.x/de
 
 We can make use of this too, to speed up rendering of navigation nodes. However, you'll only really see benefits from eager-loading when your navigation have multiple levels. A single level navigation won't get any benefit from eager-loading.
 
-## craft.navigation.render()
-If you're using the `craft.navigation.render()` Twig function, there's nothing you need to do! Navigation eager-loads nested navigations automatically.
+## craft.menuManager.render()
+If you're using the `craft.menuManager.render()` Twig function, there's nothing you need to do! Navigation eager-loads nested navigations automatically.
 
-## craft.navigation.nodes()
+## craft.menuManager.nodes()
 Let's take a look at an example navigation setup. We have the following navigation structure, consisting of 3-levels of nodes.
 
 ```
@@ -35,7 +35,7 @@ Let's take a look at an example navigation setup. We have the following navigati
 And we'll use the following Twig to output the nodes:
 
 ```twig
-{% set nodes = craft.navigation.nodes('mainMenu').level(1).all() %}
+{% set nodes = craft.menuManager.nodes('mainMenu').level(1).all() %}
 
 {% for node in nodes %}
     {{ node.link }}
@@ -49,7 +49,7 @@ And we'll use the following Twig to output the nodes:
 Whilst this will work fine, we're also producing a lot of database queries. The above should generate close to **32 queries** to fetch nested nodes. We can improve this with eager-loading the children and descendants.
 
 ```twig
-{% set nodes = craft.navigation.nodes('mainMenu').level(1).with(['children']).all() %}
+{% set nodes = craft.menuManager.nodes('mainMenu').level(1).with(['children']).all() %}
 
 {% for node in nodes %}
     {{ node.link }}
@@ -65,7 +65,7 @@ There's two main things to note here, we're using `with(['children'])` in our qu
 If you have a third-level in your navigation, you'll need to eager-load those to, and so on - depending on how many levels your navigation has.
 
 ```twig
-{% set nodes = craft.navigation.nodes('mainMenu').level(1).with(['children.children']).all() %}
+{% set nodes = craft.menuManager.nodes('mainMenu').level(1).with(['children.children']).all() %}
 
 {% for node in nodes %}
     {{ node.link }}

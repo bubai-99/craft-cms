@@ -6,8 +6,8 @@ You can add your own custom elements to be compatible with Navigation by using t
 ```php
 namespace modules\sitemodule;
 
-use verbb\navigation\services\Elements;
-use verbb\navigation\events\RegisterElementEvent;
+use mycompany\menumanager\services\Elements;
+use mycompany\menumanager\events\RegisterElementEvent;
 use yii\base\Event;
 
 Event::on(Elements::class, Elements::EVENT_REGISTER_NAVIGATION_ELEMENT, function(RegisterElementEvent $event) {
@@ -28,7 +28,7 @@ You'll need to first create a class to implement your node type. Here's an examp
 <?php
 namespace modules\sitemodule;
 
-use verbb\navigation\base\NodeType;
+use mycompany\menumanager\base\NodeType;
 
 class Group extends NodeType
 {
@@ -67,8 +67,8 @@ Here you can see there's various functions to enable or disable certain properti
 Lastly, you'll want to register this class with Navigation:
 
 ```php
-use verbb\navigation\services\NodeTypes;
-use verbb\navigation\events\RegisterNodeTypeEvent;
+use mycompany\menumanager\services\NodeTypes;
+use mycompany\menumanager\events\RegisterNodeTypeEvent;
 use yii\base\Event;
 
 Event::on(NodeTypes::class, NodeTypes::EVENT_REGISTER_NODE_TYPES, function(RegisterNodeTypeEvent $event) {

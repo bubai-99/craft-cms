@@ -1,10 +1,10 @@
 # Breadcrumbs
 
-## `craft.navigation.breadcrumbs(options)`
+## `craft.menuManager.breadcrumbs(options)`
 You can retrieve a list of breadcrumbs based on the current URL. They are not based on your navigation items, and instead use the current URL segments. The function will look up any element that matches the URI for the segment. If not found, the segment itself will be used.
 
 ```twig
-{% for crumb in craft.navigation.breadcrumbs() %}
+{% for crumb in craft.menuManager.breadcrumbs() %}
     <a href="{{ crumb.url }}">{{ crumb.title }}</a>
 {% endfor %}
 ```
@@ -26,7 +26,7 @@ The `crumb` variable returned from the `breadcrumbs()` function will be an array
 You can also pass in options to the `breadcrumbs()` function. For example, you could limit the number of breadcrumb items returned.
 
 ```twig
-{% for crumb in craft.navigation.breadcrumbs({ limit: 10 }) %}
+{% for crumb in craft.menuManager.breadcrumbs({ limit: 10 }) %}
     <a href="{{ crumb.url }}">{{ crumb.title }}</a>
 {% endfor %}
 ```

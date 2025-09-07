@@ -1,7 +1,7 @@
 // ==========================================================================
 
-// Navigation Plugin for Craft CMS
-// Author: Verbb - https://verbb.io/
+// Menu Manager Plugin for Craft CMS
+// Author: MyCompany
 
 // ==========================================================================
 

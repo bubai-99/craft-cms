@@ -7,8 +7,8 @@ Events can be used to extend the functionality of Navigation.
 Plugins can get notified before a navigation is saved
 
 ```php
-use verbb\navigation\events\NavEvent;
-use verbb\navigation\services\Navs;
+use mycompany\menumanager\events\NavEvent;
+use mycompany\menumanager\services\Navs;
 use yii\base\Event;
 
 Event::on(Navs::class, Navs::EVENT_BEFORE_SAVE_NAV, function(NavEvent $e) {
@@ -20,8 +20,8 @@ Event::on(Navs::class, Navs::EVENT_BEFORE_SAVE_NAV, function(NavEvent $e) {
 Plugins can get notified after a navigation has been saved
 
 ```php
-use verbb\navigation\events\NavEvent;
-use verbb\navigation\services\Navs;
+use mycompany\menumanager\events\NavEvent;
+use mycompany\menumanager\services\Navs;
 use yii\base\Event;
 
 Event::on(Navs::class, Navs::EVENT_AFTER_SAVE_NAV, function(NavEvent $e) {
@@ -33,8 +33,8 @@ Event::on(Navs::class, Navs::EVENT_AFTER_SAVE_NAV, function(NavEvent $e) {
 Plugins can get notified before a navigation is deleted
 
 ```php
-use verbb\navigation\events\NavEvent;
-use verbb\navigation\services\Navs;
+use mycompany\menumanager\events\NavEvent;
+use mycompany\menumanager\services\Navs;
 use yii\base\Event;
 
 Event::on(Navs::class, Navs::EVENT_BEFORE_DELETE_NAV, function(NavEvent $event) {
@@ -46,8 +46,8 @@ Event::on(Navs::class, Navs::EVENT_BEFORE_DELETE_NAV, function(NavEvent $event) 
 Plugins can get notified after a navigation has been deleted
 
 ```php
-use verbb\navigation\events\NavEvent;
-use verbb\navigation\services\Navs;
+use mycompany\menumanager\events\NavEvent;
+use mycompany\menumanager\services\Navs;
 use yii\base\Event;
 
 Event::on(Navs::class, Navs::EVENT_AFTER_DELETE_NAV, function(NavEvent $event) {
@@ -63,7 +63,7 @@ Plugins can get notified before a node is saved. Event handlers can prevent the 
 
 ```php
 use craft\events\ModelEvent;
-use verbb\navigation\elements\Node;
+use mycompany\menumanager\elements\Node;
 use yii\base\Event;
 
 Event::on(Node::class, Node::EVENT_BEFORE_SAVE, function(ModelEvent $event) {
@@ -77,7 +77,7 @@ Plugins can get notified after a node has been saved
 
 ```php
 use craft\events\ModelEvent;
-use verbb\navigation\elements\Node;
+use mycompany\menumanager\elements\Node;
 use yii\base\Event;
 
 Event::on(Node::class, Node::EVENT_AFTER_SAVE, function(ModelEvent $event) {
@@ -89,7 +89,7 @@ Event::on(Node::class, Node::EVENT_AFTER_SAVE, function(ModelEvent $event) {
 Plugins can modify the active state of a node.
 
 ```php
-use verbb\navigation\elements\Node;
+use mycompany\menumanager\elements\Node;
 use yii\base\Event;
 
 Event::on(Node::class, Node::EVENT_NODE_ACTIVE, function(Event $event) {
@@ -102,7 +102,7 @@ Event::on(Node::class, Node::EVENT_NODE_ACTIVE, function(Event $event) {
 Plugins can get notified before a node is moved in its structure.
 
 ```php
-use verbb\navigation\elements\Node;
+use mycompany\menumanager\elements\Node;
 use craft\events\MoveElementEvent;
 use craft\services\Structures;
 use yii\base\Event;
@@ -120,7 +120,7 @@ Event::on(Structures::class, Structures::EVENT_BEFORE_MOVE_ELEMENT, function(Mov
 Plugins can get notified after a node is moved in its structure.
 
 ```php
-use verbb\navigation\elements\Node;
+use mycompany\menumanager\elements\Node;
 use craft\events\MoveElementEvent;
 use craft\services\Structures;
 use yii\base\Event;

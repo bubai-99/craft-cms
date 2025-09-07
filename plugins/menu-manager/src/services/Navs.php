@@ -167,7 +167,7 @@ class Navs extends Component
         $settings = MenuManager::$plugin->getSettings();
 
         // There's some edge-cases where devs know what they're doing.
-        // See https://github.com/verbb/navigation/issues/88
+        // See https://github.com/mycompany/menu-manager/issues/88
         if ($settings->bypassProjectConfig && !Craft::$app->getConfig()->getGeneral()->allowAdminChanges) {
             $event = new ConfigEvent([
                 'tokenMatches' => [$nav->uid],
@@ -425,7 +425,7 @@ class Navs extends Component
         $settings = MenuManager::$plugin->getSettings();
 
         // There's some edge-cases where devs know what they're doing.
-        // See https://github.com/verbb/navigation/issues/88
+        // See https://github.com/mycompany/menu-manager/issues/88
         if ($settings->bypassProjectConfig && !Craft::$app->getConfig()->getGeneral()->allowAdminChanges) {
             $event = new ConfigEvent([
                 'tokenMatches' => [$nav->uid],
@@ -569,7 +569,7 @@ class Navs extends Component
                 $navUid = $uidsByIds[$navId];
 
                 // There's some edge-cases where devs know what they're doing.
-                // See https://github.com/verbb/navigation/issues/88
+                // See https://github.com/mycompany/menu-manager/issues/88
                 if ($settings->bypassProjectConfig && !Craft::$app->getConfig()->getGeneral()->allowAdminChanges) {
                     $configData = $this->getNavById($navId)->getConfig();
                     $configData['sortOrder'] = $navOrder + 1;

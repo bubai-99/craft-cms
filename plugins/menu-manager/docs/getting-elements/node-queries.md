@@ -4,12 +4,12 @@ You can fetch nodes in your templates or PHP code using **node queries**.
 :::code
 ```twig Twig
 {# Create a new node query #}
-{% set myQuery = craft.navigation.nodes() %}
+{% set myQuery = craft.menuManager.nodes() %}
 ```
 
 ```php PHP
 // Create a new node query
-$myQuery = \verbb\navigation\elements\Node::find();
+$myQuery = \mycompany\menumanager\elements\Node::find();
 ```
 :::
 
@@ -22,14 +22,14 @@ See Introduction to [Element Queries](https://craftcms.com/docs/4.x/element-quer
 ## Example
 We can display nodes for a given level by doing the following:
 
-1. Create a node query with `craft.navigation.nodes()`.
+1. Create a node query with `craft.menuManager.nodes()`.
 2. Set the [level](#level), and [limit](#limit) parameters on it.
 3. Fetch all nodes with `.all()` and output.
 4. Loop through the nodes using a [for](https://twig.symfony.com/doc/2.x/tags/for.html) tag to output the contents.
 
 ```twig
 {# Create a nodes query with the 'level', and 'limit' parameters #}
-{% set nodesQuery = craft.navigation.nodes()
+{% set nodesQuery = craft.menuManager.nodes()
     .level(1)
     .limit(10)%}
 
@@ -56,7 +56,7 @@ Narrows the query results to only nodes that are up to a certain distance away f
 ::: code
 ```twig Twig
 {# Fetch nodes above this one #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .ancestorOf(node)
     .ancestorDist(3)
     .all() %}
@@ -64,7 +64,7 @@ Narrows the query results to only nodes that are up to a certain distance away f
 
 ```php PHP
 // Fetch nodes above this one
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->ancestorOf($node)
     ->ancestorDist(3)
     ->all();
@@ -87,14 +87,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch nodes above this one #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .ancestorOf(node)
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes above this one
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->ancestorOf($node)
     ->all();
 ```
@@ -113,14 +113,14 @@ Clears out the [status()](https://docs.craftcms.com/api/v4/craft-elements-db-ele
 ::: code
 ```twig Twig
 {# Fetch all nodes, regardless of status #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .anyStatus()
     .all() %}
 ```
 
 ```php PHP
 // Fetch all nodes, regardless of status
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->anyStatus()
     ->all();
 ```
@@ -135,14 +135,14 @@ Causes the query to return matching nodes as arrays of data, rather than [Node](
 ::: code
 ```twig Twig
 {# Fetch nodes as arrays #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .asArray()
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes as arrays
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->asArray()
     ->all();
 ```
@@ -168,7 +168,7 @@ Possible values include:
 {% set start = date('first day of last month') | atom %}
 {% set end = date('first day of this month') | atom %}
 
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .dateCreated(['and', ">= #{start}", "< #{end}"])
     .all() %}
 ```
@@ -178,7 +178,7 @@ Possible values include:
 $start = new \DateTime('first day of next month')->format(\DateTime::ATOM);
 $end = new \DateTime('first day of this month')->format(\DateTime::ATOM);
 
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->dateCreated(['and', ">= {$start}", "< {$end}"])
     ->all();
 ```
@@ -203,7 +203,7 @@ Possible values include:
 {# Fetch nodes updated in the last week #}
 {% set lastWeek = date('1 week ago')|atom %}
 
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .dateUpdated(">= #{lastWeek}")
     .all() %}
 ```
@@ -212,7 +212,7 @@ Possible values include:
 // Fetch nodes updated in the last week
 $lastWeek = new \DateTime('1 week ago')->format(\DateTime::ATOM);
 
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->dateUpdated(">= {$lastWeek}")
     ->all();
 ```
@@ -227,7 +227,7 @@ Narrows the query results to only nodes that are up to a certain distance away f
 ::: code
 ```twig Twig
 {# Fetch nodes below this one #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .descendantOf(node)
     .descendantDist(3)
     .all() %}
@@ -235,7 +235,7 @@ Narrows the query results to only nodes that are up to a certain distance away f
 
 ```php PHP
 // Fetch nodes below this one
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->descendantOf($node)
     ->descendantDist(3)
     ->all();
@@ -258,14 +258,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch nodes below this one #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .descendantOf(node)
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes below this one
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->descendantOf($node)
     ->all();
 ```
@@ -291,14 +291,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch all nodes, including ones disabled for this site #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .enabledForSite(false)
     .all() %}
 ```
 
 ```php PHP
 // Fetch all nodes, including ones disabled for this site
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->enabledForSite(false)
     ->all();
 ```
@@ -313,7 +313,7 @@ Causes the query results to be returned in the order specified by [id](#id).
 ::: code
 ```twig Twig
 {# Fetch nodes in a specific order #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .id([1, 2, 3, 4, 5])
     .fixedOrder()
     .all() %}
@@ -321,7 +321,7 @@ Causes the query results to be returned in the order specified by [id](#id).
 
 ```php PHP
 // Fetch nodes in a specific order
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->id([1, 2, 3, 4, 5])
     ->fixedOrder()
     ->all();
@@ -337,14 +337,14 @@ Narrows the query results based on the `handle` of the navigation.
 ::: code
 ```twig Twig
 {# Fetch nodes for the `mainMenu` navigation #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .handle('mainMenu')
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes for the `mainMenu` navigation
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->handle('mainMenu')
     ->all();
 ```
@@ -361,14 +361,14 @@ Narrows the query results based on whether the nodes have any descendants.
 ::: code
 ```twig Twig
 {# Fetch nodes that have descendants #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .hasDescendants()
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes that have descendants
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->hasDescendants()
     ->all();
 ```
@@ -383,14 +383,14 @@ Narrows the query results based on whether the nodes have a URL.
 ::: code
 ```twig Twig
 {# Fetch nodes that have descendants #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .hasUrl()
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes that have descendants
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->hasUrl()
     ->all();
 ```
@@ -414,14 +414,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch the node by its ID #}
-{% set node = craft.navigation.nodes()
+{% set node = craft.menuManager.nodes()
     .id(1)
     .one() %}
 ```
 
 ```php PHP
 // Fetch the node by its ID
-$node = \verbb\navigation\elements\Node::find()
+$node = \mycompany\menumanager\elements\Node::find()
     ->id(1)
     ->one();
 ```
@@ -440,14 +440,14 @@ Causes the query results to be returned in reverse order.
 ::: code
 ```twig Twig
 {# Fetch nodes in reverse #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .inReverse()
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes in reverse
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->inReverse()
     ->all();
 ```
@@ -464,14 +464,14 @@ Narrows the query results based on whether the nodes are “leaves” (nodes wit
 ::: code
 ```twig Twig
 {# Fetch nodes that have no descendants #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .leaves()
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes that have no descendants
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->leaves()
     ->all();
 ```
@@ -496,14 +496,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch nodes positioned at level 3 or above #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .level('>= 3')
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes positioned at level 3 or above
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->level('>= 3')
     ->all();
 ```
@@ -518,14 +518,14 @@ Determines the number of nodes that should be returned.
 ::: code
 ```twig Twig
 {# Fetch up to 10 nodes  #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .limit(10)
     .all() %}
 ```
 
 ```php PHP
 // Fetch up to 10 nodes
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->limit(10)
     ->all();
 ```
@@ -547,14 +547,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch the next node #}
-{% set node = craft.navigation.nodes()
+{% set node = craft.menuManager.nodes()
     .nextSiblingOf(node)
     .one() %}
 ```
 
 ```php PHP
 // Fetch the next node
-$node = \verbb\navigation\elements\Node::find()
+$node = \mycompany\menumanager\elements\Node::find()
     ->nextSiblingOf($node)
     ->one();
 ```
@@ -569,14 +569,14 @@ Determines how many nodes should be skipped in the results.
 ::: code
 ```twig Twig
 {# Fetch all nodes except for the first 3 #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .offset(3)
     .all() %}
 ```
 
 ```php PHP
 // Fetch all nodes except for the first 3
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->offset(3)
     ->all();
 ```
@@ -591,14 +591,14 @@ Determines the order that the nodes should be returned in.
 ::: code
 ```twig Twig
 {# Fetch all nodes in order of date created #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .orderBy('elements.dateCreated asc')
     .all() %}
 ```
 
 ```php PHP
 // Fetch all nodes in order of date created
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->orderBy('elements.dateCreated asc')
     ->all();
 ```
@@ -620,14 +620,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch nodes after this one #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .positionedAfter(node)
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes after this one
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->positionedAfter($node)
     ->all();
 ```
@@ -649,14 +649,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch nodes before this one #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .positionedBefore(node)
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes before this one
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->positionedBefore($node)
     ->all();
 ```
@@ -678,14 +678,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch the previous node #}
-{% set node = craft.navigation.nodes()
+{% set node = craft.menuManager.nodes()
     .prevSiblingOf(node)
     .one() %}
 ```
 
 ```php PHP
 // Fetch the previous node
-$node = \verbb\navigation\elements\Node::find()
+$node = \mycompany\menumanager\elements\Node::find()
     ->prevSiblingOf($node)
     ->one();
 ```
@@ -707,14 +707,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch nodes beside this one #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .siblingOf(node)
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes beside this one
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->siblingOf($node)
     ->all();
 ```
@@ -738,14 +738,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch nodes from the Foo site #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .site('foo')
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes from the Foo site
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->site('foo')
     ->all();
 ```
@@ -762,14 +762,14 @@ The current site will be used by default.
 ::: code
 ```twig Twig
 {# Fetch nodes from the site with an ID of 1 #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .siteId(1)
     .all() %}
 ```
 
 ```php PHP
 // Fetch nodes from the site with an ID of 1
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->siteId(1)
     ->all();
 ```
@@ -791,14 +791,14 @@ Possible values include:
 ::: code
 ```twig Twig
 {# Fetch disabled nodes #}
-{% set nodes = craft.navigation.nodes()
+{% set nodes = craft.menuManager.nodes()
     .status('disabled')
     .all() %}
 ```
 
 ```php PHP
 // Fetch disabled nodes
-$nodes = \verbb\navigation\elements\Node::find()
+$nodes = \mycompany\menumanager\elements\Node::find()
     ->status('disabled')
     ->all();
 ```
@@ -813,23 +813,23 @@ Narrows the query results based on the nodes’ type.
 ::: code
 ```twig Twig
 {# Fetch the node by its UID #}
-{% set node = craft.navigation.nodes()
+{% set node = craft.menuManager.nodes()
     .type('craft\\elements\\Entry')
     .all() %}
 ```
 
 ```php PHP
 // Fetch entry nodes
-$node = \verbb\navigation\elements\Node::find()
+$node = \mycompany\menumanager\elements\Node::find()
     ->type('craft\\elements\\Entry')
     ->all();
 ```
 :::
 
 Available values:
-- `verbb\navigation\nodetypes\CustomType`
-- `verbb\navigation\nodetypes\PassiveType`
-- `verbb\navigation\nodetypes\SiteType`
+- `mycompany\menumanager\nodetypes\CustomType`
+- `mycompany\menumanager\nodetypes\PassiveType`
+- `mycompany\menumanager\nodetypes\SiteType`
 - Any Craft native element class
 
 
@@ -841,14 +841,14 @@ Narrows the query results based on the nodes’ UIDs.
 ::: code
 ```twig Twig
 {# Fetch the node by its UID #}
-{% set node = craft.navigation.nodes()
+{% set node = craft.menuManager.nodes()
     .uid('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
     .one() %}
 ```
 
 ```php PHP
 // Fetch the node by its UID
-$node = \verbb\navigation\elements\Node::find()
+$node = \mycompany\menumanager\elements\Node::find()
     ->uid('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
     ->one();
 ```
