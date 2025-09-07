@@ -1,0 +1,98 @@
+/* Base Craft CMS + Vite styling */
+body {
+  font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#app h1 {
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-size: 2.5em;
+  line-height: 1.2;
+}
+
+#app p {
+  margin-bottom: 1rem;
+}
+
+#app a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+#app a:hover {
+  text-decoration: underline;
+}
+
+/* Vite-specific styling */
+.vite-content {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.vite-section {
+  text-align: center;
+}
+
+.logo {
+  height: 4em;
+  padding: 1em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 1.5em;
+}
+
+.read-the-docs {
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
