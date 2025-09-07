@@ -1,12 +1,20 @@
 # Changelog
 
-## 3.0.12 - 2025-09-02
+## 1.0.0 - 2025-09-07
 
 ### Added
-- Add support for long URLs for nodes.
-
-### Fixed
-- Fix an issue when enforcing max level nodes.
+- Initial release of Menu Manager plugin
+- Rebranded from Verbb Navigation to Menu Manager
+- Complete documentation overhaul
+- Updated branding and references throughout
+- Advanced menu management system for Craft CMS
+- Support for multiple navigations
+- Navigation nodes for entries, assets, categories and Commerce products
+- Custom URL support
+- Multi-site navigation support
+- Simple `render()` Twig function
+- Breadcrumb generation
+- Element-based navigation nodes with flexible querying
 
 ## 3.0.11 - 2025-08-13
 
