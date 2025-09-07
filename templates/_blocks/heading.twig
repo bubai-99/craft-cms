@@ -1,0 +1,16 @@
+{# Heading Block Template #}
+{% set headingLevel = block.headingLevel ?? 'h2' %}
+{% set blockClass = 'block block--heading' %}
+{% if block.textAlign is defined %}
+    {% set blockClass = blockClass ~ ' block--heading-' ~ block.textAlign %}
+{% endif %}
+
+<div class="{{ blockClass }}">
+    {% if block.heading is defined and block.heading %}
+        <{{ headingLevel }} class="block__heading">{{ block.heading }}</{{ headingLevel }}>
+    {% endif %}
+    
+    {% if block.subheading is defined and block.subheading %}
+        <p class="block__subheading">{{ block.subheading }}</p>
+    {% endif %}
+</div>

@@ -1,0 +1,100 @@
+{% extends "_layouts/base.twig" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+    <div class="hero-section">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p class="lead">Stay updated with our latest insights, tutorials, and industry news.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="content-section">
+            {% set blogEntries = craft.entries.section('blog').limit(12).orderBy('postDate desc').all() %}
+            
+            {% if blogEntries|length %}
+                {# Featured Article #}
+                {% set featuredArticle = blogEntries|first %}
+                <article class="featured-article">
+                    <div class="row">
+                        {% if featuredArticle.featuredImage is defined and featuredArticle.featuredImage.one() %}
+                            <div class="col-md-6">
+                                <div class="featured-image">
+                                    <img src="{{ featuredArticle.featuredImage.one().url }}" alt="{{ featuredArticle.title }}" />
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div class="col-md-6">
+                            <div class="featured-content">
+                                <span class="featured-label">Featured Article</span>
+                                <h2><a href="{{ featuredArticle.url }}">{{ featuredArticle.title }}</a></h2>
+                                <p class="featured-excerpt">
+                                    {{ featuredArticle.summary ?: (featuredArticle.content|striptags|slice(0, 200) ~ '...') }}
+                                </p>
+                                <div class="featured-meta">
+                                    <time datetime="{{ featuredArticle.postDate|date('c') }}">
+                                        {{ featuredArticle.postDate|date('F j, Y') }}
+                                    </time>
+                                    <a href="{{ featuredArticle.url }}" class="read-more">Read More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                {# Recent Articles Grid #}
+                {% set recentArticles = blogEntries|slice(1) %}
+                {% if recentArticles|length %}
+                    <div class="recent-articles">
+                        <h2>Recent Articles</h2>
+                        <div class="blog-grid">
+                            {% for blogEntry in recentArticles %}
+                                {% include '_components/card.twig' with {
+                                    title: blogEntry.title,
+                                    excerpt: blogEntry.summary ?: (blogEntry.content|striptags|slice(0, 120) ~ '...'),
+                                    url: blogEntry.url,
+                                    date: blogEntry.postDate,
+                                    image: blogEntry.featuredImage.one() ?? null,
+                                    showReadMore: true
+                                } %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {# Pagination would go here in a real setup #}
+                <div class="blog-pagination">
+                    {# {% paginate craft.entries.section('blog').limit(9) as pageInfo, pageEntries %} #}
+                    {# {{ pageInfo.getPrevUrls() }} {{ pageInfo.getNextUrls() }} #}
+                </div>
+            {% else %}
+                <div class="no-entries">
+                    <h2>Coming Soon</h2>
+                    <p>We're working on some great content for you. Check back soon!</p>
+                    
+                    {# Demo content #}
+                    <div class="blog-grid">
+                        {% for i in 1..6 %}
+                            {% include '_components/card.twig' with {
+                                title: 'Sample Blog Post ' ~ i,
+                                excerpt: 'This is a sample blog post excerpt showcasing how your blog entries will appear once you start creating content in Craft CMS.',
+                                url: '#',
+                                date: now|date_modify('-' ~ i ~ ' days'),
+                                showReadMore: true,
+                                variant: 'demo'
+                            } %}
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="cta-section">
+                        <h3>Ready to Start Blogging?</h3>
+                        <p>Create a "Blog" section in your Craft CMS control panel and start adding articles!</p>
+                        <a href="{{ cpUrl('') }}" class="btn btn-primary">Go to Control Panel</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

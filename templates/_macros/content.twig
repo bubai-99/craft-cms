@@ -1,0 +1,45 @@
+{# Content Macros for Craft CMS 5 Matrix Blocks #}
+
+{# Render Matrix Blocks with error handling #}
+{% macro renderBlocks(blocks) %}
+    {% if blocks %}
+        {% for block in blocks.all() %}
+            {% set blockTemplate = '_blocks/' ~ block.type.handle ~ '.twig' %}
+            {% if template_from_string(blockTemplate) %}
+                {% include blockTemplate with { block: block } %}
+            {% else %}
+                {# Fallback for missing block templates #}
+                <div class="block block--fallback">
+                    <p><strong>Missing template:</strong> {{ blockTemplate }}</p>
+                    {% if block.title is defined %}
+                        <h3>{{ block.title }}</h3>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+{# Generate responsive image with multiple sizes #}
+{% macro responsiveImage(asset, sizes, class) %}
+    {% if asset %}
+        <img 
+            src="{{ asset.url }}" 
+            alt="{{ asset.alt ?: asset.title }}"
+            {% if class %}class="{{ class }}"{% endif %}
+            {% if sizes %}
+                sizes="{{ sizes }}"
+                srcset="{% for size in sizes %}{{ asset.url }}?w={{ size }} {{ size }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+            {% endif %}
+            loading="lazy"
+        >
+    {% endif %}
+{% endmacro %}
+
+{# Format date with fallback #}
+{% macro formatDate(date, format) %}
+    {% set format = format ?: 'F j, Y' %}
+    {% if date %}
+        <time datetime="{{ date|date('c') }}">{{ date|date(format) }}</time>
+    {% endif %}
+{% endmacro %}

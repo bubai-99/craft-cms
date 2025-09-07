@@ -1,0 +1,25 @@
+{# Gallery Block Template #}
+{% set galleryType = block.galleryType ?? 'grid' %}
+<div class="block block--gallery block--gallery-{{ galleryType }}">
+    {% if block.heading is defined and block.heading %}
+        <h3 class="block__heading">{{ block.heading }}</h3>
+    {% endif %}
+    
+    {% if block.images is defined and block.images.all() %}
+        <div class="block__gallery">
+            {% for image in block.images.all() %}
+                <figure class="gallery__item">
+                    <img 
+                        src="{{ image.url }}" 
+                        alt="{{ image.alt ?: image.title }}"
+                        class="gallery__image"
+                        loading="lazy"
+                    >
+                    {% if image.caption %}
+                        <figcaption class="gallery__caption">{{ image.caption }}</figcaption>
+                    {% endif %}
+                </figure>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

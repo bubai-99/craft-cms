@@ -1,0 +1,53 @@
+{# 
+  Navigation Partial Template
+  Shows how to display menu-manager menus in frontend
+#}
+
+{# Method 1: Get nodes by navigation handle #}
+{% set nodes = craft.menuManager.nodes('mainmenu').level(1).all() %}
+
+{# Check if nodes exist #}
+{% if nodes|length %}
+  <nav class="main-navigation" role="navigation" aria-label="Main Navigation">
+    <ul class="nav-menu">
+      {% for node in nodes %}
+        <li class="nav-item {{ node.hasActiveChild ? 'has-active-child' : '' }} {{ node.active ? 'active' : '' }}">
+          <a href="{{ node.url }}" 
+             class="nav-link" 
+             {{ node.newWindow ? 'target="_blank" rel="noopener"' }}
+             {{ node.classes ? 'class="' ~ node.classes ~ '"' }}>
+            {{ node.title }}
+          </a>
+          
+          {# Display child nodes if they exist #}
+          {% if node.children|length %}
+            <ul class="nav-submenu">
+              {% for child in node.children %}
+                <li class="nav-subitem {{ child.active ? 'active' : '' }}">
+                  <a href="{{ child.url }}" 
+                     class="nav-sublink"
+                     {{ child.newWindow ? 'target="_blank" rel="noopener"' }}
+                     {{ child.classes ? 'class="' ~ child.classes ~ '"' }}>
+                    {{ child.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% else %}
+  {# Show message when no menu exists yet #}
+  <div class="no-menu-notice">
+    <p>No navigation menu found. Please create a navigation called "mainmenu" in the Control Panel.</p>
+  </div>
+{% endif %}
+
+{# Alternative methods: #}
+{# Method 2: Using the render function (simpler) #}
+{# {{ craft.menuManager.render('mainmenu') }} #}
+
+{# Method 3: Get navigation object first #}
+{# {% set navigation = craft.menuManager.getNavByHandle('mainmenu') %} #}

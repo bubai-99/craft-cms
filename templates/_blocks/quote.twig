@@ -1,0 +1,20 @@
+{# Quote Block Template #}
+<div class="block block--quote">
+    {% if block.quote is defined and block.quote %}
+        <blockquote class="block__quote">
+            <p class="block__quote-text">{{ block.quote }}</p>
+            
+            {% if block.author is defined and block.author %}
+                <footer class="block__quote-footer">
+                    <cite class="block__quote-author">
+                        {% if block.authorTitle is defined and block.authorTitle %}
+                            {{ block.author }}, {{ block.authorTitle }}
+                        {% else %}
+                            {{ block.author }}
+                        {% endif %}
+                    </cite>
+                </footer>
+            {% endif %}
+        </blockquote>
+    {% endif %}
+</div>

@@ -1,0 +1,15 @@
+{# Default Entry Template - fallback for all entry types #}
+{% extends "_layouts/page.twig" %}
+
+{# This template serves as a fallback for entry types that don't have specific templates #}
+
+{% block content %}
+    {{ parent() }}
+    
+    {# Add any additional default entry content here #}
+    {% if entry.body is defined %}
+        <div class="entry-body">
+            {{ entry.body }}
+        </div>
+    {% endif %}
+{% endblock %}

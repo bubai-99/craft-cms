@@ -1,0 +1,39 @@
+{% extends "_layouts/base.twig" %}
+
+{% block title %}
+    {% if entry.title %}{{ entry.title }} - {{ parent() }}{% else %}{{ parent() }}{% endif %}
+{% endblock %}
+
+{% block description %}
+    {% if entry.seoDescription %}
+        {{ entry.seoDescription }}
+    {% elseif entry.summary %}
+        {{ entry.summary }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if entry.hero is defined %}
+        {% include '_components/hero.twig' with { hero: entry.hero } %}
+    {% endif %}
+    
+    <div class="container">
+        {% if entry.title %}
+            <h1 class="page-title">{{ entry.title }}</h1>
+        {% endif %}
+        
+        {% if entry.contentBlocks is defined %}
+            {% for block in entry.contentBlocks.all() %}
+                {% include '_blocks/' ~ block.type.handle ~ '.twig' with { block: block } %}
+            {% endfor %}
+        {% endif %}
+        
+        {% if entry.content is defined %}
+            <div class="page-content">
+                {{ entry.content }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

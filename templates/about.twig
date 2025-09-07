@@ -1,0 +1,34 @@
+{% extends "_layouts/page.twig" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="hero-section">
+            <h1>About Our Company</h1>
+            <p class="lead">We're passionate about creating amazing web experiences with Craft CMS and modern development tools.</p>
+        </div>
+        
+        <div class="content-section">
+            {% if entry.content is defined %}
+                {{ entry.content }}
+            {% else %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Our Mission</h2>
+                        <p>To deliver exceptional web solutions that help businesses thrive in the digital world. We combine creativity with technical expertise to build websites that are both beautiful and functional.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Our Values</h2>
+                        <ul>
+                            <li>Quality craftsmanship in every project</li>
+                            <li>Transparent communication with clients</li>
+                            <li>Continuous learning and innovation</li>
+                            <li>Sustainable and scalable solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

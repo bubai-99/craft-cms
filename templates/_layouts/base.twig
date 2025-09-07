@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ craft.app.language }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>{% block title %}{{ siteName }}{% endblock %}</title>
+    
+    {% block meta %}
+        <meta name="description" content="{% block description %}{{ siteDescription ?? '' }}{% endblock %}">
+    {% endblock %}
+    
+    {% block css %}
+        {{ craft.vite.script('src/main.js') }}
+    {% endblock %}
+    
+    {% block extraHead %}{% endblock %}
+</head>
+<body{% block bodyAttributes %}{% endblock %}>
+    {% block header %}
+        <header class="site-header">
+            {% include '_partials/navigation.twig' %}
+        </header>
+    {% endblock %}
+    
+    <main class="site-main" role="main">
+        {% block content %}{% endblock %}
+    </main>
+    
+    {% block footer %}
+        <footer class="site-footer">
+            {% include '_partials/footer.twig' %}
+        </footer>
+    {% endblock %}
+    
+    {% block js %}
+        {# JavaScript already loaded in head with CSS #}
+    {% endblock %}
+    
+    {% block extraFooter %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{# Hero Component Template #}
+<section class="hero">
+    {% if hero.backgroundImage is defined and hero.backgroundImage.one() %}
+        {% set bgImage = hero.backgroundImage.one() %}
+        <div class="hero__background" style="background-image: url('{{ bgImage.url }}');">
+    {% else %}
+        <div class="hero__background hero__background--color">
+    {% endif %}
+        
+        <div class="hero__content">
+            <div class="container">
+                {% if hero.heading is defined and hero.heading %}
+                    <h1 class="hero__heading">{{ hero.heading }}</h1>
+                {% endif %}
+                
+                {% if hero.subheading is defined and hero.subheading %}
+                    <p class="hero__subheading">{{ hero.subheading }}</p>
+                {% endif %}
+                
+                {% if hero.ctaButton is defined and hero.ctaButton %}
+                    <div class="hero__actions">
+                        <a href="{{ hero.ctaUrl ?: '#' }}" class="hero__cta">
+                            {{ hero.ctaButton }}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

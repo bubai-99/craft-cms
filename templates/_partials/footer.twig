@@ -1,0 +1,27 @@
+{# Footer Navigation Template #}
+<div class="footer-content">
+    <div class="container">
+        {% if craft.menuManager %}
+            {% set footerNodes = craft.menuManager.nodes('footermenu').level(1).all() %}
+            {% if footerNodes|length %}
+                <nav class="footer-navigation" role="navigation" aria-label="Footer Navigation">
+                    <ul class="footer-nav-menu">
+                        {% for node in footerNodes %}
+                            <li class="footer-nav-item">
+                                <a href="{{ node.url }}" 
+                                   class="footer-nav-link"
+                                   {{ node.newWindow ? 'target="_blank" rel="noopener"' }}>
+                                    {{ node.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            {% endif %}
+        {% endif %}
+        
+        <div class="footer-info">
+            <p>&copy; {{ now|date('Y') }} {{ siteName }}. All rights reserved.</p>
+        </div>
+    </div>
+</div>

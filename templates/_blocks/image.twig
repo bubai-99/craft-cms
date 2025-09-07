@@ -1,0 +1,23 @@
+{# Image Block Template #}
+{% set blockClass = 'block block--image' %}
+{% if block.imageAlign is defined %}
+    {% set blockClass = blockClass ~ ' block--image-' ~ block.imageAlign %}
+{% endif %}
+
+<div class="{{ blockClass }}">
+    {% if block.image is defined and block.image.one() %}
+        {% set image = block.image.one() %}
+        <figure class="block__figure">
+            <img 
+                src="{{ image.url }}" 
+                alt="{{ image.alt ?: block.caption ?: image.title }}"
+                class="block__image"
+                {% if image.width %}width="{{ image.width }}"{% endif %}
+                {% if image.height %}height="{{ image.height }}"{% endif %}
+            >
+            {% if block.caption is defined and block.caption %}
+                <figcaption class="block__caption">{{ block.caption }}</figcaption>
+            {% endif %}
+        </figure>
+    {% endif %}
+</div>

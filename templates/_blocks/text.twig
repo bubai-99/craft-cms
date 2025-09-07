@@ -1,0 +1,17 @@
+{# Text Block Template #}
+{% set blockClass = 'block block--text' %}
+{% if block.textAlign is defined %}
+    {% set blockClass = blockClass ~ ' block--text-' ~ block.textAlign %}
+{% endif %}
+
+<div class="{{ blockClass }}">
+    {% if block.heading is defined and block.heading %}
+        <h2 class="block__heading">{{ block.heading }}</h2>
+    {% endif %}
+    
+    {% if block.text is defined and block.text %}
+        <div class="block__content">
+            {{ block.text }}
+        </div>
+    {% endif %}
+</div>

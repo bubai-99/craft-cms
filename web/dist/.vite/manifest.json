@@ -1,0 +1,28 @@
+{
+  "src/main.js": {
+    "file": "assets/main-Dz5IXZhG.js",
+    "name": "main",
+    "src": "src/main.js",
+    "isEntry": true,
+    "css": [
+      "assets/style-3Vq2cWis.css",
+      "assets/navigation-CzQ0wX14.css"
+    ]
+  },
+  "src/navigation.css": {
+    "file": "assets/navigation-CzQ0wX14.css",
+    "src": "src/navigation.css",
+    "isEntry": true,
+    "names": [
+      "navigation.css"
+    ]
+  },
+  "src/style.css": {
+    "file": "assets/style-3Vq2cWis.css",
+    "src": "src/style.css",
+    "isEntry": true,
+    "names": [
+      "style.css"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-dateModified: 1757226948
+dateModified: 1757245613
 email:
   fromEmail: binugede@gmail.com
   fromName: 'Craft CMS'
@@ -8,18 +8,29 @@ meta:
     0cbe6921-e605-4569-abe3-e581ec54d72b: Home # Home
     0d556384-6244-4de6-ac58-5f84d934737c: test # test
     2c5c1e3c-6a7d-4849-9270-00d6e567d1c4: 'Craft CMS' # Craft CMS
-    4a214dca-4e5c-4b33-9030-4ea05099a2d2: 'Main Manu' # Main Manu
+    636ac41c-eb92-4d39-b153-fddbb5dcf3b7: 'Main Menu' # Main Menu
     09880460-87e6-400f-8aca-b3e30b2e3634: 'Public Schema' # Public Schema
     bf52dfaf-527d-44b1-afa3-ae86a2efa72e: 'Footer Menu' # Footer Menu
+    ce87f009-351e-4a71-acdb-cd1b4d487d57: news # news
     d70c2279-51bd-4f14-85f1-cea184ebb831: 'Craft CMS' # Craft CMS
+    d408f2c3-00f8-438b-ab96-3b403b42bd5a: Simple # Simple
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
   menu-manager:
     edition: standard
     enabled: true
     schemaVersion: 2.1.1
-    settings:
-      bypassProjectConfig: false
-      pluginName: 'Menu Manager'
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true

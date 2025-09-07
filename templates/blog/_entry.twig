@@ -1,0 +1,110 @@
+{% extends "_layouts/base.twig" %}
+
+{% block title %}{{ entry.title }}{% if entry.title %} - Blog{% endif %}{% endblock %}
+
+{% block description %}
+    {% if entry.summary %}
+        {{ entry.summary }}
+    {% elseif entry.content %}
+        {{ entry.content|striptags|slice(0, 160) }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <article class="blog-article">
+            {# Blog Header #}
+            <header class="article-header">
+                <div class="article-meta">
+                    <time class="article-date" datetime="{{ entry.postDate|date('c') }}">
+                        {{ entry.postDate|date('F j, Y') }}
+                    </time>
+                    {% if entry.author is defined and entry.author %}
+                        <span class="article-author">by {{ entry.author }}</span>
+                    {% endif %}
+                </div>
+                
+                <h1 class="article-title">{{ entry.title }}</h1>
+                
+                {% if entry.summary is defined and entry.summary %}
+                    <p class="article-summary">{{ entry.summary }}</p>
+                {% endif %}
+            </header>
+
+            {# Featured Image #}
+            {% if entry.featuredImage is defined and entry.featuredImage.one() %}
+                {% set featuredImage = entry.featuredImage.one() %}
+                <div class="article-featured-image">
+                    <img src="{{ featuredImage.url }}" alt="{{ featuredImage.alt ?: entry.title }}" />
+                    {% if featuredImage.caption %}
+                        <p class="image-caption">{{ featuredImage.caption }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {# Article Content #}
+            <div class="article-content">
+                {# Matrix Blocks #}
+                {% if entry.contentBlocks is defined and entry.contentBlocks.all() %}
+                    {% for block in entry.contentBlocks.all() %}
+                        {% include '_blocks/' ~ block.type.handle ~ '.twig' with { block: block } %}
+                    {% endfor %}
+                {% endif %}
+                
+                {# Fallback Content #}
+                {% if entry.content is defined and entry.content %}
+                    <div class="block block--text">
+                        <div class="block__content">
+                            {{ entry.content }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            {# Article Footer #}
+            <footer class="article-footer">
+                <div class="article-tags">
+                    {% if entry.tags is defined and entry.tags.all() %}
+                        <h4>Tags:</h4>
+                        <ul class="tag-list">
+                            {% for tag in entry.tags.all() %}
+                                <li class="tag-item">
+                                    <a href="/blog/tag/{{ tag.slug }}" class="tag-link">{{ tag.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                
+                <div class="article-navigation">
+                    <a href="/blog" class="btn btn-outline">← Back to Blog</a>
+                </div>
+            </footer>
+        </article>
+
+        {# Related Articles #}
+        {% set relatedArticles = craft.entries
+            .section('blog')
+            .id('not ' ~ entry.id)
+            .limit(3)
+            .all() %}
+        
+        {% if relatedArticles|length %}
+            <aside class="related-articles">
+                <h3>More Articles</h3>
+                <div class="blog-grid">
+                    {% for article in relatedArticles %}
+                        {% include '_components/card.twig' with {
+                            title: article.title,
+                            excerpt: article.summary ?: (article.content|striptags|slice(0, 120) ~ '...'),
+                            url: article.url,
+                            date: article.postDate,
+                            image: article.featuredImage.one() ?? null,
+                            showReadMore: true
+                        } %}
+                    {% endfor %}
+                </div>
+            </aside>
+        {% endif %}
+    </div>
+{% endblock %}
