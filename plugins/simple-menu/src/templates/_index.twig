@@ -1,0 +1,82 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "Navigation" %}
+
+{% block actionButton %}
+    <div class="btngroup">
+        <a href="{{ cpUrl('simple-menu/new') }}" class="btn submit add icon">New Navigation</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if menus|length %}
+        <div class="tableview">
+            <table class="data fullwidth">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Handle</th>
+                        <th scope="col">Items</th>
+                        <th scope="col" class="thin"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for menu in menus %}
+                        <tr data-id="{{ menu.id }}" data-name="{{ menu.name|e }}">
+                            <th scope="row" data-title="Name">
+                                <a href="{{ cpUrl('simple-menu/' ~ menu.id) }}">
+                                    <strong>{{ menu.name }}</strong>
+                                </a>
+                            </th>
+                            <td data-title="Handle">
+                                <code>{{ menu.handle }}</code>
+                            </td>
+                            <td data-title="Items">
+                                {{ menu.items|length }} items
+                            </td>
+                            <td class="thin" data-title="Actions">
+                                <a class="delete icon" title="Delete" role="button"></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="zilch">
+            <p>No navigations have been created yet.</p>
+            <p><a class="btn submit add" href="{{ cpUrl('simple-menu/new') }}">Create your first navigation</a></p>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% js %}
+    $(function() {
+        var $table = $('.tableview table');
+        var $deleteBtn = $table.find('.delete');
+        
+        $deleteBtn.on('click', function(e) {
+            e.preventDefault();
+            
+            var $tr = $(this).closest('tr');
+            var id = $tr.data('id');
+            var name = $tr.data('name');
+            
+            if (confirm('Are you sure you want to delete "' + name + '"?')) {
+                var data = {
+                    'id': id,
+                    '{{ craft.app.config.general.csrfTokenName|e('js') }}': '{{ craft.app.request.csrfToken|e('js') }}'
+                };
+                
+                Craft.postActionRequest('simple-menu/menu/delete', data, function(response) {
+                    if (response.success) {
+                        $tr.remove();
+                        Craft.cp.displayNotice('Menu deleted.');
+                    } else {
+                        Craft.cp.displayError('Could not delete menu.');
+                    }
+                });
+            }
+        });
+    });
+{% endjs %}

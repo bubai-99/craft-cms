@@ -3,8 +3,26 @@
   "prefer-stable": true,
   "require": {
     "craftcms/cms": "^5.0.0",
+    "mycompany/menu-manager": "@dev",
+    "mycompany/simple-menu": "@dev",
     "vlucas/phpdotenv": "^5.4.0"
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./plugins/simple-menu",
+      "options": {
+        "symlink": false
+      }
+    },
+    {
+      "type": "path",
+      "url": "./plugins/menu-manager",
+      "options": {
+        "symlink": false
+      }
+    }
+  ],
   "require-dev": {
     "craftcms/generator": "^2.0.0",
     "yiisoft/yii2-shell": "^2.0.3"

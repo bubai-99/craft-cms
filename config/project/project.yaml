@@ -1,13 +1,25 @@
-dateModified: 1757177953
+dateModified: 1757226948
 email:
   fromEmail: binugede@gmail.com
   fromName: 'Craft CMS'
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
+    0cbe6921-e605-4569-abe3-e581ec54d72b: Home # Home
+    0d556384-6244-4de6-ac58-5f84d934737c: test # test
     2c5c1e3c-6a7d-4849-9270-00d6e567d1c4: 'Craft CMS' # Craft CMS
+    4a214dca-4e5c-4b33-9030-4ea05099a2d2: 'Main Manu' # Main Manu
     09880460-87e6-400f-8aca-b3e30b2e3634: 'Public Schema' # Public Schema
+    bf52dfaf-527d-44b1-afa3-ae86a2efa72e: 'Footer Menu' # Footer Menu
     d70c2279-51bd-4f14-85f1-cea184ebb831: 'Craft CMS' # Craft CMS
+plugins:
+  menu-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.1
+    settings:
+      bypassProjectConfig: false
+      pluginName: 'Menu Manager'
 system:
   edition: solo
   live: true

@@ -1,0 +1,478 @@
+{% set bodyClass = 'body-navigation-nodes-index' %}
+
+{% extends 'menu-manager/_layouts' %}
+{% import '_includes/forms' as forms %}
+
+{% set crumbs = [
+    { label: craft.menuManager.getPluginName(), url: url('menu-manager') },
+    { label: 'Navigations' | t('navigation'), url: url('menu-manager/navs') },
+] %}
+
+{% if craft.app.getIsMultiSite() and requestedSite %}
+    {% set crumbs = crumbs | unshift({
+        id: 'site-crumb',
+        icon: 'world',
+        label: requestedSite.name | t('site'),
+        menu: {
+            items: siteMenuItems(nav.getSites(), requestedSite),
+            label: 'Select site' | t('site')
+        },
+    }) %}
+{% endif %}
+
+{% set title = nav.name %}
+{% set elementType = 'mycompany\\menumanager\\elements\\Node' %}
+{% set elementInstance = craft.app.elements.createElement(elementType) %}
+{% set sources = craft.app.elementSources.getSources(elementType, 'index', true) %}
+
+{# Enforce a single source #}
+{% set sources = sources | filter(n => n.key == 'nav:' ~ nav.uid) %}
+
+{% block pageTitle %}
+    <h1 class="screen-title" title="{{ title }}">{{ title }}</h1>
+
+    <div id="toolbar" class="flex flex-nowrap">
+        {% include '_elements/toolbar' with {
+            showSiteMenu: false,
+        } %}
+    </div>
+
+    <div id="actions-container" class="flex"></div>
+{% endblock %}
+
+{% block actionButton %}
+    {% if editable and currentUser.can('navigation-editNav:' ~ nav.uid) %}
+        <div class="btngroup submit">
+            <a class="btn settings icon" href="{{ cpUrl('menu-manager/navs/edit/' ~ nav.id) }}">
+                {{ 'Settings' | t('navigation') }}
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block details %}
+
+<div class="nav-sidebar navigation-nodes-sidebar">
+    <nav id="accordion" data-vui-tabs>
+        <ul class="tab-list">
+            {% for tabId, tab in craft.menuManager.getBuilderTabs(nav) %}
+                {% set selected = loop.first %}
+
+                {% set attributes = {
+                    class: 'tab-list-item',
+                    'data-id': tabId,
+                } %}
+
+                <li {{ attr(attributes) }}>
+                    <a id="tab-{{ tabId }}" class="tab{% if selected %} sel{% endif %}" href="#pane-{{ tabId }}" data-href="#pane-{{ tabId }}" title="{{ tab.label }}">
+                        {{ tab.label }}
+                    </a>
+
+                    <div id="pane-{{ tabId }}" class="tab-list-pane {% if not selected %}hidden{% endif %}">
+                        <form class="form-type-{{ tab.category }}" method="post" accept-charset="UTF-8">
+                            {% if tab.category == 'element' %}
+                                {% if nav.maxLevels == '' or nav.maxLevels > 1 %}
+                                    {{ forms.selectField({
+                                        label: 'Parent' | t('navigation'),
+                                        instructions: 'Select a navigation item as the parent.' | t('navigation'),
+                                        id: 'parentId',
+                                        name: 'parentId',
+                                        options: parentOptions,
+                                        class: 'fullwidth js-parent-node',
+                                    }) }}
+                                {% endif %}
+
+                                {{ forms.lightswitchField({
+                                    label: 'Open in new window' | t('navigation'),
+                                    instructions: 'Whether to open this navigation item in a new window.' | t('navigation'),
+                                    id: 'newWindow',
+                                    name: 'newWindow',
+                                    on: false,
+                                }) }}
+
+                                {{ hiddenInput('type', tab.type) }}
+
+                                <div class="buttons">
+                                    {% set attributes = {
+                                        type: 'submit',
+                                        class: 'btn submit add icon js-btn-element-add',
+                                        'data-element-type': tab.type,
+                                        'data-sources': tab.sources,
+                                    } %}
+
+                                    <button {{ attr(attributes) }}>{{ tab.button }}</button>
+                                    <div class="spinner hidden"></div>
+                                </div>
+                            {% elseif tab.category == 'nodeType' %}
+                                {% if nav.maxLevels == '' or nav.maxLevels > 1 %}
+                                    {{ forms.selectField({
+                                        label: 'Parent' | t('navigation'),
+                                        instructions: 'Select a navigation item as the parent.' | t('navigation'),
+                                        id: 'parentId',
+                                        name: 'parentId',
+                                        options: parentOptions,
+                                        class: 'fullwidth js-parent-node',
+                                    }) }}
+                                {% endif %}
+
+                                {% if tab.nodeType.hasNewWindow() %}
+                                    {{ forms.lightswitchField({
+                                        label: 'Open in new window' | t('navigation'),
+                                        instructions: 'Whether to open this navigation item in a new window.' | t('navigation'),
+                                        id: 'newWindow',
+                                        name: 'newWindow',
+                                        on: false,
+                                    }) }}
+                                {% endif %}
+
+                                {% if tab.nodeType.hasTitle() %}
+                                    {{ forms.textField({
+                                        label: 'Title' | t('navigation'),
+                                        id: 'title',
+                                        name: 'title',
+                                        first: true,
+                                        required: true,
+                                        instructions: 'Name of this node in the navigation.' | t('navigation'),
+                                    }) }}
+                                {% endif %}
+
+                                {% if tab.nodeType.hasUrl() %}
+                                    {{ forms.textField({
+                                        label: 'URL' | t('navigation'),
+                                        id: 'url',
+                                        name: 'url',
+                                        instructions: 'The URL of this node.' | t('navigation'),
+                                    }) }}
+                                {% endif %}
+
+                                <div class="node-type-data">
+                                    {% namespace 'data' %}
+                                        {{ tab.nodeType.getSettingsHtml() | raw }}
+                                    {% endnamespace %}
+                                </div>
+
+                                {{ hiddenInput('type', tab.type) }}
+
+                                <div class="buttons">
+                                    <button type="submit" class="btn submit add icon js-btn-node-type-add">{{ tab.button }}</button>
+                                    <div class="spinner hidden"></div>
+                                </div>
+                            {% endif %}
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% if nav.instructions %}
+    <div id="js-navigation-nodes-instructions" class="hidden">
+        <div class="navigation-nodes-instructions">
+            <p>{{ nav.instructions | md }}</p>
+        </div>
+    </div>
+{% endif %}
+
+<div id="navigation-nodes-index">
+    <div id="sidebar-container" class="hidden">
+        <div id="sidebar" class="sidebar">
+            <nav aria-label="{{ 'Sources'|t('app') }}">
+                {% include "_elements/sources" %}
+            </nav>
+        </div>
+    </div>
+
+    <div class="main element-index">
+        <div class="elements busy">
+            <div class="update-spinner spinner spinner-absolute"></div>
+        </div>
+    </div>
+</div>
+
+{% js %}
+    console.log('Menu Manager: Initializing element index');
+    console.log('Element type:', '{{ elementType|e("js") }}');
+    console.log('Nav ID:', {{ nav.id }});
+    
+    // Wait for Craft.Navigation.NodeIndex to be available
+    function createNodeIndex() {
+        if (typeof Craft.Navigation !== 'undefined' && Craft.Navigation.NodeIndex) {
+            console.log('Menu Manager: Creating NodeIndex with built-in handlers');
+            
+            Craft.elementIndex = new Craft.Navigation.NodeIndex('{{ elementType|e("js") }}', $('.body-navigation-nodes-index #main-container'), {
+                elementTypeName: '{{ elementInstance.displayName() | e("js") }}',
+                elementTypePluralName: '{{ elementInstance.pluralDisplayName() | e("js") }}',
+                context: 'index',
+                storageKey: 'elementindex.{{ elementType | e("js") }}',
+                criteria: Craft.defaultIndexCriteria,
+                toolbarSelector: '#toolbar',
+                canHaveDrafts: false,
+                hideSidebar: true,
+                navId: {{ nav.id }},
+                enabledSiteIds: {{ nav.getSiteIds() | json_encode }},
+            });
+            
+            console.log('Menu Manager: NodeIndex created with built-in form handlers');
+            return true;
+        } else {
+            console.log('Menu Manager: Craft.Navigation.NodeIndex not available, using fallback');
+            
+            Craft.elementIndex = Craft.createElementIndex('{{ elementType|e("js") }}', $('.body-navigation-nodes-index #main-container'), {
+                elementTypeName: '{{ elementInstance.displayName() | e("js") }}',
+                elementTypePluralName: '{{ elementInstance.pluralDisplayName() | e("js") }}',
+                context: 'index',
+                storageKey: 'elementindex.{{ elementType | e("js") }}',
+                criteria: Craft.defaultIndexCriteria,
+                toolbarSelector: '#toolbar',
+                canHaveDrafts: false,
+                hideSidebar: true,
+                navId: {{ nav.id }},
+                enabledSiteIds: {{ nav.getSiteIds() | json_encode }},
+            });
+            
+            return false;
+        }
+    }
+    
+    
+    // Manual tab functionality since VUI tabs might not be working
+    function initializeTabs() {
+        console.log('Menu Manager: Initializing manual tabs');
+        
+        const $tabs = $('.navigation-nodes-sidebar .tab');
+        const $panes = $('.navigation-nodes-sidebar .tab-list-pane');
+        
+        console.log('Menu Manager: Found tabs:', $tabs.length, 'panes:', $panes.length);
+        
+        // Remove VUI tabs data attribute that might interfere
+        $('#accordion').removeAttr('data-vui-tabs');
+        
+        // Add click handlers to tabs
+        $tabs.off('click.manual-tabs').on('click.manual-tabs', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const $tab = $(this);
+            const targetId = $tab.attr('href') || $tab.data('href');
+            
+            console.log('Menu Manager: Tab clicked:', $tab.text().trim(), 'Target:', targetId);
+            
+            // Remove all active states
+            $tabs.removeClass('sel');
+            $panes.addClass('hidden');
+            
+            // Add active state to clicked tab and its pane
+            $tab.addClass('sel');
+            if (targetId) {
+                $(targetId).removeClass('hidden');
+                console.log('Menu Manager: Pane shown:', targetId);
+            }
+        });
+        
+        // Initialize first tab as active if none is selected
+        if (!$tabs.hasClass('sel')) {
+            $tabs.first().trigger('click.manual-tabs');
+        }
+    }
+    
+    console.log('Menu Manager: Manual tab system initialized');
+    
+    // Form submission handlers
+    function initializeFormHandlers() {
+        console.log('Menu Manager: Initializing form handlers');
+        
+        // Handle element forms (Entries, Categories, Assets)
+        $(document).off('submit.menu-manager', '.navigation-nodes-sidebar form.form-type-element')
+                   .on('submit.menu-manager', '.navigation-nodes-sidebar form.form-type-element', function(e) {
+            e.preventDefault();
+            console.log('Menu Manager: Element form submitted');
+            
+            const $form = $(this);
+            const $button = $form.find('button[type="submit"]');
+            const elementType = $button.data('element-type');
+            const sources = $button.data('sources');
+            
+            console.log('Menu Manager: Element type:', elementType, 'Sources:', sources);
+            
+            if (!elementType) {
+                console.error('Menu Manager: No element type found');
+                return;
+            }
+            
+            // Create element selector modal
+            const modal = Craft.createElementSelectorModal(elementType, {
+                sources: sources === '*' ? null : (sources ? [sources] : null),
+                multiSelect: true,
+                onSelect: function(elements) {
+                    console.log('Menu Manager: Elements selected:', elements);
+                    
+                    if (elements.length > 0) {
+                        // Process selected elements
+                        const nodes = [];
+                        elements.forEach(function(element) {
+                            const formData = {};
+                            
+                            // Get form data
+                            $form.serializeArray().forEach(function(item) {
+                                formData[item.name] = item.value;
+                            });
+                            
+                            nodes.push({
+                                navId: {{ nav.id }},
+                                siteId: {{ craft.app.sites.currentSite.id }},
+                                elementId: element.id,
+                                elementSiteId: element.siteId,
+                                type: elementType,
+                                title: element.label,
+                                url: element.url || '',
+                                ...formData
+                            });
+                        });
+                        
+                        // Submit to controller
+                        const $spinner = $form.find('.spinner');
+                        $spinner.removeClass('hidden');
+                        
+                        Craft.sendActionRequest('POST', 'menu-manager/nodes/add-nodes', {
+                            data: { nodes: nodes }
+                        }).then(function(response) {
+                            console.log('Menu Manager: Nodes added successfully:', response);
+                            Craft.cp.displayNotice(response.data.message || 'Nodes added successfully');
+                            
+                            // Refresh the element index
+                            if (Craft.elementIndex && Craft.elementIndex.updateElements) {
+                                Craft.elementIndex.updateElements();
+                            }
+                            
+                            // Reset form
+                            $form[0].reset();
+                            $spinner.addClass('hidden');
+                        }).catch(function(error) {
+                            console.error('Menu Manager: Error adding nodes:', error);
+                            Craft.cp.displayError(error.response?.data?.message || 'Error adding nodes');
+                            $spinner.addClass('hidden');
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Handle node type forms (Custom URL, Passive, etc.)
+        $(document).off('submit.menu-manager', '.navigation-nodes-sidebar form.form-type-nodeType')
+                   .on('submit.menu-manager', '.navigation-nodes-sidebar form.form-type-nodeType', function(e) {
+            e.preventDefault();
+            console.log('Menu Manager: NodeType form submitted');
+            
+            const $form = $(this);
+            const formData = {};
+            
+            // Get form data
+            $form.serializeArray().forEach(function(item) {
+                formData[item.name] = item.value;
+            });
+            
+            // Add required data
+            const nodeData = {
+                navId: {{ nav.id }},
+                siteId: {{ craft.app.sites.currentSite.id }},
+                ...formData
+            };
+            
+            console.log('Menu Manager: Submitting node data:', nodeData);
+            
+            // Submit to controller
+            const $spinner = $form.find('.spinner');
+            $spinner.removeClass('hidden');
+            
+            Craft.sendActionRequest('POST', 'menu-manager/nodes/add-nodes', {
+                data: { nodes: [nodeData] }
+            }).then(function(response) {
+                console.log('Menu Manager: Node added successfully:', response);
+                Craft.cp.displayNotice(response.data.message || 'Node added successfully');
+                
+                // Refresh the element index
+                if (Craft.elementIndex && Craft.elementIndex.updateElements) {
+                    Craft.elementIndex.updateElements();
+                }
+                
+                // Reset form but keep parent selection
+                const parentId = $form.find('[name="parentId"]').val();
+                $form[0].reset();
+                $form.find('[name="parentId"]').val(parentId);
+                $spinner.addClass('hidden');
+            }).catch(function(error) {
+                console.error('Menu Manager: Error adding node:', error);
+                Craft.cp.displayError(error.response?.data?.message || 'Error adding node');
+                $spinner.addClass('hidden');
+            });
+        });
+    }
+    
+    // Initialize everything after page load
+    $(document).ready(function() {
+        setTimeout(function() {
+            console.log('Menu Manager: Starting initialization');
+            
+            // Try to create NodeIndex with built-in handlers
+            const hasBuiltInHandlers = createNodeIndex();
+            
+            // Always initialize tabs
+            initializeTabs();
+            
+            // Only add manual form handlers if built-in handlers are not available
+            if (!hasBuiltInHandlers) {
+                console.log('Menu Manager: Using manual form handlers');
+                initializeFormHandlers();
+            } else {
+                console.log('Menu Manager: Using built-in NodeIndex form handlers');
+            }
+        }, 300);
+    });
+{% endjs %}
+
+{% css %}
+
+#page-title {
+    display: flex;
+}
+
+/* Manual tab styling fixes */
+.navigation-nodes-sidebar .tab {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.navigation-nodes-sidebar .tab:hover {
+    background-color: #f9f9f9;
+}
+
+.navigation-nodes-sidebar .tab.sel {
+    background-color: #e3f2fd;
+    font-weight: 600;
+}
+
+.navigation-nodes-sidebar .tab-list-pane {
+    display: block;
+}
+
+.navigation-nodes-sidebar .tab-list-pane.hidden {
+    display: none !important;
+}
+
+/* Ensure forms are visible when pane is shown */
+.navigation-nodes-sidebar .tab-list-pane form {
+    padding: 20px;
+}
+
+.navigation-nodes-sidebar .buttons {
+    margin-top: 15px;
+}
+
+{% endcss %}
+
+{% endblock %}

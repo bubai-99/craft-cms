@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bf13ad21b51e65cbc0d53dd656465a8",
+    "content-hash": "b74866aac54f24a1da5ff3a4686f3fec",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2260,6 +2260,110 @@
                 }
             ],
             "time": "2025-03-24T10:02:05+00:00"
+        },
+        {
+            "name": "mycompany/menu-manager",
+            "version": "3.0.12",
+            "dist": {
+                "type": "path",
+                "url": "./plugins/menu-manager",
+                "reference": "874609631a0005bb949edbba218ebf56512ab4c2"
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0",
+                "php": "^8.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Menu Manager",
+                "handle": "menu-manager",
+                "changelogUrl": "https://raw.githubusercontent.com/mycompany/menu-manager/main/CHANGELOG.md",
+                "class": "mycompany\\menumanager\\MenuManager"
+            },
+            "autoload": {
+                "psr-4": {
+                    "mycompany\\menumanager\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "MyCompany",
+                    "homepage": "https://mycompany.com"
+                }
+            ],
+            "description": "Advanced menu management system for your site.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "menu",
+                "navigation"
+            ],
+            "support": {
+                "email": "support@mycompany.com",
+                "issues": "https://github.com/mycompany/menu-manager/issues?state=open",
+                "source": "https://github.com/mycompany/menu-manager",
+                "docs": "https://github.com/mycompany/menu-manager",
+                "rss": "https://github.com/mycompany/menu-manager/commits/main.atom"
+            },
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            }
+        },
+        {
+            "name": "mycompany/simple-menu",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./plugins/simple-menu",
+                "reference": "dd100b2bffbc2888c9376d68244c488ec3b02370"
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Simple Menu",
+                "handle": "simple-menu",
+                "hasCpSettings": false,
+                "hasCpSection": true,
+                "changelogUrl": "https://github.com/mycompany/simple-menu/blob/master/CHANGELOG.md",
+                "class": "mycompany\\simplemenu\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "mycompany\\simplemenu\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Craft CMS",
+                    "homepage": "https://craftcms.com/"
+                }
+            ],
+            "description": "A simple, working menu management plugin for Craft CMS",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "menu"
+            ],
+            "support": {
+                "docs": "https://github.com/mycompany/simple-menu/blob/master/README.md"
+            },
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            }
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -8441,7 +8545,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "mycompany/menu-manager": 20,
+        "mycompany/simple-menu": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},

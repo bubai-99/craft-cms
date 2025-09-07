@@ -1,0 +1,91 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "Navigation" %}
+
+{% block actionButton %}
+    <div class="btngroup">
+        <a href="{{ cpUrl('simple-menu/navs/new') }}" class="btn submit add icon">New navigation</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if navs|length %}
+        <div class="tableview">
+            <table class="data fullwidth">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ "Name"|t('simple-menu') }}</th>
+                        <th scope="col">{{ "Handle"|t('simple-menu') }}</th>
+                        <th scope="col">{{ "Nodes"|t('simple-menu') }}</th>
+                        <th scope="col" class="thin"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nav in navs %}
+                        {% set nodes = nav.getNodes() %}
+                        <tr data-id="{{ nav.id }}" data-name="{{ nav.name|e }}">
+                            <th scope="row" data-title="Name">
+                                <a href="{{ cpUrl('simple-menu/navs/' ~ nav.id) }}">
+                                    <strong>{{ nav.name }}</strong>
+                                </a>
+                                {% if nav.instructions %}
+                                    <div class="instructions">{{ nav.instructions }}</div>
+                                {% endif %}
+                            </th>
+                            <td data-title="Handle">
+                                <code>{{ nav.handle }}</code>
+                            </td>
+                            <td data-title="Nodes">
+                                {{ nodes|length }} {{ "nodes"|t('simple-menu') }}
+                            </td>
+                            <td class="thin" data-title="Actions">
+                                <a class="delete icon" title="{{ 'Delete'|t('simple-menu') }}" role="button"></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="zilch">
+            <p>{{ "No navigations have been created yet."|t('simple-menu') }}</p>
+            <p><a class="btn submit add" href="{{ cpUrl('simple-menu/navs/new') }}">{{ "Create your first navigation"|t('simple-menu') }}</a></p>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% js %}
+$(function() {
+    var $table = $('.tableview table');
+    var $deleteBtn = $table.find('.delete');
+    
+    $deleteBtn.on('click', function(e) {
+        e.preventDefault();
+        
+        var $tr = $(this).closest('tr');
+        var id = $tr.data('id');
+        var name = $tr.data('name');
+        
+        if (confirm('Are you sure you want to delete "' + name + '"?')) {
+            var data = {
+                'id': id,
+                '{{ craft.app.config.general.csrfTokenName|e('js') }}': '{{ craft.app.request.csrfToken|e('js') }}'
+            };
+            
+            Craft.postActionRequest('simple-menu/nav/delete', data, function(response, textStatus) {
+                if (textStatus === 'success') {
+                    $tr.remove();
+                    
+                    if ($table.find('tbody tr').length === 0) {
+                        location.reload();
+                    } else {
+                        Craft.cp.displayNotice('Navigation deleted.');
+                    }
+                } else {
+                    Craft.cp.displayError('Could not delete navigation.');
+                }
+            });
+        }
+    });
+});
+{% endjs %}
