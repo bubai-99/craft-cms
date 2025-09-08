@@ -1,10 +1,24 @@
-import './style.css'
-import './navigation.css'
-import './blocks.css'
-import './contact-form.js'
-import javascriptLogo from './javascript.svg'
+// Styles
+import './styles/index.css'
+
+// Scripts
+import { setupCounter } from './scripts/index.js'
+
+// Assets
+import javascriptLogo from './assets/javascript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+
+// Prevent FOUC - Show page when styles are loaded
+function showPage() {
+  document.body.classList.add('loaded')
+}
+
+// Multiple ways to ensure page shows up
+document.addEventListener('DOMContentLoaded', showPage)
+window.addEventListener('load', showPage)
+
+// Fallback timeout in case events don't fire
+setTimeout(showPage, 100)
 
 // Initialize the app when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {

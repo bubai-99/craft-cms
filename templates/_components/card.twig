@@ -1,21 +1,21 @@
-{# Card Component Template #}
-{% set cardClass = 'card' %}
-{% if variant is defined %}
-    {% set cardClass = cardClass ~ ' card--' ~ variant %}
+{# Card Component Template with Tailwind #}
+{% set cardClass = 'bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200' %}
+{% if variant is defined and variant == 'demo' %}
+    {% set cardClass = cardClass ~ ' opacity-75' %}
 {% endif %}
 
 <article class="{{ cardClass }}">
     {% if image is defined and image %}
-        <div class="card__image">
-            <img src="{{ image.url }}" alt="{{ image.alt ?: title }}" loading="lazy">
+        <div class="aspect-video overflow-hidden">
+            <img src="{{ image.url }}" alt="{{ image.alt ?: title }}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200">
         </div>
     {% endif %}
     
-    <div class="card__content">
+    <div class="p-6">
         {% if title is defined and title %}
-            <h3 class="card__title">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
                 {% if url is defined and url %}
-                    <a href="{{ url }}" class="card__link">{{ title }}</a>
+                    <a href="{{ url }}" class="hover:text-primary-600 transition-colors">{{ title }}</a>
                 {% else %}
                     {{ title }}
                 {% endif %}
@@ -23,17 +23,24 @@
         {% endif %}
         
         {% if excerpt is defined and excerpt %}
-            <p class="card__excerpt">{{ excerpt }}</p>
+            <p class="text-gray-600 leading-relaxed mb-4 line-clamp-3">{{ excerpt }}</p>
         {% endif %}
         
-        {% if date is defined and date %}
-            <time class="card__date" datetime="{{ date|date('c') }}">
-                {{ date|date('F j, Y') }}
-            </time>
-        {% endif %}
-        
-        {% if url is defined and url and showReadMore is defined and showReadMore %}
-            <a href="{{ url }}" class="card__read-more">Read more</a>
-        {% endif %}
+        <div class="flex items-center justify-between">
+            {% if date is defined and date %}
+                <time class="text-sm text-gray-500" datetime="{{ date|date('c') }}">
+                    {{ date|date('F j, Y') }}
+                </time>
+            {% endif %}
+            
+            {% if url is defined and url and showReadMore is defined and showReadMore %}
+                <a href="{{ url }}" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors group">
+                    Read more
+                    <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            {% endif %}
+        </div>
     </div>
 </article>

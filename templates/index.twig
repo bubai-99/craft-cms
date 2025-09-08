@@ -4,44 +4,44 @@
 
 {% block content %}
     {# Hero Section #}
-    <div class="hero-section">
-        <div class="container">
-            <h1>Welcome to Craft CMS 5</h1>
-            <p class="lead">A powerful, flexible content management system with modern Vite integration and Matrix block architecture.</p>
+    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-16 px-4 mb-8">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Craft CMS 5</h1>
+            <p class="text-lg md:text-xl opacity-90 max-w-2xl">A powerful, flexible content management system with modern Vite integration and Matrix block architecture.</p>
         </div>
     </div>
 
-    <div class="container">
+    <div class="max-w-6xl mx-auto px-4">
         <div id="app">
             {# Features Section #}
-            <div class="content-section">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h2>What's Included</h2>
-                        <div class="features">
-                            <ul>
-                                <li>✅ <strong>Craft CMS 5</strong> - Latest version with Matrix blocks as entries</li>
-                                <li>✅ <strong>Vite Integration</strong> - Modern frontend build tool with HMR</li>
-                                <li>✅ <strong>Matrix Blocks</strong> - Text, Heading, Image, Quote, Gallery blocks</li>
-                                <li>✅ <strong>Template Structure</strong> - Professional, modular template architecture</li>
-                                <li>✅ <strong>Navigation System</strong> - Menu Manager plugin integration</li>
-                                <li>✅ <strong>Responsive Design</strong> - Mobile-first CSS framework</li>
-                                <li>✅ <strong>CKEditor</strong> - Rich text editing capabilities</li>
+            <div class="mb-12">
+                <div class="grid gap-8 lg:grid-cols-3">
+                    <div class="lg:col-span-2">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-500 pb-2">What's Included</h2>
+                        <div class="space-y-3">
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3 text-gray-700 leading-relaxed">✅ <strong>Craft CMS 5</strong> - Latest version with Matrix blocks as entries</li>
+                                <li class="flex items-start space-x-3 text-gray-700 leading-relaxed">✅ <strong>Vite Integration</strong> - Modern frontend build tool with HMR</li>
+                                <li class="flex items-start space-x-3 text-gray-700 leading-relaxed">✅ <strong>Matrix Blocks</strong> - Text, Heading, Image, Quote, Gallery blocks</li>
+                                <li class="flex items-start space-x-3 text-gray-700 leading-relaxed">✅ <strong>Template Structure</strong> - Professional, modular template architecture</li>
+                                <li class="flex items-start space-x-3 text-gray-700 leading-relaxed">✅ <strong>Navigation System</strong> - Menu Manager plugin integration</li>
+                                <li class="flex items-start space-x-3 text-gray-700 leading-relaxed">✅ <strong>Responsive Design</strong> - Mobile-first CSS framework</li>
+                                <li class="flex items-start space-x-3 text-gray-700 leading-relaxed">✅ <strong>CKEditor</strong> - Rich text editing capabilities</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="contact-info">
-                            <h3>Getting Started</h3>
-                            <p><strong>Control Panel:</strong><br>
-                            <a href="{{ cpUrl('') }}">{{ cpUrl('') }}</a></p>
+                    <div class="lg:col-span-1">
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Getting Started</h3>
+                            <p class="mb-3 text-gray-700"><strong>Control Panel:</strong><br>
+                            <a href="{{ cpUrl('') }}" class="text-blue-600 hover:text-blue-700 transition-colors">{{ cpUrl('') }}</a></p>
                             
-                            <p><strong>Sample Pages:</strong><br>
-                            <a href="/about">About Us</a><br>
-                            <a href="/contact">Contact</a><br>
-                            <a href="/blog">Blog</a></p>
+                            <p class="mb-3 text-gray-700"><strong>Sample Pages:</strong><br>
+                            <a href="/about" class="text-blue-600 hover:text-blue-700 transition-colors">About Us</a><br>
+                            <a href="/contact" class="text-blue-600 hover:text-blue-700 transition-colors">Contact</a><br>
+                            <a href="/blog" class="text-blue-600 hover:text-blue-700 transition-colors">Blog</a></p>
                             
-                            <p><strong>Admin Tasks:</strong><br>
+                            <p class="mb-3 text-gray-700"><strong>Admin Tasks:</strong><br>
                             • Create Matrix fields<br>
                             • Add content blocks<br>
                             • Upload images<br>
@@ -54,9 +54,9 @@
             {# Latest Entries Section #}
             {% set latestEntries = craft.entries.section('pages').limit(3).all() %}
             {% if latestEntries|length %}
-                <div class="content-section">
-                    <h2>Latest Pages</h2>
-                    <div class="blog-grid">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-500 pb-2">Latest Pages</h2>
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {% for entry in latestEntries %}
                             {% include '_components/card.twig' with {
                                 title: entry.title,
@@ -70,10 +70,10 @@
                 </div>
             {% else %}
                 {# Demo Content when no entries exist #}
-                <div class="content-section">
-                    <h2>Sample Content Structure</h2>
-                    <p>Here's how your content will look once you create pages:</p>
-                    <div class="blog-grid">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-500 pb-2">Sample Content Structure</h2>
+                    <p class="mb-6 text-gray-600">Here's how your content will look once you create pages:</p>
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {% for i in 1..3 %}
                             {% include '_components/card.twig' with {
                                 title: 'Sample Page ' ~ i,
@@ -89,31 +89,31 @@
             {% endif %}
 
             {# Matrix Blocks Demo #}
-            <div class="content-section">
-                <h2>Matrix Block Examples</h2>
-                <p>Here are examples of the Matrix blocks you can use:</p>
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-500 pb-2">Matrix Block Examples</h2>
+                <p class="mb-8 text-gray-600">Here are examples of the Matrix blocks you can use:</p>
                 
                 {# Demo Text Block #}
-                <div class="block block--text">
-                    <h3 class="block__heading">Text Block Example</h3>
-                    <div class="block__content">
-                        <p>This is an example of a <strong>Text Block</strong>. You can add rich formatted content including <em>italic text</em>, <strong>bold text</strong>, links, lists, and more using the CKEditor interface.</p>
-                        <p>Matrix blocks are the building blocks of your content, allowing you to create flexible, structured pages.</p>
+                <div class="mb-8 p-6 bg-white border border-gray-200 rounded-lg shadow-sm border-l-4 border-l-blue-500">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Text Block Example</h3>
+                    <div>
+                        <p class="mb-4 text-gray-700 leading-relaxed">This is an example of a <strong>Text Block</strong>. You can add rich formatted content including <em>italic text</em>, <strong>bold text</strong>, links, lists, and more using the CKEditor interface.</p>
+                        <p class="mb-4 text-gray-700 leading-relaxed">Matrix blocks are the building blocks of your content, allowing you to create flexible, structured pages.</p>
                     </div>
                 </div>
 
                 {# Demo Heading Block #}
-                <div class="block block--heading">
-                    <h2 class="block__heading">Heading Block Example</h2>
-                    <p class="block__subheading">With optional subheading text for additional context</p>
+                <div class="mb-8 p-6 bg-white border border-gray-200 rounded-lg shadow-sm border-l-4 border-l-green-500 text-center">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Heading Block Example</h2>
+                    <p class="text-lg text-gray-600 italic">With optional subheading text for additional context</p>
                 </div>
 
                 {# Demo Quote Block #}
-                <div class="block block--quote">
-                    <blockquote class="block__quote">
-                        <p class="block__quote-text">Matrix blocks in Craft CMS 5 are now entries, providing unprecedented flexibility for content modeling and template organization.</p>
-                        <footer class="block__quote-footer">
-                            <cite class="block__quote-author">Craft CMS Documentation</cite>
+                <div class="mb-8 p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm border-l-4 border-l-purple-500">
+                    <blockquote>
+                        <p class="text-xl italic text-gray-800 mb-4 leading-relaxed">Matrix blocks in Craft CMS 5 are now entries, providing unprecedented flexibility for content modeling and template organization.</p>
+                        <footer class="text-sm text-gray-600">
+                            <cite>Craft CMS Documentation</cite>
                         </footer>
                     </blockquote>
                 </div>

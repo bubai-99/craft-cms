@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43d3b174944c18583da7d6abbe5a6bbe",
+    "content-hash": "3d5252c18a638ecd01d5da7ada23b568",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2853,10 +2853,16 @@
         {
             "name": "mycompany/menu-manager",
             "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bubai-99/menu-manager.git",
+                "reference": "d9f621252497fd34be35bfb2c6361f45869dd51a"
+            },
             "dist": {
-                "type": "path",
-                "url": "./menu-manager-plugin",
-                "reference": "384258d15bc4ca4ff92c28924b021d95f54d76e9"
+                "type": "zip",
+                "url": "https://api.github.com/repos/bubai-99/menu-manager/zipball/d9f621252497fd34be35bfb2c6361f45869dd51a",
+                "reference": "d9f621252497fd34be35bfb2c6361f45869dd51a",
+                "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^5.0.0",
@@ -2899,10 +2905,7 @@
                 "docs": "https://github.com/mycompany/menu-manager",
                 "rss": "https://github.com/mycompany/menu-manager/commits/main.atom"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2025-09-07T12:24:49+00:00"
         },
         {
             "name": "nystudio107/craft-code-editor",

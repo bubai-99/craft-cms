@@ -7,8 +7,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './src/main.js',
-        style: './src/style.css',
-        navigation: './src/navigation.css'
+        style: './src/styles/style.css'
       }
     },
     manifest: '.vite/manifest.json'

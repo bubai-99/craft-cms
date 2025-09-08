@@ -12,6 +12,34 @@
     {% endblock %}
     
     {% block css %}
+        {# Critical inline styles to prevent FOUC #}
+        <style>
+            /* Prevent flash of unstyled content */
+            html { 
+                background-color: #f9fafb; 
+                color: #111827;
+            }
+            body { 
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.15s ease-in;
+                font-family: system-ui, -apple-system, sans-serif;
+                line-height: 1.5;
+                margin: 0;
+            }
+            body.loaded { 
+                visibility: visible; 
+                opacity: 1; 
+            }
+            /* Critical layout styles */
+            * { 
+                box-sizing: border-box; 
+                margin: 0; 
+                padding: 0;
+            }
+        </style>
+        
+        {# Load all assets together for better performance #}
         {{ craft.vite.script('src/main.js') }}
     {% endblock %}
     
@@ -19,9 +47,7 @@
 </head>
 <body{% block bodyAttributes %}{% endblock %}>
     {% block header %}
-        <header class="site-header">
-            {% include '_partials/navigation.twig' %}
-        </header>
+        {% include '_partials/navigation.twig' %}
     {% endblock %}
     
     <main class="site-main" role="main">
@@ -29,9 +55,7 @@
     </main>
     
     {% block footer %}
-        <footer class="site-footer">
-            {% include '_partials/footer.twig' %}
-        </footer>
+        {% include '_partials/footer.twig' %}
     {% endblock %}
     
     {% block js %}

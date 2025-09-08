@@ -1,27 +1,19 @@
 {
   "src/main.js": {
-    "file": "assets/main-Dz5IXZhG.js",
+    "file": "assets/main-RlNuWH5S.js",
     "name": "main",
     "src": "src/main.js",
     "isEntry": true,
     "css": [
-      "assets/style-3Vq2cWis.css",
-      "assets/navigation-CzQ0wX14.css"
+      "assets/main-BSzp8C1N.css"
     ]
   },
-  "src/navigation.css": {
-    "file": "assets/navigation-CzQ0wX14.css",
-    "src": "src/navigation.css",
+  "src/styles/style.css": {
+    "file": "assets/main-BSzp8C1N.css",
+    "src": "src/main.js",
     "isEntry": true,
     "names": [
-      "navigation.css"
-    ]
-  },
-  "src/style.css": {
-    "file": "assets/style-3Vq2cWis.css",
-    "src": "src/style.css",
-    "isEntry": true,
-    "names": [
+      "main.css",
       "style.css"
     ]
   }
