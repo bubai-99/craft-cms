@@ -1,20 +1,11 @@
 {
   "src/main.js": {
-    "file": "assets/main-RlNuWH5S.js",
+    "file": "assets/main-YL98-bdm.js",
     "name": "main",
     "src": "src/main.js",
     "isEntry": true,
     "css": [
-      "assets/main-BSzp8C1N.css"
-    ]
-  },
-  "src/styles/style.css": {
-    "file": "assets/main-BSzp8C1N.css",
-    "src": "src/main.js",
-    "isEntry": true,
-    "names": [
-      "main.css",
-      "style.css"
+      "assets/main--ay_QflP.css"
     ]
   }
 }

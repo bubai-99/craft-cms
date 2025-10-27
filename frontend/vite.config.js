@@ -1,24 +1,27 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'development' ? '/' : '/dist/',
   build: {
     outDir: '../web/dist',
+    emptyOutDir: true,
+    manifest: true,
     rollupOptions: {
       input: {
-        main: './src/main.js',
-        style: './src/styles/style.css'
-      }
+        main: resolve(__dirname, 'src/main.js'),
+      },
     },
-    manifest: '.vite/manifest.json'
   },
   server: {
     host: '0.0.0.0',
     port: 5173,
     strictPort: true,
-    hmr: {
-      port: 5173,
-      host: 'localhost'
-    }
-  }
+    cors: true,
+    origin: 'http://localhost:5173',
+    allowedHosts: [
+      'host.docker.internal',
+      'craft-cms.ddev.site',
+    ],
+  },
 })
