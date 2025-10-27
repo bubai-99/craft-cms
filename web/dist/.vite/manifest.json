@@ -1,11 +1,29 @@
 {
   "src/main.js": {
-    "file": "assets/main-YL98-bdm.js",
+    "file": "assets/main-BDA90BDj.js",
     "name": "main",
     "src": "src/main.js",
     "isEntry": true,
     "css": [
-      "assets/main--ay_QflP.css"
+      "assets/main-iyjMG8ol.css"
+    ]
+  },
+  "src/scripts/pages/about.js": {
+    "file": "assets/about-C5VtMfw7.js",
+    "name": "about",
+    "src": "src/scripts/pages/about.js",
+    "isEntry": true,
+    "css": [
+      "assets/about-D74Tgj6J.css"
+    ]
+  },
+  "src/scripts/pages/home.js": {
+    "file": "assets/home-yWoDmiBS.js",
+    "name": "home",
+    "src": "src/scripts/pages/home.js",
+    "isEntry": true,
+    "css": [
+      "assets/home-Cj28zXrH.css"
     ]
   }
 }

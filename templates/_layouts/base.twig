@@ -41,6 +41,8 @@
         
         {# Load all assets together for better performance #}
         {{ craft.vite.script('src/main.js') }}
+        {{ craft.vite.script('src/scripts/pages/home.js') }}
+
     {% endblock %}
     
     {% block extraHead %}{% endblock %}

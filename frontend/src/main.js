@@ -1,5 +1,6 @@
 // Styles
-import './styles/index.css'
+import './styles/index.scss'
+import 'bootstrap'
 
 // Scripts
 import { setupCounter } from './scripts/index.js'
