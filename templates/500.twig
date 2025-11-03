@@ -1,0 +1,14 @@
+{% set entry = craft.entries().section('pageError').one() %}
+{% extends "_layouts/matrix-content" %}
+  
+{% block content %}
+    <div class="container py-5">
+        <div class="text-center">
+            <h1 class="display-5">{{ entry.title }}</h1>
+            {% if entry.Description|length %}
+                <div class="fs-lg pb-2 pb-md-0 mb-4 mb-md-5">{{ entry.Description }}</div>
+            {% endif %}
+            <a href="/" class="btn btn-lg btn-primary">Go to home</a>
+        </div>
+    </div>
+{% endblock %}

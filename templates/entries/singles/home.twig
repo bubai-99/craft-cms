@@ -1,0 +1,17 @@
+{% extends "_layouts/matrix-content" %}
+
+{% import "_helpers/images" as images %}
+{% set bodyClasses = 'home' %}
+
+{% block header_banner %}
+	{% cache %}
+	{% set heroBannerSliders = entry.heroBannerSlider.all() %}
+	{% if heroBannerSliders | length  > 0 %}
+		<div class="header-banner">
+			{% include "_includes/_partials/heroBannerSlider" %}
+		</div>
+	{% endif %}
+	{% endcache %}
+
+{% endblock %}
+

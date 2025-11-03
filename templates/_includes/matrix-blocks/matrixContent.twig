@@ -1,0 +1,10 @@
+<div class="matrix-content">
+    {% for index, contentData in block.all() %}
+        <div class="{{ contentData.type.handle }} matrix-block" id="matrix-content-{{ index }}">
+            {% include "_includes/matrix-blocks/type/" ~ contentData.type.handle with { block: contentData } %}
+        </div>
+    {% endfor %}
+</div>
+
+
+

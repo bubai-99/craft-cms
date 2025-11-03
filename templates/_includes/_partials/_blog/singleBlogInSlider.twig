@@ -1,0 +1,46 @@
+{% import "_helpers/images" as images %}
+{% set shortDescriptionLength = getenv('DISPLAY_SHORT_DESCRIPTION_LENGTH') %}
+
+<div class="swiper-slide h-auto pb-1">
+	<article class="masonry-grid-item h-100">
+		<div class="card border-0 bg-secondary h-100">
+			{% if blog.image|length %}
+				<a href="{{ blog.url }}">
+					<div>
+						{{ images.singleImg(blog.image.0, 420, {'ratio': 1.55}, 'flex-shrink-0 w-100 card-img-top') }}
+					</div>
+				</a>
+			{% endif %}
+			<div class="card-body pb-4">
+				<div class="d-flex align-items-center mb-4 mt-n1">
+					{% if blog.date|length %}
+						<span class="fs-sm text-body-secondary">{{ blog.date|date('M d, Y') }}</span>
+					{% endif %}
+					{% if blog.tags|length %}
+						<span class="fs-xs opacity-20 mx-3">|</span>
+						{% set tags = blog.tags.all() %}
+						{% if tags %}
+							{% for tag in tags %}
+								<a class="badge text-nav fs-xs border mx-1">{{ tag.title }}</a>
+							{% endfor %}
+						{% endif %}
+					{% endif %}
+
+				</div>
+				<h3 class="h4 card-title">
+					<a href="{{ blog.url }}">{{ blog.title }}</a>
+				</h3>
+				<p class="card-text">
+					{{ blog.shortDescription|slice(0, shortDescriptionLength) }}
+					{% if blog.shortDescription|length > shortDescriptionLength %}...
+					{% endif %}
+				</p>
+			</div>
+			<div class="card-footer pt-3">
+				<div class="d-flex align-items-center text-decoration-none pb-2">
+					<h6 class="mb-0">{{ blog.authorName }}</h6>
+				</div>
+			</div>
+		</div>
+	</article>
+</div>

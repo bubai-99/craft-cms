@@ -1,0 +1,34 @@
+{% if generalEntry.relatedBlogs | length %}
+	{% set relatedBlogs = craft.entries().section('blogs').relatedTo(entry.blogCategories).id('not ' ~ entry.id).orderBy('postDate DESC').all() %}
+	{% if relatedBlogs | length %}
+		<div class="d-flex align-items-center pb-3 mb-3 mb-lg-4 mt-2 mt-xxl-3">
+			<h2 class="w-100 h2 mb-0 text-{{ generalEntry.blogTextAlign.value }}" style="color: {{ generalEntry.blogTitleColor.one().colorcode ?? '' }}">Related Blogs</h2>
+		</div>
+
+		<div class="swiper" data-swiper-options='
+				{
+				"spaceBetween": 24,
+				"pagination": {
+					"el": ".swiper-pagination",
+					"clickable": true
+				},
+				"breakpoints": {
+					"576": { "slidesPerView": 2 },
+					"992": { "slidesPerView": {{ generalEntry.blogColumnPerRow.value }} }
+				},
+				"autoplay": {
+					"delay": 3000,
+					"disableOnInteraction": false
+				},
+				"speed": 1000,
+				"loop": true
+				}
+			'>
+			<div class="swiper-wrapper">
+				{% for blog in relatedBlogs %}
+					{% include "_includes/_partials/_blog/singleBlogInSlider.twig" with { blog: blog } %}
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+{% endif %}

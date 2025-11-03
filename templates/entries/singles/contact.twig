@@ -1,0 +1,293 @@
+{% extends "_layouts/matrix-content" %}
+{% set form_id = entry.selectForm.id  %}
+
+{% set title = entry.title ?? '' %}
+{% set heading = entry.heading ?? '' %}
+{% set headingTags = entry.headingTags ?? 'h2' %}
+{% set align = entry.align ?? 'left' %}
+{% set contentData = entry.contentdata ?? '' %}
+{% set blockStyle = entry.blockStyle ?? [] %}
+{% set blockType = entry.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{% set containerWidth = "container" %}
+{% set themeSwitche = "" %}
+
+{% block content %}
+
+    {% if blockStyle is defined and blockStyle|length %}
+            {% set blockStyleData = blockStyle.one() %}
+            {% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+            {% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+            {% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+                {% set containerWidthMap = {
+                    'default': 'container',
+                    'fullWidth': 'container container-full',
+                    'boxedLg': 'container container-large',
+                    'boxedSm': 'container container-small'
+                } %}
+                {% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+
+                {% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+                    {% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+                {% endif %}
+        {% endif %}
+    {% endif %}
+
+
+{% set formBackgroundColorClass = entry.formColor.one().colorcode ?? '' %}
+{% if formBackgroundColorClass %}
+    <style>
+        .form-style {background: {{ formBackgroundColorClass|raw }} !important;}
+    </style>
+{% endif %}
+
+{% set contactBoxBackgroundColorClass = entry.contactBoxBackground.one().colorcode ?? '' %}
+{% if contactBoxBackgroundColorClass %}
+    <style>
+        .contentBox-style {background: {{ contactBoxBackgroundColorClass|raw }} !important;}
+    </style>
+{% endif %}
+
+{% set contactBoxTitleColorClass = entry.contactBoxTitleColor.one().colorcode ?? '' %}
+{% if contactBoxTitleColorClass %}
+    <style>
+        .contentBoxTitle-style {color: {{ contactBoxTitleColorClass|raw }} !important;}
+    </style>
+{% endif %}
+
+{% set contactBoxTextColorClass = entry.contactBoxTextColor.one().colorcode ?? '' %}
+{% if contactBoxTextColorClass %}
+    <style>
+        .contentBoxText-style {color: {{ contactBoxTextColorClass|raw }} !important;}
+    </style>
+{% endif %}
+
+{% set isformBackground = entry.formBackground ?? false %}
+{% set isformBorderRadius = entry.formBorderRadius ?? false %}
+{% set iscontactBoxBorderRadius = entry.contactBoxBorderRadius ?? false %}
+
+
+
+{% if entry.featureImage|length %}
+	<div class="jarallax bg-dark py-5" data-jarallax data-speed="0.6" data-bs-theme="dark">
+		<div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-60"></div>
+
+		{% set image = entry.featureImage.one() %}
+		{% if image %}
+			<div class="jarallax-img" style="background-image: url('{{ image.url }}');"></div>
+		{% endif %}
+
+		<div class="jarallax-img" style="background-image: url(assets/img/services/v3/hero-bg.jpg);"></div>
+		<div class="container position-relative z-2 pt-5 pb-md-2 pb-lg-3 pb-xl-4 pb-xxl-5">
+			<!-- Page title -->
+			<div class="d-none d-xxl-block" style="height: 170px;"></div>
+			<div class="d-none d-lg-block d-xxl-none" style="height: 120px;"></div>
+			<div class="d-none d-md-block d-lg-none" style="height: 80px;"></div>
+			<div class="d-md-none" style="height: 40px;"></div>
+			<h1 class="display-2 mb-4">{{ entry.title }}</h1>
+            {% if entry.shortDescription|length %}
+                <div class="text-body mb-0">{{ entry.shortDescription }}</div>
+            {% endif %}
+		</div>
+	</div>
+{% endif %}
+{% include "_includes/_partials/breadcrumbs" %}
+
+<div class="py-3 py-lg-4 py-xl-5 bg-secondary {{ blockType }}{{blockTypeUid}}-style"  data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+    <div class="{{ containerWidth }}">
+        {% if not entry.featureImage|length %}
+            <h1 class="display-2 block-heading-title">{{ entry.title }}</h1>
+            {% if entry.shortDescription|length %}
+            <div class="fs-lg pb-2 mb-2 mb-sm-3 block-description">
+                <p>{{ entry.shortDescription }}</p>
+            </div>
+            {% endif %}
+        {% endif %}
+
+        {% set contactPageLayout = entry.contactPageLayout.value ?? '' %}
+		{% if contactPageLayout == 'contactLayout1' %}
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4 pb-4 pb-sm-4 pb-lg-5">
+            <!-- Address -->
+            {% if entry.showAddress|length %}
+            <div class="col">
+                <div class="card border-0 h-100 contentBox-style {{ iscontactBoxBorderRadius ? '' : 'rounded-0' }}">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4 contentBoxTitle-style">Address</h4>
+                        <div class="fs-lg fw-medium pb-3 mb-3 contentBoxText-style">
+                            {{ generalEntry.Description }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Phone -->
+            {% if entry.showPhone|length %}
+            <div class="col">
+                <div class="card border-0 h-100 contentBox-style {{ iscontactBoxBorderRadius ? '' : 'rounded-0' }}">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4 contentBoxTitle-style">Phone</h4>
+                        <ul class="list-unstyled mb-0 contentBoxText-style">
+                            <li class="pb-1 mb-2">
+                                <span class="d-block fs-sm text-body-secondary mb-1 contentBoxText-style">Main office</span>
+                                <a href="tel:{{ generalEntry.phoneNumber }}" class="nav-link fs-lg p-0 contentBoxText-style">{{ generalEntry.phoneNumber }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Email -->
+            {% if entry.showEmail|length %}
+            <div class="col">
+                <div class="card border-0 h-100 contentBox-style {{ iscontactBoxBorderRadius ? '' : 'rounded-0' }}">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4 contentBoxTitle-style">Email</h4>
+                        <ul class="list-unstyled mb-0 contentBoxText-style">
+                            <li class="pb-1 mb-2">
+                                <span class="d-block fs-sm text-body-secondary mb-1 contentBoxText-style">Main office</span>
+                                <a class="nav-link fs-md p-0 contentBoxText-style" href="mailto:{{ generalEntry.email }}">{{ generalEntry.email }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Schedule -->
+            {% if entry.showTiming %}
+            {% if generalEntry.timing|length %}
+            <div class="col">
+                <div class="card border-0 h-100 contentBox-style {{ iscontactBoxBorderRadius ? '' : 'rounded-0' }}">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4 contentBoxTitle-style">Schedule</h4>
+                        <table class="office-hours w-100 contentBoxText-style">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Open</th>
+                                    <th>Close</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for row in generalEntry.timing %}
+                                <tr>
+                                    <td>{{ row.day }}</td>
+                                    <td>{{ row.startTime|date('g:i A') }}</td>
+                                    <td>{{ row.endTime|date('g:i A') }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+
+        <section {% if isformBackground %} data-bs-theme="{{ entry.themeDark ? 'dark' : 'light'}}" {% endif %}>
+            <div class="card border-0 position-relative py-lg-4 py-xl-5 bg-transparent {% if isformBackground %} form-style {% endif %} {{ isformBorderRadius ? '' : 'rounded-0' }}">
+                <div class="card-body position-relative z-2 py-5">
+                    <div class="mx-auto" style="max-width: 800px;">
+                      <h2 class="h1 card-title text-center pb-4">{{ entry.formTitle }}</h2>
+                        {% include "_forms/contact" %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% endif %}
+		{% if contactPageLayout == 'contactLayout2' %}
+
+        <div class="row pb-1 pb-sm-3 pb-lg-4">
+            <div class="col-lg-4 pe-xxl-4">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="card border-0 contentBox-style {{ iscontactBoxBorderRadius ? '' : 'rounded-0' }}">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4 contentBoxTitle-style">Address</h4>
+                                <div class="fs-lg fw-medium pb-2 contentBoxText-style">
+                                    {{ generalEntry.Description }}
+                                </div>
+
+                                {% if entry.showPhone|length %}
+                                <div class="d-flex align-items-center contentBoxText-style">
+                                    <i class="ai-phone me-2"></i>
+                                    <a href="tel:{{ generalEntry.phoneNumber }}" class="nav-link fs-lg p-0 contentBoxText-style">{{ generalEntry.phoneNumber }}</a>
+                                </div>
+                                {% endif %}
+
+                                {% if entry.showEmail|length %}
+                                <div class="d-flex align-items-center contentBoxText-style">
+                                    <i class="ai-mail me-2"></i>
+                                    <a class="nav-link fs-lg p-0 contentBoxText-style" href="mailto:{{ generalEntry.email }}">{{ generalEntry.email }}</a>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                    {% if entry.showTiming|length %}
+                    <div class="col-12">
+                        <div class="card border-0 contentBox-style {{ iscontactBoxBorderRadius ? '' : 'rounded-0' }}">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4 contentBoxTitle-style">Schedule</h4>
+                                <table class="office-hours w-100 contentBoxText-style">
+                                    <thead>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Open</th>
+                                            <th>Close</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in generalEntry.timing %}
+                                        <tr>
+                                            <td>{{ row.day }}</td>
+                                            <td>{{ row.startTime|date('g:i A') }}</td>
+                                            <td>{{ row.endTime|date('g:i A') }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-8 col-xl-7 offset-xl-1">
+                <section class="" {% if isformBackground %} data-bs-theme="{{ entry.themeDark ? 'dark' : 'light'}}" {% endif %}>
+                    <div class="card border-0 bg-transparent position-relative {% if isformBackground %} form-style {% endif %} {{ isformBorderRadius ? 'rounded-5' : 'rounded-0' }}">
+                        <div class="card-bodyx position-relative z-2 {% if isformBackground %} p-3 p-md-4 p-lg-5 {% endif %}">
+                            <div class="mx-auto">
+                            <h2 class="h2 card-title pb-4">{{ entry.formTitle }}</h2>
+                                {% include "_forms/contact" %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+<div class="w-100">
+    {% if entry.showMap %}
+        {{ generalEntry.shortDescription|raw }}
+    {% endif %}
+</div>
+
+{% include "_includes/matrix-container" with {
+    entry: contact,
+    cache_key: 'entry-' ~ contact.id
+    } 
+%}
+
+{% endblock %}

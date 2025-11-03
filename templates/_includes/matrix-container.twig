@@ -1,0 +1,13 @@
+{% set matrixContainerData = entry.matrixContainer.all() %}
+{% if matrixContainerData is defined and matrixContainerData|length %}
+	<div class="matrix-container">
+		{% for index, itemField in matrixContainerData %}
+			<div class="{{ itemField.type.handle }} entry-type" id="matrix-content-{{ index }}">
+				{% include "_includes/" ~ itemField.type.handle with {
+                matrixRow: itemField,
+                cache_key: 'entry-type-' ~ index ~ '-' ~ cache_key
+            } %}
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}

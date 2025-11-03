@@ -1,0 +1,9 @@
+{% set typographyData = block.one() ?? null %}
+{% set typographySwitchOff = typographyData.switchOff %}
+{% set typographyColorLibrary = typographyData.colorLibrary.one().colorcode.getRgb() ?? null %}
+{% set typographyColorLibraryText = typographyData.colorLibraryText.one().colorcode.getRgb() ?? null %}
+{% set typographyColorLibraryLink = typographyData.colorLibraryLink.one().colorcode.getRgb() ?? null %}
+{% set typographyColorLibraryLinkHover = typographyData.colorLibraryLinkHover.one().colorcode.getRgb() ?? null %}
+{% set typographyAlign = typographyData.align %}
+
+

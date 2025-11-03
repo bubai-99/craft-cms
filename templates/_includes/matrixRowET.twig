@@ -1,0 +1,23 @@
+<div class="matrix-row sectionStyle-style">
+	{% set fieldValues = matrixRow.getFieldValues(matrixRow.getFieldLayout().customFields|map(f => f.handle)) %}
+	{% set sectionStyle = fieldValues.sectionStyle %}
+	{% set themeBodyBg = craft.entries.section('themeSettings').one().colorBgBody.one().colorcode ?? null %}
+	
+	{# {% set containerWidth = 'container' %} #}
+
+	{% if sectionStyle is defined and sectionStyle|length %}
+	{% set sectionStyleData =   sectionStyle.one() %}
+	{% set blockCssClasses =  sectionStyleData.cssClasses ?? '' %}
+	{% set blockTypeUid = block.uid  ?? '' %}
+	{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: sectionStyleData, themeBodyBg: themeBodyBg,  blockType: 'sectionStyle' } %}
+
+	{% endif %}
+	
+	{% for fieldHandle, fieldValue in fieldValues %}
+		{% if fieldValue is iterable and fieldValue|length %}
+			{% if fieldHandle != 'sectionStyle' %}
+				{% include ["_includes/matrix-blocks/" ~ fieldHandle, "_includes/matrix-blocks/default"] with { block: fieldValue } %}
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+</div>

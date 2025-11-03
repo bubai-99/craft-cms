@@ -1,0 +1,86 @@
+{% import "_helpers/images" as images %}
+{% import '_includes/_partials/ctaButton' as buttons %}
+
+<!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page -->
+<div class="headerMain {{ headerClasses }} {{ headerPositioning }} sticky w-100 position-absolute">
+	{% if headerDisplayThinbar %}
+		<div class="header-top bg-primary py-1 text-white">
+			<div class="container text-center fs-sm">
+				{{ generalEntry.headerNotification }}
+			</div>
+		</div>
+	{% endif %}
+	<div class="navbar navbar-expand-lg bg-light header-main py-2" {% if themeSwitche %} data-bs-theme="dark" {% else %} data-bs-theme="light" {% endif %}>
+		<div class="{{ headerContainerWidth }} d-flex align-items-center justify-content-between">
+			<div class="d-none d-lg-flex align-items-center w-50 justify-content-evenly">
+				<div class="main-menu h-100 d-none d-lg-block">
+					<nav class="navbar navbar-expand navbar-header h-100 py-0 text-white">
+						<div
+							class="h-100 close-out" id="navbarNav1">
+							<!-- Navbar collapse (Main navigation) -->
+							{{ craft.simplerpmenu.getRpMenuHTML('headerMenuLeft',{ 
+								'menu-id': 'headerMenuLeft',
+								'menu-class':'headerMenu',
+								'ul-class':'navbar-nav navbar-nav-scroll me-auto',
+								'li-class':'nav-item',
+								'sub-menu-ul-class':'list-unstyled mb-0',
+								'link-class':'nav-link', }) 
+							}}
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div class="logo flex-shrink-0">
+				<a href="/" class="navbar-brand">
+					<span class="text-white flex-shrink-0">
+						<img src="{{ generalEntry.logo.0.url }}" alt="logo">
+					</span>
+				</a>
+			</div>
+			<div class="d-none d-lg-flex align-items-center w-50 justify-content-evenly">
+				<div class="main-menu h-100 d-none d-lg-block">
+					<nav class="navbar navbar-expand navbar-header h-100 py-0 text-white">
+						<div class="h-100 close-out" id="navbarNav2">
+							{{ craft.simplerpmenu.getRpMenuHTML('headerMenuRight',{ 
+								'menu-id': 'headerMenuRight',
+								'menu-class':'headerMenu',
+								'ul-class':'navbar-nav navbar-nav-scroll me-auto',
+								'li-class':'nav-item',
+								'sub-menu-ul-class':'list-unstyled mb-0',
+								'link-class':'nav-link', }) 
+							}}
+						</div>
+					</nav>
+				</div>
+			</div>
+
+			<!-- Mobile menu toggler (Hamburger) -->
+			<button class="navbar-toggler ms-2 order-lg-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Navbar collapse (Main navigation) -->
+			<div class="d-lg-none w-100">
+				<nav class="collapse navbar-collapse" id="navbarNav">
+					{{ craft.simplerpmenu.getRpMenuHTML('headerMenuLeft',{ 
+					'menu-id': 'headerMenuLeft',
+					'menu-class':'headerMenu',
+					'ul-class':'navbar-nav navbar-nav-scroll me-auto mb-0 pb-0',
+					'li-class':'nav-item',
+					'sub-menu-ul-class':'list-unstyled mb-0',
+					'link-class':'nav-link', }) 
+				}}
+					{{ craft.simplerpmenu.getRpMenuHTML('headerMenuRight',{ 
+					'menu-id': 'headerMenuRight',
+					'menu-class':'headerMenu',
+					'ul-class':'navbar-nav navbar-nav-scroll me-auto mt-0 pt-0',
+					'li-class':'nav-item',
+					'sub-menu-ul-class':'list-unstyled mb-0',
+					'link-class':'nav-link', }) 
+				}}
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="header-height"></div>

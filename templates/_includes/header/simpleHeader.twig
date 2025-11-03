@@ -1,0 +1,92 @@
+{% import "_helpers/images" as images %}
+{% import '_includes/_partials/ctaButton' as buttons %}
+
+<!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page -->
+<div class="headerMain {{ headerClasses }} {{ headerPositioning }} sticky w-100 position-absolute">
+	{% if headerDisplayThinbar %}
+	<div class="header-top bg-primary py-1 text-white">
+		<div class="container text-center fs-sm">
+			{{ generalEntry.headerNotification }}
+		</div>
+	</div>
+	{% endif %}
+	<div class="navbar navbar-expand-lg bg-light header-main flex-wrap"  {% if themeSwitche %}data-bs-theme="dark"{% else %}data-bs-theme="light"{% endif %}>
+		<div class="{{ headerContainerWidth }}">
+			<!-- Navbar brand (Logo) -->
+			<a class="navbar-brand pe-sm-3" href="/">
+				<span class="logo text-primary flex-shrink-0 me-2">
+					<img src="{{ generalEntry.logo.0.url }}" alt="logo">
+				</span>
+			</a>
+
+			<div class="order-sm-3">
+				<!-- Phone -->
+				{% if headerDisplayPhone %}
+					<div>
+						<a class="nav-link fw-normal px-0 py-1" href="tel:{{ generalEntry.phoneNumber }}">{{ generalEntry.phoneNumber }}</a>
+					</div>
+				{% endif %}
+			</div>
+
+			<!-- Social -->
+			{% if headerDisplaySocial %}
+				<div class="social-items order-sm-3 ms-3 d-none d-sm-flex">{% include '_includes/_partials/social' %}</div>
+			{% endif %}
+			
+			<!-- Search -->
+			{% if headerDisplaySearch %}
+				<div class="nav align-items-center order-sm-3">
+					<a class="nav-link fs-4 p-2 ms-2 collapsed" href="#" aria-label="Search" data-bs-toggle="collapse" data-bs-target="#collapseSearch-6" aria-expanded="false" aria-controls="collapseSearch-6">
+						<i class="ai-search"></i>
+					</a>
+				</div>
+			{% endif %}
+			
+			<!-- CTA Button -->
+			{% if headerDisplayCTA is defined and headerButton is defined and headerDisplayCTA  and headerButton %}
+				{% set customClasses = "btn-sm fs-sm order-sm-3 d-none d-sm-inline-flex ms-2" %}
+				{{ buttons.renderButton(headerButton, {}, customClasses) }}
+			{% endif %}
+
+			<!-- Mobile menu toggler (Hamburger) -->
+			<button class="navbar-toggler ms-2 order-lg-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Navbar collapse (Main navigation) -->
+			<nav class="collapse navbar-collapse order-sm-2" id="navbarNav">
+				{{ craft.simplerpmenu.getRpMenuHTML('headerMenu',{ 
+					'menu-id': 'headerMenu',
+					'menu-class':'headerMenu',
+					'ul-class':'navbar-nav navbar-nav-scroll me-auto',
+					'li-class':'nav-item',
+					'sub-menu-ul-class':'list-unstyled mb-0',
+					'link-class':'nav-link', }) 
+				}}
+				<div class="d-sm-none p-3 mt-n3">
+					{% if headerDisplayCTA  and headerButton %}
+						{{ buttons.renderButton(headerButton) }}
+					{% endif %}
+				</div>
+			</nav>
+		</div>
+
+		<div class="search-field w-100 collapse" id="collapseSearch-6">
+			<div class="container" style="max-width: 600px;">
+				<form action="/search?" method="get" class="d-block py-2">
+					<div class="input-group px-3 py-1 rounded-pill bg-white bg-opacity-10 border-0 d-flex align-items-center">
+						<label for="searchField" class="input-group-text text-white border-0 p-0 me-_5 bg-transparent">
+							<i class="ai-search"></i>
+						</label>
+						<input class="form-control text-white border-0 rounded-0 p-2 bg-transparent" required="" name="term">
+						<div class="close-search text-white d-inline-flex" data-bs-toggle="collapse" data-bs-target="#collapseSearch-6" aria-expanded="true">
+							<i class="ai-cross"></i>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="header-height"></div>
+

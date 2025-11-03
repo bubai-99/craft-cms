@@ -1,0 +1,162 @@
+{% import "_helpers/images" as images %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set selectServices = block.selectServices ?? [] %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{% set serviceStyles = block.serviceStyle.one() %}
+{% set containerWidth = 'container' %}
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+
+{% set blockCssClasses = '' %}
+{% set themeSwitche = '' %}
+
+{% if selectServices %}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData = blockStyle.one() %}
+		{% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+
+			{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+				{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+			{% endif %}
+		{% endif %}
+	{% endif %}
+
+	{% set serviceBackgroundColorClass = serviceStyles.serviceBackground.one().colorcode ?? '' %}
+	{% if serviceBackgroundColorClass %}
+		<style>
+			.service-item {background: {{ serviceBackgroundColorClass|raw }};}
+		</style>
+	{% endif %}
+
+	{% set titleColorClass = serviceStyles.titleColor.one().colorcode ?? '' %}
+	{% if titleColorClass %}
+		<style>
+			.service-heading-title {color: {{ titleColorClass|raw }};}
+		</style>
+	{% endif %}
+
+	{% set textColorClass = serviceStyles.contentColor.one().plainText ?? '' %}
+	{% if textColorClass %}
+		<style>
+			.service-content-style {color: {{ textColorClass|raw }};}
+		</style>
+	{% endif %}
+
+	<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			{% set displayView = block.displayView.value ?? '' %}
+
+			{% if displayView == 'sliderView' %}
+			{% set servicePerRow = block.servicePerRow.value ?? 'column3' %}
+			{% set columnClassMap = {
+				'column4': '4',
+				'column3': '3',
+				'column2': '2'
+			} %}
+			{% set rowColsClass = columnClassMap[servicePerRow] ?? '3' %}
+				<div class="swiper" data-swiper-options='
+						{
+						"spaceBetween": 24,
+						"pagination": {
+							"el": ".swiper-pagination",
+							"clickable": true
+						},
+						"breakpoints": {
+							"576": { "slidesPerView": 2 },
+							"992": { "slidesPerView": {{ rowColsClass }} }
+						}
+						}
+					'>
+					<div class="swiper-wrapper">
+						{% for service in selectServices %}
+		
+							<!-- Item -->
+							<div class="swiper-slide h-auto">
+								<a class="card border-0 h-100 text-center text-decoration-none {{ serviceBackgroundColorClass ? 'service-item' : 'bg-gray-200' }}" href="{{ service.url }}">
+									<div class="card-body">
+										{% if service.image|length %}
+											<div class="d-block mx-auto mb-4">
+												{{ images.singleImg(service.image.0, 196, {'ratio': 2.578}, 'flex-shrink-0') }}
+											</div>
+										{% endif %}
+										<h3 class="service-heading-title">{{service.title}}</h3>
+										<div class="card-text service-content-style">{{service.shortDescription}}</div>
+									</div>
+									<div class="card-footer border-0 px-0 pt-0 pb-4 mb-3">
+										<div class="btn btn-icon btn-outline-primary rounded-circle stretched-link">
+											<i class="ai-arrow-right"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+
+						{% endfor %}
+					</div>
+					<!-- Pagination (bullets) -->
+					<div class="swiper-pagination position-relative bottom-0 mt-2 pt-4"></div>
+				</div>
+			{% endif %}
+
+			{% if displayView == 'gridView' %}
+			{% set servicePerRow = block.servicePerRow.value ?? 'column3' %}
+			{% set columnClassMap = {
+				'column4': 'row-cols-md-4',
+				'column3': 'row-cols-md-3',
+				'column2': 'row-cols-md-2'
+			} %}
+			{% set rowColsClass = columnClassMap[servicePerRow] ?? 'row-cols-md-3' %}
+				<div class="row gy-4 swiper-wrapper w-auto {{ rowColsClass }}">
+					{% for service in selectServices %}
+						<!-- Item -->
+						<div class="swiper-slide h-auto">
+							<a class="card border-0 h-100 text-center text-decoration-none {{ serviceBackgroundColorClass ? 'service-item' : 'bg-gray-200' }}" href="{{ service.url }}">
+								<div class="card-body">
+									{% if service.image|length %}
+										<div class="d-block mx-auto mb-4">
+											{{ images.singleImg(service.image.0, 196, {'ratio': 2.578}, 'flex-shrink-0') }}
+										</div>
+									{% endif %}
+									<h3 class="service-heading-title">{{service.title}}</h3>
+									<div class="card-text service-content-style">{{service.shortDescription}}</div>
+								</div>
+								<div class="card-footer border-0 px-0 pt-0 pb-4 mb-3">
+									<div class="btn btn-icon btn-outline-primary rounded-circle stretched-link">
+										<i class="ai-arrow-right"></i>
+									</div>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endif %}

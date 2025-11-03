@@ -1,0 +1,202 @@
+{% import "_helpers/images" as images %}
+{% set expandableContent = block.expandableContent ?? [] %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{% set blockType = block.type.handle ?? 'images' %}
+{% set containerWidth = 'container' %}
+
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+
+{% set accordionStyles = block.accordionStyle.one() %}
+{% set blockCssClasses = '' %}
+{% set themeSwitche = '' %}
+
+{% if expandableContent | length %}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData =   blockStyle.one() %}
+		{% set blockCssClasses =  blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType, } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'flatMinimalAccordion': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+		{% endif %}
+		
+		{% if returnVars.containerWidth is defined %}
+			{% set containerWidth = returnVars.containerWidth %}
+		{% endif %}
+
+		{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+			{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+		{% endif %}
+
+	{% endif %}
+	<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			{% set accordionStyle = block.accordionStyle|length
+				? block.accordionStyle.one().accordionDisplayStyle.value ?? ''
+				: '' 
+			%}
+			{% set flatMinimalAccordion = '' %}
+			{% set borderedAccordion = '' %}
+			{% set cardStyleAccordion = '' %}
+			{% set cardFullBorderStyleAccordion = '' %}
+			{% set cardHeaderStyleAccordion = '' %}
+			{% set accordionItemClass = '' %}
+			{% set accordionItemTopBorderClass = '' %}
+
+			{% if accordionStyle == 'flatMinimalAccordion' %}
+				{% set flatMinimalAccordion = 'accordion-alt' %}
+			{% elseif accordionStyle == 'borderedAccordion' %}
+				{% set borderedAccordion = 'accordion-alt' %}
+				{% set accordionItemTopBorderClass = 'border-bottom border-start-0 border-end-0 border-top-0 border-1 accordion-border mb-0' %}
+			{% elseif accordionStyle == 'cardStyleAccordion' %}
+				{% set cardStyleAccordion = '' %}
+				{% set cardFullBorderStyleAccordion = 'accordion-border' %}
+			{% elseif accordionStyle == 'cardHeaderStyleAccordion' %}
+				{% set cardHeaderStyleAccordion = 'accordion-alt2' %}
+				{% set accordionItemClass = 'bg-white border border-1 accordion-border accordion-toggle-item' %}
+			{% endif %}
+
+			{% set isColumnReverse = block.columnReverse ?? false %}
+
+			{% set isArrowTextReverse = block.accordionStyle.one().toggleIconAlignment ?? false %}
+
+			{% set borderRadiusClass = accordionStyles.borderRadius ?? '' %}
+			{% if borderRadiusClass is not same as(null) %}
+				<style>
+					.accordion-toggle-item {border-radius: {{ borderRadiusClass}}px !important;}
+				</style>
+			{% endif %}
+
+			{% set borderWidthClass = accordionStyles.number ?? '' %}
+			{% if borderWidthClass %}
+				<style>
+					.accordion-border {border-width: {{ borderWidthClass}}px !important;}
+				</style>
+			{% endif %}
+
+			{% set borderColorClass = accordionStyles.colorLibrary.one().plainText ?? '' %}
+			{% if borderColorClass %}
+				<style>
+					.accordion-toggle-item {border-color: {{ borderColorClass|raw }};}
+					.accordion-border { border-color: {{ borderColorClass|raw }} !important; }
+				</style>
+			{% endif %}
+
+			{% set toggleBackgroundColorClass = accordionStyles.toggleBackgroundColor.one().plainText ?? '' %}
+			{% if toggleBackgroundColorClass %}
+				<style>
+					.accordion-toggle-item {background: {{ toggleBackgroundColorClass|raw }};}
+				</style>
+			{% endif %}
+
+			{% set titleColorClass = accordionStyles.titleColor.one().plainText ?? '' %}
+			{% if titleColorClass %}
+				<style>
+					.accordion-heading-title {color: {{ titleColorClass|raw }};}
+				</style>
+			{% endif %}
+
+			{% set textColorClass = accordionStyles.contentColor.one().plainText ?? '' %}
+			{% if textColorClass %}
+				<style>
+					.accordion-content-style {color: {{ textColorClass|raw }};}
+				</style>
+			{% endif %}
+
+			{% set toggleHoverColorClass = accordionStyles.toggleHoverColor.one().plainText ?? '' %}
+			{% if toggleHoverColorClass %}
+				<style>
+					.accordion-heading-title.accordion-button:not(.collapsed) {color: {{ toggleHoverColorClass|raw }};}
+				</style>
+			{% endif %}
+	
+			{# {% if headingAndContent %}
+				{{ headingAndContent.heading }}
+				{{ headingAndContent.headingTags }}
+			{% endif %} #}
+
+			{% set accordionDisplayMode = block.accordionDisplayMode ?? 'simpleAccordion' %}
+			{% if accordionDisplayMode == 'simpleAccordion' %}
+				<div class="row align-items-lg-center">
+					<div class="col-md-12 col-lg-12 pb-2 pb-lg-0 mb-4 mb-md-0">
+						<div class="accordion {{ flatMinimalAccordion }}{{ borderedAccordion }}{{ cardStyleAccordion }}{{ cardHeaderStyleAccordion}}" id="industries">
+							{% for index, item in expandableContent %}
+								{% include "_includes/matrix-blocks/" ~ item.type.handle with { index: index, block: item } %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+			{% elseif accordionDisplayMode == 'accordionWithChangingImage' %}
+				<div class="row align-items-lg-center {% if isColumnReverse %} flex-row-reverse{% endif %}">
+					<div class="col-md-6 col-lg-5 pb-2 pb-lg-0 mb-4 mb-md-0 {% if isColumnReverse %} offset-xl-1{% endif %}">
+						<div class="accordion {{ flatMinimalAccordion }}{{ borderedAccordion }}{{ cardStyleAccordion }}{{ cardHeaderStyleAccordion}}" id="industries">
+							{% for index, item in expandableContent %}
+								{% include "_includes/matrix-blocks/" ~ item.type.handle with { index: index, block: item } %}
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-7 col-xl-6 {{ isColumnReverse ? 'offset-xl-0' : 'offset-xl-1' }}">
+						<div class="ps-lg-4 ps-xl-0">
+							<div class="binded-content">
+								{% for index, item in expandableContent %}
+									<div class="binded-item {{ index == 0 ? 'active' : '' }}" id="img-{{ index }}">
+										{{ images.singleImg(item.images.0 ?? null, 635, {'ratio': 1.257}, 'flex-shrink-0 rounded-5') }}
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+
+			{% elseif accordionDisplayMode == 'accordionWithSingleImage' %}
+				<div class="row align-items-lg-center {% if isColumnReverse %} flex-row-reverse{% endif %}">
+					<div class="col-md-6 col-lg-5 pb-2 pb-lg-0 mb-4 mb-md-0 {% if isColumnReverse %} offset-xl-1{% endif %}">
+						<div class="accordion {{ flatMinimalAccordion }}{{ borderedAccordion }}{{ cardStyleAccordion }}{{ cardHeaderStyleAccordion}}" id="industries">
+							{% for index, item in expandableContent %}
+								{% include "_includes/matrix-blocks/" ~ item.type.handle with { index: index, block: item } %}
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-7 col-xl-6 {{ isColumnReverse ? 'offset-xl-0' : 'offset-xl-1' }}">
+						<div class="ps-lg-4 ps-xl-0">
+							{% if block.image|length %}
+								{{ images.singleImg(block.image.0 ?? null, 635, {'ratio': 1.257}, 'flex-shrink-0 rounded-5') }}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+{% endif %}

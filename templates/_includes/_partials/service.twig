@@ -1,0 +1,41 @@
+{# {% import "_helpers/images" as images %}
+
+
+<section class="container pt-sm-2 pt-md-3 pt-lg-4 pt-xl-5 mt-xxl-4 pb-lg-2 pb-xl-4 pb-xxl-5">
+	<h2 class="h1 text-center pb-3 pb-lg-4">Our services</h2>
+	<div class="swiper" data-swiper-options='
+									          {
+									            "spaceBetween": 24,
+									            "pagination": {
+									              "el": ".swiper-pagination",
+									              "clickable": true
+									            },
+									            "breakpoints": {
+									              "576": { "slidesPerView": 2 },
+									              "992": { "slidesPerView": 3 }
+									            }
+									          }
+									        '>
+		<div class="swiper-wrapper">
+			{% for index, item in servicesEntries %}
+				<div class="swiper-slide h-auto">
+					<a class="card bg-secondary border-0 h-100 text-center text-decoration-none" href="#">
+						<div
+							class="card-body">
+							{{ images.singleImg(item.image.0, 80) }}
+							<h3>{{item.title}}</h3>
+							<p class="card-text">{{item.Description}}</p>
+						</div>
+						<div class="card-footer border-0 px-0 pt-0 pb-4 mb-3">
+							<div class="btn btn-icon btn-outline-primary rounded-circle stretched-link">
+								<i class="ai-arrow-right"></i>
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class="swiper-pagination position-relative bottom-0 mt-2 pt-4 d-lg-none"></div>
+	</div>
+</section> #}

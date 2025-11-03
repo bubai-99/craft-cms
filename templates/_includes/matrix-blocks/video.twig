@@ -1,0 +1,6 @@
+{% if item.video is defined and item.video.0 is defined and item.video.0.getUrl() is not empty %}
+<video width="100%" height="auto" controls class="s">
+    <source src="{{item.video.0.getUrl()}}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+{% endif %}

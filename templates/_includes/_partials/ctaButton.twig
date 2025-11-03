@@ -1,0 +1,22 @@
+{% for button in headerButton %}
+	<a class="btn btn-{{button.colorPalette}} btn-sm fs-sm rounded-pill order-lg-3 d-none d-sm-inline-flex" href={{button.linkUrl}} target="_blank" rel="noopener">
+		<i class="ai-cart fs-xl me-2 ms-n1"></i>
+		{{button.plainText}}
+	</a>
+{% endfor %}
+
+{% macro renderButton(buttons, styles={}, customClasses='') %}
+	{% for button in buttons %}
+		<a class="btn btn-{{ button.colorPalette }} {{button.cssClasses}} {% if customClasses is not empty %} {{ customClasses }}{% endif %}" 
+		href="{{ button.linkUrl }}" target="_blank" rel="noopener"
+		 {% if styles is not empty %} style="{% for key, value in styles %}{{ key }}: {{ value }}; {% endfor %}"{% endif %}
+		>
+			{% if button.displayIcon %}
+				<i class="{{ button.buttonIconClasses }} fs-xl me-2 ms-n1"></i>
+			{% endif %}
+			{% if button.plainText is defined and button.plainText is not empty %}	
+				{{ button.plainText }}
+			{% endif %}
+		</a>
+	{% endfor %}
+{% endmacro %}

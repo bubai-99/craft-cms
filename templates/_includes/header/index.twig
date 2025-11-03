@@ -1,0 +1,155 @@
+{% set headerLayout = headerEntry.headerLayout %}
+{% set headerButton = headerEntry.button ?? null %}
+{% set headerContainerWidth = headerEntry.containerWidth.value ?? null %}
+
+{% set headerVerticalAlign = headerEntry.verticalAlign %}
+{% set headerDisplaySearch = headerEntry.displaySearch %}
+{% set headerDisplaySocial = headerEntry.displaySocial %}
+{% set headerDisplayCTA = headerEntry.displayCTA %}
+{% set headerDisplayPhone = headerEntry.displayPhone %}
+{% set headerDisplayEmail = headerEntry.displayEmail %}
+{# {% set headerDisplayAddress = headerEntry.displayAddress %} #}
+{% set headerDisplayThinbar = headerEntry.displayThinbar %}
+{% set headerBackground = headerEntry.background.one() ?? null %}
+{% set headerSpacingData = headerEntry.spacing.one() ?? null %}
+{% set headerClasses = headerEntry.headerClasses %}
+{% set headerPositioning = headerEntry.positioning.value ?? null %}
+{% set headerBackgroundColor = headerBackground.colorLibrary.one().colorcode.getRgb() ?? null %}
+{% set headerBackgroundImage = headerBackground.image.one().url ?? null %}
+
+{% set themeSwitche = headerEntry.background.one().themeDark ?? null  %}
+
+{% if headerSpacingData.mediaScreen is defined %}
+	{% set mediaScreen = headerSpacingData.mediaScreen ?? null %}
+{% endif %}
+{% set padding = headerSpacingData.padding ?? null %}
+{% set topPadding = padding[0].top ?? null %}
+{% set rightPadding = padding[0].right ?? null %}
+{% set bottomPadding = padding[0].bottom ?? null %}
+{% set leftPadding = padding[0].left ?? null %}
+
+{% set margin = headerSpacingData.margin ?? null %}
+{% set topMargin = margin[0].top ?? null %}
+{% set rightMargin = margin[0].right ?? null %}
+{% set bottomMargin = margin[0].bottom ?? null %}
+{% set leftMargin = margin[0].left ?? null %}
+
+{% set paddingTab = headerSpacingData.paddingTab ?? null %}
+{% set topPaddingTab = paddingTab[0].top ?? null %}
+{% set rightPaddingTab = paddingTab[0].right ?? null %}
+{% set bottomPaddingTab = paddingTab[0].bottom ?? null %}
+{% set leftPaddingTab = paddingTab[0].left ?? null %}
+
+{% set marginTab = headerSpacingData.marginTab ?? null %}
+{% set topMarginTab = marginTab[0].top ?? null %}
+{% set rightMarginTab = marginTab[0].right ?? null %}
+{% set bottomMarginTab = marginTab[0].bottom ?? null %}
+{% set leftMarginTab = marginTab[0].left ?? null %}
+
+{% set paddingMob = headerSpacingData.paddingMob ?? null %}
+{% set topPaddingMob = paddingMob[0].top ?? null %}
+{% set rightPaddingMob = paddingMob[0].right ?? null %}
+{% set bottomPaddingMob = paddingMob[0].bottom ?? null %}
+{% set leftPaddingMob = paddingMob[0].left ?? null %}
+
+{% set marginMob = headerSpacingData.marginMob ?? null %}
+{% set topMarginMob = marginMob[0].top ?? null %}
+{% set rightMarginMob = marginMob[0].right ?? null %}
+{% set bottomMarginMob = marginMob[0].bottom ?? null %}
+{% set leftMarginMob = marginMob[0].left ?? null %}
+
+{# Handle container width #}
+{% if headerEntry.containerWidth is defined and headerEntry.containerWidth.value is not empty %}
+	{% set containerWidthMap = {
+		'default': 'container',
+		'fullWidth': 'container container-full',
+		'boxedLg': 'container container-large',
+		'boxedSm': 'container container-small'
+	} %}
+	{% set headerContainerWidth = containerWidthMap[headerEntry.containerWidth.value] ?? 'container' %}
+{% else %}
+	{% set headerContainerWidth = 'container' %}
+{% endif %}
+
+{# Handle container position #}
+{% if headerEntry.positioning is defined and headerEntry.positioning.value is not empty %}
+	{% set containerPositioningMap = {
+		'static': 'static',
+		'fixed': 'fixed-top',
+		'sticky': 'sticky-top-ber',
+	} %}
+	{% set headerPositioning = containerPositioningMap[headerEntry.positioning.value] ?? 'static' %}
+{% else %}
+	{% set headerPositioning = 'static' %}
+{% endif %}
+
+{% if headerLayout is defined and headerLayout %}
+	{% set headerLayout = headerEntry.headerLayout ?? 'hLayout1' %}
+	{% set folder = "_includes/header" %}
+	{% set filePath = folder ~ '/' ~ headerLayout %}
+	{% set folderAbs = absolutePath ~ "/_includes/header" %}
+	{% set filePathAbs = folderAbs ~ '/' ~ headerLayout ~ '.twig' %}
+	{# {% if filePathAbs and craft.rplib.file_exists(filePathAbs) %}
+		{% include filePath %}
+	{% else %}
+		{% set defaultFilePath = folder ~ '/simpleHeader' %}
+		{% include defaultFilePath %}
+	{% endif %} #}
+{% endif %}
+
+{% if craft.app.user and craft.app.user.isAdmin %}
+	<a href="{{ entry.getCpEditUrl() }}" class="btn btn-primary position-fixed top-50 end-0 ps-3 pe-2 rounded-end-0 z-3 page-edit-btn d-none d-md-flex" target="_blank">
+		<i class="ai-edit-alt"></i>
+	</a>
+{% endif %}
+<style>
+	{% if headerBackgroundColor or headerBackgroundImage or topPaddingMob or rightPaddingMob or bottomPaddingMob or leftPaddingMob or topMarginMob or rightMarginMob or bottomMarginMob or leftMarginMob %}
+		.header-main{
+			{% if headerBackgroundColor %} background-color: {{ headerBackgroundColor }} !important;{% endif %}
+			{% if headerBackgroundImage %} background-image: url({{ headerBackgroundImage }}) !important;{% endif %}
+			background-repeat: no-repeat;
+			background-size: cover;
+			{% if topPadding is not null and topPadding is not empty %}padding-top: {{ topPadding }}px !important;{% endif %}
+			{% if rightPadding is not null and rightPadding is not empty %}padding-right: {{ rightPadding }}px !important;{% endif %}
+			{% if bottomPadding is not null and bottomPadding is not empty %}padding-bottom: {{ bottomPadding }}px !important;{% endif %}
+			{% if leftPadding is not null and leftPadding is not empty %}padding-left: {{ leftPadding }}px !important;{% endif %}
+
+			{% if topMargin is not null and topMargin is not empty %}margin-top: {{ topMargin }}px !important;{% endif %}
+			{% if rightMargin is not null and rightMargin is not empty %}margin-right: {{ rightMargin }}px !important;{% endif %}
+			{% if bottomMargin is not null and bottomMargin is not empty %}margin-bottom: {{ bottomMargin }}px !important;{% endif %}
+			{% if leftMargin is not null and leftMargin is not empty %}margin-left: {{ leftMargin }}px !important;{% endif %}
+		}
+	{% endif %}
+
+	@media(min-width: 768px ) and (max-width: 1199px) {
+		{% if topPaddingTab or rightPaddingTab or bottomPaddingTab or leftPaddingTab or topMarginTab or rightMarginTab or bottomMarginTab or leftMarginTab %}
+			.header-main{
+				{% if topPaddingTab is not null and topPaddingTab is not empty %}padding-top: {{ topPaddingTab }}px !important;{% endif %}
+				{% if rightPaddingTab is not null and rightPaddingTab is not empty %}padding-right: {{ rightPaddingTab }}px !important;{% endif %}
+				{% if bottomPaddingTab is not null and bottomPaddingTab is not empty %}padding-bottom: {{ bottomPaddingTab }}px !important;{% endif %}
+				{% if leftPaddingTab is not null and leftPaddingTab is not empty %}padding-left: {{ leftPaddingTab }}px !important;{% endif %}
+
+				{% if topMarginTab is not null and topMarginTab is not empty %}margin-top: {{ topMarginTab }}px !important;{% endif %}
+				{% if rightMarginTab is not null and rightMarginTab is not empty %}margin-right: {{ rightMarginTab }}px !important;{% endif %}
+				{% if bottomMarginTab is not null and bottomMarginTab is not empty %}margin-bottom: {{ bottomMarginTab }}px !important;{% endif %}
+				{% if leftMarginTab is not null and leftMarginTab is not empty %}margin-left: {{ leftMarginTab }}px !important;{% endif %}
+			}
+		{% endif %}
+	}
+
+	@media (max-width: 767px) {
+		{% if topPadding or rightPadding or bottomPadding or leftPadding or topMargin or rightMargin or bottomMargin or leftMargin %}
+			.header-main{
+				{% if topPaddingMob is not null and topPaddingMob is not empty %}padding-top: {{ topPaddingMob }}px !important;{% endif %}
+				{% if rightPaddingMob is not null and rightPaddingMob is not empty %}padding-right: {{ rightPaddingMob }}px !important;{% endif %}
+				{% if bottomPaddingMob is not null and bottomPaddingMob is not empty %}padding-bottom: {{ bottomPaddingMob }}px !important;{% endif %}
+				{% if leftPaddingMob is not null and leftPaddingMob is not empty %}padding-left: {{ leftPaddingMob }}px !important;{% endif %}
+
+				{% if topMarginMob is not null and topMarginMob is not empty %}margin-top: {{ topMarginMob }}px !important;{% endif %}
+				{% if rightMarginMob is not null and rightMarginMob is not empty %}margin-right: {{ rightMarginMob }}px !important;{% endif %}
+				{% if bottomMarginMob is not null and bottomMarginMob is not empty %}margin-bottom: {{ bottomMarginMob }}px !important;{% endif %}
+				{% if leftMarginMob is not null and leftMarginMob is not empty %}margin-left: {{ leftMarginMob }}px !important;{% endif %}
+			}
+		{% endif %}
+	}
+</style>

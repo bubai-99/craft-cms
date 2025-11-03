@@ -1,0 +1,30 @@
+
+{% import "_helpers/images" as images %}
+{% set slider = entry.headerSlider %}
+
+<div class="inner-banner bg-black">
+    <div class="inner-carousel">
+        {% for slide in slider %}
+        <div class="slick-elem">
+            <div class="banner-img">
+                {{images.transformOrPlaceholder(slide.background.0,({ width: 1920 }))}}
+                <div class="inner-banner-icon-img">
+                    {{images.transformOrPlaceholder(slide.image.0,({ width: 960 }))}}
+                </div>
+                <div class="banner-cnt">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-5">
+                                <div class="txt">
+                                    <h2>{{ slide.title }}</h2>
+                                    {{ slide.testContent }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

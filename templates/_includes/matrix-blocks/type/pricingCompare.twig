@@ -1,0 +1,195 @@
+{% import "_helpers/images" as images %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set video = block ?? '' %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? 'video' %}
+{% set containerWidth = 'container' %}
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{% set blockCssClasses = '' %}
+{% set themeSwitche = '' %}
+
+<!-- video -->
+{% if video | length %}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData =   blockStyle.one() %}
+		{% set blockCssClasses =  blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+			{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+				{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+			{% endif %}
+		{% endif %}
+		{% if returnVars.containerWidth is defined %}
+			{% set containerWidth = returnVars.containerWidth %}
+		{% endif %}
+	{% endif %}
+
+	<div class="pricing-compare-block {{ blockType }}{{blockTypeUid}}-style {{ blockCssClasses }} py-3 py-lg-4 py-xl-5">
+		<div class="{{ containerWidth }}">
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			{# Package Section #}
+			{% set packages = block.selectPackage.all() %}
+			{% if packages|length %}
+			<div class="row row-cols-3 flex-nowrap pb-4 overflow-auto justify-content-lg-center">
+				{% for package in packages %}
+				<!-- Plan -->
+				<div class="col" style="min-width: 19rem;">
+					<div class="card h-100 py-lg-4 overflow-hidden pt-3">
+					<div class="card-body w-100 mx-auto text-center" style="max-width: 23rem;">
+						{% if package.switchOff %}
+							<div class="position-absolute top-0 start-0 w-100 bg-primary text-white p-1">Recommended</div>
+						{% endif %}
+						{% if package.title|length %}
+							<h3>{{ package.title }}</h3>
+						{% endif %}
+						{% if package.price|length %}
+							<div class="display-2 text-primary">{{ package.price }}</div>
+						{% endif %}
+						{% if package.plainText|length %}
+							<div class="mb-4">{{ package.plainText }}</div>
+						{% endif %}
+						{% if package.editorFull|length %}
+							<div class="mb-1 pb-4">{{ package.editorFull }}</div>
+						{% endif %}
+						{% set buttons = package.button.all() %}
+						{% if buttons|length %}
+							{% for button in buttons %}
+								<a href="{{ button.linkUrl }}" class="btn w-100 btn-{{ button.colorPalette }} {{ button.cssClasses }}" type="button">
+									{{ button.plainText }} 
+									{% if button.displayIcon %}
+										{{ button.buttonIconClasses }}
+									{% endif %}
+								</a>
+							{% endfor %}
+						{% endif %}
+					</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+
+
+			{# Feature Section #}
+			<div class="text-center pt-md-1 pt-lg-2">
+				<button class="btn btn-more btn-link fs-4" type="button" data-show-label="Compare plans" data-hide-label="Compare plans" data-bs-toggle="collapse" data-bs-target="#comparePlans" aria-label="Compare plans"></button>
+			</div>
+
+			<div class="collapse show" id="comparePlans">
+				{% set featureGroups = craft.entries.section('featureGroups').all() %}
+				{% set planTitles = packages | map(e => e.title) %}
+
+				{% set featuresByGroup = {} %}
+				{% for package in packages %}
+					{% for feature in package.packageFeaturesEntry.all() %}
+
+						{% set groupTitle = feature.selectFeatureGroup.0.title %}
+						{% set featureTitle = feature.selectFeature.0.title %}
+						{% set featureDescription = feature.selectFeature.0.editorFull %}
+						{% set featureValueType = feature.selectValueType %}
+						{% if featureValueType == 'text' %}
+							{% set featureValue = feature.plainText ?? '—' %}
+						{% elseif featureValueType == 'boolean' %}
+							{% set featureValue = feature.switchOffBoolean ?? false %}
+						{% elseif featureValueType == 'numeric' %}
+							{% set featureValue = feature.number ?? '—' %}
+						{% endif %}
+
+						{% set groupData = featuresByGroup[groupTitle] ?? {} %}
+						{% set featureData = groupData[featureTitle] ?? {
+							'valueType': featureValueType,
+							'plans': {}
+							} 
+						%}
+
+						{% set updatedPlans = featureData.plans | merge({ (package.title): featureValue }) %}
+						{% set featureData = featureData | merge({ 'plans': updatedPlans, 'valueType': featureValueType, 'description': featureDescription }) %}
+						{% set groupData = groupData | merge({ (featureTitle): featureData }) %}
+						{% set featuresByGroup = featuresByGroup | merge({ (groupTitle): groupData }) %}
+					{% endfor %}
+				{% endfor %}
+				{% set colspan = planTitles | length + 1 %}
+				<div class="table-responsive pt-sm-2 pt-lg-3">
+					<table class="table text-center text-nowrap">
+						<thead>
+						<tr>
+							<th scope="col" class="border-0 py-3 text-start">&nbsp;</th>
+							{% for plan in planTitles %}
+								<th scope="col" class="border-0 py-3">
+									<div class="h5 mb-0">{{ plan }}</div>
+								</th>
+							{% endfor %}
+						</tr>
+						</thead>
+						<tbody>
+						{% for groupName, features in featuresByGroup %}
+							<tr> 
+								<td colspan={{ colspan }} scope="col" class="border-0 text-start pt-4 pb-3 ps-4">
+									<div class="h6 pt-1 mb-0">{{ groupName }}</div>
+								</td>
+							</tr>
+							{% for featureName, data in features %}
+								<tr class="border-bottom border-2 border-white">
+								<th class="featurecol border-0 bg-secondary text-start py-3 ps-4 last-0">
+									<div class="featurecol text-wrap">
+										<div class="text-body fw-medium mb-2">{{ featureName }}</div>
+										{% if data.description %}
+											<div class="text-sm text-gray-200 small fw-normal last-0">{{ data.description|raw }}</div>
+										{% endif %}
+									</div>
+								</th>
+								{% for plan in planTitles %}
+									{% set val = data.plans[plan] ?? '—' %}
+									{% set type = data.valueType %}
+									<td class="border-0 bg-secondary py-3">
+										<div class="text-dark">
+										{% if type == 'boolean' %}
+											{% if val == 1 %}
+												<i class="ai-check fs-xl text-success"></i>
+											{% elseif val != 1 %}
+												<i class="ai-cross fs-xl text-danger"></i>
+											{% else %}
+												{{ val }}
+											{% endif %}
+										{% else %}
+											{{ val }}
+										{% endif %}
+										</div>
+									</td>
+								{% endfor %}
+								</tr>
+							{% endfor %}
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

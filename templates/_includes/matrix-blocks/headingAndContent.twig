@@ -1,0 +1,13 @@
+{% set headingContentBlockData = block.all() %}
+{% for headingContentBlock in headingContentBlockData %}
+	{% if headingContentBlock is not null %}
+		<div class="container py-3 py-lg-4">
+			<div style="text-align:{{ headingContentBlock.align | default('left') }}">
+				<{{headingContentBlock.headingTags|default('h2')}} class="text-white block-heading-title">
+					{{ headingContentBlock.heading | default('') }}
+				</{{headingContentBlock.headingTags|default('h2')}}>
+				{{ headingContentBlock.Description | default('') }}
+			</div>
+		</div>
+	{% endif %}
+{% endfor %}

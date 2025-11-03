@@ -1,0 +1,69 @@
+{% import '_includes/_partials/ctaButton' as buttons %}
+
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+
+{% if blockStyle is defined and blockStyle|length %}
+	{% set blockStyleData =   blockStyle.one() %}
+	{% set blockCssClasses =  blockStyleData.cssClasses ?? '' %}
+	{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+{% endif %}
+
+{% set heroBannerSliderItemHeading = block.heading %}
+{% set heroBannerSliderItemDisplayTitle = block.displayTitle %}
+{% set heroBannerSliderItemSubtitle = block.subtitle %}
+{% set heroBannerSliderItemSwitchOffDes = block.switchOffDes %}
+{% set heroBannerSliderItemDescription = block.description %}
+{% set heroBannerSliderItemImageVideo = block.imageVideo %}
+{% set heroBannerSliderItemImage = block.image.one() %}
+{% set heroBannerSliderItemColorData = block.colorLibrary.one() %}
+{% set heroBannerSliderItemColor = heroBannerSliderItemColorData.plainText ?? null %}
+{% set heroBannerSliderItemColorCode = heroBannerSliderItemColorData.colorcode ?? null %}
+{% set heroBannerSliderItemButton = block.button %}
+{% set heroBannerSliderItemStyles = heroBannerSliderItemColorCode ? 'background-color: ' ~ heroBannerSliderItemColorCode ~ ' !important;' : '' %}
+{% set heroBannerSliderItemStyles = (heroBannerSliderItemImage and heroBannerSliderItemImage.url) ? heroBannerSliderItemStyles ~ 'background-image: url(\'' ~ heroBannerSliderItemImage.url ~ '\'); background-size: cover; ' : heroBannerSliderItemStyles %}
+{% set heroBannerSliderItemDisplayCheckList = block.displayCheckList ?? null %}
+{% set heroBannerSliderItemCheckListShow = block.checkListShowTable ?? null %}
+{% set heroBannerSliderItemIntroduction = block.introduction ?? null %}
+
+<section class="container-fluid py-5 mt-4 px-sm-4 px-md-5 {{ blockType }}-style">
+	<div class="bg-dark rounded-5 position-relative overflow-hidden py-5 px-3 px-sm-4 px-xl-5 mt-2 mx-md-n3 mx-lg-auto" style="max-width: 1660px; {{heroBannerSliderItemStyles}}" data-bs-theme="dark">
+		<div class="jarallax position-absolute top-0 start-0 w-100 h-100 mt-5" data-jarallax data-speed="0.6">
+			<div class="jarallax-img position-absolute w-100 h-100" style="background-image: url(assets/img/landing/web-studio/hero-wave.png);"></div>
+		</div>
+		<div class="bg-white position-absolute top-0 start-0 w-100 h-100" style="opacity: 2%;"></div>
+		<div class="container position-relative z-2 pt-xl-4 pt-xxl-5 pb-sm-2">
+			<div class="row pt-md-3 pt-lg-5">
+				<div class="col-lg-6 col-xxl-5 pb-lg-5 mb-xl-5">
+					<h1 class="display-1 text-center text-lg-start mb-xxl-5">
+						{{heroBannerSliderItemHeading}}
+					</h1>
+				</div>
+				<div class="col-lg-5 col-xl-4 offset-lg-1 offset-xxl-2 d-flex flex-column pt-2 pt-md-4">
+					<p class="text-body fs-xl text-center text-lg-start pb-2 pb-md-0 mb-4 mb-md-5">
+						{% if heroBannerSliderItemSwitchOffDes %}
+							{{ heroBannerSliderItemDescription }}
+						{% endif %}
+						<div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start pb-3 pb-sm-5">
+							{{ buttons.renderButton(heroBannerSliderItemButton) }}
+						</div>
+					</p>
+				</div>
+				{% if heroBannerSliderItemDisplayCheckList is defined and heroBannerSliderItemDisplayCheckList  and heroBannerSliderItemCheckListShow | length > 0 %}
+					<ul class="list-inline d-xl-flex text-center text-lg-start mt-auto mb-0 mb-sm-2">
+						{% for checkListShow in heroBannerSliderItemCheckListShow %}
+							<li class="d-inline-flex align-items-center text-body text-nowrap pt-1 me-4">
+								{% if checkListShow.iconClass is defined and checkListShow.iconClass %}
+									<i class="{{ checkListShow.iconClass }}"></i>
+								{% endif %}
+								{% if checkListShow.title is defined and checkListShow.title %}
+									{{ checkListShow.title }}
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div></section>

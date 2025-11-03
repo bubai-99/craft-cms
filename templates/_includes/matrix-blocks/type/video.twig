@@ -1,0 +1,111 @@
+{% import "_helpers/images" as images %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set video = block ?? '' %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? 'video' %}
+{% set containerWidth = 'container' %}
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{% set blockCssClasses = '' %}
+{% set themeSwitche = '' %}
+
+<!-- video -->
+{% if video | length %}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData =   blockStyle.one() %}
+		{% set blockCssClasses =  blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+			{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+				{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+			{% endif %}
+		{% endif %}
+		{% if returnVars.containerWidth is defined %}
+			{% set containerWidth = returnVars.containerWidth %}
+		{% endif %}
+	{% endif %}
+
+	<div class="video-content-block py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			<div class="position-relative">
+				{# {% include "_includes/matrix-blocks/" ~ video.type.handle with { item: video } %} #}
+				{# {{block.video.0.getUrl()}} #}
+				{% set embedded = craft.embeddedAssets.get(block.video.0) %}
+				{% if block.videoThumbImage|length %}
+					<div class="d-block">{{ images.singleImg(block.videoThumbImage.0 ?? null, 1600, {'ratio': 1.957}, 'd-block w-100') }}</div>
+				{% endif %}
+				{% if block.video.0.kind == 'json' %}
+					<div class="d-nline-flex position-absolute top-50 start-50 translate-middle z-2 p-4">
+						<a class="btn btn-icon btn-xl btn-primary rounded-circle stretched-link"
+							href="#"
+							data-bs-toggle="modal"
+							data-bs-target="#videoModal{{block.id}}"
+							aria-label="Play video">
+							<i class="ai-play-filled"></i>
+						</a>
+					</div>
+				{% else %}
+					<div class="d-nline-flex position-absolute top-50 start-50 translate-middle z-2 p-4">
+						<a class="btn btn-icon btn-xl btn-primary rounded-circle stretched-link"
+							href="#"
+							data-bs-toggle="modal"
+							data-bs-target="#videoModal{{block.id}}"
+							aria-label="Play video">
+							<i class="ai-play-filled"></i>
+						</a>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	{# Start video Modal #}
+	<div class="modal fade" id="videoModal{{block.id}}" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl modal-dialog-centered">
+			<div class="modal-content bg-transparent border-0">
+			<div class="modal-header border-0 z-2 end-0 top-0 p-3 w-100 ">
+				<button type="button" class="btn-close btn-close-white ms-auto me-n3 mt-n4 p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body p-0">
+				<div class="ratio ratio-16x9">
+					{% if block.video.0.kind == 'json' %}
+						{{ embedded ? embedded.getIframeCode(['autoplay=0', 'loop=0', 'background=0']) }}
+					{% else %}
+						<video width="400" controls>
+							<source src="{{ block.video.0.getUrl() }}" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					{% endif %}
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	{# End video Modal #}
+{% endif %}

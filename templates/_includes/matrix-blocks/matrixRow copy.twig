@@ -1,0 +1,25 @@
+{# <div class="matrix-row">
+    {% set fieldValues = block.getFieldValues(block.getFieldLayout().customFields|map(f => f.handle)) %}
+
+    {% for fieldHandle, fieldValue in fieldValues %}
+        {% if fieldValue is iterable and fieldValue|length %}
+            {% for item in fieldValue.all() %}
+                <div class="matrix-{{ fieldHandle }}">
+                   {% include ["_includes/matrix-blocks/" ~ fieldHandle, "_includes/matrix-blocks/default"] with { block: item } %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+</div> #}
+
+<div class="matrix-row">
+    {% for item in block.all() %}
+        {% if item.type == "headingAndContent" %}
+            {% include "_includes/matrix-blocks/headingAndContent" with { block: item } %}
+{#         {% elseif item.type == "matrixColumn" %}
+            {% include "_includes/matrix-blocks/matrixColumn" with { block: item } %}
+        {% elseif item.type == "sectionStyle" %} #}
+           {#  {% include "_includes/matrix-blocks/sectionStyle" with { block: item } %} #}
+        {% endif %}
+    {% endfor %}
+</div>

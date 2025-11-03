@@ -1,0 +1,182 @@
+{% import "_helpers/images" as images %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set selectPortfolios = block.selectPortfolios ?? [] %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{# {% set serviceStyles = block.serviceStyle.one() %} #}
+{% set containerWidth = 'container' %}
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+{% set paginationData = block.paginations.one() ?? '' %}
+
+{% set blockCssClasses = '' %}
+{% set themeSwitche = '' %}
+
+{% if selectPortfolios %}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData = blockStyle.one() %}
+		{% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+
+			{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+				{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+			{% endif %}
+	{% endif %}
+{% endif %}
+
+<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+	<div class="{{ containerWidth }}">
+		{% if headingAndContent %}
+			{% if headingAndContent.heading|length or headingAndContent.Description|length %}
+			<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style"
+				data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+				{% if headingAndContent.heading|length %}
+				<{{headingAndContent.headingTags}} class="block-heading-title"
+					style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}
+				</{{headingAndContent.headingTags}}>
+				{% endif %}
+				{% if headingAndContent.Description|length %}
+				<div class="block-description">{{ headingAndContent.Description }}</div>
+				{% endif %}
+			</div>
+			{% endif %}
+		{% endif %}
+
+		{% set displayView = block.displayView.value ?? '' %}
+		{% if displayView == 'gridView' %}
+
+			{% set showNav = paginationData.displayPagination ?? false %}
+			{% if showNav %}
+				{% set perPage = (paginationData.records_per_page ?? 10) %}
+				{% set navStyle = paginationData.paginationDisplayStyle ?? 'pagination' %}
+				{% set query = selectPortfolios.limit(perPage) %}
+				{% paginate query as pageInfo, pageEntries %}
+				{% set entries = pageEntries %}
+			{% else %}
+  				{% set entries = selectPortfolios.all() %}
+			{% endif %}
+
+			{% set portfolio_categories = craft.categories().group('portfolioCategories').all() %}
+				<div class="masonry-filterable">
+					<ul class="masonry-filters nav nav-pills fs-sm flex-nowrap overflow-auto justify-content-center text-nowrap w-100 mx-auto pb-4 mb-2 mb-sm-3" style="max-width: 590px;">
+						<li class="nav-item mb-0">
+							<a class="nav-link border active" href="#" data-group="all">All</a>
+						</li>
+						{% for portfolio_category in portfolio_categories %}
+							<li class="nav-item mb-0">
+								<a class="nav-link border" href="#" data-group="{{ portfolio_category.title }}">{{ portfolio_category.title }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-{{ block.portfolioPerRow.value }} g-4 masonry-grid">
+					{% for portfolio_category in portfolio_categories %}
+					{% for portfolio in selectPortfolios.relatedTo(portfolio_category).all() %}
+					<article class="masonry-grid-item pb-lg-2 mb-3 mb-lg-0 mb-xl-2" data-groups='["{{ portfolio_category.title }}"]'>
+						<div class="card-hover zoom-effect masonry-grid-item">
+							<div class="zoom-effect-wrapper rounded-5">
+								<div class="zoom-effect-img">
+									{{ images.singleImg(portfolio.image.0, 800, {'ratio': 1.55}, 'flex-shrink-0 w-100') }}
+								</div>
+							</div>
+							<div class="pt-4 mt-lg-2">
+								<h2 class="h5 mb-2">
+									<a class="stretched-link text-nav" href="{{ portfolio.url }}">{{ portfolio.title }}</a>
+								</h2>
+								<span class="fs-sm text-body-secondary opacity-0 d-none d-sm-block">
+									{% set tags = portfolio.tags.all() %}
+									{% if tags %}
+										{% for tag in tags %}
+											<a class="badge text-nav fs-xs border me-1">{{ tag.title }}</a>
+										{% endfor %}
+									{% endif %}
+								</span>
+								<span class="fs-sm text-body-secondary d-sm-none">
+									{% set tags = portfolio.tags.all() %}
+									{% if tags %}
+										{% for tag in tags %}
+											<a class="badge text-nav fs-xs border me-1">{{ tag.title }}</a>
+										{% endfor %}
+									{% endif %}
+								</span>
+							</div>
+						</div>
+					</article>
+					{% endfor %}
+					{% endfor %}
+					
+				</div>
+			</div>
+		{% endif %}
+
+		{% if displayView == 'sliderView' %}
+
+			<div class="swiper" data-swiper-options='
+				{
+				"spaceBetween": 24,
+				"pagination": {
+					"el": ".swiper-pagination",
+					"clickable": true
+				},
+				"breakpoints": {
+					"576": { "slidesPerView": 2 },
+					"992": { "slidesPerView": {{ block.portfolioPerRow.value }} }
+				}
+				}
+			'>
+				<div class="swiper-wrapper">
+					{% for portfolio in selectPortfolios %}
+					<div class="swiper-slide h-auto">
+						<article class="masonry-grid-item pb-lg-2 mb-3 mb-lg-0 mb-xl-2" >
+							<div class="card-hover zoom-effect masonry-grid-item">
+								<div class="zoom-effect-wrapper rounded-5">
+									<div class="zoom-effect-img">
+										{{ images.singleImg(portfolio.image.0, 800, {'ratio': 1.55}, 'flex-shrink-0 w-100') }}
+									</div>
+								</div>
+								<div class="pt-4 mt-lg-2">
+									<h2 class="h5 mb-2">
+										<a class="stretched-link text-nav" href="{{ portfolio.url }}">{{ portfolio.title }}</a>
+									</h2>
+									<span class="fs-sm text-body-secondary opacity-0 d-none d-sm-block">
+										{% set tags = portfolio.tags.all() %}
+										{% if tags %}
+											{% for tag in tags %}
+												<a class="badge text-nav fs-xs border me-1">{{ tag.title }}</a>
+											{% endfor %}
+										{% endif %}
+									</span>
+									<span class="fs-sm text-body-secondary d-sm-none">
+										{% set tags = portfolio.tags.all() %}
+										{% if tags %}
+											{% for tag in tags %}
+												<a class="badge text-nav fs-xs border me-1">{{ tag.title }}</a>
+											{% endfor %}
+										{% endif %}
+									</span>
+								</div>
+							</div>
+						</article>
+					</div>
+					{% endfor %}
+				</div>
+				<!-- Pagination (bullets) -->
+				<div class="swiper-pagination position-relative bottom-0 mt-2 pt-4"></div>
+			</div>
+		{% endif %}
+	</div>
+</div>
+
+{% endif %}

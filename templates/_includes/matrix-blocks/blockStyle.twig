@@ -1,0 +1,252 @@
+{% set styleVars = {} %}
+{% set containerWidth = null %}
+{% set cssClasses = null %}
+{# {% set blockTypeUid = "" %} #}
+
+{% if blockStyle.background is defined and blockStyle.background|length %}
+	{% set background = blockStyle.background.one() ?? null %}
+	{% if background %}
+		{% set styleVars = styleVars|merge({
+            backgroundColor: background.colorLibrary.one().colorcode.getRgb() ?? null,
+            backgroundImage: background.image.one().url ?? null,
+			themeSwitch: background.themeDark ?? null,
+        }) %}
+	{% endif %}
+{% endif %}
+
+{# {% if themeBodyBg|length %}
+	{% if themeBodyBg %}
+		{% set styleVars = styleVars|merge({
+            backgroundColor: themeBodyBg.getRgb() ?? null
+        }) %}
+	{% endif %}
+{% endif %} #}
+
+{% if blockStyle.divider is defined and blockStyle.divider|length %}
+	{% set dividerData = blockStyle.divider.one() ?? null %}
+	{% if dividerData %}
+		{% set styleVars = styleVars|merge({
+            dividerSwitchOff: dividerData.switchOff ?? null,
+            dividerPosition: dividerData.dividerPosition.value ?? null,
+            dividerColorLibrary: dividerData.colorLibrary.one().colorcode.getRgb() ?? null
+        }) %}
+	{% endif %}
+{% endif %}
+
+{% if blockStyle.typography is defined and blockStyle.typography|length %}
+	{% set typographyData = blockStyle.typography.one() ?? null %}
+	{% if typographyData %}
+		{% set styleVars = styleVars|merge({
+            typographySwitchOff: typographyData.switchOff ?? null,
+            typographyColorLibrary: typographyData.colorLibrary.one().colorcode.getRgb() ?? null,
+            typographyColorLibraryText: typographyData.colorLibraryText.one().colorcode.getRgb() ?? null,
+            typographyColorLibraryLink: typographyData.colorLibraryLink.one().colorcode.getRgb() ?? null,
+            typographyColorLibraryLinkHover: typographyData.colorLibraryLinkHover.one().colorcode.getRgb() ?? null,
+            typographyAlign: typographyData.align.value ?? null
+        }) %}
+	{% endif %}
+{% endif %}
+
+{% if blockStyle.spacing is defined and blockStyle.spacing|length %}
+	{% set spacingData = blockStyle.spacing.one() ?? null %}
+	{% if spacingData %}
+		{% set styleVars = styleVars|merge({
+				mediaScreen: spacingData.mediaScreen ?? null,
+				paddingMob: spacingData.paddingMob is not empty ? {
+					top: spacingData.paddingMob[0].top ?? null,
+					right: spacingData.paddingMob[0].right ?? null,
+					bottom: spacingData.paddingMob[0].bottom ?? null,
+					left: spacingData.paddingMob[0].left ?? null
+				} : {},
+				marginMob: spacingData.marginMob is not empty ? {
+					top: spacingData.marginMob[0].top ?? null,
+					right: spacingData.marginMob[0].right ?? null,
+					bottom: spacingData.marginMob[0].bottom ?? null,
+					left: spacingData.marginMob[0].left ?? null
+				} : {},
+				paddingTab: spacingData.paddingTab is not empty ? {
+					top: spacingData.paddingTab[0].top ?? null,
+					right: spacingData.paddingTab[0].right ?? null,
+					bottom: spacingData.paddingTab[0].bottom ?? null,
+					left: spacingData.paddingTab[0].left ?? null
+				} : {},
+				marginTab: spacingData.marginTab is not empty ? {
+					top: spacingData.marginTab[0].top ?? null,
+					right: spacingData.marginTab[0].right ?? null,
+					bottom: spacingData.marginTab[0].bottom ?? null,
+					left: spacingData.marginTab[0].left ?? null
+				} : {},
+				padding: spacingData.padding is not empty ? {
+					top: spacingData.padding[0].top ?? null,
+					right: spacingData.padding[0].right ?? null,
+					bottom: spacingData.padding[0].bottom ?? null,
+					left: spacingData.padding[0].left ?? null
+				} : {},
+				margin: spacingData.margin is not empty ? {
+					top: spacingData.margin[0].top ?? null,
+					right: spacingData.margin[0].right ?? null,
+					bottom: spacingData.margin[0].bottom ?? null,
+					left: spacingData.margin[0].left ?? null
+				} : {}
+				}) %}
+	{% endif %}
+{% endif %}
+
+{% if blockStyle.containerWidth is defined and blockStyle.containerWidth|length %}
+	{% set containerWidth = blockStyle.containerWidth.value ?? null %}
+{% endif %}
+
+{% if blockStyle.cssClasses is defined and blockStyle.cssClasses|length %}
+	{% set cssClasses = blockStyle.cssClasses ?? null %}
+{% endif %}
+
+<style>
+	{% if blockType is defined and blockType|length %}
+		.{{blockType}}{{blockTypeUid}}-style {
+			{% if styleVars.backgroundColor is defined and styleVars.backgroundColor is not empty %}
+				background-color: {{styleVars.backgroundColor}}
+				!important;
+			{% endif %}
+			{% if styleVars.backgroundImage is defined and styleVars.backgroundImage is not empty %}
+				background-image: url('{{ styleVars.backgroundImage }}') !important;
+				background-repeat: no-repeat;
+				background-size: cover;
+			{% endif %}
+
+			{% if styleVars.padding is defined and styleVars.padding is not empty %}
+				{% if styleVars.padding.top is not null and styleVars.padding.top is not empty %} 
+					padding-top: {{ styleVars.padding.top }}px !important; 
+				{% endif %}
+				{% if styleVars.padding.right is not null and styleVars.padding.right is not empty %} 
+					padding-right: {{ styleVars.padding.right }}px !important; 
+				{% endif %}
+				{% if styleVars.padding.bottom is not null and styleVars.padding.bottom is not empty %} 
+					padding-bottom: {{ styleVars.padding.bottom }}px !important; 
+				{% endif %}
+				{% if styleVars.padding.left is not null and styleVars.padding.left is not empty %} 
+					padding-left: {{ styleVars.padding.left }}px !important; 
+				{% endif %}
+			{% endif %}
+			{% if styleVars.margin is defined and styleVars.margin is not empty %}
+				{% if styleVars.margin.top is not null and styleVars.margin.top is not empty %} 
+					margin-top: {{ styleVars.margin.top }}px !important; 
+				{% endif %}
+				{% if styleVars.margin.right is not null and styleVars.margin.right is not empty %} 
+					margin-right: {{ styleVars.margin.right }}px !important; 
+				{% endif %}
+				{% if styleVars.margin.bottom is not null and styleVars.margin.bottom is not empty %} 
+					margin-bottom: {{ styleVars.margin.bottom }}px !important; 
+				{% endif %}
+				{% if styleVars.margin.left is not null and styleVars.margin.left is not empty %} 
+					margin-left: {{ styleVars.margin.left }}px !important; 
+				{% endif %}
+			{% endif %}
+
+			{% if styleVars.typographyColorLibrary is defined and styleVars.typographyColorLibrary %}
+				--block-heading-color: {{ styleVars.typographyColorLibrary }};
+			{% endif %}
+			{% if styleVars.typographyColorLibraryText is defined and styleVars.typographyColorLibraryText %}
+				--block-text-color: {{ styleVars.typographyColorLibraryText }};
+			{% endif %}
+
+			{% if styleVars.backgroundColor is defined and styleVars.backgroundColor %}
+				--block-link-color: {{ styleVars.backgroundColor }};
+			{% endif %}
+			{% if styleVars.backgroundColor is defined and styleVars.backgroundColor %}
+				--block-link-hover-color: {{ styleVars.backgroundColor }};
+			{% endif %}
+			{% if styleVars.typographyAlign is defined and styleVars.typographyAlign %}
+				--block-text-align: {{ styleVars.typographyAlign }};
+			{% endif %}
+
+			text-align: var(--block-text-align);
+			{% if styleVars.dividerSwitchOff %}
+				{% if styleVars.dividerPosition == 'top' %} 
+					border-top: 1px solid {{ styleVars.dividerColorLibrary }} 
+				{% endif %}
+				{% if styleVars.dividerPosition == 'bottom' %} 
+					border-bottom: 1px solid {{ styleVars.dividerColorLibrary }} 
+				{% endif %}
+			{% endif %}
+		}
+
+		@media(min-width: 768px ) and (max-width: 1199px) {
+			.{{blockType}}-style {
+				{% if styleVars.paddingTab is defined and styleVars.paddingTab is not empty %}
+					{% if styleVars.paddingTab.top is not null and styleVars.paddingTab.top is not empty %} 
+						padding-top: {{ styleVars.paddingTab.top }}px !important; 
+					{% endif %}
+					{% if styleVars.paddingTab.right is not null and styleVars.paddingTab.right is not empty %} 
+						padding-right: {{ styleVars.paddingTab.right }}px !important; 
+					{% endif %}
+					{% if styleVars.paddingTab.bottom is not null and styleVars.paddingTab.bottom is not empty %} 
+						padding-bottom: {{ styleVars.paddingTab.bottom }}px !important; 
+					{% endif %}
+					{% if styleVars.paddingTab.left is not null and styleVars.paddingTab.left is not empty %} 
+						padding-left: {{ styleVars.paddingTab.left }}px !important; 
+					{% endif %}
+				{% endif %}
+				{% if styleVars.marginTab is defined and styleVars.marginTab is not empty %}
+					{% if styleVars.marginTab.top is not null and styleVars.marginTab.top is not empty %} 
+						margin-top: {{ styleVars.marginTab.top }}px !important; 
+					{% endif %}
+					{% if styleVars.marginTab.right is not null and styleVars.marginTab.right is not empty %} 
+						margin-right: {{ styleVars.marginTab.right }}px !important; 
+					{% endif %}
+					{% if styleVars.marginTab.bottom is not null and styleVars.marginTab.bottom is not empty %} 
+						margin-bottom: {{ styleVars.marginTab.bottom }}px !important; 
+					{% endif %}
+					{% if styleVars.marginTab.left is not null and styleVars.marginTab.left is not empty %} 
+						margin-left: {{ styleVars.marginTab.left }}px !important; 
+					{% endif %}
+				{% endif %}
+			}
+		}
+
+		@media(max-width: 767px ) {
+			.{{blockType}}-style {
+				{% if styleVars.paddingMob is defined and styleVars.paddingMob is not empty %}
+					{% if styleVars.paddingMob.top is not null and styleVars.paddingMob.top is not empty %} 
+						padding-top: {{ styleVars.paddingMob.top }}px !important; 
+					{% endif %}
+					{% if styleVars.paddingMob.right is not null and styleVars.paddingMob.right is not empty %} 
+						padding-right: {{ styleVars.paddingMob.right }}px !important; 
+					{% endif %}
+					{% if styleVars.paddingMob.bottom is not null and styleVars.paddingMob.bottom is not empty %} 
+						padding-bottom: {{ styleVars.paddingMob.bottom }}px !important; 
+					{% endif %}
+					{% if styleVars.paddingMob.left is not null and styleVars.paddingMob.left is not empty %} 
+						padding-left: {{ styleVars.paddingMob.left }}px !important; 
+					{% endif %}
+				{% endif %}
+				{% if styleVars.marginMob is defined and styleVars.marginMob is not empty %}
+					{% if styleVars.marginMob.top is not null and styleVars.marginMob.top is not empty %} 
+						margin-top: {{ styleVars.marginMob.top }}px !important; 
+					{% endif %}
+					{% if styleVars.marginMob.right is not null and styleVars.marginMob.right is not empty %} 
+						margin-right: {{ styleVars.marginMob.right }}px !important; 
+					{% endif %}
+					{% if styleVars.marginMob.bottom is not null and styleVars.marginMob.bottom is not empty %} 
+						margin-bottom: {{ styleVars.marginMob.bottom }}px !important; 
+					{% endif %}
+					{% if styleVars.marginMob.left is not null and styleVars.marginMob.left is not empty %} 
+						margin-left: {{ styleVars.marginMob.left }}px !important; 
+					{% endif %}
+				{% endif %}
+			}
+		}
+	{% endif %}
+
+	/* {% if styleVars.typographyColorLibrary is defined and styleVars.typographyColorLibrary %}
+		.block-heading-title{color: var(--block-heading-color) !important;}
+	{% endif %} */
+	{% if styleVars.typographyColorLibrary is defined and styleVars.typographyColorLibrary %}
+		.{{blockType}}{{blockTypeUid}}-style .block-heading-title {
+			color: var(--block-heading-color) !important;
+		}
+	{% endif %}
+	{% if styleVars.typographyColorLibraryText is defined and styleVars.typographyColorLibraryText %}
+		.{{blockType}}{{blockTypeUid}}-style .block-description {color: var(--block-text-color) !important;}
+	{% endif %}
+	
+</style>

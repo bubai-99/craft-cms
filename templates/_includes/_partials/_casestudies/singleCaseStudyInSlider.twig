@@ -1,0 +1,37 @@
+{% import '_helpers/images' as images %}
+
+<div class="swiper-slide h-auto pb-1">
+	<article class="masonry-grid-item h-100">
+		<div class="card border-0 bg-secondary h-100">
+			{% if casestudy.image|length %}
+				<a href="{{ casestudy.url }}">
+					<div>
+						{{ images.singleImg(casestudy.image.0, 420, {'ratio': 1.55}, 'flex-shrink-0 w-100 card-img-top') }}
+					</div>
+				</a>
+			{% endif %}
+			<div class="card-body pb-4">
+				<h3 class="h4 card-title"><a href="{{ casestudy.url }}">{{ casestudy.title }}</a></h3>
+				<div class="d-flex align-items-center text-decoration-none pb-3">
+				<h6 class="mb-0 text-body-secondary"><span class="text-dark text-uppercase">Industry:</span> {{ casestudy.industry }}</h6>
+				</div>
+				{% if casestudy.tags|length %}
+				<div class="d-flex align-items-center mb-4 mt-n1">
+					<span class="fs-md text-dark me-2 fw-bold">Skills:</span>
+					{% for tag in casestudy.tags.all() %}
+					<a class="badge text-nav fs-xs border me-2 my-1">{{ tag.title }}</a>
+					{% endfor %}
+				</div>
+				{% endif %}
+				<p class="card-text">{{ casestudy.shortDescription }}</p>
+			</div>
+			<div class="card-footer pt-3">
+				<div class="d-flex align-items-center text-decoration-none pb-2">
+					<h6 class="mb-0">
+						<span class="text-primary">Industry:</span>
+						{{ casestudy.industry }}</h6>
+				</div>
+			</div>
+		</div>
+	</article>
+</div>

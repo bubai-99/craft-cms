@@ -1,0 +1,15 @@
+{% import "_helpers/images" as images %}
+
+{% cache using key cache_key %}
+{% if items is defined and items is not empty %}
+	{% for index, item in items %}
+		<div class="container">
+			{{ images.responsiveImg(item ?? null, [
+            {width: 1140},
+            {width: 800},
+            {width: 500}
+        ]) }}
+		</div>
+	{% endfor %}
+{% endif %}
+{% endcache %}

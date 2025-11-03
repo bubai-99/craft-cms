@@ -1,0 +1,42 @@
+{% extends "_layouts/matrix-content" %}
+{% set service = craft.entries()
+  .section('services')
+  .slug(craft.app.request.segment(2))
+  .one() %}
+{% block content %}
+
+{% set containerWidth = 'container' %}
+{% set blockTypeUid = '' %}
+{% set blockCssClasses = '' %}
+
+  {% if service %}
+
+	{% if service.featureImage|length %}
+	<div class="jarallax bg-dark py-5" data-jarallax data-speed="0.6" data-bs-theme="dark">
+		<div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-60"></div>
+
+		{% set image = service.featureImage.one() %}
+		{% if image %}
+			<div class="jarallax-img" style="background-image: url('{{ image.url }}');"></div>
+		{% endif %}
+
+		<div class="jarallax-img" style="background-image: url(assets/img/services/v3/hero-bg.jpg);"></div>
+		<div class="container position-relative z-2 pt-5 pb-md-2 pb-lg-3 pb-xl-4 pb-xxl-5">
+
+			<!-- Page title -->
+			<div class="d-none d-xxl-block" style="height: 170px;"></div>
+			<div class="d-none d-lg-block d-xxl-none" style="height: 120px;"></div>
+			<div class="d-none d-md-block d-lg-none" style="height: 80px;"></div>
+			<div class="d-md-none" style="height: 40px;"></div>
+			<h1 class="display-2 mb-4">{{ service.title }}</h1>
+		</div>
+	</div>
+	{% endif %}
+
+    {% include "_includes/matrix-container" with {
+      entry: service,
+      cache_key: 'entry-' ~ service.id
+    } 
+  %}
+  {% endif %}
+{% endblock %}

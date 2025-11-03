@@ -1,0 +1,6 @@
+{% set dividerData = block.one() ?? null %}
+{% set dividerSwitchOff = dividerData.switchOff %}
+{% set dividerPosition = dividerData.dividerPosition ?? null %}
+{% set dividerColorLibrary = dividerData.colorLibrary.one().colorcode.getRgb() ?? null %}
+
+

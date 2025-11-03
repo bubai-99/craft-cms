@@ -1,0 +1,135 @@
+{% macro responsiveImg(image, styles, options = {}, sizes = "100vw", classes = '') %}
+	{% if styles is null %}
+		{% set styles = [
+            { width: 1920, ratio: 3/1 },
+            { width: 1400, ratio: 3/1 },
+            { width: 1024, ratio: 3/1 },
+            { width: 768, ratio: 3/1 }
+        ] %}
+	{% endif %}
+
+	{% set options = {
+        allowUpscale: false,
+        mode: 'crop',
+        jpegQuality: 100,
+        interlace: true
+    }|merge(options) %}
+
+	{% set width = styles.0.width ?? 1920 %}
+	{% set height = (styles.0.height ?? (styles.0.width / (styles.0.ratio ?? 1)))|round(0, 'floor') %}
+
+
+	{% if image %}
+		{% if image.extension|lower not in ['jpeg', 'jpg', 'png'] %}
+			{% if image.extension|lower == 'gif' %}
+				<img src="{{ image.getUrl() }}" width="{{ width }}" height="{{ height }}" alt="{{ image.title }}" class="{{ classes }}">
+				{% else %}
+				{{ image.getImg({width: width, height: height}) }}
+			{% endif %}
+		{% else %}
+			{% set srcsetItems = [] %}
+			{% set srcsetItemsWebp = [] %}
+
+			{# Generate transforms for each style #}
+			{% for style in styles %}
+				{% set transformOptions = {
+                    width: style.width,
+                    height: style.height ?? (style.width / (style.ratio ?? 1)),
+                    mode: options.mode,
+                    quality: options.jpegQuality,
+                    interlace: options.interlace
+                } %}
+
+				{% set transformOptionsWebp = transformOptions|merge({format: 'webp'}) %}
+
+				{# Add URLs to srcset arrays #}
+				{% set srcsetItems = srcsetItems|merge([image.getUrl(transformOptions) ~ ' ' ~ style.width ~ 'w']) %}
+				{% if craft.app.images.supportsWebP %}
+					{% set srcsetItemsWebp = srcsetItemsWebp|merge([image.getUrl(transformOptionsWebp) ~ ' ' ~ style.width ~ 'w']) %}
+				{% endif %}
+			{% endfor %}
+
+			<picture>
+				{% if srcsetItemsWebp|length %}
+					<source data-sizes="{{ sizes }}" data-srcset="{{ srcsetItemsWebp|join(', ') }}" type="image/webp">
+				{% endif %}
+
+				<img class="{{ classes ~ ' scale-with-grid lazyload' }}" width="{{ width }}" src="{{ image.getUrl({width: width, height: height}) }}" alt="{{ image.title }}" data-sizes="{{ sizes }}" data-srcset="{{ srcsetItems|join(', ') }}">
+			</picture>
+		{% endif %}
+	{% else %}
+		{% set attributes = {} %}
+		{% set src = 'https://placehold.co/'~width~'x'~height %}
+		{% set attributes = attributes|merge({src: src}) %}
+		{{ tag('img', attributes) }}
+	{% endif %}
+{% endmacro %}
+
+{% macro singleImg(image, size = 200, options = {}, classes = '') %}
+
+	{% set options = {
+        allowUpscale: false,
+        mode: 'crop',
+        jpegQuality: 100,
+        interlace: true
+    }|merge(options) %}
+	{% set width = size %}
+	{% set height = (width / (options.ratio ?? 1))|round(0, 'floor') %}
+
+	{% if image %}
+		{% if image.extension|lower not in ['jpeg', 'jpg', 'png'] %}
+			{% if image.extension|lower == 'gif' %}
+				<img src="{{ image.getUrl() }}" width="{{ width }}" height="{{ height }}" alt="{{ image.title }}" class="{{ classes }}">
+			{% else %}
+				{{ image.getImg({width: width, height: height}) }}
+			{% endif %}
+		{% else %}
+			{% set transformOptions = {
+                width: size,
+                height: height,
+                mode: options.mode,
+                interlace: options.interlace,
+                quality: options.jpegQuality
+            } %}
+			{% set transformedImage = image.getUrl(transformOptions) %}
+			{% set webpTransformOptions = transformOptions|merge({format: 'webp'}) %}
+			{% set webpImage = image.getUrl(webpTransformOptions) %}
+
+			<picture>
+				{% if craft.app.images.supportsWebP %}
+					<source data-sizes="100vw" data-srcset="{{ webpImage }}" type="image/webp">
+				{% endif %}
+
+				<img class="{{ classes~' scale-with-grid lazyload' }}" width="{{ size }}" src="{{ transformedImage }}" alt="{{ image.title }}" data-sizes="100vw" data-srcset="{{ transformedImage }}">
+			</picture>
+		{% endif %}
+	{% else %}
+		<picture>
+			{% set attributes = {} %}
+			{% set src = 'https://placehold.co/'~width~'x'~height|number_format(0, '.', '') %}
+			{% set attributes = attributes|merge({src: src}) %}
+			{{ tag('img', attributes) }}
+		</picture>
+	{% endif %}
+{% endmacro %}
+
+{% macro transformOrPlaceholder(image, settings, attributes = {}, options = {}, sizes = "100vw", classes = '') %}
+	{% if image is not null %}
+		{% set src = image.getUrl(settings) %}
+		{% set attributes = attributes|merge({src: src}) %}
+		{# {{ tag('img', attributes) }} #}
+
+		{% set width = settings.width ?? settings.height %}
+		{% set height = settings.height ?? settings.width %}
+
+		<picture>
+			<img class="{{ classes~' scale-with-grid lazyload' }}" width="{{ width }}" height="{{ height }}" src="{{ image.getUrl() }}" alt="{{ image.title }}" data-sizes="{{ sizes }}" data-srcset="{{ image.getUrl() }} {{ width }}">
+		</picture>
+	{% elseif settings.width is defined or settings.height is defined %}
+		{% set width = settings.width ?? settings.height %}
+		{% set height = settings.height ?? settings.width %}
+		{% set src = 'https://placehold.co/'~width~'x'~height %}
+		{% set attributes = attributes|merge({src: src}) %}
+		{{ tag('img', attributes) }}
+	{% endif %}
+{% endmacro %}

@@ -1,0 +1,10 @@
+{% cache %}
+{% if  block.heroBannerSlider is defined and block.heroBannerSlider|length %}
+{# 	{% set heroBannerSliders = block.heroBannerSlider.all() %}
+	{% if heroBannerSliders | length  > 0 %}
+		<div class="header-banner">
+			{% include "_includes/_partials/heroBannerSlider" %}
+		</div>
+	{% endif %} #}
+{% endif %}
+{% endcache %}

@@ -1,0 +1,518 @@
+{% extends "_base/base" %}
+{% import '_helpers/includeLayout' as layout %}
+
+{# {% import "_helpers/images" as images %} #}
+
+{# {% set seo = entry.basicSeo %} #}
+{% set body_classes = 'entry ' ~ entry.slug %}
+
+{# {% set allPrimaryColor = craft.entries.section('themeSettings').one().colorPrimary.0.colorcode.getRgb() ?? null %} #}
+{# {% set allPrimaryColor = craft.entries.section('themeSettings').one().colorPrimary.one().colorcode ?? null %}#}
+
+{% set themeSettings = craft.entries.section('themeSettings').one() %}
+
+{% set allPrimaryColor        	 = themeSettings.colorPrimary.one().colorcode ?? null %}
+{% set allSecondaryColor      	 = themeSettings.colorSecondary.one().colorcode ?? null %}
+{% set allInfoColor            	 = themeSettings.colorInfo.one().colorcode ?? null %}
+{% set allSuccessColor        	 = themeSettings.colorSuccess.one().colorcode ?? null %}
+{% set allWarningColor        	 = themeSettings.colorWarning.one().colorcode ?? null %}
+{% set allDangerColor         	 = themeSettings.colorDanger.one().colorcode ?? null %}
+{% set allLightColor          	 = themeSettings.colorLight.one().colorcode ?? null %}
+{% set allDarkColor           	 = themeSettings.colorDark.one().colorcode ?? null %}
+
+{% set fullBodyBgColor        	 = themeSettings.colorBgBody.one().colorcode ?? null %}
+{% set fullBodyTextColor      	 = themeSettings.colorTextBody.one().colorcode ?? null %}
+{% set fullBodyLinkColor         = themeSettings.colorLink.one().colorcode ?? null %}
+{% set fullBodyLinkHoverColor    = themeSettings.colorLinkHover.one().colorcode ?? null %}
+
+{% set fullBodyFontFamily        = themeSettings.fontBody.one().fontFamily ?? '' %}
+{% set fullBodyTextSize       	 = themeSettings.fontSizeBody ?? '' %}
+{% set fullBodyHeadingFontFamily = themeSettings.fontHeading.one().fontFamily ?? '' %}
+{% set fullBodyButtonFontFamily  = themeSettings.fontButton.one().fontFamily ?? '' %}
+
+{% set buttonShapeKey = themeSettings.buttonShape.value ?? 'default' %}
+
+{% set buttonShapeMap = {
+    'default': '',
+    'softRoundedButton': '0.7rem !important',
+    'fullyRoundedButton': '50px !important',
+    'squareButton': '0px !important',
+} %}
+
+{% set fullBodyButtonShape = buttonShapeMap[buttonShapeKey] ?? '0' %}
+
+
+{# {% dd(themeSettings.fontSizeBody.one().fontFamily) %} #}
+
+
+{% set main_classes = 'page-wrapper' %}
+	{% block head_extra %}
+		{# Load all assets together for better performance #}
+		{{ craft.vite.script('src/main.js') }}
+		{{ craft.vite.script('src/scripts/pages/home.js') }}
+		<!-- Page loading styles -->
+		<style>
+			:root{
+				{% if allPrimaryColor %}
+					--primary: {{ allPrimaryColor }};
+					--rp-primary: {{ allPrimaryColor }};
+					--swiper-theme-color: {{ allPrimaryColor }};
+					--rp-blockquote-mark-color: {{ allPrimaryColor }};
+					--rp-heading-link-hover-color: {{ allPrimaryColor }};
+					--rp-primary-rgb: {{ allPrimaryColor }};
+				{% endif %}
+
+				{% if allSecondaryColor %}
+					--secondary: {{ allSecondaryColor }};
+					--rp-secondary: {{ allSecondaryColor }};
+					--rp-secondary-rgb: {{ allSecondaryColor }};
+				{% endif %}
+
+				{% if allInfoColor %}
+					--info: {{ allInfoColor }};
+					--rp-info: {{ allInfoColor }};
+					--rp-info-rgb: {{ allInfoColor }};
+				{% endif %}
+
+				{% if allLightColor %}
+					--light: {{ allLightColor }};
+					--rp-light: {{ allLightColor }};
+					--swiper-theme-color: {{ allLightColor }};
+					--rp-blockquote-mark-color: {{ allLightColor }};
+					--rp-heading-link-hover-color: {{ allLightColor }};
+					--rp-light-rgb: {{ allLightColor }};
+				{% endif %}
+
+				{% if allDarkColor %}
+					--dark: {{ allDarkColor }};
+					--rp-dark: {{ allDarkColor }};
+					--swiper-theme-color: {{ allDarkColor }};
+					--rp-blockquote-mark-color: {{ allDarkColor }};
+					--rp-heading-link-hover-color: {{ allDarkColor }};
+					--rp-dark-rgb: {{ allDarkColor }};
+				{% endif %}
+			}
+			[data-bs-theme=light] {
+				{% if allPrimaryColor %}
+					--rp-heading-link-hover-color: {{ allPrimaryColor }};
+					--rp-blockquote-mark-color: {{ allPrimaryColor }};
+					--rp-primary: {{ allPrimaryColor }};
+				{% endif %}
+
+				{% if allSecondaryColor %}
+					--rp-secondary: {{ allSecondaryColor }};
+				{% endif %}
+
+				{% if allInfoColor %}
+					--rp-info: {{ allInfoColor }};
+				{% endif %}
+			}
+			[data-bs-theme=dark] {
+				{% if allPrimaryColor %}
+					--rp-link-color: {{ allPrimaryColor }};
+					--rp-link-hover-color: {{ allPrimaryColor }};
+					--rp-primary-text-emphasis: {{ allPrimaryColor }};
+				{% endif %}
+
+				{% if allSecondaryColor %}
+					--rp-secondary-text-emphasis: {{ allSecondaryColor }};
+				{% endif %}
+
+				{% if allInfoColor %}
+					--rp-info-text-emphasis: {{ allInfoColor }};
+				{% endif %}
+			}
+			.btn {
+				/* --rp-btn-border-radius: 0px;
+				--rp-btn-font-family:; */
+				{% if fullBodyButtonFontFamily %}
+					--rp-btn-font-family: {{ fullBodyButtonFontFamily }};
+				{% endif %}
+				&.rounded-pill {
+					{% if fullBodyButtonShape %}
+						border-radius: {{ fullBodyButtonShape }};
+					{% endif %}
+				}
+			}
+			.btn-outline-primary{
+				{% if allPrimaryColor %}
+					--rp-btn-color: {{ allPrimaryColor }};
+					--rp-btn-border-color: {{ allPrimaryColor }};
+					--rp-btn-hover-border-color: {{ allPrimaryColor }};
+					--rp-btn-hover-bg: {{ allPrimaryColor }};
+					--rp-btn-active-bg: {{ allPrimaryColor }};
+					--rp-btn-active-border-color: {{ allPrimaryColor }};
+					--rp-btn-disabled-color: {{ allPrimaryColor }};
+					--rp-btn-disabled-border-color: {{ allPrimaryColor }};
+				{% endif %}
+			}
+			.btn-primary {
+				{% if allPrimaryColor %}
+					--rp-btn-color: {{ allPrimaryColor }};
+					--rp-btn-bg: {{ allPrimaryColor }};
+					--rp-btn-border-color: {{ allPrimaryColor }};
+					--rp-btn-hover-border-color: {{ allPrimaryColor }};
+					--rp-btn-hover-bg: {{ allPrimaryColor }};
+					--rp-btn-active-bg: {{ allPrimaryColor }};
+					--rp-btn-active-border-color: {{ allPrimaryColor }};
+					--rp-btn-disabled-color: {{ allPrimaryColor }};
+					--rp-btn-disabled-border-color: {{ allPrimaryColor }};
+				{% endif %}
+			}
+			.btn-link {
+				{% if allPrimaryColor %}
+					--rp-btn-color: {{ allPrimaryColor }};
+					--rp-btn-hover-color: {{ allPrimaryColor }};
+					--rp-btn-active-color: {{ allPrimaryColor }};
+				{% endif %}
+			}
+			.btn-secondary, [data-bs-theme=dark] .btn-secondary:not([data-bs-theme=light]) {
+				{% if allSecondaryColor %}
+					--rp-btn-color: {{ allSecondaryColor }};
+					--rp-btn-bg: {{ allSecondaryColor }};
+					--rp-btn-border-color: {{ allSecondaryColor }};
+					--rp-btn-hover-border-color: {{ allSecondaryColor }};
+					--rp-btn-hover-bg: {{ allSecondaryColor }};
+					--rp-btn-active-bg: {{ allSecondaryColor }};
+					--rp-btn-active-border-color: {{ allSecondaryColor }};
+					--rp-btn-disabled-color: {{ allSecondaryColor }};
+					--rp-btn-disabled-border-color: {{ allSecondaryColor }};
+				{% endif %}
+			}
+			.btn-dark, [data-bs-theme=dark] .btn-dark:not([data-bs-theme=light]) {
+				{% if allDarkColor %}
+					--rp-btn-color: {{ allDarkColor }};
+					--rp-btn-bg: {{ allDarkColor }};
+					--rp-btn-border-color: {{ allDarkColor }};
+					--rp-btn-hover-border-color: {{ allDarkColor }};
+					--rp-btn-hover-bg: {{ allDarkColor }};
+					--rp-btn-active-bg: {{ allDarkColor }};
+					--rp-btn-active-border-color: {{ allDarkColor }};
+					--rp-btn-disabled-color: {{ allDarkColor }};
+					--rp-btn-disabled-border-color: {{ allDarkColor }};
+				{% endif %}
+			}
+			.btn-light {
+				{% if allLightColor %}
+					--rp-btn-color: {{ allLightColor }};
+					--rp-btn-bg: {{ allLightColor }};
+					--rp-btn-border-color: {{ allLightColor }};
+					--rp-btn-hover-border-color: {{ allLightColor }};
+					--rp-btn-hover-bg: {{ allLightColor }};
+					--rp-btn-active-bg: {{ allLightColor }};
+					--rp-btn-active-border-color: {{ allLightColor }};
+					--rp-btn-disabled-color: {{ allLightColor }};
+					--rp-btn-disabled-border-color: {{ allLightColor }};
+				{% endif %}
+			}
+
+			/* //text-color// */
+			.text-primary {
+				{% if allPrimaryColor %}
+					--rp-primary: {{ allPrimaryColor }};
+					color: {{ allPrimaryColor }} !important;
+				{% endif %}
+			}
+			.text-secondary {
+				{% if allSecondaryColor %}
+					--rp-secondary: {{ allSecondaryColor }};
+					color: {{ allSecondaryColor }} !important;
+				{% endif %}
+			}
+			.text-info {
+				{% if allInfoColor %}
+					--rp-secondary: {{ allInfoColor }};
+					color: {{ allInfoColor }} !important;
+				{% endif %}
+			}
+			.text-success {
+				{% if allSuccessColor %}
+					--rp-secondary: {{ allSuccessColor }};
+					color: {{ allSuccessColor }} !important;
+				{% endif %}
+			}
+			.text-warning {
+				{% if allWarningColor %}
+					--rp-secondary: {{ allWarningColor }};
+					color: {{ allWarningColor }} !important;
+				{% endif %}
+			}
+			.text-danger {
+				{% if allDangerColor %}
+					--rp-secondary: {{ allDangerColor }};
+					background-color: {{ allDangerColor }} !important;
+				{% endif %}
+			}
+			.text-light {
+				{% if allLightColor %}
+					--rp-secondary: {{ allLightColor }};
+					background-color: {{ allLightColor }} !important;
+				{% endif %}
+			}
+			.text-dark {
+				{% if allDarkColor %}
+					--rp-secondary: {{ allDarkColor }};
+					background-color: {{ allDarkColor }} !important;
+				{% endif %}
+			}
+
+			/* //background color// */
+			.bg-primary {
+				{% if allPrimaryColor %}
+					--rp-primary: {{ allPrimaryColor }};
+					background-color: {{ allPrimaryColor }} !important;
+				{% endif %}
+			}
+			.bg-secondary {
+				{% if allSecondaryColor %}
+					--rp-secondary: {{ allSecondaryColor }};
+					background-color: {{ allSecondaryColor }} !important;
+				{% endif %}
+			}
+			.bg-info {
+				{% if allInfoColor %}
+					--rp-secondary: {{ allInfoColor }};
+					background-color: {{ allInfoColor }} !important;
+				{% endif %}
+			}
+			.bg-success {
+				{% if allSuccessColor %}
+					--rp-secondary: {{ allSuccessColor }};
+					background-color: {{ allSuccessColor }} !important;
+				{% endif %}
+			}
+			.bg-warning {
+				{% if allWarningColor %}
+					--rp-secondary: {{ allWarningColor }};
+					background-color: {{ allWarningColor }} !important;
+				{% endif %}
+			}
+			.bg-danger {
+				{% if allDangerColor %}
+					--rp-secondary: {{ allDangerColor }};
+					background-color: {{ allDangerColor }} !important;
+				{% endif %}
+			}
+			.bg-light {
+				{% if allLightColor %}
+					--rp-secondary: {{ allLightColor }};
+					background-color: {{ allLightColor }} !important;
+				{% endif %}
+			}
+			.bg-dark {
+				{% if allDarkColor %}
+					--rp-secondary: {{ allDarkColor }};
+					background-color: {{ allDarkColor }} !important;
+				{% endif %}
+			}
+			body {
+				{% if fullBodyTextColor %}
+					color: {{ fullBodyTextColor }};
+				{% endif %}
+				{% if fullBodyTextSize %}
+					font-size: {{ fullBodyTextSize ~ 'px' }};
+				{% endif %}
+				{% if fullBodyFontFamily %}
+					font-family: {{ fullBodyFontFamily }};
+				{% endif %}
+			}
+			a {
+				{% if fullBodyLinkColor %}
+					color: {{ fullBodyLinkColor }};
+				{% endif %}
+			}
+			a:hover {
+				{% if fullBodyLinkHoverColor %}
+					color: {{ fullBodyLinkHoverColor }};
+				{% endif %}
+			}
+			.block-heading-title {
+				{% if fullBodyHeadingFontFamily %}
+					font-family: {{ fullBodyHeadingFontFamily }};
+				{% endif %}
+			}
+			body .sectionStyle-style {
+				{% if fullBodyBgColor %}
+					background-color: {{ fullBodyBgColor }} !important;
+				{% endif %}
+			}
+
+
+			.page-loading {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				-webkit-transition: all 0.4s 0.2s ease-in-out;
+				transition: all 0.4s 0.2s ease-in-out;
+				background-color: #fff;
+				opacity: 0;
+				visibility: hidden;
+				z-index: 9999;
+			}
+			[data-bs-theme="dark"] .page-loading {
+				background-color: #121519;
+			}
+			.page-loading.active {
+				opacity: 1;
+				visibility: visible;
+			}
+			.page-loading-inner {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				-webkit-transform: translateY(-50%);
+				transform: translateY(-50%);
+				-webkit-transition: opacity 0.2s ease-in-out;
+				transition: opacity 0.2s ease-in-out;
+				opacity: 0;
+			}
+			.page-loading.active > .page-loading-inner {
+				opacity: 1;
+			}
+			.page-loading-inner > span {
+				display: block;
+				font-family: "Inter", sans-serif;
+				font-size: 1rem;
+				font-weight: normal;
+				color: #6f788b;
+			}
+			[data-bs-theme="dark"] .page-loading-inner > span {
+				color: #fff;
+				opacity: .6;
+			}
+			.page-spinner {
+				display: inline-block;
+				width: 2.75rem;
+				height: 2.75rem;
+				margin-bottom: 0.75rem;
+				vertical-align: text-bottom;
+				background-color: #d7dde2;
+				border-radius: 50%;
+				opacity: 0;
+				-webkit-animation: spinner 0.75s linear infinite;
+				animation: spinner 0.75s linear infinite;
+			}
+			[data-bs-theme="dark"] .page-spinner {
+				background-color: rgba(255, 255, 255, 0.25);
+			}
+			@-webkit-keyframes spinner {
+				0% {
+					-webkit-transform: scale(0);
+					transform: scale(0);
+				}
+				50% {
+					opacity: 1;
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			@keyframes spinner {
+				0% {
+					-webkit-transform: scale(0);
+					transform: scale(0);
+				}
+				50% {
+					opacity: 1;
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+		</style>
+	{% endblock %}
+	{% block after_body_tag %}
+	<!-- Page loading spinner -->
+		<div class="page-loading active"> <div class="page-loading-inner">
+			<div class="page-spinner"></div>
+			<span>Loading...</span>
+		</div>
+	</div>
+{% endblock %}
+
+{% block before_end_body_tag %}
+	{# {{ craft.twigpack.includeSafariNomoduleFix() }} #}
+	{# {{ craft.twigpack.includeJsModule("index.js", true, {"type": "module"}) }} #}
+	{# {{ craft.twigpack.includeJsModule("chunk-vendors.js", true) }} #}
+
+	{% if additionalCssJs.codeCss %}
+	<style>
+		{{additionalCssJs.codeCss | raw}}
+	</style>
+	{% endif %}
+
+	<script>
+		document.body.style.opacity = 1;
+		{% if additionalCssJs.codeJs %}
+			{{ additionalCssJs.codeJs | raw }}
+		{% endif %}
+	</script>
+{% endblock %}
+
+{% do craft.prefetch.preconnect('//fonts.googleapis.com') %}
+{% do craft.prefetch.preconnect('//fonts.gstatic.com') %}
+{% do craft.prefetch.asynchronousFont('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet') %}
+
+{% cache %}
+
+{% set absolutePath = craft.app.path.siteTemplatesPath() %}
+{% set generalEntries = craft.entries()
+            .section('general')
+            .type(['general'])
+            .with(['button', 'background', 'spacing'])
+            .all() 
+    %}
+
+{% set headerEntries = craft.entries()
+            .section('header')
+            .with(['button', 'background', 'spacing'])
+            .all() 
+    %}
+
+{% set footerEntries = craft.entries()
+            .section('footer')
+            .with(['button', 'background', 'spacing'])
+            .all() 
+    %}
+
+{% set headerEntry = headerEntries | filter(entry => entry.type == 'header') | first %}
+{% set generalEntry = generalEntries | filter(entry => entry.type == 'general') | first %}
+{% set footerEntry = footerEntries | filter(entry => entry.type == 'footer') | first %}
+{# {% set appLinksEntry = generalEntries | filter(entry => entry.type == 'appLinksEntry') | first %} #}
+{% set appLinksEntry = generalEntry.appLinks %}
+
+{% set footerBackground = footerEntry.background ?? null %}
+{% set footerSpacing = footerEntry.spacing ?? null %}
+
+{% endcache %}
+
+{% block header %}
+	{% block header_top %}
+		{% cache %}
+		{% if headerEntry is defined and headerEntry %}
+			{% include '_includes/header/index' %}
+		{% endif %}
+		{% endcache %}
+	{% endblock %}
+
+	{% block header_banner %}{% endblock %}
+{% endblock %}
+
+{# {% block before_content %}
+	{% include "_includes/_partials/breadcrumbs" %}
+{% endblock %} #}
+ {% block before_content %}
+	{% if entry.section.handle not in ['blogs', 'products', 'casestudies', 'teams'] %}
+		{% include "_includes/_partials/breadcrumbs" %}
+	{% endif %}
+{% endblock %}
+
+{% block footer %}
+	{% if footerEntry is defined and footerEntry %}
+		{% include '_includes/footer/index' %}
+	{% endif %}
+{% endblock %}

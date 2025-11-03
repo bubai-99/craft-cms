@@ -1,0 +1,173 @@
+<!--Header Banner Carousel-->
+<section class="card border-0 mb-4" id="carousel-header-banner">
+	<div class="card-body pb-0">
+		<h2 class="h4 mb-n2">Header Banner Carousel</h2>
+	</div>
+	<div class="card-header">
+		<ul class="nav nav-tabs card-header-tabs flex-nowrap align-items-center mb-n1" role="tablist">
+			<li class="nav-item me-3">
+				<a class="nav-link px-0 py-2 border-0 rounded-1 active" href="#preview-hb" data-bs-toggle="tab" role="tab" aria-controls="preview-hb" aria-selected="true">
+					<i class="ai-show fs-lg opacity-90 me-2"></i>
+					Preview
+				</a>
+			</li>
+			<li class="vr opacity-20 my-3 me-3"></li>
+			<li class="nav-item">
+				<a class="nav-link px-0 py-2 border-0 rounded-1" href="#html-hb" data-bs-toggle="tab" role="tab" aria-controls="html-hb" aria-selected="false">
+					<i class="ai-code fs-xl opacity-90 me-2"></i>
+					HTML
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="card-body">
+		<div class="tab-content">
+			<div
+				class="tab-pane fade show active" id="preview-hb" role="tabpanel">
+
+				<!-- Slider Header Banner -->
+				<div class="swiper" data-swiper-options='{
+						"effect": "slide",
+						"loop": true,
+						"navigation": {
+							"prevEl": ".btn-prev",
+							"nextEl": ".btn-next"
+						}
+						}'>
+					<div
+						class="swiper-wrapper">
+						<!-- Item -->
+						<div class="swiper-slide banner-item h-auto bg-dark">
+							<img class="position-absolute h-100 w-100 object-fit-cover z-0" src="../assets/img/banner/banner-bg.png" alt="bg">
+							<div class="inner-banner-icon-img w-50 position-absolute top-50 end-0 translate-middle-y z-1">
+								<img src="../assets/img/banner/banner-img.png" alt="icon">
+							</div>
+							<div class="banner-content position-relative">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6 col-md-8 py-4">
+											<div class="txt textLeft text-white">
+												<h4 class="text-white">Prevent your managers from presenting biased reports and
+																																							                                                  hiding any facts.</h4>
+												<h6 class="text-white">Integrating top cloud productivity tools with our
+																																							                                                  business intelligence system (bi24x7) can help you.</h6>
+												<p>Automate all your daily operational processes using your favourite productivity
+																																							                                                  tools, such as Jira/Trello, Microsoft Dynamics Business Central, etc. Let us set
+																																							                                                  up
+													<strong>bi24x7</strong>
+													to generate descriptive, diagnostic, and prescriptive
+																																							                                                  analytics reports and telemetry notifications and make informed decisions.
+																																							                                                  Additionally, initiate retro and learning processes to verify and improve your
+																																							                                                  current workflows.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Item -->
+						<div class="swiper-slide banner-item h-auto bg-dark">
+							<img class="position-absolute h-100 w-100 object-fit-cover z-0" src="../assets/img/banner/banner-bg.png" alt="bg">
+							<div class="inner-banner-icon-img w-50 position-absolute top-50 end-0 translate-middle-y z-1">
+								<img src="../assets/img/banner/banner-img.png" alt="icon">
+							</div>
+							<div class="banner-content position-relative">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6 col-md-8 py-4">
+											<div class="txt textLeft text-white">
+												<h4 class="text-white">Are you unsure if your software vendor properly tested the application before delivery?</h4>
+												<h6 class="text-white">Formal testing of a software application is essential. We can help professionally test your web, mobile, or desktop application.</h6>
+												<p>Avail of our software testing services and restore your peace of mind. We offer load testing, security testing, simple QA testing, regression testing, and more. You'll receive detailed testing reports, test cases, and recommendations, all at a reasonable price. Start with a minor testing assignment.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Prev button -->
+					<button type="button" class="btn btn-prev btn-icon btn-xs btn-outline-light rounded-circle" aria-label="Prev">
+						<i class="ai-arrow-left"></i>
+					</button>
+					<!-- Next button -->
+					<button type="button" class="btn btn-next btn-icon btn-xs btn-outline-light rounded-circle" aria-label="Next">
+						<i class="ai-arrow-right"></i>
+					</button>
+				</div>
+
+			</div>
+			<div class="tab-pane fade" id="html-hb" role="tabpanel">
+				<pre class="line-numbers"><code class="lang-html">&lt;!-- Slider Header Banner --&gt;
+&lt;div class="swiper" data-swiper-options='{
+"effect": "slide",
+"loop": true,
+"navigation": {
+    "prevEl": ".btn-prev",
+    "nextEl": ".btn-next"
+}
+}'&gt;
+&lt;div class="swiper-wrapper"&gt;
+    &lt;!-- Item --&gt;
+    &lt;div class="swiper-slide banner-item h-auto bg-dark"&gt;
+        &lt;img class="position-absolute h-100 w-100 object-fit-cover z-0" src="../assets/img/banner/banner-bg.png" alt="bg"&gt;
+        &lt;div class="inner-banner-icon-img w-50 position-absolute top-50 end-0 translate-middle-y z-1"&gt;
+            &lt;img src="../assets/img/banner/banner-img.png" alt="icon"&gt;
+        &lt;/div&gt;
+        &lt;div class="banner-content position-relative"&gt;
+            &lt;div class="container"&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col-lg-6 col-md-8 py-4"&gt;
+                        &lt;div class="txt textLeft text-white"&gt;
+                            &lt;h4 class="text-white"&gt;Prevent your managers from presenting biased reports and
+                                hiding any facts.&lt;/h4&gt;
+                            &lt;h6 class="text-white"&gt;Integrating top cloud productivity tools with our
+                                business intelligence system (bi24x7) can help you.&lt;/h6&gt;
+                            &lt;p&gt;Automate all your daily operational processes using your favourite productivity
+                                tools, such as Jira/Trello, Microsoft Dynamics Business Central, etc. Let us set
+                                up &lt;strong&gt;bi24x7&lt;/strong&gt; to generate descriptive, diagnostic, and prescriptive
+                                analytics reports and telemetry notifications and make informed decisions.
+                                Additionally, initiate retro and learning processes to verify and improve your
+                                current workflows.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Item --&gt;
+    &lt;div class="swiper-slide banner-item h-auto bg-dark"&gt;
+        &lt;img class="position-absolute h-100 w-100 object-fit-cover z-0" src="../assets/img/banner/banner-bg.png" alt="bg"&gt;
+        &lt;div class="inner-banner-icon-img w-50 position-absolute top-50 end-0 translate-middle-y z-1"&gt;
+            &lt;img src="../assets/img/banner/banner-img.png" alt="icon"&gt;
+        &lt;/div&gt;
+        &lt;div class="banner-content position-relative"&gt;
+            &lt;div class="container"&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col-lg-6 col-md-8 py-4"&gt;
+                        &lt;div class="txt textLeft text-white"&gt;
+                            &lt;h4 class="text-white"&gt;Are you unsure if your software vendor properly tested the application before delivery?&lt;/h4&gt;
+                            &lt;h6 class="text-white"&gt;Formal testing of a software application is essential. We can help professionally test your web, mobile, or desktop application.&lt;/h6&gt;
+                            &lt;p&gt;Avail of our software testing services and restore your peace of mind. We offer load testing, security testing, simple QA testing, regression testing, and more. You'll receive detailed testing reports, test cases, and recommendations, all at a reasonable price. Start with a minor testing assignment.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Prev button --&gt;
+&lt;button type="button" class="btn btn-prev btn-icon btn-xs btn-outline-light rounded-circle" aria-label="Prev"&gt;
+    &lt;i class="ai-arrow-left"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;!-- Next button --&gt;
+&lt;button type="button" class="btn btn-next btn-icon btn-xs btn-outline-light rounded-circle" aria-label="Next"&gt;
+    &lt;i class="ai-arrow-right"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>

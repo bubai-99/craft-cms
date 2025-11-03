@@ -1,0 +1,16 @@
+{% import "_helpers/images" as images %}
+
+{% if generalEntry.socialMedia %}
+    {% set socialMedia = generalEntry.socialMedia.all() %}
+    <div class="d-flex justify-content-center">
+        {% for media in socialMedia %}
+           <a class="btn btn-icon btn-sm btn-secondary rounded-circle mx-1 {{media.elementClass}}"  href="{{ media.plainText ?? '#' }}" aria-label="{{media.title}}">
+                {% if media.iconImageOrClass == 'iconClass' %}
+                    <i class="{{ media.iconClass }}"></i>
+                    {% elseif media.iconImageOrClass == 'iconImage' %}
+                      {{ images.singleImg(media.iconImage.0, 20) }}
+                {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+{% endif %}

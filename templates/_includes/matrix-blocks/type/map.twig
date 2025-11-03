@@ -1,0 +1,71 @@
+{% import "_helpers/images" as images %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{# {% set blockType = block.type.handle ?? 'image' %} #}
+{% set blockMap = block.shortDescription ?? [] %}
+{% set containerWidth = "container" %}
+
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+
+
+<!-- images -->
+{% if blockMap|length %}
+    {% if blockStyle is defined and blockStyle|length %}
+        {% set blockStyleData = blockStyle.one() %}
+        {% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+        {% include "_includes/matrix-blocks/blockStyle" with {
+            blockStyle: blockStyleData,
+            blockType: blockType
+        } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+		{% endif %}
+		{% if returnVars.containerWidth is defined %}
+			{% set containerWidth = returnVars.containerWidth %}
+		{% endif %}
+
+        {% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+			{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+		{% endif %}
+
+    {% else %}
+        {% set blockCssClasses = '' %}
+    {% endif %}
+
+    <div class="image-content-block {{ blockType }}{{blockTypeUid}}-style {{ blockCssClasses }}">
+        <div class="{{ containerWidth }} g-0">
+            {% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+                    <div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+			
+			<div class="row gx-0">
+				{% if block.shortDescription %}
+					<div class="col-12">{{ block.shortDescription|raw }}</div>
+				{% endif %}
+			</div>
+
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,107 @@
+{% import '_includes/_partials/ctaButton' as buttons %}
+
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+
+{% if blockStyle is defined and blockStyle|length %}
+	{% set blockStyleData =   blockStyle.one() %}
+	{% set blockCssClasses =  blockStyleData.cssClasses ?? '' %}
+	{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+{% endif %}
+
+{% set pageBannerHeading = block.plainText %}
+{% set pageBannerDisplayHeading = block.switchOffHeading %}
+{% set pageBannerDisplayTitle = block.switchOff %}
+{% set SliderDescription = block.shortDescription %}
+
+{% set pageBannerTitleColorData = block.titleColor.one().colorcode ?? '' %}
+{% set pageBannerTextColorData = block.textColor.one().colorcode ?? '' %}
+
+{% set pageBannerImages = block.images %}
+{% set pageBannerColorData = block.colorLibrary.one() %}
+{% set pageBannerColor = pageBannerColorData.plainText ?? null %}
+{% set pageBannerColorCode = pageBannerColorData.colorcode ?? null %}
+{% set pageBannerStyles = pageBannerColorCode ? 'background-color: ' ~ pageBannerColorCode ~ ' !important;' : '' %}
+
+
+{# <section class="position-relative top-0 start-0 py-0 w-100 h-100" data-bs-theme="light">
+
+	<div class="swiper swiper-scale-effect " data-swiper-options='{
+	  "effect": "fade",
+	  "speed": 800,
+	  "autoplay": {
+		"delay": 7000,
+		"disableOnInteraction": false
+	  },
+	  "pagination": {
+		"el": ".swiper-pagination",
+		"clickable": true
+	  }
+	}'>
+		{% if pageBannerImages is defined and pageBannerImages|length %}
+			<div class="swiper-wrapper">
+				{% for image in pageBannerImages.all() %}
+					<div class="swiper-slide" data-bs-theme="dark">
+						<div class="position-absolute top-0 start-0 w-100 h-100 min-vh-100">
+							<div class="swiper-slide-cover bg-position-top-center" style="background-image: url('{{ image.url }}');"></div>
+						</div>
+
+						<!-- Content -->
+						<div class="container-fluid position-relative z-2 py-5 my-md-3 my-lg-5">
+							<div class="row pb-3">
+								<div class="col-md-9 col-lg-7 col-xl-6 col-xxl-5 offset-lg-1">
+									{% if pageBannerHeading|length %}
+									<div class="card border-0 bg-primary rounded-1 py-2 py-sm-3 py-md-4" style="background: {{ pageBannerColorCode }} !important">
+										<div class="card-body py-3">
+											<div class="mx-auto text-start" style="max-width: 535px;">
+												<h2 class="display-5 mb-0" style="color: {{ pageBannerTitleColorData }} !important">
+													{% if pageBannerDisplayHeading %}
+														{{ pageBannerHeading }}
+													{% endif %}
+												</h2>
+												{% if SliderDescription|length %}
+													<div class="fs-lg mt-3" style="max-width: 410px; color: {{ pageBannerTextColorData }} !important">
+														{{ SliderDescription }}
+													</div>
+												{% endif %}
+											</div>
+										</div>
+									</div>
+									{% endif %}									
+
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+		<div class="swiper-pagination mb-4"></div>
+	</div>
+</section> #}
+
+{% if pageBannerImages is defined and pageBannerImages|length %}
+<div class="jarallax bg-dark py-5" data-jarallax data-speed="0.6" data-bs-theme="dark">
+		<div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-60"></div>
+
+		{% for image in pageBannerImages.all() %}
+			<div class="jarallax-img" style="background-image: url('{{ image.url }}');"></div>
+		{% endfor %}
+		<div class="jarallax-img" style="background-image: url(assets/img/services/v3/hero-bg.jpg);"></div>
+		<div class="container position-relative z-2 pt-5 pb-md-2 pb-lg-3 pb-xl-4 pb-xxl-5">
+
+			<!-- Page title -->
+			<div class="d-none d-xxl-block" style="height: 170px;"></div>
+			<div class="d-none d-lg-block d-xxl-none" style="height: 120px;"></div>
+			<div class="d-none d-md-block d-lg-none" style="height: 80px;"></div>
+			<div class="d-md-none" style="height: 40px;"></div>
+			{% if pageBannerDisplayHeading %}
+				<h1 class="display-2 mb-4" style="color: {{ pageBannerTitleColorData }} !important">{{ pageBannerHeading }}</h1>
+			{% endif %}
+			<div class="text-body mb-0" style="color: {{ pageBannerTextColorData }} !important">
+				{{ SliderDescription }}
+			</div>
+		</div>
+</div>
+{% endif %}

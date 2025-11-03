@@ -1,0 +1,28 @@
+
+{% set bgColor = singlePageBlockStyle.bgColor.one().colorcode ?? '' %}
+{% if bgColor %}
+  <style>
+    .bg-color { background: {{ bgColor|raw }}; }
+  </style>
+{% endif %}
+
+{% set titleColor = singlePageBlockStyle.titleColor.one().colorcode ?? '' %}
+{% if titleColor %}
+  <style>
+    .standard-txt .block-heading-title, .standard-txt h2, .standard-txt .h2, .standard-txt h1, .standard-txt .h3 { color: {{ titleColor|raw }}; }
+  </style>
+{% endif %}
+
+{% set textColor = singlePageBlockStyle.textColor.one().colorcode ?? '' %}
+{% if textColor %}
+  <style>
+    .standard-txt, .standard-txt p, .standard-txt h6, .standard-txt .text-dark, .standard-txt .lead, .standard-txt .list-unstyled li span { color: {{ textColor|raw }} !important; }
+  </style>
+{% endif %}
+
+{% set blockBgColor = singlePageBlockStyle.blockBackgroundColor.one().colorcode ?? '' %}
+{% if blockBgColor %}
+  <style>
+    .block-bg-color { background: {{ blockBgColor|raw }} !important; }
+  </style>
+{% endif %}

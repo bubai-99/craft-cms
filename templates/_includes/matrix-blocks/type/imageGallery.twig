@@ -1,0 +1,481 @@
+{% import "_helpers/images" as images %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockImages = block.images.all() ?? [] %}
+{% set containerWidth = 'container' %}
+{% set themeSwitche = "" %}
+
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+
+{% set categories = block.selectGallery.all() %}
+{% set imageChooseEntry = block.imageChooseEntry ?? false %}
+{% set displayModeCategory = block.displayMode ?? false %}
+{% set galleryDisplayView = block.galleryDisplayView ?? [] %}
+
+
+<!-- images -->
+{% if galleryDisplayView|length %}
+{% if blockStyle is defined and blockStyle|length %}
+        {% set blockStyleData = blockStyle.one() %}
+        {% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+        {% include "_includes/matrix-blocks/blockStyle" with {
+            blockStyle: blockStyleData,
+            blockType: blockType
+        } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+		{% endif %}
+		{% if returnVars.containerWidth is defined %}
+			{% set containerWidth = returnVars.containerWidth %}
+		{% endif %}
+
+        {% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+			{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+		{% endif %}
+
+    {% else %}
+        {% set blockCssClasses = '' %}
+    {% endif %}
+
+    <div class="image-content-block py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+        <div class="{{ containerWidth }}">
+            {% if headingAndContent %}
+                {% if headingAndContent.heading|length or headingAndContent.Description|length %}
+                    <div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+                        {% if headingAndContent.heading|length %}
+                            <{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">
+                                {{ headingAndContent.heading }}
+                            </{{headingAndContent.headingTags}}>
+                        {% endif %}
+                        {% if headingAndContent.Description|length %}
+                            <div class="block-description">{{ headingAndContent.Description }}</div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            {% if not imageChooseEntry %}
+
+                {% set galleryDisplayView = block.galleryDisplayView.value ?? '' %}
+                {% if galleryDisplayView == 'gridView' %}
+                {% set galleryPerRow = block.galleryPerRow.value ?? 'column3' %}
+                {% set columnClassMap = {
+                    'column4': 'row-cols-md-4',
+                    'column3': 'row-cols-md-3',
+                    'column2': 'row-cols-md-2'
+                } %}
+                {% set rowColsClass = columnClassMap[galleryPerRow] ?? 'row-cols-md-3' %}
+
+                    <div class="position-relative">
+                        <div class="row row-cols-1 row-cols-sm-2 {{ rowColsClass }} gy-4 gallery align-items-end">
+                            {% for image in blockImages %}
+                            <!-- Item -->
+                            <div class="col">
+                                {% if image %}
+                                <a class="d-block gallery-item card-hover zoom-effect" href="{{ image.url }}">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-5 overflow-hidden z-2 opacity-0">
+                                        <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                    </div>
+                                    <div class="zoom-effect-wrapper rounded-5">
+                                        <div class="zoom-effect-img">
+                                            {{ images.singleImg(image, 635, {'ratio': 1.257}, 'flex-shrink-0 w-100') }}
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                {% if galleryDisplayView == 'sliderView' %}
+                {% set galleryPerRow = block.galleryPerRow.value ?? 'column3' %}
+                {% set columnClassMap = {
+                'column4': '4',
+                'column3': '3',
+                'column2': '2'
+                } %}
+                {% set rowColsClass = columnClassMap[galleryPerRow] ?? '3' %}
+
+                    <div class="position-relative">
+                        <div class="swiper" data-swiper-options='{
+                                    "spaceBetween": 24,
+                                    "loop": true,
+                                    "breakpoints": {
+                                        "576": { "slidesPerView": 2 },
+                                        "992": { "slidesPerView": {{ rowColsClass }} }
+                                    },
+                                    "navigation": {
+                                    "prevEl": ".prev-gallery",
+                                    "nextEl": ".next-gallery"
+                                    }
+                                }'>
+                            <div class="swiper-wrapper gallery align-items-end">
+                                {% for image in blockImages %}
+                                <!-- Item -->
+                                <div class="swiper-slide">
+                                    {% if image %}
+                                    <a class="d-block gallery-item card-hover zoom-effect" href="{{ image.url }}">
+                                        <div
+                                            class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-5 overflow-hidden z-2 opacity-0">
+                                            <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                        </div>
+                                        <div class="zoom-effect-wrapper rounded-5">
+                                            <div class="zoom-effect-img">
+                                                {{ images.singleImg(image, 635, {'ratio': 1.257}, 'flex-shrink-0 w-100') }}
+                                            </div>
+                                        </div>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-center pt-4">
+                            <div class="d-none d-sm-flex">
+                                <button class="prev-gallery btn btn-icon btn-outline-primary rounded-circle me-3" type="button"
+                                    aria-label="Prev">
+                                    <i class="ai-arrow-left"></i>
+                                </button>
+                                <button class="next-gallery btn btn-icon btn-outline-primary rounded-circle" type="button"
+                                    aria-label="Next">
+                                    <i class="ai-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if galleryDisplayView == 'thumbsGallery' %}
+                {% set galleryPerRow = block.galleryPerRow.value ?? 'column3' %}
+                {% set columnClassMap = {
+                'column4': '4',
+                'column3': '3',
+                'column2': '2'
+                } %}
+                {% set rowColsClass = columnClassMap[galleryPerRow] ?? '4' %}
+
+                    <div class="position-relative">
+                        <div class="swiper mySwiper2" data-swiper-options='{
+                            "loop": true,
+                            "spaceBetween": 24,
+                            "navigation": {
+                                "nextEl": ".swiper-button-next",
+                                "prevEl": ".swiper-button-prev"
+                            },
+                            "thumbs": {
+                            "swiper": ".mySwiper"
+                            },
+                            "breakpoints": {
+                                "576": { "slidesPerView": 1 },
+                                "992": { "slidesPerView": 1 }
+                            }
+                        }'>
+                            <div class="swiper-wrapper">
+                                {% for image in blockImages %}
+                                {% if image %}
+                                    <div class="swiper-slide">
+                                    <div class="d-block gallery-item">
+                                        
+                                        <div class="zoom-effect-wrapper">
+                                        <div class="zoom-effect-img">
+                                            {{ images.singleImg(image, 1920, {'ratio': 1.757}, 'flex-shrink-0 w-100') }}
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="swiper-button-next text-primary"></div>
+                            <div class="swiper-button-prev text-primary"></div>
+                        </div>
+
+                        <!-- Thumbs Swiper -->
+                        <div thumbsSlider="" class="swiper mySwiper mt-2" data-swiper-options='{
+                            "loop": true,
+                            "spaceBetween": 10,
+                            "slidesPerView": {{ rowColsClass }},
+                            "freeMode": true,
+                            "watchSlidesProgress": true
+                        }'>
+                            <div class="swiper-wrapper">
+                                {% for image in blockImages %}
+                                {% if image %}
+                                    <div class="swiper-slide">
+                                    {{ images.singleImg(image, 800, {'ratio': 1.757}, 'w-100') }}
+                                    </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                {% endif %}
+
+            {% else %}
+
+            {% set galleryDisplayView = block.galleryDisplayView.value ?? '' %}
+            {% if galleryDisplayView == 'gridView' %}
+            {% set galleryPerRow = block.galleryPerRow.value ?? 'column3' %}
+            {% set columnClassMap = {
+            'column4': 'row-cols-md-4',
+            'column3': 'row-cols-md-3',
+            'column2': 'row-cols-md-2'
+            } %}
+            {% set rowColsClass = columnClassMap[galleryPerRow] ?? 'row-cols-md-3' %}
+
+            {% if categories|length %}
+
+            {% if not displayModeCategory %}
+            {% for categoty in categories %}
+                <div class="position-relative mb-5">
+                    <h2 class="">{{ categoty.title }}</h2>
+                    <div class="row row-cols-1 row-cols-sm-2 {{ rowColsClass }} gy-4 gallery align-items-end">
+                        {% set images = categoty.images.all() %}
+                        {% if images|length %}
+                        {% for image in images %}
+                        <div class="col">
+                            <a class="d-block gallery-item card-hover zoom-effect" href="{{ image.url }}">
+                                <div
+                                    class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-5 overflow-hidden z-2 opacity-0">
+                                    <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                </div>
+                                <div class="zoom-effect-wrapper rounded-5">
+                                    <div class="zoom-effect-img">
+                                        {{ images.singleImg(image, 635, {'ratio': 1.257}, 'flex-shrink-0 w-100') }}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+
+                <div class="position-relative">
+                    <div class="row row-cols-1 row-cols-sm-2 {{ rowColsClass }} gy-4 align-items-end">
+                        {% for categoty in categories %}
+                        <div class="gallery">
+                            {% set thumb = categoty.categoryThumb.one() %}
+                            {% if thumb %}
+                            <div class="col">
+                                <a class="d-block gallery-item card-hover zoom-effect text-decoration-none"
+                                    href="{{ categoty.images[0].url }}">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-top-5 overflow-hidden z-2 opacity-0">
+                                        <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                    </div>
+                                    <div class="zoom-effect-wrapper rounded-top-5">
+                                        <div class="zoom-effect-img">
+                                            <div class="d-none">
+                                                {{ images.singleImg(categoty.images[0], 635, {'ratio': 1.257}, 'flex-shrink-0')
+                                                }}
+                                            </div>
+                                            {{ images.singleImg(thumb, 635, {'ratio': 1.257}, 'flex-shrink-0') }}
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <div class="text-center p-3 bg-secondary text-decoration-none rounded-bottom-5 h6 mb-0">
+                                    {{categoty.title }}
+                                </div>
+                            </div>
+                            {% set images = categoty.images.all() %}
+                            {% if images|length %}
+                            {% for image in images|slice(1) %}
+                            <div class="col">
+                                <a class="d-block gallery-item card-hover zoom-effect" href="{{ image.url }}">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-5 overflow-hidden z-2 opacity-0">
+                                        <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                    </div>
+                                    <div class="d-none">
+                                        {{ images.singleImg(image, 635, {'ratio': 1.257}, 'flex-shrink-0') }}
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+
+            {% if galleryDisplayView == 'sliderView' %}
+            {% set galleryPerRow = block.galleryPerRow.value ?? 'column3' %}
+            {% set columnClassMap = {
+            'column4': '4',
+            'column3': '3',
+            'column2': '2'
+            } %}
+            {% set rowColsClass = columnClassMap[galleryPerRow] ?? '3' %}
+
+            {% if categories|length %}
+
+            {% if not displayModeCategory %}
+            {% for categoty in categories %}
+                <div class="position-relative mb-5">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-3">
+                        <h2 class="mb-0">{{ categoty.title }}</h2>
+                        <div class="d-flex ">
+                            <div class="d-none d-sm-flex">
+                                <button class="prev-gallery btn btn-icon btn-outline-primary rounded-circle me-3" type="button"
+                                    aria-label="Prev">
+                                    <i class="ai-arrow-left"></i>
+                                </button>
+                                <button class="next-gallery btn btn-icon btn-outline-primary rounded-circle" type="button"
+                                    aria-label="Next">
+                                    <i class="ai-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper" data-swiper-options='{
+                            "spaceBetween": 24,
+                            "loop": true,
+                            "breakpoints": {
+                                "576": { "slidesPerView": 2 },
+                                "992": { "slidesPerView": {{ rowColsClass }} }
+                            },
+                            "navigation": {
+                            "prevEl": ".prev-gallery",
+                            "nextEl": ".next-gallery"
+                            }
+                        }'>
+                        <div class="swiper-wrapper gallery align-items-end">
+                            {% set images = categoty.images.all() %}
+                            {% if images|length %}
+                            {% for image in images %}
+                            <div class="swiper-slide">
+                                <a class="d-block gallery-item card-hover zoom-effect" href="{{ image.url }}">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-5 overflow-hidden z-2 opacity-0">
+                                        <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                    </div>
+                                    <div class="zoom-effect-wrapper rounded-5">
+                                        <div class="zoom-effect-img">
+                                            {{ images.singleImg(image, 635, {'ratio': 1.257}, 'flex-shrink-0 w-100') }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+            {% else %}
+
+                <div class="position-relative">
+                    <div class="swiper" data-swiper-options='{
+                            "spaceBetween": 24,
+                            "loop": true,
+                            "breakpoints": {
+                                "576": { "slidesPerView": 2 },
+                                "992": { "slidesPerView": {{ rowColsClass }} }
+                            },
+                            "navigation": {
+                            "prevEl": ".prev-gallery",
+                            "nextEl": ".next-gallery"
+                            }
+                        }'>
+                        <div class="swiper-wrapper align-items-end">
+                            {% for categoty in categories %}
+                            <div class="gallery swiper-slide">
+                                {% set thumb = categoty.categoryThumb.one() %}
+                                {% if thumb %}
+
+                                <a class="d-block gallery-item card-hover zoom-effect" href="{{ categoty.images[0].url }}">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-top-5 overflow-hidden z-2 opacity-0">
+                                        <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                    </div>
+                                    <div class="zoom-effect-wrapper rounded-top-5">
+                                        <div class="zoom-effect-img">
+                                            <div class="d-none">
+                                                {{ images.singleImg(categoty.images[0], 635, {'ratio': 1.257}, 'flex-shrink-0')
+                                                }}
+                                            </div>
+                                            {{ images.singleImg(thumb, 635, {'ratio': 1.257}, 'flex-shrink-0') }}
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="text-center p-3 bg-secondary text-decoration-none rounded-bottom-5 h6 mb-0">{{ categoty.title }}</div>
+
+                                {% set images = categoty.images.all() %}
+                                {% if images|length %}
+                                {% for image in images|slice(1) %}
+                                <div class="col">
+                                    <a class="d-block gallery-item card-hover zoom-effect" href="{{ image.url }}">
+                                        <div
+                                            class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-5 overflow-hidden z-2 opacity-0">
+                                            <i class="ai-zoom-in fs-2 text-white position-relative z-2"></i>
+                                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
+                                        </div>
+                                        <div class="d-none">
+                                            {{ images.singleImg(image, 635, {'ratio': 1.257}, 'flex-shrink-0') }}
+                                        </div>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="d-none d-sm-flex">
+                            <button class="prev-gallery btn btn-icon btn-outline-primary rounded-circle me-3" type="button" aria-label="Prev">
+                                <i class="ai-arrow-left"></i>
+                            </button>
+                            <button class="next-gallery btn btn-icon btn-outline-primary rounded-circle" type="button" aria-label="Next">
+                                <i class="ai-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
+{% endif %}

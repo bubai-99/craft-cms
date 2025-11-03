@@ -1,0 +1,49 @@
+<div class="header-content">
+	{% set title = block.title ?? '' %}
+	{% set heading = block.heading ?? '' %}
+	{% set headingTags = block.headingTags ?? 'h2' %}
+	{% set align = block.align ?? 'left' %}
+	{% set contentData = block.contentdata ?? '' %}
+	{% set blockStyle = block.blockStyle ?? [] %}
+	{% set blockType = block.type.handle ?? '' %}
+	{# {% set blockTypeUid = block.uid  ?? '' %} #}
+	
+	{% set containerWidth = "container" %}
+	{% set blockCssClasses = '' %}
+	{% set themeSwitche = '' %}
+	{% set blockTypeUid = "" %}
+
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData =   blockStyle.one() %}
+		{% set blockCssClasses =  blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+		{% endif %}
+		{% if returnVars.containerWidth is defined %}
+			{% set containerWidth = returnVars.containerWidth %}
+		{% endif %}
+
+		{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+			{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+		{% endif %}
+	{% endif %}
+
+	<div class="header-content-block py-3 py-lg-4 py-xl-5 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+		<div class="{{ containerWidth }}">
+			<div class="row">
+				<div class="col-12">
+					<{{headingTags}} class="block-heading-title" style="text-align:{{ align }}">{{ heading }}</{{headingTags}}>
+					<div class="block-description">{{ contentData }}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

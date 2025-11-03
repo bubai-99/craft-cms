@@ -1,0 +1,73 @@
+
+{% import "_helpers/images" as images %}
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+
+{% set containerWidth = 'container' %}
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+
+
+{% if block.imageContent %}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData = blockStyle.one() %}
+		{% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+
+			{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+				{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+			{% endif %}
+		{% endif %}
+	{% endif %}
+
+	{% set isColumnReverse = block.sideSwitch ?? false %}
+
+	<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+            <div class="row align-items-center">
+                <div class="col-md-6 pb-2 mb-4 mb-md-0 {{ isColumnReverse ? 'offset-xl-1 order-md-2' : '' }}">
+                    {% if block.imageContent|length %}
+                        <img src="{{ block.imageContent.one().url }}" alt="" style="w-100">
+                    {% endif %}
+                </div>
+                <div class="col-md-6 col-xl-5 order-md-1 {{ isColumnReverse ? 'offset-xl-0' : 'offset-xl-1' }}">
+                    <div class="pe-md-4 pe-xl-0">
+                        {% if block.title %}
+                        <h2 class="h2 pb-2 pb-lg-3">
+                            {{ block.title }}
+                        </h2>
+                        {% endif %}
+                        {{ block.textContent }}
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+{% endif %}

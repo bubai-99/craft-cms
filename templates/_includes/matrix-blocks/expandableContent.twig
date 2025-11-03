@@ -1,0 +1,17 @@
+{% import "_helpers/images" as images %}
+
+<div class="accordion-item accordion-toggle-item {{ cardFullBorderStyleAccordion }} {{ accordionItemTopBorderClass }}">
+	<h3 class="accordion-header">
+		<button class="accordion-button accordion-heading-title {{ accordionItemClass }} {% if isArrowTextReverse %} arrowLeft {% endif %} {{ index == 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse"
+			data-binded-content="#img-{{ index }}" data-bs-target="#{{ index }}" aria-expanded="true"
+			aria-controls="{{ index }}">
+			{{ item.plainText }}
+		</button>
+	</h3>
+	<div class="accordion-collapse collapse  {{ index == 0 ? 'show' : '' }}" id="{{ index }}"
+		data-bs-parent="#industries">
+		<div class="accordion-body accordion-content-style text-start">
+			{{ item.Description }}
+		</div>
+	</div>
+</div>

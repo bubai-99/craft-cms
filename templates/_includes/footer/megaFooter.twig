@@ -1,0 +1,111 @@
+{% import "_helpers/images" as images %}
+{% import '_helpers/utils' as utils %}
+<!-- Footer-->
+<div class="footer position-relative pb-4 pt-md-3 py-lg-4 py-xl-5 footer-main {{ footerClasses }}" {% if themeSwitche %} data-bs-theme="dark" {% else %} data-bs-theme="light" {% endif %}>
+	<div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(255,255,255, .03);"></div>
+	<div
+		class="{{ footerContainerWidth }} position-relative pt-5 pb-2">
+		<!-- Columns with links -->
+		<div class="row {{ footerVerticalAlign }}" id="links">
+			<div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+				<h3 class="h6 text-uppercase d-none d-md-block">Useful links</h3>
+				{{ craft.simplerpmenu.getRpMenuHTML('company',{ 'menu-id': 'company','menu-class':'','ul-class':'nav flex-column pb-2 pb-md-0','li-class':'nav-item'}) }}
+			</div>
+			<div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+				<h3 class="h6 text-uppercase d-none d-md-block">Decors</h3>
+				{{ craft.simplerpmenu.getRpMenuHTML('support',{ 'menu-id': 'support','menu-class':'','ul-class':'nav flex-column pb-2 pb-md-0','li-class':'nav-item'}) }}
+			</div>
+			<div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+				<h3 class="h6 text-uppercase d-none d-md-block">Categories</h3>
+				{{ craft.simplerpmenu.getRpMenuHTML('support',{ 'menu-id': 'support','menu-class':'','ul-class':'nav flex-column pb-2 pb-md-0','li-class':'nav-item'}) }}
+			</div>
+			<div class="col-md-3 pb-3 pb-md-0">
+				<h3 class="h6 text-uppercase d-none d-md-block">Showroom</h3>
+				<a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none" href="#showroom" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="showroom" data-show-label="Showroom" data-hide-label="Showroom" aria-label="Showroom"></a>
+				<div class="collapse d-md-block" id="showroom" data-bs-parent="#links">
+					<ul class="nav flex-column pb-3">
+						{% if generalEntry.Description %}
+							<li class="nav-item text-body last-0 mb-1">
+								{{ generalEntry.Description }}
+							</li>
+						{% endif %}
+						<li class="nav-item">
+							<a class="nav-link fw-normal px-0 py-1" href="mailto:{{generalEntry.email}}">{{generalEntry.email}}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link fw-normal px-0 py-1" href="tel:{{ generalEntry.phoneNumber }}">{{ generalEntry.phoneNumber }}</a>
+						</li>
+					</ul>
+					{% if footerDisplayOfficeTiming and officeTiming and officeTiming|length > 0 %}
+						<h3 class="h6">Office Timeing</h3>	
+						<ul class="list-unstyled mb-0 pb-3 pb-md-0">
+							{% for officeTime in officeTiming %}
+								<li class="text-body opacity-90 mb-2">{{officeTime.day}}
+									{{ utils.formatTime24Hour(officeTime.startTime) }}
+									-
+									{{ utils.formatTime24Hour(officeTime.endTime) }}
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-12 col-xl-3">
+				{% if footerDisplayDownloadApp %}
+					<div class="mt-md-2 mt-xl-0 pt-2 pt-md-4 pt-xl-0 mb-5">
+						<h3 class="h6 text-uppercase mb-1 pb-1">Download our app</h3>
+						<div class="d-flex d-xl-block d-xxl-flex">
+							{% if appLinksEntry is defined %}
+								{% include '_includes/_partials/ctaLinksImage' %}
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+
+				{% if footerDisplaySubscribe %}
+					<div>
+						<h3 class="h6 text-uppercase mb-1 pb-1">Stay up to date</h3>
+						<p class="fs-sm text-body">Subscribe to our news and case studies</p>
+						<div class="input-group input-group-sm rounded-pill">
+							<input class="form-control" type="text" placeholder="Email address">
+							<button class="btn btn-primary rounded-pill" type="button">Subscribe</button>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+
+		<!-- Nav + Switcher -->
+		<div
+			class="d-sm-flex align-items-end justify-content-between border-bottom mt-2 mt-sm-1 pt-4 pt-sm-5">
+			<!-- Nav -->
+			<nav class="nav">
+				{{ craft.simplerpmenu.getRpMenuHTML('footermenu',{ 'menu-id': 'footermenu','menu-class':'','ul-class':'nav d-flex mb-3 mb-sm-4','li-class':'nav-item','link-class':'nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4'}) }}
+			</nav>
+
+			<p class="nav fs-sm mb-0 ms-lg-auto mb-3 mb-sm-4">
+				<span class="text-body-secondary">© All rights reserved. Made by</span>
+				<a class="nav-link d-inline fw-normal p-0 ms-1" href="https://remoteprogrammer.com/" target="_blank" rel="noopener">RP</a>
+			</p>
+		</div>
+
+		<!-- Logo + Socials + Cards -->
+		<div class="d-sm-flex align-items-center pt-4">
+			<div class="d-sm-flex align-items-center pe-sm-2">
+				<a class="navbar-brand d-inline-flex align-items-center me-sm-5 mb-4 mb-sm-0" href="index.html">
+					{% if footerDisplayLogo %}
+						<span class="text-primary flex-shrink-0 me-2">
+							<img src="{{ generalEntry.logo.0.url }}" alt="logo">
+						</span>
+					{% endif %}
+				</a>
+				<div class="d-flex mb-4 mb-sm-0">
+					{% if footerDisplaySocial %}
+						{% include '_includes/_partials/social' %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="ms-sm-auto">{{ images.singleImg(generalEntry.acceptedCards.0, 187, {ratio: 6.678}, 'ms-sm-auto') }}<div></div>
+			</div>
+			<div class="pt-5 pt-lg-0"></div>
+		</div>

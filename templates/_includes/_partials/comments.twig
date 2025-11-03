@@ -1,0 +1,266 @@
+{% set savedName = craft.cookies.get('userName') ?? '' %}
+{% set savedEmail = craft.cookies.get('userEmail') ?? '' %}
+
+{% macro renderChildren(parent, commentHandler, activeUserReply ) %}
+{% set kids = craft.entries()
+.section(commentHandler)
+.status('live')
+.parentId(parent.id)
+.orderBy('postDate asc')
+.all() %}
+
+	{% for k in kids %}
+		<div class="card card-body bg-secondary border-0 mt-2 px-4 py-3 rounded">
+			<div>
+				<h6 class="mb-1">{{ k.reviewerName ?? 'Anonymous' }}</h6>
+				<span class="fs-sm text-body-secondary">
+					{{ craft.app.formatter.asRelativeTime(k.postDate) ?? k.postDate|date('F j, Y \\a\\t g:i a') }}
+				</span>
+			</div>
+			<p class="mb-2">{{ k.comment }}</p>
+			{{ _self.renderReplyBtn(k, activeUserReply) }}
+
+	{# Recurse #}
+	{{ _self.renderChildren(k, commentHandler) }}
+</div>
+{% endfor %}
+{% endmacro %}
+
+{% macro renderReplyBtn(data, activeUserReply ) %}
+{% if activeUserReply %}
+<button class="nav-link fs-sm fw-semibold px-0 py-2 replyComment" type="button" id="replyComment{{ data.id }}"
+	data-comment-id="{{ data.id }}">
+	Reply
+	<i class="ai-redo fs-xl ms-2"></i>
+</button>
+{% endif %}
+{% endmacro %}
+
+{% set commentsQuery = craft.entries()
+.section(commentHandler)
+.relatedTo({
+	targetElement: entry.id,
+	field: 'singleSelect'
+})
+.status('live')
+.parentId(0) %}
+
+{% paginate commentsQuery.limit(5) as pageInfo, comments %}
+
+<div class="pt-2" id="comments">
+	<h2 class="h2 py-lg-1">
+		{{ pageInfo.total }}
+		comment{{ pageInfo.total != 1 ? 's' }}
+	</h2>
+
+	{% for c in comments %}
+		<div class="border-bottom py-4 mb-4">
+			<div class="d-flex align-items-center pb-1 mb-3">
+				<div class="">
+					<h6 class="mb-0">{{ c.reviewerName ?? 'Anonymous' }}</h6>
+					<span class="fs-sm text-body-secondary">
+						{{ craft.app.formatter.asRelativeTime(c.postDate) ?? c.postDate|date('F j, Y \\a\\t g:i a') }}
+					</span>
+				</div>
+			</div>
+			{% if c.rate is defined and c.rate|length  %}
+			{% set remainRateing = (5 - c.rate) %}
+			<div class="w-100">
+				<div class="comment-rate">
+					{% for i in range(1, c.rate) %}
+						<label class="active"></label>
+					{% endfor %}
+					{% for i in range(1, remainRateing) %}
+						<label></label>
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
+			<p class="pb-2 mb-0">{{ c.comment }}</p>
+			{{ _self.renderReplyBtn(c, activeUserReply) }}
+
+			{# Admin Reply #}
+			{% if c.reply is defined and c.reply|length %}
+				<div class="card card-body border-0 bg-secondary block-bg-color mt-2 px-4 py-3 rounded">
+					<div class="d-flex align-items-center pb-1 mb-3">
+							<div class="">
+								<h6 class="mb-0">Admin</h6>
+								<span class="fs-sm text-body-secondary">{{ craft.app.formatter.asRelativeTime(c.dateUpdated) ??
+									c.dateUpdated|date('F j, Y \\a\\t g:i a') }}</span>
+							</div>
+					</div>
+					<p class="mb-0">{{ c.reply }}</p>
+				</div>
+			{% endif %}
+
+			{% if activeUserReply %}
+				{{ _self.renderChildren(c, commentHandler, activeUserReply) }}
+			{% endif %}
+		</div>
+			{% else %}
+			<p class="text-body-secondary">No comments yet — be the first to comment.</p>
+	{% endfor %}
+
+			{% if pageInfo.totalPages > 1 %}
+				<nav class="d-flex justify-content-between align-items-center pb-5 mb-lg-1 mb-xl-3">
+					{% if pageInfo.prevUrl %}
+					<a class="btn btn-link px-0" href="{{ pageInfo.prevUrl }}">
+						<i class="ai-chevron-left fs-lg me-1"></i>
+						Newer
+					</a>
+					{% else %}
+					<span></span>
+					{% endif %}
+
+					{% if pageInfo.nextUrl %}
+					<a class="btn btn-link px-0" href="{{ pageInfo.nextUrl }}">
+						Older
+						<i class="ai-chevron-right fs-lg ms-1"></i>
+					</a>
+					{% endif %}
+				</nav>
+			{% endif %}
+
+			<div class="row">
+				<div class="col-lg-8 col-xl-7">
+					<!-- Comment form -->
+					<div class="card border-0 bg-secondary block-bg-color mt-n3 mt-md-0">
+						<div class="card-body">
+							<h2 class="pb-2 pb-lg-3 pb-xl-4">Leave a comment</h2>
+
+							{% set reviewsSection = craft.app.entries.getSectionByHandle(commentHandler) %}
+							{% set reviewsType = reviewsSection.entryTypes|first %}
+							<form class="row needs-validation g-4" novalidate method="post" id="guestComment">
+								{{ csrfInput() }}
+								{{ actionInput('guest-entries/save') }}
+								{{ redirectInput(entry.url ~ '#comments') }}
+								{{ hiddenInput('sectionId', reviewsSection.id) }}
+								{{ hiddenInput('typeId', reviewsType.id) }}
+								{{ hiddenInput('title','Comment on ' ~ entry.title) }}
+								{{ hiddenInput('slug', ('comment-' ~ entry.id ~ '-' ~ now|date('YmdHis'))) }}
+								{{ hiddenInput('fields[singleSelect][]', entry.id) }}
+								<input type="hidden" name="fields[parentId]" id="parentId" value="0">
+
+								<div class="col-sm-6 {{ craft.cookies.get('userName') ? 'd-none' : '' }}">
+									<label class="form-label" for="userName">Name</label>
+									<input class="form-control" type="text" id="userName" placeholder="Your name"
+										name="fields[reviewerName]" required
+										value="{{ craft.cookies.get('userName') ?? '' }}">
+									<div class="invalid-feedback">Please enter your name!</div>
+								</div>
+
+								<div class="col-sm-6 {{ craft.cookies.get('userName') ? 'd-none' : '' }}">
+									<label class="form-label" for="userEmail">Email</label>
+									<input class="form-control" type="email" id="userEmail" placeholder="Your email"
+										name="fields[email]" required value="{{ craft.cookies.get('userEmail') ?? '' }}">
+									<div class="invalid-feedback">Please provide a valid email address!</div>
+								</div>
+
+								<div class="col-12">
+									<label class="form-label" for="c-comment">Comment</label>
+									<textarea class="form-control" rows="4" placeholder="Type your comment here..."
+										name="fields[comment]" required id="c-comment"></textarea>
+									<div class="invalid-feedback">Please enter a comment message!</div>
+								</div>
+
+								<div class="col-12">
+									<label class="form-label w-100" for="rating">Your Rating</label>
+									<div class="rate">
+										<input type="radio" id="star5" name="fields[rate]" value="5" />
+										<label for="star5" title="5">5 stars</label>
+										<input type="radio" id="star4" name="fields[rate]" value="4" />
+										<label for="star4" title="4">4 stars</label>
+										<input type="radio" id="star3" name="fields[rate]" value="3" />
+										<label for="star3" title="3">3 stars</label>
+										<input type="radio" id="star2" name="fields[rate]" value="2" />
+										<label for="star2" title="2">2 stars</label>
+										<input type="radio" id="star1" name="fields[rate]" value="1" />
+										<label for="star1" title="1">1 star</label>
+									</div>
+								</div>
+
+								<div class="col-12">
+									<div class="form-check mb-2">
+										<input class="form-check-input" type="checkbox" id="c-save" name="saveDetails"
+											value="1" {{ savedName or savedEmail ? 'checked' : '' }}>
+										<label class="form-check-label" for="c-save">Save my name and email</label>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-{{ singlePageBlockStyle ? singlePageBlockStyle.buttonColor.value : 'primary' }}" type="submit" id="submitComment">Post a comment</button>
+								</div>
+							</form>
+							<div class="alert alert-success mt-3 d-none" id="success-message">{{
+								craft.app.session.getFlash('notice') }}</div>
+							<div class="alert alert-danger mt-3 d-none" id="error-message">{{
+								craft.app.session.getFlash('error') }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+
+		document.querySelectorAll('.replyComment') ?. forEach(button => {
+			button.addEventListener('click', async (e) => {
+				var commentId = e.currentTarget.getAttribute('data-comment-id');
+				document.getElementById('parentId').value = commentId;
+				document.getElementById('c-comment').focus();
+				$("#parentId").val(commentId);
+
+			});
+		});
+		document.getElementById('guestComment') ?. addEventListener('submit', async (e) => {
+			e.preventDefault();
+			var userName = document.getElementById('userName').value;
+			var userEmail = document.getElementById('userEmail').value;
+			const saveEl  = document.getElementById('c-save');
+			  const saveDetails = saveEl ? !!saveEl.checked : false;
+			if (saveDetails) {
+				var d = new Date();
+				d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000)); // 1 year
+				var expires = "expires=" + d.toUTCString();
+				document.cookie = "userName=" + userName + "; " + expires + "; path=/";
+				document.cookie = "userEmail=" + userEmail + "; " + expires + "; path=/";
+			} else {
+				document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				document.cookie = "userEmail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			}
+			const form = e.currentTarget;
+			const action = form.getAttribute('action') || '{{ actionUrl("guest-entries/save") }}';
+			const body = new FormData(form);
+			if (! form.checkValidity()) {
+				return;
+			}
+			try {
+				$('#submitComment').attr('disabled', 'disabled');
+				const res = await fetch(action, {
+				method: 'POST',
+				body,
+				headers: {
+				'Accept': 'application/json',
+				'X-Requested-With': 'XMLHttpRequest'
+				},
+				credentials: 'same-origin'
+				});
+				const data = await res.json();
+				if (! res.ok) {
+					$('#error-message').removeClass('d-none').text('An error occurred while submitting the form.');
+					$('#success-message').addClass('d-none').text('');
+				return;
+				}
+				$('#success-message').removeClass('d-none').text('Thanks! Your comment was posted.');
+				$('#error-message').addClass('d-none').text('');
+				form.reset();
+				form.classList.remove('was-validated');
+			} catch (err) {
+				$('#error-message').removeClass('d-none').text('An error occurred while submitting the form.');
+				$('#success-message').addClass('d-none').text('');
+			} finally {
+				$('#submitComment').removeAttr('disabled');
+				$("#parentId").val(0);
+			}
+		});
+	</script>
+

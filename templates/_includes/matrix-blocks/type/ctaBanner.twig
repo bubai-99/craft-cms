@@ -1,0 +1,83 @@
+{% import '_includes/_partials/ctaButton' as buttons %}
+{% import "_helpers/images" as images %}
+
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{% set containerWidth = 'container' %}
+{% if blockStyle is defined and blockStyle is not empty %}
+{% set blockStyleData = blockStyle.one() %}
+{% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+{% endif %}
+
+{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+{% set containerWidthMap = {
+'default': 'container',
+'fullWidth': 'container-full',
+'boxedLg': 'container container-large',
+'boxedSm': 'container container-small'
+} %}
+{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+{% endif %}
+{% if returnVars.containerWidth is defined %}
+{% set containerWidth = returnVars.containerWidth %}
+{% endif %}
+
+{% set ctaBannerItemHeading = block.plainText %}
+{% set ctaBannerItemDisplaySubHeading = block.switchOff %}
+{% set ctaBannerItemSubHeading = block.plainTextSub %}
+{% set ctaBannerItemDescription = block.Description %}
+{% set ctaBannerItemImageVideo = block.imageVideo %}
+{% set ctaBannerItemImage = block.image.one() %}
+{% set ctaBannerItemButton = block.button.all() %}
+
+{% set isBorderRounded = block.rounded ?? false %}
+
+{% set pageBannerColorData = block.ctaBoxBackgroundColor.one() %}
+{% set ctaBoxBackgroundColor = pageBannerColorData.colorcode ?? null %}
+{% set pageBannerStyles = ctaBoxBackgroundColor ? 'background-color: ' ~ ctaBoxBackgroundColor ~ ' !important;' : '' %}
+
+{% set blockStyleAlign = block.blockStyle.one().typography.one() ?? '' %}
+{% if blockStyleAlign %}
+	<style>
+		.align-style {text-align: {{ blockStyleAlign.align.value }} !important;}
+	</style>
+{% endif %}
+
+
+<div class="{{ blockType }}{{blockTypeUid}}-style py-3 py-lg-4 py-xl-5">
+	<div class="{{ containerWidth }}">
+		<div class="bg-primary rounded-5x overflow-hidden {% if isBorderRounded %} rounded-5{% endif %}" style="background: {{ ctaBoxBackgroundColor }} !important">
+		<div class="row position-relative z-2 align-items-center">
+			
+			<div class="{{ block.image|length ? 'col-md-6 col-lg-5 offset-lg-1' : 'col-md-12 col-lg-12 offset-lg-0' }}">
+				<div class="{{ block.image|length ? 'text-center text-md-start py-5 px-4 px-sm-5 pe-md-0 ps-lg-4 ps-xl-5 align-style' : 'text-center text-md-start py-5 px-4 px-sm-5 px-lg-4 px-xl-5 align-style' }}">
+					<div class="mb-2 align-style">
+						<span class="fs-xs fw-semibold text-white text-uppercase block-heading-title align-style">
+							{% if ctaBannerItemDisplaySubHeading %}
+								{{ ctaBannerItemSubHeading }}
+							{% endif %}
+						</span>
+					</div>
+					<h2 class="h1 text-white block-heading-title">{{ctaBannerItemHeading}}</h2>
+					<div class="pb-2 pb-sm-3 block-description">{{ ctaBannerItemDescription }}</div>
+					{{ buttons.renderButton(ctaBannerItemButton) }}
+				</div>
+			</div>
+			{% if block.image|length %}
+				<div class="col-md-6 text-center">
+					{{ images.singleImg(block.image.0, 350, {'ratio': 2.578}, 'mx-auto mx-md-0 mt-n4 mt-md-0') }}
+				</div>
+			{% endif %}
+		</div>
+		<div class="jarallax-z position-absolute top-0 start-0 w-100 h-100" data-jarallax data-speed="0.6">
+			{% set ctaBannerItemImageVideo = block.imageVideo.one() %}
+			{% if ctaBannerItemImageVideo %}
+			<div class="jarallax-img position-absolute w-100 h-100 opacity-25"
+				style="background-image: url('{{ ctaBannerItemImageVideo.url }}'); background-size: cover"></div>
+			{% endif %}
+		</div>
+	</div>
+	</div>
+</div>

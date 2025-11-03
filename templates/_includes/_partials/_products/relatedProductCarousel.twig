@@ -1,0 +1,34 @@
+{% if generalEntry.relatedProducts | length %}
+	{% set relatedProducts = craft.entries().section('products').id('not ' ~ entry.id).orderBy('postDate DESC').all() %}
+	{% if relatedProducts | length %}
+		<div class="d-flex align-items-center pb-3 mb-3 mb-lg-4 mt-2 mt-xxl-3">
+			<h2 class="w-100 h2 mb-0 text-{{ generalEntry.productTextAlign.value }}" style="color: {{ generalEntry.productTitleColor.one().colorcode ?? '' }}">Related Products</h2>
+		</div>
+
+		<div class="swiper" data-swiper-options='
+				{
+				"spaceBetween": 24,
+				"pagination": {
+					"el": ".swiper-pagination",
+					"clickable": true
+				},
+				"breakpoints": {
+					"576": { "slidesPerView": 2 },
+					"992": { "slidesPerView": {{ generalEntry.productColumnPerRow.value }} }
+				},
+				"autoplay": {
+					"delay": 3000,
+					"disableOnInteraction": false
+				},
+				"speed": 1000,
+				"loop": true
+				}
+			'>
+			<div class="swiper-wrapper">
+				{% for product in relatedProducts %}
+					{% include "_includes/_partials/_products/singleProductInSlider.twig" with { product: product } %}
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+{% endif %}

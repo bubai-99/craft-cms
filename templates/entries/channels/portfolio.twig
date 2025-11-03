@@ -1,0 +1,117 @@
+{% extends "_layouts/entry" %}
+{% import "_helpers/images" as images %}
+
+{% set featureItems = entry.featureItemTable ?? [] %}
+{% set portfolio = craft.entries()
+    .section('portfolios')
+    .slug(craft.app.request.segment(2))
+    .one() %}
+{% block content %}
+
+{% set containerWidth = 'container' %}
+{% set blockTypeUid = '' %}
+{% set blockCssClasses = '' %}
+
+{% set singlePageBlockStyle = entry.singlePageBlockStyle.one() %}
+
+    {% if portfolio %}
+
+    {% if singlePageBlockStyle is defined and singlePageBlockStyle %}
+    {% include "_includes/matrix-blocks/singlePageBlockStyle" with {
+        singlePageBlockStyle: singlePageBlockStyle
+    } %}
+    {% endif %}
+    {% set themeSwitche = singlePageBlockStyle.themeColor ?? null %}
+
+        <div class="bg-color" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+        <div class="py-3 py-lg-4 py-xl-5 standard-txt">
+            <div class="{{ singlePageBlockStyle ? singlePageBlockStyle.SingleMatrixContainerWidth.value : 'container' }}">
+
+                <div class="row">
+                    {% set clientLogos = portfolio.clientLogo.all() %}
+                    {% if clientLogos|length %}
+                        <div class="col-lg-11 col-xl-10">
+                            {{ images.singleImg(clientLogos|first, 200, {'ratio': 3.5}, 'd-block mb-2 mb-sm-3') }}
+                        </div>
+                    {% endif %}
+                    <div class="pb-3 pb-md-4 pb-lg-5">
+                        <h1 class="display-2 mb-0">{{ portfolio.title }}</h1>
+                        <div>
+                            {% if portfolio.tags|length %}
+                                {% set tags = portfolio.tags.all() %}
+                                {% if tags %}
+                                    {% for tag in tags %}
+                                    <a class="badge text-nav fs-xs border mt-2 me-1">{{ tag.title }}</a>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% set featureImages = portfolio.featureImage.all() %}
+                {% if featureImages|length %}
+                    {% for image in featureImages %}
+                        {{ images.singleImg(
+                            image,
+                            1200,
+                            {'ratio': 1.94},
+                            'd-block w-100 rounded-5 mb-3 mb-xl-4 mb-xxl-5'
+                        ) }}
+                    {% endfor %}
+                {% endif %}
+
+
+                <div class="border-bottom py-3 py-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="text-dark lead mb-2 mb-lg-3-0 mb-xl-4 mb-xxl-5">
+                                {{ portfolio.shortDescription }}
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <ul class="list-unstyled mb-5">
+                                {% for item in featureItems %}
+                                    {% if item %}
+                                        <li class="mb-2">
+                                            {{ item.item }}:
+                                            <span class="text-dark fw-semibold ms-2">{{ item.quantity|raw }}</span>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center justify-content-center mt-n2">
+                    {% if portfolio.date|length %}
+                        <span class="fs-sm text-body-secondary mt-2">{{ portfolio.date|date('M d, Y') }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        {% include "_includes/matrix-container" with {
+            entry: portfolio,
+            cache_key: 'entry-' ~ portfolio.id
+            } 
+        %}
+
+        </div>
+        {# <div class="container pt-xl-2 pb-5 mb-md-2 mb-lg-4 mb-xl-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-xl-12">
+                    <div class="border-top border-bottom py-3 d-flex justify-content-end">
+                        <a href="/portfolio" class="btn btn-primary btn-sm fs-sm order-lg-3 d-flex d-sm-inline-flex">
+                            <i class="ai-chevron-left fs-xl me-2 ms-n1"></i>
+                            Back to list
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> #}
+
+    {% endif %}
+{% endblock %}

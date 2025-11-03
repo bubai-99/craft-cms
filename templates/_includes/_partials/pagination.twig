@@ -1,0 +1,35 @@
+
+{% if pageInfo.totalPages > 1 %}
+	<nav class="pagination-nav Page navigation mt-5" aria-label="Pagination">
+		<ul class="pagination justify-content-center">
+
+			<li class="page-item {{ not pageInfo.prevUrl ? 'disabled' }}">
+				{% if pageInfo.prevUrl %}
+					<a class="page-link border" href="{{ pageInfo.prevUrl }}" aria-label="Previous">&laquo;</a>
+				{% else %}
+					<span class="page-link border" aria-hidden="true">&laquo;</span>
+				{% endif %}
+			</li>
+
+			{% for page in 1..pageInfo.totalPages %}
+				{% set url = pageInfo.getPageUrl(page) %}
+				<li class="page-item {{ page == pageInfo.currentPage ? 'active' }}">
+					{% if url %}
+						<a class="page-link border {{ page == pageInfo.currentPage ? 'bg-gray' }}" href="{{ url }}">{{ page }}</a>
+					{% else %}
+						<span>{{ page }}</span>
+					{% endif %}
+				</li>
+			{% endfor %}
+
+			<li class="page-item {{ not pageInfo.nextUrl ? 'disabled' }}">
+				{% if pageInfo.nextUrl %}
+					<a class="page-link border" href="{{ pageInfo.nextUrl }}" aria-label="Next">&raquo;</a>
+				{% else %}
+					<span class="page-link border" aria-hidden="true">&raquo;</span>
+				{% endif %}
+			</li>
+
+		</ul>
+	</nav>
+{% endif %}

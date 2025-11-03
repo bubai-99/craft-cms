@@ -1,0 +1,52 @@
+{# {% set headerPositioning = matrixContainer.matrixRow.columnStyle.cssClasses.value ?? null %}
+{% set headerPositioning = headerEntry.positioning.value ?? null %} #}
+
+{# {% set matrixContainerWidth = '' ~ matrixRow.sectionStyle.0.matrixContainerWidth.value  %} #}
+{% set matrixContainerWidth = matrixRow.sectionStyle|length ? (matrixRow.sectionStyle.0.matrixContainerWidth.value ?? '') : '' %}
+
+{# {% dd(matrixRow.sectionStyle.0.matrixContainerWidth.value) %} #}
+
+<div class="{{ matrixContainerWidth }}">
+	{% set matrixRowData = block.all() ?? [] %}
+
+	{% set columnWidths = [] %}
+	{% for matrixRow in matrixRowData %}
+		{% set columnStyle = matrixRow.columnStyle.one() ?? null %}
+		{% if columnStyle %}
+			{% set columnWidths = columnWidths|merge([columnStyle.columnWidth.value ?? 'default']) %}
+		{% endif %}
+	{% endfor %}
+
+	{% set hasNonDefault = columnWidths|filter(v => v != 'default')|length > 0 %}
+
+	<div class="matrix-row{% if hasNonDefault %} row{% endif %} {% if matrixContainerWidth == 'full-width' %} gx-0{% endif %}">
+		{% for matrixRow in matrixRowData %}
+			{% if matrixRow is defined and matrixRow is not empty %}
+				{% set columnStyle = matrixRow.columnStyle.one() %}
+				{% set columnCssClasses = columnStyle.cssClasses|default(null) %}
+				{% set columnColumnWidth = columnStyle.columnWidth.value|default(null) %}
+				{% set fieldLayout = matrixRow.getFieldLayout() ?? null %}
+
+				{% set columnClass = columnStyle.cssClasses ?? '' %}
+				{# {% dd(columnColumnClass) %} #}
+
+				{% if fieldLayout %}
+					{% set fieldHandles = fieldLayout.getCustomFields()|map(f => f.handle) %}
+					{% set fieldValues = matrixRow.getFieldValues(fieldHandles) %}
+				{% else %}
+					{% set fieldValues = {} %}
+				{% endif %}
+
+				{% for fieldHandle, fieldValue in fieldValues %}
+					{% if fieldValue is defined and fieldValue is not empty %}
+						{% if fieldHandle != 'columnStyle' %}
+							<div class="matrix-{{ fieldHandle }} {{ columnColumnWidth }} {{ columnClass }}">
+								{% include ["_includes/matrix-blocks/" ~ fieldHandle] with { block: fieldValue } %}
+							</div>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>

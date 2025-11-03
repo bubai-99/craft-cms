@@ -1,0 +1,10 @@
+{% import "_helpers/images" as images %}
+{% cache using key cache_key %}
+    <div class="container">
+        {{ images.responsiveImg(item.image.0 ?? null, [
+            {width: 1140},
+            {width: 800},
+            {width: 500}
+        ]) }}
+    </div>
+{% endcache %}

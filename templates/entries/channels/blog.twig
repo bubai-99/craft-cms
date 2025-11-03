@@ -1,0 +1,109 @@
+{% extends "_layouts/entry" %}
+{% set blog = craft.entries()
+    .section('blogs')
+    .slug(craft.app.request.segment(2))
+    .one() %}
+{% block content %}
+
+{% set title = entry.title ?? '' %}
+{% set heading = entry.heading ?? '' %}
+{% set headingTags = entry.headingTags ?? 'h2' %}
+{% set align = entry.align ?? 'left' %}
+{% set contentData = entry.contentdata ?? '' %}
+{% set blockStyle = entry.blockStyle ?? [] %}
+{% set blockType = entry.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{% set containerWidth = "container" %}
+{% set themeSwitche = "" %}
+
+{% set singlePageBlockStyle = entry.singlePageBlockStyle.one() %}
+
+{% set blockCssClasses = '' %}
+
+	{% if blog %}
+
+		{% if singlePageBlockStyle is defined and singlePageBlockStyle %}
+		{% include "_includes/matrix-blocks/singlePageBlockStyle" with {
+			singlePageBlockStyle: singlePageBlockStyle
+		} %}
+		{% endif %}
+		{% set themeSwitche = singlePageBlockStyle.themeColor ?? null %}
+
+		<div class="bg-color" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+			<div class="py-3 py-lg-4 py-xl-5 standard-txt overflow-hidden">
+				<div class="{{ singlePageBlockStyle ? singlePageBlockStyle.SingleMatrixContainerWidth.value : 'container' }}">
+					<h1 class="display-4 text-center pb-2 pb-lg-3 block-heading-title">{{ blog.title }}</h1>
+					<div class="d-flex flex-wrap align-items-center justify-content-center mt-n2">
+						{% if blog.date|length %}
+							<span class="fs-sm text-body-secondary mt-2">{{ blog.date|date('M d, Y') }}</span>
+						{% endif %}
+						{% if blog.tags|length %}
+							<span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+							{% set tags = blog.tags.all() %}
+							{% if tags %}
+								{% for tag in tags %}
+									<a class="badge text-nav fs-xs border mt-2 mx-1">{{ tag.title }}</a>
+								{% endfor %}
+							{% endif %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			{% if blog.image|length %}
+				<section class="jarallax" data-jarallax data-speed=".65">
+					{% set image = blog.image.one() %}
+					{% if image %}
+						<div class="jarallax-img bg-position-center-y" style="background-image: url('{{ image.url }}');"></div>
+					{% endif %}
+					<div class="d-none d-xxl-block" style="height: 500px;"></div>
+					<div class="d-none d-xl-block d-xxl-none" style="height: 450px;"></div>
+					<div class="d-none d-lg-block d-xl-none" style="height: 430px;"></div>
+					<div class="d-none d-md-block d-lg-none" style="height: 400px;"></div>
+					<div class="d-md-none" style="height: 300px;"></div>
+				</section>
+			{% endif %}
+
+			{% include "_includes/_partials/breadcrumbs" %}
+
+			{% include "_includes/matrix-container" with {
+				entry: blog,
+				cache_key: 'entry-' ~ blog.id
+				} 
+			%}
+			<div class="pt-xl-2 pb-3 mb-md-2 mb-lg-4 mb-xl-5 standard-txt overflow-hidden">
+				<div class="{{ singlePageBlockStyle ? singlePageBlockStyle.SingleMatrixContainerWidth.value : 'container' }}">
+					{% if generalEntry.displayBlogReview is defined and generalEntry.displayBlogReview|length %}
+						{% set activeUserReply = generalEntry.activeUserReplyBlog %}
+						<div class="row">
+							<div class="col-lg-12 col-xl-12 pb-5">
+								{% include "_includes/_partials/comments" with { commentHandler: 'blogReview', activeUserReply: activeUserReply } %}
+							</div>
+						</div>
+					{% endif  %}
+					<div class="row justify-content-center">
+						<div class="col-lg-12 col-xl-12">
+							<div class="border-top border-bottom py-3 d-flex justify-content-end">
+								<a href="/blogs" class="btn btn-sm fs-sm order-lg-3 d-flex d-sm-inline-flex btn-{{ singlePageBlockStyle ? singlePageBlockStyle.buttonColor.value : 'primary' }}">
+									<i class="ai-chevron-left fs-xl me-2 ms-n1"></i>
+									Back to list
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="w-100 overflow-hidden pt-3" style="background-color: {{ generalEntry.blogBackgroundColor.one().colorcode ?? '' }}">
+				<div class="{{ generalEntry.blogRelatedContainerWidth.value }}">
+					<div class="row">
+						<div class="col-12 pb-5">
+							{% include "_includes/_partials/_blog/relatedBlogsCarousel" with { blog: blog } %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	{% endif %}
+{% endblock %}

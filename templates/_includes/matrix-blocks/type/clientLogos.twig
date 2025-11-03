@@ -1,0 +1,231 @@
+{% import "_helpers/images" as images %}
+
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set imageTitleLink = block.imageTitleLink ?? [] %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+
+
+{% set containerWidth = "container" %}
+
+
+{% if imageTitleLink | length %}
+	{# {% if blockStyle is defined and blockStyle is not empty %} #}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData = blockStyle.one() %}
+		{% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+		{% endif %}
+
+		{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+			{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+		{% endif %}
+	{% endif %}
+
+	{% set isLogoTitleDisplay = block.logoTitleDisplay ?? false %}
+
+	{% set displayMode = block.displayMode.value ?? '' %}
+	{% if displayMode == 'sliderView' %}
+
+	<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			<div class="swiper" data-swiper-options='{
+				"slidesPerView": 1,
+				"spaceBetween": 24,
+				"loop": true,
+				
+				"navigation": {
+				  "prevEl": "#popular-prev",
+				  "nextEl": "#popular-next"
+				},
+				"breakpoints": {
+				  "500": {
+					"slidesPerView": 2
+				  },
+				  "860": {
+					"slidesPerView": 3
+				  },
+				  "1200": {
+					"slidesPerView": 5
+				  }
+				}
+			}'>
+			<div class="swiper-wrapper">
+				{% for index, item in imageTitleLink %}
+				<div class="swiper-slide h-auto">
+					<div class="card h-100 border-0 rounded-1 text-decoration-none p-3 text-center">
+						{% set hasLink = item.linkUrl is defined and item.linkUrl is not empty %}
+						{% set hasImage = item.image is defined and item.image | length %}
+						<div>
+						{% if hasLink %}
+							<a href="{{ item.linkUrl }}" target="_blank">
+						{% endif %}
+						{% if hasImage %}
+							{% set ratio = item.image.0.width / item.image.0.height %}
+							{% if item.image.0.extension == "svg" %}
+								<img class="flex-shrink-0" alt="icon" src="{{ item.image.0.url }}" width="{{ item.image.0.width }}" height="{{ item.image.0.height }}">
+							{% else %}
+								{{ images.singleImg(item.image.0, 196, {'ratio': 2.578}, 'flex-shrink-0') }}
+							{% endif %}
+						{% endif %}
+						{% if hasLink %}
+							</a>
+						{% endif %}
+						</div>
+						<div class="pt-3 fw-bold {% if isLogoTitleDisplay %} d-none {% endif %}">{{ item.title | default('') }}</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="d-flex align-aitems-center justify-content-center">
+			<button class="btn btn-prev btn-icon btn-sm btn-outline-light rounded-circle mx-2 mt-4" type="button" id="popular-prev" aria-label="Prev">
+			  <i class="ai-arrow-left"></i>
+			</button>
+			<button class="btn btn-next btn-icon btn-sm btn-outline-light rounded-circle mx-2 mt-4" type="button" id="popular-next" aria-label="Next">
+			  <i class="ai-arrow-right"></i>
+			</button>
+		</div>
+
+		</div>
+	</div>
+	{% endif %}
+
+	{% if displayMode == 'listView' %}
+	<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			<div class="row justify-content-center row-cols-2 row-cols-3 gx-0 gx-sm-3 gx-md-2 gx-lg-3 gx-xl-4">
+				{% for index, item in imageTitleLink %}
+				<div class="col">
+					<div class="py-sm-2 my-xl-1">
+						<div class="card h-100 border-0 rounded-1 text-decoration-none p-3 text-center">
+							{% set hasLink = item.linkUrl is defined and item.linkUrl is not empty %}
+							{% set hasImage = item.image is defined and item.image | length %}
+							<div>
+								{% if hasLink %}<a href="{{ item.linkUrl }}" target="_blank">{% endif %}
+
+								{% if hasImage %}
+									{% set ratio = item.image.0.width / item.image.0.height %}
+									{% if item.image.0.extension == "svg" %}
+										<img class="flex-shrink-0" alt="icon" src="{{ item.image.0.url }}" width="{{ item.image.0.width }}" height="{{ item.image.0.height }}">
+									{% else %}
+										{{ images.singleImg(item.image.0, 196, {'ratio': 2.578}, 'flex-shrink-0') }}
+									{% endif %}
+								{% endif %}
+
+								{% if hasLink %}</a>{% endif %}
+							</div>
+							<div class="pt-3 fw-bold {% if isLogoTitleDisplay %} d-none {% endif %}">{{ item.title | default('') }}</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	{% endif %}
+
+	{% if displayMode == 'gridView' %}
+
+	{% set columnPerRow = block.columnPerRow.value ?? 'md-6' %}
+	{% set columnClassMap = {
+		'md-6': 'row-cols-md-2',
+		'md-4': 'row-cols-md-3',
+		'md-3': 'row-cols-md-4',
+		'md-2': 'row-cols-md-6'
+	} %}
+	{% set rowColsClass = columnClassMap[columnPerRow] ?? 'row-cols-md-6' %}
+
+	<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or  headingAndContent.Description|length %}
+				<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+					{% if headingAndContent.heading|length %}
+					<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}</{{headingAndContent.headingTags}}>
+					{% endif %}
+					{% if headingAndContent.Description|length %}
+						<div class="block-description">{{ headingAndContent.Description }}</div>
+					{% endif %}
+				</div>
+				{% endif %}
+			{% endif %}
+
+			<div class="row justify-content-center row-cols-2 row-cols-3 {{ rowColsClass }} gx-0 gx-sm-3 gx-md-2 gx-lg-3 gx-xl-4">
+				{% for index, item in imageTitleLink %}
+				<div class="col">
+					<div class="py-sm-2 my-xl-1">
+						<div class="card h-100 border-0 rounded-1 text-decoration-none p-3 text-center">
+							{% set hasLink = item.linkUrl is defined and item.linkUrl is not empty %}
+							{% set hasImage = item.image is defined and item.image | length %}
+							<div>
+								{% if hasLink %}<a href="{{ item.linkUrl }}" target="_blank">{% endif %}
+
+								{% if hasImage %}
+									{% set ratio = item.image.0.width / item.image.0.height %}
+									{% if item.image.0.extension == "svg" %}
+										<img class="flex-shrink-0" alt="icon" src="{{ item.image.0.url }}" width="{{ item.image.0.width }}" height="{{ item.image.0.height }}">
+									{% else %}
+										{{ images.singleImg(item.image.0, 196, {'ratio': 2.578}, 'flex-shrink-0') }}
+									{% endif %}
+								{% endif %}
+
+								{% if hasLink %}</a>{% endif %}
+							</div>
+							<div class="pt-3 fw-bold {% if isLogoTitleDisplay %} d-none {% endif %}">{{ item.title | default('') }}</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	{% endif %}
+
+
+{% endif %}

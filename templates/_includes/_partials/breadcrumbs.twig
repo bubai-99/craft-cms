@@ -1,0 +1,85 @@
+{% if generalEntry.showBreadcrumbsDefault is defined and generalEntry.showBreadcrumbsDefault|length %}
+{% set element = element ?? entry ?? null %}
+{% if not element %}
+{% exit %}
+{% endif %}
+
+{% set segs = craft.app.request.segments %}
+{% set isHome = segs|length == 0 or (element.uri ?? null) == '__home__' %}
+{# {% set isBlogDetail = element.section.handle == 'blogs' %}
+{% if not isHome and not isBlogDetail %} #}
+
+{% if not isHome %}
+<div class="w-100 border-bottom">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="py-lg-3 py-2 breadcrumb mb-0">
+                <li class="breadcrumb-item">
+                    <a href="{{ siteUrl }}">Home</a>
+                </li>
+
+                {# Structures: real parent/child relationship #}
+                {% if element.structureId ?? null %}
+                {% set baseSeg = segs|length ? segs[0] : null %}
+                    {% if baseSeg %}
+                        <li class="breadcrumb-item">
+                            <a href="{{ siteUrl(baseSeg) }}">
+                                {{ element.section.name ?? baseSeg|replace({'-':' '})|title }}
+                            </a>
+                        </li>
+                    {% endif %}
+                
+                    {# then ancestors, if any #}
+                    {% for c in element.ancestors().all() %}
+                        <li class="breadcrumb-item">
+                            <a href="{{ c.url }}">{{ c.title }}</a>
+                        </li>
+                    {% endfor %}
+                
+                    <li class="breadcrumb-item active" aria-current="page">{{ element.title }}</li>
+
+                {% else %}
+                {% set path = '' %}
+                {% set crumbs = [] %}
+                {% for s in segs %}
+                {% set path = path ~ '/' ~ s %}
+                {% set e = craft.entries().uri(path|trim('/')).siteId(currentSite.id).one() %}
+                {% if e %}
+
+                {% set crumbs = crumbs|merge([{
+                    url: e.url,
+                    label: e.title
+                }]) %}
+
+                {% else %}
+                {# fallback: link to the cumulative path using the raw segment #}
+
+                {% set crumbs = crumbs|merge([{
+                    url: siteUrl(path|trim('/')),
+                    label: s|title
+                }]) %}
+
+                {% endif %}
+                {% endfor %}
+
+                {# render all but the last as links #}
+
+                {% for c in crumbs|slice(0, -1) %}
+                <li class="breadcrumb-item">
+                    <a href="{{ c.url }}">{{ c.label }}</a>
+                </li>
+                {% endfor %}
+
+                {# last as the current page label #}
+                <li class="breadcrumb-item">
+
+                    {{ (crumbs|last).label ?? element.title }}
+                </li>
+                {% endif %}
+
+            </ol>
+        </nav>
+    </div>
+</div>
+{% endif %}
+{% endif %}

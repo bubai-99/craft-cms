@@ -1,0 +1,45 @@
+{% import "_helpers/images" as images %}
+
+{% cache using key cache_key %}
+    <div class="container pb-xxl-12 pb-xl-10 pb-lg-9 pb-md-7 pb-5">
+        <div class="row gx-3 gy-3 gy-lg-4 gy-xxl-5">
+            {% set teams = item.teamMember %}
+            {% for team in teams %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="team-member-block overflow-hidden">
+                        <div class="member-img">
+                            {{images.transformOrPlaceholder(team.profileImage.0,({ width: 440 }))}}
+                        </div>
+                        <div class="member-cnt px-2 px-md-3 px-lg-2 px-xl-3 pt-3 pt-lg-3_5 pt-xxl-4 pb-3 pb-lg-4 pb-xxl-5">
+                            <h3 class="display-3 fw-bold text-gray-dark-300 mb-1">{{ team.title }}</h3>
+                            <h4 class="fs-2 fw-medium text-orange-dark mb-2"><i>{{ team.designation }}</i></h4>
+                            {{ team.shortDescription }}
+                            <div class="d-flex pt-1 pt-xl-1_5 pt-xxl-2">
+                                <a class="btn btn-sm btn-primary me-1 me-lg-2" data-bs-toggle="modal" data-bs-target="#member-modal-{{ loop.index }}">Learn More</a>
+                                <a href="{{ team.linkedButton }}" class="btn btn-sm btn-blue">Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade pr-0" id="member-modal-{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered member-modal-wrap" role="document">
+                        <div class="modal-content">
+                            <div class="team-modal-cnt py-2 py-md-3 py-xl-5 py-xxl-6 px-2 px-md-2 px-xl-4 px-xxl-5">
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-bs-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="float-lg-start mb-2 me-lg-2 me-xl-3">
+                                    {{images.transformOrPlaceholder(team.profileImage.0,({ width: 245 }))}}
+                                </div>
+                                <h3 class="display-3 fw-bold text-gray-dark-300 mb-1">{{ team.title }}</h3>
+                                <h4 class="fs-2 fw-medium text-orange-dark mb-2"><i>{{ team.designation }}</i></h4>
+                                {{ team.description }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endcache %}

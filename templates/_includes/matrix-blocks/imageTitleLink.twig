@@ -1,0 +1,20 @@
+{% import "_helpers/images" as images %}
+<div class="d">
+	{{ block.title | default('') }}
+	{{ block.plainText | default('') }}
+	{% if block.linkUrl is defined and block.linkUrl|length %}
+		<a href="{{block.linkUrl}}" target="_blank">
+		{% endif %}
+		{% if block.image is defined and block.image|length %}
+			{# {% include "_includes/matrix-blocks/image" with { item: item } %} #}
+
+			{{ images.responsiveImg(item.image.0 ?? null, [
+				{width: 1140},
+				{width: 800},
+				{width: 500}
+			]) }} 
+		{% endif %}
+		{% if block.linkUrl is defined and block.linkUrl|length %}
+		</a>
+	{% endif %}
+</a></div>

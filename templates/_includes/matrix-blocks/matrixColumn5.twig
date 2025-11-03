@@ -1,0 +1,11 @@
+<div class="matrix-column">
+{# column >> {{dump(entry.matrixColumn.all())}} #}
+{# {% for index, column in block.matrixColumn.all() %}
+    <div class="{{ column.type.handle }} matrix-block" id="matrix-content-{{ index }}">
+        {% include "_includes/matrix-blocks/" ~ column.type.handle with {
+            block: column,
+            cache_key: 'matrix-block-' ~ index ~ '-' ~ cache_key
+        } %}
+    </div> 
+{% endfor %} #}
+</div>

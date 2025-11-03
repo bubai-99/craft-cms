@@ -1,0 +1,82 @@
+{% extends "_layouts/entry" %}
+{% set teamMember = craft.entries()
+    .section('teamMembers')
+    .slug(craft.app.request.segment(2))
+    .one() %}
+
+{% block content %}
+    {% if teamMember %}
+       
+        {% if teamMember.featureImage|length %}
+        <div class="jarallax bg-dark py-5" data-jarallax data-speed="0.6">
+            <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></span>
+            {% set image = teamMember.featureImage.one() %}
+            {% if image %}
+                <div class="jarallax-img" style="background-image: url('{{ image.url }}');"></div>
+            {% endif %}
+
+            <div class="position-relative text-center z-2 px-3 py-sm-5 my-lg-5">
+                {% if teamMember.bannerTitle|length %}
+                    <h2 class="h1 text-white my-5">{{ teamMember.bannerTitle }}</h2>
+                {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+            <div class="py-3 py-lg-4 py-xl-5">
+                <div class="container">
+                    <div class="row gx-5">
+                        <div class="col-md-4">
+                            <div>
+                                {% if teamMember.image|length %}
+                                    <img src="{{ teamMember.image.one().url }}" alt="">
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h3 class="h4 mb-1">{{teamMember.title}}</h3>
+                            <p class="h6 text-body mb-3">{{teamMember.plainTextRole}} | {{ teamMember.plainText }}</p>
+                            
+                            <div class="text-body mb-3">
+                                <div class="pe-2 me-2 d-flex align-items-center justify-content-start">
+                                    <i class="ai-phone me-2"></i><a class="text-body text-decoration-none" href="tel:{{teamMember.plainTextPhone}}">{{teamMember.plainTextPhone}}</a>
+                                </div>
+                                <div class="pe-2 me-2 d-flex align-items-center justify-content-start">
+                                    <i class="ai-mail me-2"></i><a class="text-body text-decoration-none" href="mailto:{{teamMember.email}}">{{teamMember.email}}</a>
+                                </div>
+                            </div>
+                            <div class="mb-4 mt-5">{{ teamMember.description }}</div>
+
+                            <div class="d-flex justify-content-start">
+                                {% set socialMedia = teamMember.socialMedia.all() %}
+
+                                {% if socialMedia|length %}
+                                {% for social in socialMedia %}
+                                {% if social.iconClass|length %}
+                                <a class="btn btn-icon btn-sm btn-light rounded-circle mx-1 border {{ social.elementClass }}"
+                                    href="{{ social.linkUrl }}" aria-label="Instagram">
+                                    <i class="{{ social.iconClass}}"></i>
+                                </a>
+                                {% endif %}
+                                {% if social.iconImage|length %}
+                                <a class="mx-2 {{ social.elementClass }}" href="{{ social.linkUrl }}"
+                                    aria-label="Instagram">
+                                    <img src="{{ social.iconImage.one().url }}" alt="">
+                                </a>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+            {% include "_includes/matrix-container" with {
+                entry: teamMember,
+                cache_key: 'entry-' ~ teamMember.id
+            } 
+        %}
+    {% endif %}
+{% endblock %}

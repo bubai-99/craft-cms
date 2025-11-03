@@ -1,0 +1,245 @@
+{% import "_helpers/images" as images %}
+
+{% set searchParams = craft.app.request.getParam('search')|trim %}
+{% set categoryParam = craft.app.request.getParam('category') %}
+{% set selectedCategory = categoryParam ? categoryParam : null %}
+
+{% set shortDescriptionLength = getenv('DISPLAY_SHORT_DESCRIPTION_LENGTH') %}
+
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid  ?? '' %}
+{# {% set serviceStyles = block.serviceStyle.one() %} #}
+{% set containerWidth = 'container' %}
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+{% set paginationData = block.paginations.one() ?? '' %}
+{% set selectBlogs = block.selectBlogs ?? [] %}
+
+{% set blockCssClasses = '' %}
+{% set themeSwitche = '' %}
+
+{# {% if searchParams %}
+	{% set selectBlogs = block.selectBlogs.search(searchParams).search('title: ' ~ searchParams ~ ' OR shortDescription: ' ~ searchParams ~ ' OR tags: ' ~ searchParams) ?? [] %}
+{% endif %} #}
+
+{% if searchParams %}
+	{% set term = searchParams|replace({'"':' '})|trim %}
+	{% if term|length %}
+		{% set selectBlogs = selectBlogs.search('*' ~ term ~ '*').orderBy('score') %}
+	{% endif %}
+{% endif %}
+
+
+{% if selectedCategory %}
+	{% set category = craft.categories().slug(selectedCategory).one() %}
+	{% if category %}
+		{% set selectBlogs = selectBlogs.relatedTo(category) %}
+	{% endif %}
+{% endif %}
+
+{% if selectBlogs %}
+	{% if blockStyle is defined and blockStyle|length %}
+		{% set blockStyleData = blockStyle.one() %}
+		{% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+		{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+		{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+			{% set containerWidthMap = {
+				'default': 'container',
+				'fullWidth': 'container container-full',
+				'boxedLg': 'container container-large',
+				'boxedSm': 'container container-small'
+			} %}
+			{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+
+			{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+				{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+			{% endif %}
+		{% endif %}
+	{% endif %}
+
+
+	<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+		<div class="{{ containerWidth }}">
+			{% if headingAndContent %}
+				{% if headingAndContent.heading|length or headingAndContent.Description|length %}
+					<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+						{% if headingAndContent.heading|length %}
+							<{{headingAndContent.headingTags}} class="block-heading-title" style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}
+							</{{headingAndContent.headingTags}}>
+						{% endif %}
+						{% if headingAndContent.Description|length %}
+							<div class="block-description">{{ headingAndContent.Description }}</div>
+						{% endif %}
+					</div>
+				{% endif %}
+			{% endif %}
+
+			{% if block.displayBlogFilter %}
+				{% include "_includes/_partials/_blog/searchBlog.twig" %}
+			{% endif %}
+			{% if selectBlogs|length %}
+
+				{% set displayView = block.displayView.value ?? '' %}
+				{% if displayView == 'gridView' %}
+
+					{% set showNav = paginationData.displayPagination ?? false %}
+					{% if showNav %}
+						{% set perPage = (paginationData.records_per_page ?? 10) %}
+						{% set navStyle = paginationData.paginationDisplayStyle ?? 'pagination' %}
+						{% set query = selectBlogs.limit(perPage) %}
+						{% paginate query as pageInfo, pageEntries %}
+							{% set entries = pageEntries %}
+						{% else %}
+							{% set entries = selectBlogs %}
+						{% endif %}
+
+						{# {% set rowColsClass = columnClassMap[blogPerRow] ?? '3' %} #}
+
+						 {% if showNav and craft.app.request.getParam('partial') %}
+							{% if showNav and craft.app.request.getParam('partial') %}
+								<div class="js-chunk" data-next-url="{{ pageInfo.nextUrl ?? '' }}">
+									{% for blog in pageEntries %}
+										<article class="masonry-grid-item">
+											<div class="card border-0 bg-secondary">
+												{% if blog.image|length %}
+													<a href="{{ blog.url }}">
+														<div>
+															{{ images.singleImg(blog.image.0, 420, {'ratio': 1.55}, 'flex-shrink-0 w-100 card-img-top') }}
+														</div>
+													</a>
+												{% endif %}
+												<div class="card-body pb-4">
+													<div class="d-flex align-items-center mb-4 mt-n1">
+														<span class="fs-sm text-body-secondary">{{ blog.date|date('M d, Y') }}</span>
+														{% if blog.tags|length %}
+															<span class="fs-xs opacity-20 mx-3">|</span>
+															<a class="badge text-nav fs-xs border" href="#">
+																{% set tags = blog.tags.all() %}
+																{% if tags %}
+																	{% for tag in tags %}
+																		{{ tag.title }}
+																	{% endfor %}
+																{% endif %}
+															</a>
+														{% endif %}
+													</div>
+													<h3 class="h4 card-title">
+														<a href="{{ blog.url }}">{{ blog.title }}</a>
+													</h3>
+													<p class="card-text">
+														{{ blog.shortDescription|slice(0, shortDescriptionLength) }}
+														{% if blog.shortDescription|length > shortDescriptionLength %}...</p>
+													{% endif %}
+												</p>
+											</div>
+											<div class="card-footer pt-3">
+												<div class="d-flex align-items-center text-decoration-none pb-2">
+													<h6 class="mb-0">{{ blog.authorName }}</h6>
+												</div>
+											</div>
+										</div>
+									</article>
+								{% endfor %}
+							</div>
+							{% exit %}
+						{% endif %}
+						{% exit %}
+					{% endif %}
+
+					{# <div class="row row-cols-1 row-cols-sm-2 {{ rowColsClass }} g-4"> #}
+					<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-{{ block.blogPerRow.value }} g-4" id="js-list">
+						{% for blog in entries %}
+							<article class="masonry-grid-item">
+								<div class="card border-0 bg-secondary h-fill-available">
+									{% if blog.image|length %}
+										<a href="{{ blog.url }}">
+											<div>
+												{{ images.singleImg(blog.image.0, 420, {'ratio': 1.55}, 'flex-shrink-0 w-100 card-img-top') }}
+											</div>
+										</a>
+									{% endif %}
+									<div class="card-body pb-4">
+										<div class="d-flex align-items-center mb-4 mt-n1">
+											<span class="fs-sm text-body-secondary">{{ blog.date|date('M d, Y') }}</span>
+											{% if blog.tags|length %}
+												<span class="fs-xs opacity-20 mx-3">|</span>
+												<a class="badge text-nav fs-xs border" href="#">
+													{% set tags = blog.tags.all() %}
+													{% if tags %}
+														{% for tag in tags %}
+															{{ tag.title }}
+														{% endfor %}
+													{% endif %}
+												</a>
+											{% endif %}
+										</div>
+										<h3 class="h4 card-title">
+											<a href="{{ blog.url }}">{{ blog.title }}</a>
+										</h3>
+										<p class="card-text">
+											{{ blog.shortDescription|slice(0, shortDescriptionLength) }}
+											{% if blog.shortDescription|length > shortDescriptionLength %}...</p>
+										{% endif %}
+									</p>
+								</div>
+								<div class="card-footer pt-3">
+									<div class="d-flex align-items-center text-decoration-none pb-2">
+										<h6 class="mb-0">{{ blog.authorName }}</h6>
+									</div>
+								</div>
+							</div>
+						</article>
+					{% endfor %}
+				</div>
+
+				{% if showNav %}
+					{% if navStyle == 'loadMore' %}
+						{% include "_includes/_partials/loadMore" with {
+							pageInfo: pageInfo,
+							targetId: 'js-list',           
+							partialQueryString: 'partial=1'
+							} only %}
+					{% else %}
+						{% include "_includes/_partials/pagination" with { pageInfo: pageInfo } only %}
+					{% endif %}
+				{% endif %}
+			{% endif %}
+
+					{% if displayView == 'sliderView' %}
+						<div class="swiper" data-swiper-options='
+							{
+							"spaceBetween": 24,
+							"autoplay": {
+								"delay": 5000,
+								"disableOnInteraction": false
+							},
+							"speed": 800,
+							"pagination": {
+							"el": ".swiper-pagination-blog",
+							"clickable": true
+							},
+							"breakpoints": {
+							"576": { "slidesPerView": 2 },
+							"992": { "slidesPerView": {{ block.blogPerRow.value }} }
+							}
+							}
+							'>
+							<div class="swiper-wrapper">
+								{% for blog in selectBlogs %}
+									{% include "_includes/_partials/_blog/singleBlogInSlider.twig" with { blog: blog } %}
+								{% endfor %}
+							</div>
+						</div>
+					{% endif %}
+				{% else %}
+					<p class="text-center">No blogs found.</p>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}

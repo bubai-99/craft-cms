@@ -1,0 +1,3 @@
+{% set background = block.one()  ?? null %}
+{% set backgroundColor = background.colorLibrary.one().colorcode.getRgb() ?? null %}
+{% set backgroundImage = background.image.one().url ?? null %}

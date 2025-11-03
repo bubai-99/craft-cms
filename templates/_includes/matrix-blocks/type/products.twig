@@ -1,0 +1,220 @@
+{% import "_helpers/images" as images %}
+
+{% set headingAndContent = block.headingAndContent.one() %}
+{% set selectProducts = block.selectProducts ?? [] %}
+{% set blockStyle = block.blockStyle ?? [] %}
+{% set blockType = block.type.handle ?? '' %}
+{% set blockTypeUid = block.uid ?? '' %}
+{% set containerWidth = 'container' %}
+{% set title = block.title ?? '' %}
+{% set heading = block.heading ?? '' %}
+{% set headingTags = block.headingTags ?? 'h2' %}
+{% set align = block.align ?? 'left' %}
+{% set contentData = block.contentdata ?? '' %}
+{% set paginationData = block.paginations.one() ?? '' %}
+
+{% set blockTypeUid = '' %}
+{% set blockCssClasses = '' %}
+
+{% if selectProducts %}
+{% if blockStyle is defined and blockStyle|length %}
+{% set blockStyleData = blockStyle.one() %}
+{% set blockCssClasses = blockStyleData.cssClasses ?? '' %}
+{% include "_includes/matrix-blocks/blockStyle" with { blockStyle: blockStyleData, blockType: blockType } %}
+
+{% if blockStyleData.containerWidth is defined and blockStyleData.containerWidth.value|length %}
+{% set containerWidthMap = {
+	'default': 'container',
+	'fullWidth': 'container container-full',
+	'boxedLg': 'container container-large',
+	'boxedSm': 'container container-small'
+} %}
+{% set containerWidth = containerWidthMap[blockStyleData.containerWidth.value] ?? 'container' %}
+
+{% if blockStyleData.background is defined and blockStyleData.background.themeDark is defined %}
+{% set themeSwitche = blockStyleData.background.one().themeDark ?? null %}
+{% endif %}
+{% endif %}
+{% endif %}
+
+
+<div class="py-3 py-lg-4 py-xl-5 {{ blockType }}{{blockTypeUid}}-style">
+	<div class="{{ containerWidth }}">
+		{% if headingAndContent %}
+		{% if headingAndContent.heading|length or headingAndContent.Description|length %}
+		<div class="header-content-block pb-3 pb-lg-4 {{ blockCssClasses }} {{ blockType }}-style" data-bs-theme="{{ themeSwitche ? 'dark' : 'light' }}">
+			{% if headingAndContent.heading|length %}
+			<{{headingAndContent.headingTags}} class="block-heading-title"
+				style="text-align:{{ headingAndContent.align }}">{{ headingAndContent.heading }}
+			</{{headingAndContent.headingTags}}>
+			{% endif %}
+			{% if headingAndContent.Description|length %}
+			<div class="block-description">{{ headingAndContent.Description }}</div>
+			{% endif %}
+		</div>
+		{% endif %}
+		{% endif %}
+
+
+		{% set displayView = block.displayView.value ?? '' %}
+		{% if displayView == 'gridView' %}
+
+		{% set showNav = paginationData.displayPagination ?? false %}
+		{% if showNav %}
+		{% set perPage = (paginationData.records_per_page ?? 10) %}
+		{% set navStyle = paginationData.paginationDisplayStyle ?? 'pagination' %}
+		{% set query = selectProducts.limit(perPage) %}
+		{% paginate query as pageInfo, pageEntries %}
+		{% set entries = pageEntries %}
+		{% else %}
+		{% set entries = selectProducts %}
+		{% endif %}
+
+		{# {% set rowColsClass = columnClassMap[blogPerRow] ?? '3' %} #}
+
+		{% if showNav and craft.app.request.getParam('partial') %}
+		{% if showNav and craft.app.request.getParam('partial') %}
+		<div class="js-chunk" data-next-url="{{ pageInfo.nextUrl ?? '' }}">
+			{% for product in pageEntries %}
+			<article class="masonry-grid-item">
+				<div class="card-hover position-relative bg-secondary rounded-1 p-0 mb-4 overflow-hidden">
+					{% if product.tags|length %}
+					<span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">
+						{% set tags = product.tags.all() %}
+						{% if tags %}
+						{% for tag in tags %}
+						{{ tag.title }}
+						{% endfor %}
+						{% endif %}
+					</span>
+					{% endif %}
+
+					{% if product.image|length %}
+					<a href="{{ product.url }}" class="d-block">
+						{{ images.singleImg(product.image.0, 310, {'ratio': 0.8100}, 'flex-shrink-0 w-100 card-img-top')
+						}}
+					</a>
+					{% endif %}
+				</div>
+				<div class="row">
+					<div class="col-8">
+						<div class="d-flex mb-1">
+							<h3 class="h6 mb-0">
+								<a href="{{ product.url }}">{{ product.title }}</a>
+							</h3>
+						</div>
+						<div class="d-flex align-items-center">
+							<span class="me-2">{{ product.discountPrice }}</span>
+							<del class="fs-sm text-body-secondary">{{ product.price }}</del>
+						</div>
+					</div>
+					<div class="col-4 d-flex align-items-end justify-content-end">
+						<a href="{{ product.url }}" class="btn btn-outline-primary btn-sm">View</a>
+					</div>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+		{% exit %}
+		{% endif %}
+		{% exit %}
+		{% endif %}
+
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-{{ block.productPerRow.value }} gx-4 gy-5" id="js-list">
+			{# <div class="masonry-grid mb-2 mb-md-4 pb-lg-3" data-columns="{{ rowColsClass }}"> #}
+				{% for product in entries %}
+
+				<article class="masonry-grid-item">
+					<div class="card-hover position-relative bg-secondary rounded-1 p-0 mb-4 overflow-hidden">
+						{% if product.tags|length %}
+						<span
+							class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">
+							{% set tags = product.tags.all() %}
+							{% if tags %}
+							{% for tag in tags %}
+							{{ tag.title }}
+							{% endfor %}
+							{% endif %}
+						</span>
+						{% endif %}
+
+						{% if product.image|length %}
+						<a href="{{ product.url }}" class="d-block">
+							{{ images.singleImg(product.image.0, 310, {'ratio': 0.8100}, 'flex-shrink-0 w-100
+							card-img-top') }}
+						</a>
+						{% endif %}
+					</div>
+					<div class="row">
+						<div class="col-8">
+							<div class="d-flex mb-1">
+								<h3 class="h6 mb-0">
+									<a href="{{ product.url }}">{{ product.title }}</a>
+								</h3>
+							</div>
+							<div class="d-flex align-items-center">
+								<span class="me-2">{{ product.discountPrice }}</span>
+								<del class="fs-sm text-body-secondary">{{ product.price }}</del>
+							</div>
+						</div>
+						<div class="col-4 d-flex align-items-end justify-content-end">
+							<a href="{{ product.url }}" class="btn btn-outline-primary btn-sm">View</a>
+						</div>
+					</div>
+				</article>
+
+				{% endfor %}
+			</div>
+
+			{# {% if showNav %}
+			<!-- Pagination (bullets) -->
+			<div class="swiper-pagination position-relative bottom-0 mt-2 pt-4">
+				{% include "_includes/_partials/pagination" with { pageInfo: pageInfo } only %}
+			</div>
+			{% endif %} #}
+			{% if showNav %}
+			{% if navStyle == 'loadMore' %}
+			{% include "_includes/_partials/loadMore" with {
+			pageInfo: pageInfo,
+			targetId: 'js-list',
+			partialQueryString: 'partial=1'
+			} only %}
+			{% else %}
+			{% include "_includes/_partials/pagination" with { pageInfo: pageInfo } only %}
+			{% endif %}
+			{% endif %}
+
+			{% endif %}
+
+			{% if displayView == 'sliderView' %}
+			<div class="swiper" data-swiper-options='
+							{
+							"spaceBetween": 24,
+							"autoplay": {
+								"delay": 5000,
+								"disableOnInteraction": false
+							},
+							"speed": 800,
+							"pagination": {
+								"el": ".swiper-pagination",
+								"clickable": true
+							},
+							"breakpoints": {
+								"576": { "slidesPerView": 2 },
+								"992": { "slidesPerView": {{ block.productPerRow.value }} }
+							}
+							}
+						'>
+				<div class="swiper-wrapper">
+					{% for product in selectProducts %}
+					{% include "_includes/_partials/_products/singleProductInSlider.twig" with { product: product } %}
+					{% endfor %}
+				</div>
+				<!-- Pagination (bullets) -->
+				<div class="swiper-pagination position-relative bottom-0 mt-2 pt-4"></div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% endif %}
