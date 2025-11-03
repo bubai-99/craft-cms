@@ -1,36 +1,94 @@
-dateModified: 1757245613
+dateModified: 1762156547
 email:
   fromEmail: binugede@gmail.com
   fromName: 'Craft CMS'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  public:
+    hasUrls: true
+    name: Public
+    settings:
+      path: '@webroot'
+    type: craft\fs\Local
+    url: '@web'
 meta:
   __names__:
-    0cbe6921-e605-4569-abe3-e581ec54d72b: Home # Home
-    0d556384-6244-4de6-ac58-5f84d934737c: test # test
     2c5c1e3c-6a7d-4849-9270-00d6e567d1c4: 'Craft CMS' # Craft CMS
     636ac41c-eb92-4d39-b153-fddbb5dcf3b7: 'Main Menu' # Main Menu
     09880460-87e6-400f-8aca-b3e30b2e3634: 'Public Schema' # Public Schema
-    bf52dfaf-527d-44b1-afa3-ae86a2efa72e: 'Footer Menu' # Footer Menu
     ce87f009-351e-4a71-acdb-cd1b4d487d57: news # news
     d70c2279-51bd-4f14-85f1-cea184ebb831: 'Craft CMS' # Craft CMS
     d408f2c3-00f8-438b-ab96-3b403b42bd5a: Simple # Simple
+    e5efe4c1-60e8-4854-bc46-927964cc3940: 'Public Asset' # Public Asset
 plugins:
+  assetlocations:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   ckeditor:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0.0
+  codefield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cookies:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-js:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  device-detect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  embeddedassets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  guest-entries:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.0
+  matrix-extended:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.1.0
   menu-manager:
     edition: standard
     enabled: true
     schemaVersion: 2.1.1
+  prefetch:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   seo:
     edition: standard
     enabled: true
     schemaVersion: 3.2.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.0.0
   vite:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  wheelform:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
 system:
   edition: solo
   live: true

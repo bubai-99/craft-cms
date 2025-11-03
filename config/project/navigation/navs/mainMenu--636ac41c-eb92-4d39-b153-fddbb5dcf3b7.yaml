@@ -1,6 +1,6 @@
 defaultPlacement: end
 fieldLayouts:
-  0aa801b1-8423-4fee-8671-0740b5a827e7:
+  e040b3c6-caf9-4640-b2cc-b01a5e61d2eb:
     cardThumbAlignment: end
     tabs:
       -
@@ -11,7 +11,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2025-09-07T05:01:17+00:00'
+            dateAdded: '2025-09-07T11:45:43+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -32,12 +32,12 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\TitleField
-            uid: af6820da-b2b7-425e-879d-1bcee8607be9
+            uid: 7880ff6e-d68f-4d63-9017-758bbd19bb67
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-09-07T05:01:17+00:00'
+            dateAdded: '2025-09-07T11:45:43+00:00'
             elementCondition: null
             includeInCards: false
             instructions: null
@@ -46,12 +46,12 @@ fieldLayouts:
             required: false
             tip: null
             type: mycompany\menumanager\fieldlayoutelements\NodeTypeElements
-            uid: bf96cad9-fde9-4458-938b-e4bd4983e38b
+            uid: e24daf9f-543a-4163-8bf5-7001c639e218
             userCondition: null
             warning: null
           -
             attribute: newWindow
-            dateAdded: '2025-09-07T05:01:17+00:00'
+            dateAdded: '2025-09-07T11:45:43+00:00'
             elementCondition: null
             id: null
             includeInCards: false
@@ -65,12 +65,12 @@ fieldLayouts:
             tip: null
             translatable: false
             type: mycompany\menumanager\fieldlayoutelements\NewWindowField
-            uid: a880ed94-c49a-4aa2-977b-2e6ebb2e34a8
+            uid: ff951b81-14c9-4fcc-a94b-bd014442fdb0
             userCondition: null
             warning: null
             width: 100
         name: Node
-        uid: 7ab5f7eb-1f92-418f-93c2-80bed01c1133
+        uid: 2b277e15-52f1-4db7-a8f6-cb9c00fe119d
         userCondition: null
       -
         elementCondition: null
@@ -82,7 +82,7 @@ fieldLayouts:
             autocorrect: true
             autofocus: false
             class: null
-            dateAdded: '2025-09-07T05:01:17+00:00'
+            dateAdded: '2025-09-07T11:45:43+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -107,7 +107,7 @@ fieldLayouts:
             title: null
             translatable: false
             type: mycompany\menumanager\fieldlayoutelements\UrlSuffixField
-            uid: 3d1af86c-ccab-4045-9df6-d706eab32871
+            uid: 3df59364-cab2-46a0-88de-3ba5dbc89112
             userCondition: null
             warning: null
             width: 100
@@ -118,7 +118,7 @@ fieldLayouts:
             autocorrect: true
             autofocus: false
             class: null
-            dateAdded: '2025-09-07T05:01:17+00:00'
+            dateAdded: '2025-09-07T11:45:43+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -143,13 +143,13 @@ fieldLayouts:
             title: null
             translatable: false
             type: mycompany\menumanager\fieldlayoutelements\ClassesField
-            uid: 349cb47c-06cc-4c23-98ce-e66bc55c6403
+            uid: 9f6634d8-fa15-463a-93c0-22bac5453c73
             userCondition: null
             warning: null
             width: 100
           -
             attribute: customAttributes
-            dateAdded: '2025-09-07T05:01:17+00:00'
+            dateAdded: '2025-09-07T11:45:43+00:00'
             elementCondition: null
             id: null
             includeInCards: false
@@ -163,17 +163,17 @@ fieldLayouts:
             tip: null
             translatable: false
             type: mycompany\menumanager\fieldlayoutelements\CustomAttributesField
-            uid: c9ff4858-f688-4401-9c05-622faadd8ceb
+            uid: 0f6f133b-e367-45cd-a6db-3a31dd9b8370
             userCondition: null
             warning: null
             width: 100
         name: Advanced
-        uid: 2010965e-cf0a-448a-a6f8-863025c86775
+        uid: e128dfdd-8e97-491e-961c-cfa1b8f46d57
         userCondition: null
-handle: mainmenu
-instructions: ''
+handle: mainMenu
+instructions: null
 maxNodes: null
-name: 'Main Manu'
+name: 'Main Menu'
 permissions:
   craft\elements\Asset:
     enabled: '1'
@@ -198,4 +198,4 @@ siteSettings:
 sortOrder: 1
 structure:
   maxLevels: null
-  uid: 9039ad1d-37bb-4f47-a397-6afa35152352
+  uid: cfb14386-5854-47bf-abb7-22c546069152

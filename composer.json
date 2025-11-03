@@ -5,10 +5,24 @@
     "craftcms/ckeditor": "^4.10",
     "craftcms/cms": "^5.0.0",
     "craftcms/contact-form": "^3.1",
+    "craftcms/guest-entries": "4.0.1",
+    "doublesecretagency/craft-cpjs": "3.0.0",
     "ether/seo": "^5.0",
+    "leowebguy/device-detect": "3.1",
     "mycompany/menu-manager": "^1.0.0",
+    "nystudio107/craft-code-field": "5.0.1",
+    "nystudio107/craft-cookies": "5.0.0",
     "nystudio107/craft-vite": "^5.0",
-    "vlucas/phpdotenv": "^5.4.0"
+    "ryssbowh/craft-prefetch": "3.0.0",
+    "spicyweb/craft-embedded-assets": "5.4.4",
+    "towardstudio/asset-locations": "3.0.3",
+    "vandres/craft-matrix-extended": "v5.0.0",
+    "verbb/expanded-singles": "3.0.3",
+    "verbb/field-manager": "4.0.3",
+    "verbb/super-table": "4.0.5",
+    "vlucas/phpdotenv": "^5.4.0",
+    "wbrowar/craft-admin-bar": "5.7.1",
+    "xpertbot/craft-wheelform": "4.0.4"
   },
   "repositories": [
     {
@@ -17,6 +31,11 @@
       "options": {
         "symlink": true
       }
+    },
+    {
+      "type": "composer",
+      "url": "https://composer.craftcms.com",
+      "canonical": false
     }
   ],
   "require-dev": {
