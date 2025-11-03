@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: containerWidth
+instructions: null
+name: 'Container Width'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Default
+        -
+          - value
+          - default
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Full-width
+        -
+          - value
+          - fullWidth
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Boxed-lg
+        -
+          - value
+          - boxedLg
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Boxed-sm
+        -
+          - value
+          - boxedSm
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

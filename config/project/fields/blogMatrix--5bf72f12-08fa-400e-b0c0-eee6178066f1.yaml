@@ -1,0 +1,36 @@
+columnSuffix: null
+handle: blogMatrix
+instructions: null
+name: 'Blog Matrix'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 59c1fb9b-97f9-467d-add6-cac310907c26 # Post Preview
+    -
+      __assoc__:
+        -
+          - uid
+          - 03411308-e325-453e-9d53-a6a2e706d59b # Text image
+    -
+      __assoc__:
+        -
+          - uid
+          - 917613fa-4257-40dd-87c5-7938284f9173 # Additional CSS & JS
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,507 @@
+color: orange
+description: null
+fieldLayouts:
+  42986ba6-c4b6-4867-9aa8-767414911b89:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-08T07:44:50+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: cdd4a626-5945-4d4f-830a-0d7db915acff
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-11T11:19:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 919d7529-ee9e-4b4c-9fc1-0693659bbe89 # Standard Banner Slider
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: efeaddc2-0578-4fe7-b4ba-3307d8cba049
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-13T09:29:59+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 67b7863f-e411-46fb-a8f5-7cf4e4df7529 # Short Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fe867441-7121-4a23-a152-fa1c7a6e6170
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-13T09:33:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: formTitle
+            includeInCards: false
+            instructions: null
+            label: 'Form Title'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 68f325e1-9c87-45d0-9fc5-9cf3811e1fd1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-13T13:41:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: featureImage
+            includeInCards: false
+            instructions: null
+            label: 'Feature Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9adaf5b0-8c56-49d8-bd51-aac4c8684098
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-08T09:40:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: showAddress
+            includeInCards: false
+            instructions: null
+            label: 'Show Address'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e0c0e784-b09f-4ab6-83b0-c1f6f558e1b7
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-08T09:40:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: showEmail
+            includeInCards: false
+            instructions: null
+            label: 'Show Email'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fb2a94d6-f972-4a33-ab6e-6a1ced1ac584
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-08T09:40:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: showPhone
+            includeInCards: false
+            instructions: null
+            label: 'Show Phone'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 98f97238-1a8e-4747-8ec1-49f6342887a3
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-08T09:40:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: showTiming
+            includeInCards: false
+            instructions: null
+            label: 'Show Timing'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0267abe5-c477-437d-a1cc-77f225c7f6c4
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-16T07:28:20+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\LineBreak
+            uid: 9322e3c0-2948-4c9e-8ce5-5ea4da1aa55e
+            userCondition: null
+          -
+            dateAdded: '2025-05-16T07:29:45+00:00'
+            elementCondition: null
+            heading: ''
+            type: craft\fieldlayoutelements\Heading
+            uid: eee4b9c4-4010-4ac9-a342-a2c958089e98
+            userCondition: null
+          -
+            dateAdded: '2025-05-16T07:28:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: contactBoxBackground
+            includeInCards: false
+            instructions: null
+            label: 'Contact Box Background'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a03ed966-44f7-4b05-8bb6-c8b22dfe8202
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-16T07:28:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 661f47cd-1b0b-4706-8cf1-e5a258dc7479 # Text Color
+            handle: contactBoxTitleColor
+            includeInCards: false
+            instructions: null
+            label: 'Contact Box Title Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ae37dcdf-12a8-40ed-9ced-b25f839281f1
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-16T07:28:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 661f47cd-1b0b-4706-8cf1-e5a258dc7479 # Text Color
+            handle: contactBoxTextColor
+            includeInCards: false
+            instructions: null
+            label: 'Contact Box Text Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0984457d-d2e4-498c-81a4-71059a623a2b
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-16T07:28:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 583022f4-6c8e-4a40-ab0c-c2b0dd037a8a # Switch Default On
+            handle: contactBoxBorderRadius
+            includeInCards: false
+            instructions: null
+            label: 'Contact Box Border Rounded'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 91d19ab2-f3a6-429a-b089-813a7b1147e0
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-16T07:30:20+00:00'
+            elementCondition: null
+            heading: ''
+            type: craft\fieldlayoutelements\Heading
+            uid: bcb0bd77-d0f3-413a-aa4e-66b2f4112ca4
+            userCondition: null
+          -
+            dateAdded: '2025-05-16T07:28:20+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\LineBreak
+            uid: d965b27a-8c40-405b-9aa2-d757a0035979
+            userCondition: null
+          -
+            dateAdded: '2025-05-08T09:40:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: showMap
+            includeInCards: false
+            instructions: null
+            label: 'Show MAP'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6081edfe-84ce-4745-8ff6-2dd93dd37227
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-08T07:48:36+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 72b396f6-f0a3-4f2d-be98-f45843a94718 # Select Form
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: __blank__
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1adcf86-1537-4fa8-aa14-ab9e56eff323
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-08T09:40:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1b0d3ba0-467a-43ed-9c38-25d44c43652e # Contact Page Layout
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 74cd49c3-1f5a-4e2f-b78f-cbbefd0aa7fb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-09T12:49:57+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\LineBreak
+            uid: 3a335077-5330-4118-8b7b-29736584697d
+            userCondition: null
+          -
+            dateAdded: '2025-05-13T10:35:11+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 70171ea4-41dd-442b-8485-30fb0a66796c # Form Background
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8eb5be48-e662-49c4-8fdb-8819be3c655f
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-09T13:29:29+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 70171ea4-41dd-442b-8485-30fb0a66796c # Form Background
+                  layoutElementUid: 8eb5be48-e662-49c4-8fdb-8819be3c655f
+                  uid: 1d37172d-cf1f-4ccb-9b8d-5bf7947dc842
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: formColor
+            includeInCards: false
+            instructions: null
+            label: 'Form Background Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 327bcbc3-0b88-4d6f-9c7c-624edd860105
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-09T12:49:57+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 70171ea4-41dd-442b-8485-30fb0a66796c # Form Background
+                  layoutElementUid: 8eb5be48-e662-49c4-8fdb-8819be3c655f
+                  uid: 994b9a99-231f-4d4f-9cf5-7f39d0baf689
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: themeDark
+            includeInCards: false
+            instructions: null
+            label: 'Form Theme Dark'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cc8cccab-3cdd-4d48-b064-11bc0f7cb32e
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-13T10:40:34+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 70171ea4-41dd-442b-8485-30fb0a66796c # Form Background
+                  layoutElementUid: 8eb5be48-e662-49c4-8fdb-8819be3c655f
+                  uid: 3f52499c-e340-43cf-9e1f-dca705c3876b
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 70171ea4-41dd-442b-8485-30fb0a66796c # Form Background
+            handle: formBorderRadius
+            includeInCards: false
+            instructions: null
+            label: 'Form Border Radius'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 00d669c4-900e-477f-bbcd-8287bf6c2dc3
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-13T10:37:34+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\LineBreak
+            uid: 7462ba1d-0bc6-4a66-9f4e-7a5bd597d6cf
+            userCondition: null
+          -
+            dateAdded: '2025-05-13T07:24:49+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b3025426-8df0-40b4-a9fc-d0204553558e
+            userCondition: null
+            warning: null
+            width: 50
+        name: Page
+        uid: 528ab208-cbcf-40d1-a253-26a6d4b3ef3a
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-08T07:48:36+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b16eb725-d50a-45ee-8c76-bcaa039b4054 # Matrix Container
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9fc6f9a0-ee19-472e-a1c0-cb5e1f518297
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 3ffaed81-0917-4caa-af6d-4b5d65816154
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-08T07:48:36+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 48ac3790-5f1b-4a76-b88b-941f3a65531c # Basic Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a3b61bd2-b6d8-4584-92e4-4929951a7aea
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 6c632211-8fc9-493a-8276-47bbc2b1e463
+        userCondition: null
+handle: contactPage
+hasTitleField: true
+icon: phone-rotary
+name: 'Contact Page'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

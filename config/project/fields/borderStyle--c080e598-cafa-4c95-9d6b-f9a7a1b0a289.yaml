@@ -1,0 +1,160 @@
+columnSuffix: null
+handle: borderStyle
+instructions: null
+name: 'Border Style'
+searchable: false
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Border Type'
+            -
+              - handle
+              - borderType
+            -
+              - width
+              - '130'
+            -
+              - type
+              - select
+            -
+              - options
+              -
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Solid
+                    -
+                      - value
+                      - solid
+                    -
+                      - default
+                      - true
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Double
+                    -
+                      - value
+                      - double
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Dotted
+                    -
+                      - value
+                      - dotted
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Dashed
+                    -
+                      - value
+                      - dashed
+                    -
+                      - default
+                      - false
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Top
+            -
+              - handle
+              - top
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+      -
+        - col3
+        -
+          __assoc__:
+            -
+              - heading
+              - Right
+            -
+              - handle
+              - right
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+      -
+        - col4
+        -
+          __assoc__:
+            -
+              - heading
+              - Bottom
+            -
+              - handle
+              - bottom
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+      -
+        - col5
+        -
+          __assoc__:
+            -
+              - heading
+              - Left
+            -
+              - handle
+              - left
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - solid
+        -
+          - col2
+          - ''
+        -
+          - col3
+          - ''
+        -
+          - col4
+          - ''
+        -
+          - col5
+          - ''
+  maxRows: null
+  minRows: null
+  staticRows: true
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

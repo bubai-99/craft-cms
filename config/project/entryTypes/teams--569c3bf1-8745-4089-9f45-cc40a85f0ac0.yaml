@@ -1,0 +1,138 @@
+color: indigo
+description: null
+fieldLayouts:
+  282c4228-caf8-4105-8be9-44497e6b65cf:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-06T13:00:25+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 7093ae34-d549-44ef-9dcb-e452ccbb4e1b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-07T12:09:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 703cf557-5070-454c-a244-874820fa5e59
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-06T13:03:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9ad900d0-9bb2-4fb5-ade4-2f70b6fe1a07 # Select Team Members
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7fd46334-06a0-43b6-bf3d-637c5ca92eb3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-08T05:47:17+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ac092263-34d7-423a-a808-637bad3d16bd # Display View
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f81c8e9c-da33-40b4-8a21-6d7c6da96b15
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-09-03T06:11:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 048da29d-23c9-4467-82c3-29a91753dc5a # Column Slide per row
+            handle: teamMemberPerRow
+            includeInCards: false
+            instructions: null
+            label: 'Team Member Per Row'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 35a1461c-58a8-4b55-b1d9-693ccd81ae99
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-06T13:03:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 636b6f1a-3412-46f8-a4b2-0f4993f77fd4
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: f4fc30f1-0065-4867-8672-95234f0b4f2a
+        userCondition: null
+handle: teams
+hasTitleField: false
+icon: users
+name: Teams
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

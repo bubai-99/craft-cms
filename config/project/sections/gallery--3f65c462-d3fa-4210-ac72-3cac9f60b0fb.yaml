@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 30c4f5aa-b0dc-41ad-ac54-fa80f96c76ba # Gallery
+handle: gallery
+maxAuthors: 1
+name: Gallery
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/structures/gallery.twig
+    uriFormat: '{slug}'
+structure:
+  maxLevels: null
+  uid: da580670-3f30-4651-aec8-52308fbd45b4
+type: structure

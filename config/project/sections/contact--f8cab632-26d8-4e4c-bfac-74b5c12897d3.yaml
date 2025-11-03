@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 8f1b75d1-5469-4715-a4a0-7a6547431baf # Contact Page
+handle: contact
+maxAuthors: 1
+name: Contact
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/singles/contact.twig
+    uriFormat: contact
+type: single

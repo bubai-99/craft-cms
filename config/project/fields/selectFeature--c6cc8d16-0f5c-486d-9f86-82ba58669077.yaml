@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: selectFeature
+instructions: null
+name: 'Select Feature'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: 1
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: true
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:0dce24f0-8746-4e14-95d0-6b0566dda3bf'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

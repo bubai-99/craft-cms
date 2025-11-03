@@ -1,0 +1,66 @@
+columnSuffix: null
+handle: testimonialLayouts
+instructions: null
+name: 'Testimonial Layouts'
+searchable: true
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Testimonial Layout 1'
+        -
+          - value
+          - testimonialLayout1
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Testimonial Layout 2'
+        -
+          - value
+          - testimonialLayout2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Testimonial Layout 3'
+        -
+          - value
+          - testimonialLayout3
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - ' Testimonial Layout 4'
+        -
+          - value
+          - testimonialLayout4
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - ' Testimonial Layout 5'
+        -
+          - value
+          - testimonialLayout5
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

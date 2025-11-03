@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: matrixRow
+instructions: null
+name: 'Matrix Row'
+searchable: false
+settings:
+  createButtonLabel: 'Create a column'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 5f30c96a-ace0-4715-82cc-f0bff05a2574 # Matrix Column
+  includeTableView: false
+  maxEntries: 2
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: true
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

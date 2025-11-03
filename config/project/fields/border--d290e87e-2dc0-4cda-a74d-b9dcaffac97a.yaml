@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: border
+instructions: null
+name: Border
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - d76e60fa-d050-4127-bd8c-b10be37a5f86 # Border
+  includeTableView: false
+  maxEntries: 1
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

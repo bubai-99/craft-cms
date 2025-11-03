@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: paginationDisplayStyle
+instructions: null
+name: 'Pagination Display Style'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Pagination
+        -
+          - value
+          - pagination
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Load More'
+        -
+          - value
+          - loadMore
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

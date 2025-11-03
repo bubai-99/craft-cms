@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: accordionDisplayStyle
+instructions: null
+name: 'Accordion Display Style'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Flat/Minimal Accordion'
+        -
+          - value
+          - flatMinimalAccordion
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Bordered Accordion'
+        -
+          - value
+          - borderedAccordion
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Card-style Accordion'
+        -
+          - value
+          - cardStyleAccordion
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Card Header-style Accordion'
+        -
+          - value
+          - cardHeaderStyleAccordion
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

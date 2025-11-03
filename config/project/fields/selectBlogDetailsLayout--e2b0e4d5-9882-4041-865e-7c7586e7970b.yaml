@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: selectBlogDetailsLayout
+instructions: null
+name: 'Select Blog Details Layout'
+searchable: true
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Blog Single Layout - v1'
+        -
+          - value
+          - blogSingleLayoutV1
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Blog Single Layout - v2'
+        -
+          - value
+          - blogSingleLayoutV2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Blog Single Layout - v3'
+        -
+          - value
+          - blogSingleLayoutV3
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

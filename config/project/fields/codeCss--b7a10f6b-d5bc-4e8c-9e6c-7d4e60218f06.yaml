@@ -1,0 +1,32 @@
+columnSuffix: null
+handle: codeCss
+instructions: null
+name: 'Code CSS'
+searchable: false
+settings:
+  availableLanguages:
+    - css
+    - graphql
+    - html
+    - javascript
+    - json
+    - markdown
+    - mysql
+    - php
+    - shell
+    - twig
+    - typescript
+    - yaml
+  codeFolding: false
+  defaultValue: ''
+  fontSize: 14
+  language: css
+  lineNumbers: true
+  monacoEditorOptions: ''
+  placeholder: ''
+  showLanguageDropdown: false
+  singleLineEditor: false
+  theme: vs-dark
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\codefield\fields\Code

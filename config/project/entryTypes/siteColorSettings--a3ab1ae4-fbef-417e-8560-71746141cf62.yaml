@@ -1,0 +1,138 @@
+color: null
+description: null
+fieldLayouts:
+  31e33fec-393f-4a7b-a12e-03e72e7ba8eb:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-12T13:30:17+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: da984205-1f72-419e-940a-772ee18ea283
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-12T13:32:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9b141fd6-155b-419f-b6d6-de5dd3403b1b # Color Code
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d7217745-d476-4889-bf0e-7fd88448c022
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-12T13:32:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Color Class'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cea78168-e973-4d25-8377-f50342080f64
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-16T07:14:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: textfield2
+            includeInCards: false
+            instructions: null
+            label: Padding
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f901278-0687-4723-a929-a48e68ee6cf6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-16T07:14:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: textfield3
+            includeInCards: false
+            instructions: null
+            label: Margin
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 07985d09-cd62-4cdc-90fc-3accc755f35f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-16T07:14:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 661f47cd-1b0b-4706-8cf1-e5a258dc7479 # Text Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a02ab6e0-29d5-40f2-9375-882f6efdc5ef
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: dbd2c07b-3e0c-41a0-affa-0b92cfecd228
+        userCondition: null
+handle: siteColorSettings
+hasTitleField: false
+icon: null
+name: 'Site Color settings'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

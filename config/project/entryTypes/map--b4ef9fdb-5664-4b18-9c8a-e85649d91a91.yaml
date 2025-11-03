@@ -1,0 +1,74 @@
+color: green
+description: null
+fieldLayouts:
+  15d2175c-8156-4395-b713-346b9cc60f36:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-09-15T07:20:22+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0f264cdf-21ef-4582-ab18-82c8fbcb7650
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-15T06:59:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 67b7863f-e411-46fb-a8f5-7cf4e4df7529 # Short Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Embedded Google Map'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d997538-8b68-4cd9-836d-f5188609e51c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-15T07:19:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7ba5e270-14b6-46f1-b112-f73d2f8e27ff
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 73f955ad-2135-4b2e-8da3-1f38bc99fcab
+        userCondition: null
+handle: map
+hasTitleField: false
+icon: map
+name: Map
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

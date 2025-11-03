@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: selectBlogComponent
+instructions: null
+name: 'Select Blog Component'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - bbbc45bb-af56-4e35-9fe3-f6b99b1e4170 # Blog Compoment
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

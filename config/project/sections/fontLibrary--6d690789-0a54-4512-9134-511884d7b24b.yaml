@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 68f38d50-327b-48f4-bd8a-e62871608a59 # Font Options
+handle: fontLibrary
+maxAuthors: 1
+name: 'Font Library'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: c3d24309-1688-42f0-bc47-171992d044ce
+type: structure

@@ -1,0 +1,161 @@
+color: teal
+description: null
+fieldLayouts:
+  c61598f5-22b6-4f19-9088-c13c49012bc0:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-28T07:48:58+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 52f8c9f1-b089-44e2-b4f7-b4a6281cff12
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2025-06-02T06:45:59+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Recommended
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a24b674-fdc0-4c4f-a404-84a35df5448e
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-30T10:30:57+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 72d2486a-cdf4-4c64-a014-3d58da8f5f89 # Editor (full)
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Description
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8a5e5cb9-d1fd-4d7b-b351-17d5c3eac985
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-31T05:43:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: price
+            includeInCards: false
+            instructions: null
+            label: Price
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 731c31bf-f404-44fc-90c0-b1feb85114e9
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-30T10:30:57+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Price label'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f6af17b-0144-4332-a35c-69eabe78f86e
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-30T10:30:57+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9c757d01-c77b-4635-a8e1-dcda41e12ab5 # Button
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 57def3b8-76df-49aa-abcd-d60f5afcf70b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-30T10:30:57+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 3522161a-6b3b-4f1b-bddc-167ed22a0a7e
+            userCondition: null
+          -
+            dateAdded: '2025-05-30T07:52:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7510ad38-bcf1-453f-a963-297e9d70772a # Package Features Entry
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d3cec811-f064-4f4e-8124-b39a9bb327ab
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: dd5a4a8f-90a4-4176-a49b-14d6cc23b59e
+        userCondition: null
+handle: packages
+hasTitleField: true
+icon: cubes
+name: Packages
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

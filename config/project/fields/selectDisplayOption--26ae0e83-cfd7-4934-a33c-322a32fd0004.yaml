@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: selectDisplayOption
+instructions: null
+name: 'Select Display Option'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Image with text'
+        -
+          - value
+          - imageWithText
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Image only'
+        -
+          - value
+          - imageOnly
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Text only'
+        -
+          - value
+          - textOnly
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

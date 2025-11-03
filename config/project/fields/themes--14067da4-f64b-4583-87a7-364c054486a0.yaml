@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: themes
+instructions: null
+name: Themes
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Theme1
+        -
+          - value
+          - theme1
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Theme2
+        -
+          - value
+          - theme2
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

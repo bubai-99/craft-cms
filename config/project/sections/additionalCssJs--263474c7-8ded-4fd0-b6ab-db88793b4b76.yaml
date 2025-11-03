@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 917613fa-4257-40dd-87c5-7938284f9173 # Additional CSS & JS
+handle: additionalCssJs
+maxAuthors: 1
+name: 'Additional CSS & JS'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - refresh
+        - '1'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: single

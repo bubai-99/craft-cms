@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: bd4d0393-d2ad-4711-af3b-29baedcf5c80 # Testimonial Entry
+handle: testimonials
+maxAuthors: 1
+name: Testimonials
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/structures/testimonials.twig
+    uriFormat: 'testimonials/{slug}'
+structure:
+  maxLevels: null
+  uid: 8ec20973-4541-449e-bd20-00ca954cdbf3
+type: structure

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: packageFeaturesEntry
+instructions: null
+name: 'Package Features Entry'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - aeedb257-9119-4467-9179-1ef9510ef5a3 # Package Features Item
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

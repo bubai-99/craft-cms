@@ -1,0 +1,104 @@
+color: purple
+description: null
+fieldLayouts:
+  ac602e86-f688-4a45-8e62-87d9789b2fbf:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-28T05:31:42+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 23bf1957-fe3e-4b11-bac6-1eac9bcd8e90
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T10:25:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70983809-8950-4a80-a9ed-a036f9b432fe
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-30T10:59:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ead4680f-8e28-42ab-84b4-ae0c2a3d2e32 # Select Package
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Select Packages'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d7375dcf-769b-4bc1-be00-7a4054acf489
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T12:03:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 19014a2f-2665-4a0f-a2bb-46395f2a3dcd
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: 4c5a32b3-2b46-4630-9826-8e9707375d7f
+        userCondition: null
+handle: pricingCompare
+hasTitleField: false
+icon: dollar-sign
+name: 'Pricing and Compare'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

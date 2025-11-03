@@ -1,0 +1,130 @@
+columnSuffix: null
+handle: tagDropdownOption
+instructions: null
+name: 'Tag Dropdown Option'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Primary
+        -
+          - value
+          - primary
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Secondary
+        -
+          - value
+          - secondary
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - danger
+        -
+          - value
+          - danger
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Info
+        -
+          - value
+          - info
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Success
+        -
+          - value
+          - success
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Warning
+        -
+          - value
+          - warning
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Dark
+        -
+          - value
+          - dark
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

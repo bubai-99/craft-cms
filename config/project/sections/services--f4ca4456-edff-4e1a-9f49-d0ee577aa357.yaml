@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 6b8092d6-58b9-4fd9-b12c-3a731975e12a # Service
+handle: services
+maxAuthors: 1
+name: Services
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/channels/services.twig
+    uriFormat: 'services/{slug}'
+type: channel

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: selectGallery
+instructions: null
+name: 'Select Gallery'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: true
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:3f65c462-d3fa-4210-ac72-3cac9f60b0fb'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: expandableContent
+instructions: null
+name: 'Expandable Content'
+searchable: false
+settings:
+  createButtonLabel: 'Add Content'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - c5b7fb80-8804-458d-9794-736bcfa2a73c # Expandable Content
+  includeTableView: false
+  maxEntries: null
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

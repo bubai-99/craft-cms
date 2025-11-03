@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: spacing
+instructions: null
+name: Spacing
+searchable: false
+settings:
+  createButtonLabel: 'Add Spacing'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - de9c3ab8-f3bf-4eb5-a2df-7035fbb0653f # Spacing
+  includeTableView: false
+  maxEntries: 1
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: formBackground
+instructions: null
+name: 'Form Background'
+searchable: false
+settings:
+  default: true
+  offLabel: 'No'
+  onLabel: 'Yes'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

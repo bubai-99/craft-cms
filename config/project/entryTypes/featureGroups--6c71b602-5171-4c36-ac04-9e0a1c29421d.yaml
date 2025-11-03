@@ -1,0 +1,53 @@
+color: lime
+description: null
+fieldLayouts:
+  111ba805-ef26-4b9c-b301-f3ec3a0a3bbe:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-28T10:50:33+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 14cdf390-c4be-4cf6-875e-9caa4510613a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: dd089210-8219-476d-b3b2-c5b644b88fc3
+        userCondition: null
+handle: featureGroups
+hasTitleField: true
+icon: layer-group
+name: 'Feature Groups'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

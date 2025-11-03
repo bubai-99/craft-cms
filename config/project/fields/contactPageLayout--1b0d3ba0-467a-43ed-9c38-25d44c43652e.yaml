@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: contactPageLayout
+instructions: null
+name: 'Contact Page Layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Contact Layout 1'
+        -
+          - value
+          - contactLayout1
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Contact Layout 2'
+        -
+          - value
+          - contactLayout2
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: standardBannerSlider
+instructions: null
+name: 'Standard Banner Slider'
+searchable: false
+settings:
+  createButtonLabel: 'Add a banner'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 860a2cd0-857e-4cf2-a01f-59a07edcff95 # Standard Page Banner Item
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

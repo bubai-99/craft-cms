@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: footerLayout
+instructions: null
+name: 'Footer layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Basic Footer'
+        -
+          - value
+          - basicFooter
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Minimal Footer'
+        -
+          - value
+          - minimalFooter
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Mega Footer'
+        -
+          - value
+          - megaFooter
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Boxed Footer'
+        -
+          - value
+          - boxedFooter
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

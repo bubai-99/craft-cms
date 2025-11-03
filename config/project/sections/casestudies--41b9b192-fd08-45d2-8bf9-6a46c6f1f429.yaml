@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 9ae38fea-e0ca-49f1-b11d-28d323560f59 # Casestudy
+handle: casestudies
+maxAuthors: 1
+name: 'Case Studies'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/channels/casestudy.twig
+    uriFormat: 'casestudies/{slug}'
+type: channel

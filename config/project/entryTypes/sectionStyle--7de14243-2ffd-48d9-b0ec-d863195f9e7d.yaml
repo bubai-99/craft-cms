@@ -1,0 +1,167 @@
+color: violet
+description: null
+fieldLayouts:
+  e8817bf1-ed9e-4040-b232-335a56dab834:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-08-26T09:55:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d2a68217-51a8-4bb6-a41a-678ecf568d9b # Matrix Container Width
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c0e0664a-2499-411d-8363-620f6c374b32
+            userCondition: null
+            warning: null
+            width: 100
+        name: Layout
+        uid: 971857c6-d338-45fe-9366-a8675b1ade06
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-13T13:42:17+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: __blank__
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 50cc7bc9-7325-472c-b3ae-f2bf0394ec42
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-03T12:11:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 60fc2899-ec28-453f-8c64-183e29946d71 # Background
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 00460eeb-7bc0-4a14-8e94-4d16ef6fe452
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-26T10:58:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6aad66a7-883c-4814-a069-be6b60a4e5e0 # Divider
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7ba90fca-c7b4-4dc8-89ba-082b574aa304
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-03T12:11:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 490b9c81-441a-425a-9207-cd6f08531df4 # Typography
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 430164c3-3fcd-428d-a7b4-905612d4afe8
+            userCondition: null
+            warning: null
+            width: 100
+        name: Style
+        uid: d83c32ac-bbdc-43e8-8023-6db1d524e697
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-03T11:49:46+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: fc3d77e1-4c37-46b8-8e64-08e320a7473a # Spacing
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8d5742ce-0971-4f93-8046-213545aaa393
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-03T11:52:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 96a82c8f-a3a4-45f2-84f2-695c2d4a7fa2 # CSS Classes
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6f3924dd-bb75-40ea-a5ce-2f28ea2585ea
+            userCondition: null
+            warning: null
+            width: 100
+        name: Advanced
+        uid: d9e72f8d-8013-49cf-99a7-f7d7b9783d2d
+        userCondition: null
+handle: sectionStyle
+hasTitleField: false
+icon: brush
+name: 'Section Style'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

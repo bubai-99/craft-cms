@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: positioning
+instructions: null
+name: Positioning
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Fixed
+        -
+          - value
+          - fixed
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Sticky
+        -
+          - value
+          - sticky
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Static
+        -
+          - value
+          - static
+        -
+          - default
+          - '1'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

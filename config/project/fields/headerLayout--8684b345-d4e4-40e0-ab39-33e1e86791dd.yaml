@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: headerLayout
+instructions: null
+name: 'Header layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Simple Header'
+        -
+          - value
+          - simpleHeader
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Header With Sidebar Menu'
+        -
+          - value
+          - headerWithSidebarMenu
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Simple Header Right Menu'
+        -
+          - value
+          - simpleHeaderRightMenu
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Simple Header Center Logo With Menu'
+        -
+          - value
+          - simpleHeaderCenterLogoWithMenu
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

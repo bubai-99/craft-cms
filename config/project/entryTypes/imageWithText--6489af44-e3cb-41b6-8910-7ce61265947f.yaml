@@ -1,0 +1,138 @@
+color: sky
+description: null
+fieldLayouts:
+  87669580-b162-47f8-9202-92c4cb1be99f:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-12T06:23:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4306614c-ff32-4305-91ff-0b23555271b3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-09T10:22:18+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6300a271-1c77-41b3-8778-6a2712715d58
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-09T10:26:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: imageContent
+            includeInCards: false
+            instructions: null
+            label: 'Image Content'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0b216739-5c70-4977-bca2-de1b0bd7f06c
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-09T11:20:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c3b2c92b-9d34-4d3c-a2d2-d8e2fb36240d # Side Switch
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Image Display Side'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 428feb7e-979f-496f-a6c0-573ec6612376
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-09T10:34:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 72d2486a-cdf4-4c64-a014-3d58da8f5f89 # Editor (full)
+            handle: textContent
+            includeInCards: false
+            instructions: null
+            label: 'Text Content'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 07a34d4f-b38d-4f35-a390-ef2474a91a29
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-09T10:26:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0bdfdd43-cfd1-45a2-8fe2-2ffe24470d48
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Text With Image'
+        uid: cdc39aae-42e9-413d-8c2d-1be192a1db8b
+        userCondition: null
+handle: imageWithText
+hasTitleField: true
+icon: font-case
+name: 'Image with Text'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

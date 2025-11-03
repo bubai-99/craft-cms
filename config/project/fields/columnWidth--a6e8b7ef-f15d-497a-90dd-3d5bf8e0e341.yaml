@@ -1,0 +1,77 @@
+columnSuffix: null
+handle: columnWidth
+instructions: null
+name: 'Column Width'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - col-12
+        -
+          - value
+          - default
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - col-9
+        -
+          - value
+          - col-lg-9
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - col-8
+        -
+          - value
+          - col-lg-8
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - col-6
+        -
+          - value
+          - col-lg-6
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - col-3
+        -
+          - value
+          - col-lg-3
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - col-4
+        -
+          - value
+          - col-lg-4
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

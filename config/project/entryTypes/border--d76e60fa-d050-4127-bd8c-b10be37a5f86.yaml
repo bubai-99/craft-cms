@@ -1,0 +1,104 @@
+color: lime
+description: null
+fieldLayouts:
+  2886677f-9776-40d2-90d4-81250639174f:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-03T12:46:47+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: f8249bd9-2e0a-4d45-8a88-a28e2ef7fe5c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-03T13:49:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c080e598-cafa-4c95-9d6b-f9a7a1b0a289 # Border Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Border Style (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c392b096-6e96-4505-baa7-131c8c05b614
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-03T14:01:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Border Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 43237ef2-dfa6-4441-ac2e-2e658c38d7e3
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-12-03T13:49:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6c361976-cd4e-4607-97ca-ece16bd21538 # Border Radius
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Border Radius (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a2aa9f34-d7a5-48a6-80ba-30c8ed47607b
+            userCondition: null
+            warning: null
+            width: 75
+        name: Content
+        uid: bdb10ea0-cb6b-4cde-962d-b4f24bb617f6
+        userCondition: null
+handle: border
+hasTitleField: false
+icon: horizontal-rule
+name: Border
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

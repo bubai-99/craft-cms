@@ -1,0 +1,162 @@
+color: sky
+description: null
+fieldLayouts:
+  a05ceb11-ccf0-4fa5-af32-a181796a5ceb:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-28T07:06:10+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: 'Platform Name'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e1371791-1d8b-48df-933d-d5325a26324b
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-11-28T07:30:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b99e6f30-852f-4d75-9a93-38e3613f047a # Icon Image Or Class
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Select Icon Option'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e6561fb2-34f0-4340-8390-8d89f3a3e447
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-11-28T07:33:37+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: b99e6f30-852f-4d75-9a93-38e3613f047a # Icon Image Or Class
+                  layoutElementUid: e6561fb2-34f0-4340-8390-8d89f3a3e447
+                  operator: in
+                  uid: 8e544be5-cd31-4056-97a4-5822c763ea8e
+                  values:
+                    - iconImage
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: iconImage
+            includeInCards: false
+            instructions: null
+            label: 'Icon Image'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9631c753-9d9b-4b23-89b6-c85f183291e0
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-11-28T07:30:40+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: b99e6f30-852f-4d75-9a93-38e3613f047a # Icon Image Or Class
+                  layoutElementUid: e6561fb2-34f0-4340-8390-8d89f3a3e447
+                  operator: in
+                  uid: b7c01f4e-7268-4559-a682-e100a84f1200
+                  values:
+                    - iconClass
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: iconClass
+            includeInCards: false
+            instructions: null
+            label: 'Icon Class'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a9cbd028-fcc1-4276-98d7-9f1085378eba
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-11-28T07:17:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: linkUrl
+            includeInCards: false
+            instructions: null
+            label: URL
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 135725f5-883e-4bce-a3fa-32637c610b51
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-07T10:52:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 96a82c8f-a3a4-45f2-84f2-695c2d4a7fa2 # CSS Classes
+            handle: elementClass
+            includeInCards: false
+            instructions: null
+            label: 'Element Class'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 05eb9e34-cf1f-4290-b2ae-4ccefe45d152
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: d2db3f8a-806c-4b37-b0d6-01afebeee98b
+        userCondition: null
+handle: socialMedia
+hasTitleField: true
+icon: thumbs-up
+name: 'Social Media'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

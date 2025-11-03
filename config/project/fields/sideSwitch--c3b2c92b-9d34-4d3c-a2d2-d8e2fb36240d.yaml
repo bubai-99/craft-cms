@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: sideSwitch
+instructions: null
+name: 'Side Switch'
+searchable: false
+settings:
+  default: false
+  offLabel: Left
+  onLabel: Right
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

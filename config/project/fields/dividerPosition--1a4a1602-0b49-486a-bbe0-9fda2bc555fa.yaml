@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: dividerPosition
+instructions: null
+name: 'Divider Position'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Top
+        -
+          - value
+          - top
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Bottom
+        -
+          - value
+          - bottom
+        -
+          - default
+          - '1'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

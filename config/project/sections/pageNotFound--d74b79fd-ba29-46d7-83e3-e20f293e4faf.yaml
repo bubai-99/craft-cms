@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: a6fcc1ff-77b4-473d-b55d-567b2e4fc6f6 # Page Maintenance
+handle: pageNotFound
+maxAuthors: 1
+name: 'Page Not Found'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+   d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: single

@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: columnPerRow
+instructions: null
+name: 'Column per row'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - '2 Items'
+        -
+          - value
+          - md-6
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - '3 Items'
+        -
+          - value
+          - md-4
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - '4 Items'
+        -
+          - value
+          - md-3
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - '6 Items'
+        -
+          - value
+          - md-2
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

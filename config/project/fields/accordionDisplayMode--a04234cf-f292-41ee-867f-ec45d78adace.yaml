@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: accordionDisplayMode
+instructions: null
+name: 'Accordion Display Mode'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Simple Accordion '
+        -
+          - value
+          - simpleAccordion
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Accordion With Changing Image'
+        -
+          - value
+          - accordionWithChangingImage
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Accordion With Single Image'
+        -
+          - value
+          - accordionWithSingleImage
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

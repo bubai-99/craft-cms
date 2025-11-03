@@ -1,0 +1,207 @@
+color: fuchsia
+description: null
+fieldLayouts:
+  e24c67c0-04e4-46cb-a23d-efc8b1558cd1:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-05T13:37:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2de2c443-21db-4c41-bec6-937862d05907 # Container Width
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 749bd55a-0dd7-4574-ac25-0cd70430eefa
+            userCondition: null
+            warning: null
+            width: 100
+        name: Layout
+        uid: 33e204de-7d58-4fb6-a70b-e1a63353f781
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-05T13:37:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 60fc2899-ec28-453f-8c64-183e29946d71 # Background
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed95ce81-4fa8-4540-a146-02414b62275f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-05T13:37:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6aad66a7-883c-4814-a069-be6b60a4e5e0 # Divider
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 786a7f5d-b0fa-4b98-a0ea-48c911346dfa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-05T13:38:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 490b9c81-441a-425a-9207-cd6f08531df4 # Typography
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ff053fd-bdae-42fd-8b6b-7a347590d6c5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Style
+        uid: 71e56f3d-6a7f-4a56-9da0-3ec3a15b1e6c
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-05T13:37:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: fc3d77e1-4c37-46b8-8e64-08e320a7473a # Spacing
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ef267db0-669c-49d8-8328-df947be3e620
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-19T07:54:13+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: f88d2359-4dd1-4a37-bcea-1baffe63d72e
+            userCondition: null
+          -
+            dateAdded: '2025-09-19T07:54:13+00:00'
+            elementCondition: null
+            heading: 'Responsive View'
+            type: craft\fieldlayoutelements\Heading
+            uid: ea261403-7e5b-436d-a76c-f9bbfd291714
+            userCondition: null
+          -
+            dateAdded: '2025-09-19T07:54:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 583022f4-6c8e-4a40-ab0c-c2b0dd037a8a # Switch Default On
+            handle: smallScreen
+            includeInCards: false
+            instructions: null
+            label: 'Small Screen'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e36b68c1-61bb-429e-a9ea-e47c8c5a60ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-19T07:54:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 583022f4-6c8e-4a40-ab0c-c2b0dd037a8a # Switch Default On
+            handle: mediumScreen
+            includeInCards: false
+            instructions: null
+            label: 'Medium Screen'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: df97d96d-f0d7-4c88-8546-d1b81977eab8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-19T07:54:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 583022f4-6c8e-4a40-ab0c-c2b0dd037a8a # Switch Default On
+            handle: largeScreen
+            includeInCards: false
+            instructions: null
+            label: 'Large Screen'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b2967f77-1f5e-400e-80b9-08aa94b79653
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-19T07:54:13+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: feb5f10b-ab49-4d45-8055-54f344aeed9c
+            userCondition: null
+          -
+            dateAdded: '2024-12-05T13:37:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 96a82c8f-a3a4-45f2-84f2-695c2d4a7fa2 # CSS Classes
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c10ce274-3e55-4762-8725-53927d7e5cb9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Advanced
+        uid: 2a435d51-ac1b-4074-b89a-f35c7ae1f918
+        userCondition: null
+handle: blockStyle
+hasTitleField: false
+icon: brush
+name: 'Block Style'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

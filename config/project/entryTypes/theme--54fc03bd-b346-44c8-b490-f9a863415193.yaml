@@ -1,0 +1,369 @@
+color: fuchsia
+description: null
+fieldLayouts:
+  8b1ed9f1-c35c-40b6-81d5-b1028d5f3bfb:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-13T12:49:34+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: 'Theme Title'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: d5c9b928-fc47-49a5-a454-7a62846a9878
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-31T11:45:33+00:00'
+            elementCondition: null
+            heading: 'Theme Colors'
+            type: craft\fieldlayoutelements\Heading
+            uid: ff58f4cb-e1a1-472f-a458-323b92d8ab65
+            userCondition: null
+          -
+            dateAdded: '2025-01-31T11:25:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorPrimary
+            includeInCards: false
+            instructions: null
+            label: Primary
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1db77955-7c77-42fc-96d7-06b1b0dadcc8
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:45:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorSecondary
+            includeInCards: false
+            instructions: null
+            label: Secondary
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cc402eb1-a32c-40d5-aa6d-8417627f49b0
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:45:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorInfo
+            includeInCards: false
+            instructions: null
+            label: Info
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ea25f07c-f68c-443f-be7c-5da67d24b5bb
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:49:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorSuccess
+            includeInCards: false
+            instructions: null
+            label: Success
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5695c3f-62c1-4e57-a26f-f382a238a478
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:49:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorWarning
+            includeInCards: false
+            instructions: null
+            label: Warning
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cf776ac5-d85d-44be-9651-df3265e0ee92
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:49:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorDanger
+            includeInCards: false
+            instructions: null
+            label: Danger
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 424bf7fb-2e10-4589-b6b8-ee4f5a40a2c8
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:51:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorLight
+            includeInCards: false
+            instructions: null
+            label: Light
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0d638aba-4fdf-44d8-9b45-da3527632088
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:51:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorDark
+            includeInCards: false
+            instructions: null
+            label: Dark
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 50c9ed16-ba34-4f67-9051-1938341ac67d
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T12:01:15+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: ad9670f6-cb47-4e67-98e7-716605134a80
+            userCondition: null
+          -
+            dateAdded: '2025-01-31T12:01:15+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorBgBody
+            includeInCards: false
+            instructions: null
+            label: 'Body BG Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aab4cb86-b8b2-4277-b5c6-71ad612d946d
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T12:01:15+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorTextBody
+            includeInCards: false
+            instructions: null
+            label: 'Body Text Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e65d8ab1-a9e5-4ceb-9a5b-8cf722f4f77b
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T12:01:15+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorLink
+            includeInCards: false
+            instructions: null
+            label: 'Link Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e20997f0-df6d-4b0d-9c06-7f5e1fa0b9de
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T12:01:15+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: colorLinkHover
+            includeInCards: false
+            instructions: null
+            label: 'Link Hover Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f4d1251-18fb-4d19-acb0-08360110956c
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:45:33+00:00'
+            elementCondition: null
+            heading: ' Font Styles'
+            type: craft\fieldlayoutelements\Heading
+            uid: 2f0d0f21-7930-41e1-b434-01fb0dce700d
+            userCondition: null
+          -
+            dateAdded: '2025-01-31T13:12:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 698bb1f9-fe50-4eb2-baf7-a63e13fb39ec # Font Library
+            handle: fontBody
+            includeInCards: false
+            instructions: null
+            label: 'Body Font-family'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e2fd4ce0-ed62-4d0f-a40b-562c7f3de4bf
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T13:17:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: fontSizeBody
+            includeInCards: false
+            instructions: null
+            label: 'Body Font-size'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4df1e508-c0b3-4e3d-8947-7ab7efc9da80
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T13:12:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 698bb1f9-fe50-4eb2-baf7-a63e13fb39ec # Font Library
+            handle: fontHeading
+            includeInCards: false
+            instructions: null
+            label: 'Heading Font-family'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 56ea0653-9a07-42e1-b839-b2910f799491
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T13:12:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 698bb1f9-fe50-4eb2-baf7-a63e13fb39ec # Font Library
+            handle: fontButton
+            includeInCards: false
+            instructions: null
+            label: 'Button Font Family'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 005030bc-c5af-48bb-beb3-ffb6ba40fac7
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-31T11:45:33+00:00'
+            elementCondition: null
+            heading: 'Button Styles'
+            type: craft\fieldlayoutelements\Heading
+            uid: 697914c1-f0f6-4a9d-88e0-5fc628955f51
+            userCondition: null
+          -
+            dateAdded: '2025-01-31T12:09:42+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c97ea17c-8282-4773-88d1-d34552e4fca9 # Button Shape
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b46f66cd-02b1-4411-984d-ce35142a4861
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 657a09be-fe04-4efb-9020-f4fee15ce061
+        userCondition: null
+handle: theme
+hasTitleField: true
+icon: swatchbook
+name: Theme
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: displayMode
+instructions: null
+name: 'Display Mode'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Slider View'
+        -
+          - value
+          - sliderView
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'List View'
+        -
+          - value
+          - listView
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Grid View'
+        -
+          - value
+          - gridView
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

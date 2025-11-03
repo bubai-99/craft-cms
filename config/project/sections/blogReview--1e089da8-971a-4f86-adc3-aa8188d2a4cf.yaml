@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 2886d8bb-1a15-41d4-9ac7-dcaeef982db4 # Review
+handle: blogReview
+maxAuthors: 1
+name: 'Blog Review'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: false
+    hasUrls: true
+    template: blog-review/_entry.twig
+    uriFormat: 'blog-review/{slug}'
+type: channel

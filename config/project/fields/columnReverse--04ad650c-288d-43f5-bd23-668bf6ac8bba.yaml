@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: columnReverse
+instructions: null
+name: 'Column Reverse '
+searchable: false
+settings:
+  default: false
+  offLabel: leftToRight
+  onLabel: rightToLeft
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

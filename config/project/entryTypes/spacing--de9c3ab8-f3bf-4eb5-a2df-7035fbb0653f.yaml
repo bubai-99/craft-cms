@@ -1,0 +1,244 @@
+color: lime
+description: null
+fieldLayouts:
+  b620aa4b-220d-4514-9929-a5bdc2eaebc6:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-03T09:57:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 420f8cd0-8537-4660-9c7a-b05cbd016c29
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-03T10:16:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c45f2791-6d13-4a6e-8687-36021e0d934b # Media Screen
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d1c699e-7fcf-4f27-ba0b-735f0f0e7fac
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-03T10:16:13+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: c45f2791-6d13-4a6e-8687-36021e0d934b # Media Screen
+                  layoutElementUid: 5d1c699e-7fcf-4f27-ba0b-735f0f0e7fac
+                  operator: in
+                  uid: 92425bef-1ff7-4dbd-80be-1d11d53413c9
+                  values:
+                    - desktop
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 38a0bdbc-a972-42bf-b25a-5f41d85d812b # Padding
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Padding (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 538cfd99-a080-4d25-bbef-1041ad3d0d11
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-03T10:16:13+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: c45f2791-6d13-4a6e-8687-36021e0d934b # Media Screen
+                  layoutElementUid: 5d1c699e-7fcf-4f27-ba0b-735f0f0e7fac
+                  operator: in
+                  uid: 1151efe8-1cc5-4162-87bf-ceee0fd41db7
+                  values:
+                    - desktop
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 61cd471e-f64c-4aa0-b5ca-41cc805c61ce # Margin
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Margin (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 39f1dbc7-12e3-409c-9084-e771147c15e9
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-03T10:29:45+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: c45f2791-6d13-4a6e-8687-36021e0d934b # Media Screen
+                  layoutElementUid: 5d1c699e-7fcf-4f27-ba0b-735f0f0e7fac
+                  operator: in
+                  uid: cc4885ba-cc57-4692-ac31-12c85ac4d173
+                  values:
+                    - tablet
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 38a0bdbc-a972-42bf-b25a-5f41d85d812b # Padding
+            handle: paddingTab
+            includeInCards: false
+            instructions: null
+            label: 'Padding (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dfbd642f-1232-451e-852c-f84d3f48b430
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-03T10:29:45+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: c45f2791-6d13-4a6e-8687-36021e0d934b # Media Screen
+                  layoutElementUid: 5d1c699e-7fcf-4f27-ba0b-735f0f0e7fac
+                  operator: in
+                  uid: 8aa8ff75-a9bc-42c8-9d3e-344e6b14dbb0
+                  values:
+                    - tablet
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 61cd471e-f64c-4aa0-b5ca-41cc805c61ce # Margin
+            handle: marginTab
+            includeInCards: false
+            instructions: null
+            label: 'Margin (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 15b6fc72-1863-4469-962a-8346c2b9f45b
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-03T10:29:45+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: c45f2791-6d13-4a6e-8687-36021e0d934b # Media Screen
+                  layoutElementUid: 5d1c699e-7fcf-4f27-ba0b-735f0f0e7fac
+                  operator: in
+                  uid: f52e1d66-89a4-4029-b559-3e14a3e5e22f
+                  values:
+                    - mobile
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 38a0bdbc-a972-42bf-b25a-5f41d85d812b # Padding
+            handle: paddingMob
+            includeInCards: false
+            instructions: null
+            label: 'Padding (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ebc174b3-bdd2-44a6-88e3-3699634372f8
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-03T10:29:45+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: c45f2791-6d13-4a6e-8687-36021e0d934b # Media Screen
+                  layoutElementUid: 5d1c699e-7fcf-4f27-ba0b-735f0f0e7fac
+                  operator: in
+                  uid: 61def593-92c7-4f8a-9f4e-8b40fdabb506
+                  values:
+                    - mobile
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 61cd471e-f64c-4aa0-b5ca-41cc805c61ce # Margin
+            handle: marginMob
+            includeInCards: false
+            instructions: null
+            label: 'Margin (px)'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 54142714-973d-4470-9e71-ecf4810b99f8
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: 924556d7-b0b1-4233-a9d3-9a946e1e3783
+        userCondition: null
+handle: spacing
+hasTitleField: false
+icon: hexagon
+name: Spacing
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

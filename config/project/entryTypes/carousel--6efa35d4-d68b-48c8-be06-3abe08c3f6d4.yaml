@@ -1,0 +1,227 @@
+color: yellow
+description: null
+fieldLayouts:
+  a528e48d-365f-4035-8132-b12772565a90:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-01-07T13:31:52+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 19cd96e4-6c99-47a2-be0e-9778fb6239f1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:53:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: heading
+            includeInCards: false
+            instructions: null
+            label: Title/Headline
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f488d4b6-5dc7-40d9-99c6-43aecf902ccd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:53:34+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 853ce5bc-e51c-4365-ab61-1c604f9e56ce
+            userCondition: null
+          -
+            dateAdded: '2025-01-07T13:53:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: displaySubtitle
+            includeInCards: false
+            instructions: null
+            label: 'Show Subtitle'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5daa97d0-e86c-4b07-b7b3-a29aea29abcf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:53:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: displayDescription
+            includeInCards: false
+            instructions: null
+            label: 'Show Description'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b2efbd92-9195-49d1-b46d-be2d5ec38931
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:53:34+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 5daa97d0-e86c-4b07-b7b3-a29aea29abcf
+                  uid: 33ecba42-e635-410a-9e2d-7da3805d649b
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: tagline
+            includeInCards: false
+            instructions: null
+            label: Subtitle/Tagline
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 700a08ad-d82a-44bd-9681-34b7d12c47a6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:53:34+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: b2efbd92-9195-49d1-b46d-be2d5ec38931
+                  uid: 5db69725-b337-466e-8193-46647e6d5411
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: a1cf70be-9fcd-44cd-88b5-3ec49ce3dc12 # HeaderNotification
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Description
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0d5c99cf-8b6d-49d9-9084-2762f5396fc2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:53:34+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 609bc562-4258-464d-84e8-1cfc2dcb4d77
+            userCondition: null
+          -
+            dateAdded: '2025-01-07T13:56:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4986ef6b-1633-46ff-ad1d-7c21eb54a7a7 # Images
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 633ceddc-770c-4145-8900-b247a487da31
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:56:50+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: b3434f36-6c53-4556-bae8-5713821df96e
+            userCondition: null
+          -
+            dateAdded: '2025-01-07T13:56:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 23eb6f41-4d38-4aa5-9a83-6c41e9c8d6a6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T13:56:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9c757d01-c77b-4635-a8e1-dcda41e12ab5 # Button
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Button CTA'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3d41b2f8-4edf-4a3b-8a8e-b1a41bd9ee28
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5e703763-66ef-4dcf-8ae4-52b0dfa00f8f
+        userCondition: null
+handle: carousel
+hasTitleField: true
+icon: null
+name: Carousel
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

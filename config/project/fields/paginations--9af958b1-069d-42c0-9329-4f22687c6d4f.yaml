@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: paginations
+instructions: null
+name: Pagination
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 0e5f0235-c8d1-4cd2-bcf8-de64e3b81f51 # Pagination
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

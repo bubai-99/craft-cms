@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: e42f3d46-68ab-45db-9d27-16605a988ce9 # Gallery Category
+handle: galleryCategory
+maxAuthors: 1
+name: 'Gallery Category'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: b781d94b-aac3-489d-9bfb-adbeeeb1fa89
+type: structure

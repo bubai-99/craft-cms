@@ -1,0 +1,62 @@
+columnSuffix: null
+handle: textAlign
+instructions: null
+name: 'Text Align'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Left
+        -
+          - value
+          - start
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Center
+        -
+          - value
+          - center
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Right
+        -
+          - value
+          - end
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

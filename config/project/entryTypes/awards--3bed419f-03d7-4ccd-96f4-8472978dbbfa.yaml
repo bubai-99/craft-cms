@@ -1,0 +1,151 @@
+color: green
+description: null
+fieldLayouts:
+  dbc6ce50-662d-46d6-bb2d-bcb5fa2a9f72:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-20T09:59:44+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 836eb762-771a-496c-8efb-9733b9a65da2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-20T10:02:36+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7d3605cb-4110-45c3-9b79-931f789a1e29
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-20T10:23:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 49af9f8a-72c4-4f8c-a512-bad79361b0ea # Award Content Group
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8c65625-1992-4760-9098-2349dc82d9a3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-20T10:14:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0c577327-0800-4540-a2c3-bc53342bbdd2 # Display Mode
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2787712b-aa1c-47b6-8234-7d2a4e7abbf7
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-08-20T10:14:04+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 0c577327-0800-4540-a2c3-bc53342bbdd2 # Display Mode
+                  layoutElementUid: 2787712b-aa1c-47b6-8234-7d2a4e7abbf7
+                  operator: in
+                  uid: 6e1a40cd-8444-4601-a535-53a6fe0de5a7
+                  values:
+                    - sliderView
+                    - gridView
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 56382840-5697-45b9-80eb-bd4d1ec48550 # Column per row
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 23ca3432-05fb-4fc4-8be2-a43b38baf988
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-08-20T10:14:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1b721b8a-b8ab-43c5-a200-5c327615645b
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: b49f731b-5ac0-4fe8-916c-9022f861ae6d
+        userCondition: null
+handle: awards
+hasTitleField: false
+icon: trophy
+name: Awards
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

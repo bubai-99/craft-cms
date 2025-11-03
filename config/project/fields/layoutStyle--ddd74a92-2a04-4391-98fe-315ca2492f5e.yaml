@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: layoutStyle
+instructions: null
+name: 'Layout Style'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - List
+        -
+          - value
+          - list
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Carousel
+        -
+          - value
+          - carousel
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

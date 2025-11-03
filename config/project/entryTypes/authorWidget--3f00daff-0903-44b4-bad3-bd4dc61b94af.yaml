@@ -1,0 +1,172 @@
+color: null
+description: null
+fieldLayouts:
+  6fc0bd2f-cea8-46dc-893e-0bca29cfb0d3:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-13T12:08:32+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: 'Author Name'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 5d6a3ab9-3129-4bd8-be09-8fb8edf18b2a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-15T10:56:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 37143010-f0aa-435e-9bb7-7c21969409dd # Select Author Widget Layout
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d81f145b-efee-4fd5-a00d-cd1fd4a70b64
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-13T12:12:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: authorImage
+            includeInCards: false
+            instructions: null
+            label: 'Author Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 795f4c34-0044-4c40-90f8-da0695187fcd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-13T12:12:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Heading
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0f4d93fb-95ad-46aa-a2dd-0b00fb6adf9c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-13T12:12:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 67b7863f-e411-46fb-a8f5-7cf4e4df7529 # Short Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c473d16a-f65f-41ca-9ee3-4d9cbb46ddd6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-13T12:25:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a9ccbd30-ea9b-4c64-8527-b375a8ef10a4 # Section Style 
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8e941612-a016-4238-a45f-7963123c771e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-14T07:35:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b7a10f6b-d5bc-4e8c-9e6c-7d4e60218f06 # Code CSS
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a671ccc9-a16c-418e-9bba-60ddbc18b01e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-14T07:35:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46f4807d-b79a-49f4-b508-22e1e41f89c5 # Code JS
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 663c65e9-5526-48f0-8b34-1942e1ef3844
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 1f637ad2-3921-487e-b650-1a04b80c7eec
+        userCondition: null
+handle: authorWidget
+hasTitleField: true
+icon: user
+name: 'Author Widget'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

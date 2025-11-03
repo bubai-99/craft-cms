@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: selectValueType
+instructions: null
+name: 'Select Value Type'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Text
+        -
+          - value
+          - text
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Numeric '
+        -
+          - value
+          - numeric
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Boolean '
+        -
+          - value
+          - boolean
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

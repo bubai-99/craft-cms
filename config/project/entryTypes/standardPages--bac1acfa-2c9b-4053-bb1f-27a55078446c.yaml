@@ -1,0 +1,190 @@
+color: blue
+description: null
+fieldLayouts:
+  6fbc4eeb-ee71-4876-910b-9e8e3dcfcc5e:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-17T14:26:06+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: dd5e4d80-ed0e-4314-b0f5-bb30b98afcdd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-19T11:17:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: h1Title
+            includeInCards: false
+            instructions: null
+            label: 'Page H1 Title'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0a8b0539-3508-49c9-b5dc-c16cdb176a6f
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2025-09-19T11:17:13+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 583022f4-6c8e-4a40-ab0c-c2b0dd037a8a # Switch Default On
+            handle: hideTitleHere
+            includeInCards: false
+            instructions: null
+            label: 'Hide H1 title'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 900b9cb6-b82f-4bfb-9aa5-ba054fbb5b7f
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-09-19T11:18:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 75f1f897-0b83-4cc6-87a5-46993198f215 # Text Align
+            handle: titleAlign
+            includeInCards: false
+            instructions: null
+            label: 'Title Align'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 647474c2-37ce-4af7-87f6-c3a65bb6c796
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-09-19T11:35:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2dab540b-af13-406a-8f25-462189148f89 # Single Container Width
+            handle: titleContainerWidth
+            includeInCards: false
+            instructions: null
+            label: 'Title Container Width'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 99bd5fd4-f759-4c0b-a398-df80e62d2ecb
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-09-19T11:36:22+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: bb1ee24a-0c06-4fb4-ad03-6ace94892756
+            userCondition: null
+          -
+            dateAdded: '2025-09-01T11:43:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 919d7529-ee9e-4b4c-9fc1-0693659bbe89 # Standard Banner Slider
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4ba2deca-1522-4a04-a6bb-8d1507f5e9d1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Page
+        uid: 5dea5f49-eea2-49d8-a351-de1aa815bf48
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-09-18T10:04:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b16eb725-d50a-45ee-8c76-bcaa039b4054 # Matrix Container
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 14e20f31-321f-4f41-b9e9-18251b50f797
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5bc1e40e-8c19-4038-8f94-d2bf8bcc85e4
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-09-18T10:04:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 48ac3790-5f1b-4a76-b88b-941f3a65531c # Basic Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4b1db90f-b961-45f6-bbd1-b1f63dc534de
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: 707203c7-50f4-43af-b85c-c5dbaa8136a3
+        userCondition: null
+handle: standardPages
+hasTitleField: true
+icon: page
+name: 'Standard Pages'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

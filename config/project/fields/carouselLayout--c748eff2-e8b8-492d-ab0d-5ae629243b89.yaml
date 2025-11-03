@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: carouselLayout
+instructions: null
+name: 'Carousel Layout'
+searchable: true
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Header Banner'
+        -
+          - value
+          - headerBanner
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Client Logo'
+        -
+          - value
+          - clientLogo
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Navigation
+        -
+          - value
+          - navigation
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Pagination
+        -
+          - value
+          - pagination
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

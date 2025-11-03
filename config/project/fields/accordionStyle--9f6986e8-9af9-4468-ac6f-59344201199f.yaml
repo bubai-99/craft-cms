@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: accordionStyle
+instructions: null
+name: 'Accordion Style'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - d309e230-a2e1-4b22-8da0-982c03448028 # Accordion Style
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

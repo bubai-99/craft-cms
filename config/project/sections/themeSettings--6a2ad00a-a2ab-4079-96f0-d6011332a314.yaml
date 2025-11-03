@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 54fc03bd-b346-44c8-b490-f9a863415193 # Theme
+handle: themeSettings
+maxAuthors: 1
+name: 'Theme Settings'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - ''
+      -
+        - refresh
+        - ''
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: single

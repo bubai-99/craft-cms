@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: selectPackage
+instructions: null
+name: 'Select Package'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: true
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:cac83cbc-9614-41ae-b149-17ba099d2fd8'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

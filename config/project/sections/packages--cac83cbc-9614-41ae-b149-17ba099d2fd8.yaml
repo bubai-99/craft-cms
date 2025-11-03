@@ -1,0 +1,33 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 20b60dff-9b0d-473e-b264-c2e6e4a401b8 # Packages Service
+  -
+    uid: d1dbedac-e615-4cf4-8357-91ea81703c07 # Packages
+handle: packages
+maxAuthors: 1
+name: Packages
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 2
+  uid: aace26e7-13da-4adc-bb76-dcf23dd7295f
+type: structure

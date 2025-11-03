@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: sectionStyle
+instructions: null
+name: 'Section Style '
+searchable: false
+settings:
+  createButtonLabel: 'Add a section style'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 7de14243-2ffd-48d9-b0ec-d863195f9e7d # Section Style
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

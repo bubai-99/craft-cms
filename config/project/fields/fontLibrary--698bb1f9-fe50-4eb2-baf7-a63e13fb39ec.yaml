@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: fontLibrary
+instructions: null
+name: 'Font Library'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: 'Add Font Family'
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:6d690789-0a54-4512-9134-511884d7b24b'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

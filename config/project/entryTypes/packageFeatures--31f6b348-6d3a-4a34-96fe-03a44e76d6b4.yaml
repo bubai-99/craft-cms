@@ -1,0 +1,70 @@
+color: cyan
+description: null
+fieldLayouts:
+  cfef4476-9dcf-4f1e-b1db-45ab91cc5514:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-28T07:46:26+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 2993d3f3-39b1-4382-a06b-a61ebd58713b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T10:59:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 72d2486a-cdf4-4c64-a014-3d58da8f5f89 # Editor (full)
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Description
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6665d40c-b596-47b5-b5d5-b5fd41eac334
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 92b96423-b82d-4806-be4a-4fb441426d78
+        userCondition: null
+handle: packageFeatures
+hasTitleField: true
+icon: suitcase
+name: 'Package Features'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,94 @@
+columnSuffix: null
+handle: borderRadius
+instructions: null
+name: 'Border Radius'
+searchable: false
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Top
+            -
+              - handle
+              - top
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Right
+            -
+              - handle
+              - right
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+      -
+        - col3
+        -
+          __assoc__:
+            -
+              - heading
+              - Bottom
+            -
+              - handle
+              - bottom
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+      -
+        - col4
+        -
+          __assoc__:
+            -
+              - heading
+              - Left
+            -
+              - handle
+              - left
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+        -
+          - col3
+          - ''
+        -
+          - col4
+          - ''
+  maxRows: null
+  minRows: null
+  staticRows: true
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

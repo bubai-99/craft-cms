@@ -1,0 +1,232 @@
+color: emerald
+description: null
+fieldLayouts:
+  1940c61d-311e-4545-9f19-df1f40c73205:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-14T10:49:55+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 982b6579-b2c7-4193-8b38-22eff62fced2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-14T12:08:25+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bae20ad7-e273-419d-9432-d92eefb4adc4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-07T05:44:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0bb36bfd-2b29-4f6a-b9f4-77167a699836 # Gallery Display View
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3f7229e-b66f-415e-849e-d5d97c8b3952
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-14T13:01:06+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 797d8397-29ad-429f-9f87-60e4c1e3b8b1 # Service Per Row
+            handle: galleryPerRow
+            includeInCards: false
+            instructions: null
+            label: 'Gallery Per Row'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cf8c6532-18cd-4d01-8cd3-a696acdbdcce
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-14T11:00:28+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 0bb36bfd-2b29-4f6a-b9f4-77167a699836 # Gallery Display View
+                  layoutElementUid: e3f7229e-b66f-415e-849e-d5d97c8b3952
+                  operator: in
+                  uid: 406805dd-7a74-4b11-9835-19bbd745c272
+                  values:
+                    - gridView
+                    - sliderView
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: imageChooseEntry
+            includeInCards: false
+            instructions: null
+            label: 'Image Choose From Entry'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 160361e0-ab62-4f03-adb1-bedf2d797a60
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-14T11:00:28+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 160361e0-ab62-4f03-adb1-bedf2d797a60
+                  uid: ba7206d4-a03a-4957-a768-8c8f2c020535
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: displayMode
+            includeInCards: false
+            instructions: null
+            label: 'Display Only Category'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 608261e2-e57f-4a2f-916e-0643128952d7
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-14T11:00:28+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 160361e0-ab62-4f03-adb1-bedf2d797a60
+                  uid: ff0a2073-201c-4930-90d4-2a1a25cfd7aa
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 99900f3a-5e8c-4f04-a985-bd8cbd04b7d9 # Select Gallery
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f4e31cec-4d30-40d6-a986-b31d47ca0e1f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-14T11:00:28+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 160361e0-ab62-4f03-adb1-bedf2d797a60
+                  uid: fa433013-311a-4a14-b774-425bcc62c831
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 4986ef6b-1633-46ff-ad1d-7c21eb54a7a7 # Images
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 402e3019-7d66-4540-a7e4-02fb435f2648
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-14T11:05:49+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 934fa7fc-ebc7-4db2-81ce-269a9af4f878
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bc3c6687-2564-4eee-a8bf-593d4d14c872
+        userCondition: null
+handle: imageGallery
+hasTitleField: false
+icon: rectangle-history
+name: 'Image Gallery'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: divider
+instructions: null
+name: Divider
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 7add496e-6be7-4638-addb-1c38c7d7f734 # Divider
+  includeTableView: false
+  maxEntries: 1
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

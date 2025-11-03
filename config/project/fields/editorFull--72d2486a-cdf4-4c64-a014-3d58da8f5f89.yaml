@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: editorFull
+instructions: null
+name: 'Editor (full)'
+searchable: false
+settings:
+  availableTransforms: ''
+  availableVolumes: '*'
+  characterLimit: null
+  ckeConfig: 7a742929-395c-4b9b-9575-de8dead5fd33
+  createButtonLabel: null
+  defaultTransform: null
+  expandEntryButtons: false
+  fullGraphqlData: false
+  parseEmbeds: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field

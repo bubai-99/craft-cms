@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: pageBanner
+instructions: null
+name: 'Page Banner'
+searchable: false
+settings:
+  createButtonLabel: 'Add a banner'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 3aaefd28-eb87-4453-b22d-1ac377260247 # Page Banner
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

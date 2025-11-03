@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: iconImageOrClass
+instructions: null
+name: 'Icon Image Or Class'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Icon Image'
+        -
+          - value
+          - iconImage
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Icon Class'
+        -
+          - value
+          - iconClass
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

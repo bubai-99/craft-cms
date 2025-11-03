@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: headingAndContent
+instructions: null
+name: 'Heading And Content'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 93e7aeca-f53a-4d92-bdeb-230263d19be1 # Section Heading + Content
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

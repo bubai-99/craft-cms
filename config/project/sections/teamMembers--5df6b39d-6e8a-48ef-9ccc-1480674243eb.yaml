@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 369d6c1e-3c64-4228-94a9-35ab8a3cb17e # Team Members
+handle: teamMembers
+maxAuthors: 1
+name: 'Team Members'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/structures/teamMembers.twig
+    uriFormat: 'teams/{slug}'
+structure:
+  maxLevels: null
+  uid: b127ed3c-5be6-47ba-bbe4-d88174883426
+type: structure

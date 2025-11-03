@@ -1,0 +1,16 @@
+defaultPlacement: end
+enableVersioning: false
+entryTypes:
+  -
+    uid: 92be5f52-e323-4130-ad3e-3a7d6d25d9ca # Home
+handle: home
+maxAuthors: 1
+name: Home
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries\singles\home.twig
+    uriFormat: __home__
+type: single

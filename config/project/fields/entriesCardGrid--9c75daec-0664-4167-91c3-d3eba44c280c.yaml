@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: entriesCardGrid
+instructions: null
+name: 'Entries (Card Grid)'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: true
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

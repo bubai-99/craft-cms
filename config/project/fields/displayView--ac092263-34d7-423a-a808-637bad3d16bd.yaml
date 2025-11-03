@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: displayView
+instructions: null
+name: 'Display View'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Grid View'
+        -
+          - value
+          - gridView
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Slider View'
+        -
+          - value
+          - sliderView
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 6c71b602-5171-4c36-ac04-9e0a1c29421d # Feature Groups
+handle: featureGroups
+maxAuthors: 1
+name: 'Feature Groups'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: b4376058-50cd-42b1-8fe6-b78178c94fc4
+type: structure

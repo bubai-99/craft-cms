@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: bac1acfa-2c9b-4053-bb1f-27a55078446c # Standard Pages
+handle: standardPages
+maxAuthors: 1
+name: 'Standard Pages'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+   d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/channels/standard.twig
+    uriFormat: '{slug}'
+type: channel

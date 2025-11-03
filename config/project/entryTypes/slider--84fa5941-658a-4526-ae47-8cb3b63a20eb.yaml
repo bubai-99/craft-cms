@@ -1,0 +1,104 @@
+color: null
+description: null
+fieldLayouts:
+  dfeaa6b1-a0e3-4d21-813c-21e2ca608d96:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-01-07T14:09:41+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3a53a010-c11b-43e4-86a0-11d9ca43ec9b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T14:16:24+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: code
+            includeInCards: false
+            instructions: null
+            label: Code
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f1168d7-b71e-4048-a2c3-6b7704751d9d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-08T08:22:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c748eff2-e8b8-492d-ab0d-5ae629243b89 # Carousel Layout
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6dd5e605-56d4-41b1-97c7-c20e14f7aa62
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T14:11:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 69157db1-8ee8-41ac-9b5c-8ff7021b9319 # Hero Banner Slider
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f015f5f3-f2ac-4f0f-a449-eab117e00a8b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e1d083f7-aa68-49f3-99a5-763de63aca44
+        userCondition: null
+handle: slider
+hasTitleField: true
+icon: null
+name: Slider
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: e8467cfa-8f43-48b0-8690-f33e826e81c0 # Portfolio
+handle: portfolios
+maxAuthors: 1
+name: Portfolios
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+   d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: entries/channels/portfolio.twig
+    uriFormat: 'portfolios/{slug}'
+type: channel

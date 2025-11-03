@@ -1,0 +1,87 @@
+color: emerald
+description: null
+fieldLayouts:
+  485f08a2-33a1-4972-bac3-6c832072c1a3:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-01-03T07:16:26+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 63ca50a5-aafb-41c2-ad89-c220d9d204c8
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-03T07:38:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 54814b2f-713e-437f-a118-4200e23cb3b7
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-03T07:38:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 841d5d31-b4c7-4955-ab98-7baad886a211 # Link url
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 78e2fcc7-777e-4be8-ba10-c1485d7c7728
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: 075cb2cd-9dfa-4ceb-bdfb-cbc66dbc291a
+        userCondition: null
+handle: appLinks
+hasTitleField: true
+icon: grid-2
+name: 'App links'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

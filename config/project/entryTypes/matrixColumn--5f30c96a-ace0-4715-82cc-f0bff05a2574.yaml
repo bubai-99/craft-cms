@@ -1,0 +1,93 @@
+color: green
+description: null
+fieldLayouts:
+  947cb76e-f1c5-45ab-95ba-83594f21dc96:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-16T14:30:33+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3abaddfa-abc1-4709-9624-1d3d07753731
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-16T14:32:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 86ea2ace-31d2-40b5-988f-9fa771263646 # Matrix Content Blocks
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2ceebf8b-04e3-4817-b0e0-36f900a98bbb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-18T05:43:13+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\LineBreak
+            uid: b417415e-e088-4bb4-9847-a84a560b544a
+            userCondition: null
+          -
+            dateAdded: '2024-09-18T10:41:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: cce55ca2-b298-4c1a-a7bc-e5f0272a0eb4 # Column Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 40047384-fda1-43eb-a0b9-e2f5ad6f45fb
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 099f52a7-544a-4254-afc2-3bdb8382b2aa
+        userCondition: null
+handle: matrixColumn
+hasTitleField: false
+icon: table-columns
+name: 'Matrix Column'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

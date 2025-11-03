@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: colorLibrary
+instructions: null
+name: 'Color Library'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: 'Add Color'
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: true
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:650f5c9a-0a0e-4878-8889-dbd98994e94b'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

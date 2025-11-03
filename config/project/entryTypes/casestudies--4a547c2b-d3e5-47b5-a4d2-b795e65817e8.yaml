@@ -1,0 +1,155 @@
+color: orange
+description: null
+fieldLayouts:
+  68469cae-fa2b-44f5-a6bd-a8bbc4a3500e:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-06T10:36:04+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 7be67165-73ce-45b2-baf2-f900793efc6c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T10:59:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e051b35f-38d2-4094-b673-2d470b4ce258
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T11:52:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c75760e9-f2d5-47f2-ab5a-7498cd972973 # Select Case Studies
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: df5ad464-86f8-468c-b6bd-b08571f0d74f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T10:59:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ac092263-34d7-423a-a808-637bad3d16bd # Display View
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7fd61da-b575-48e8-81b3-e1c807b3f48a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-09-02T13:06:15+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 048da29d-23c9-4467-82c3-29a91753dc5a # Column Slide per row
+            handle: caseStudyPerRow
+            includeInCards: false
+            instructions: null
+            label: 'Case Study Per Row'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 74b56378-f289-4b9b-8be7-6417aabefd3c
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-08-27T12:12:06+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9af958b1-069d-42c0-9329-4f22687c6d4f # Pagination
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8d69d70-6d42-485c-8bbf-df2fd93e6f54
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T10:59:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 994032be-4c20-4e29-bd52-9481fd3b9a9f
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: b4767bea-5e36-4f38-827b-3311296da3e1
+        userCondition: null
+handle: casestudies
+hasTitleField: false
+icon: book
+name: 'Case Studies'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,224 @@
+color: sky
+description: null
+fieldLayouts:
+  27c8d495-0437-4f59-82bc-11ee965d603e:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-05T13:46:53+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 7db68f32-42f8-4f96-b939-e6ba11a23f7e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-19T12:03:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: h1Title
+            includeInCards: false
+            instructions: null
+            label: 'Page H1 Title'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0ea6cb18-ad3b-4d11-b8e3-337feee4452f
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2025-09-19T12:03:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 583022f4-6c8e-4a40-ab0c-c2b0dd037a8a # Switch Default On
+            handle: hideTitleHere
+            includeInCards: false
+            instructions: null
+            label: 'Hide H1 title'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f68598bf-914c-4057-9772-7333207cb629
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-09-19T12:03:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 75f1f897-0b83-4cc6-87a5-46993198f215 # Text Align
+            handle: titleAlign
+            includeInCards: false
+            instructions: null
+            label: 'Title Align'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1de1a4d6-f3f1-4163-9c58-25199c5f041c
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-09-19T12:03:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2dab540b-af13-406a-8f25-462189148f89 # Single Container Width
+            handle: titleContainerWidth
+            includeInCards: false
+            instructions: null
+            label: 'Title Container Width'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 58be95f7-a40d-46d2-ae5a-fc75363e2af7
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-09-19T12:03:41+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 8f04f276-ca84-4daa-ae9c-1dff45fae60e
+            userCondition: null
+          -
+            dateAdded: '2025-09-19T12:07:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 72d2486a-cdf4-4c64-a014-3d58da8f5f89 # Editor (full)
+            handle: introduction
+            includeInCards: false
+            instructions: null
+            label: 'Intro text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 50b7fdb0-c3f7-44f4-9ccd-73258ccdcb66
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T07:50:17+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 69157db1-8ee8-41ac-9b5c-8ff7021b9319 # Hero Banner Slider
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Main Banner Slider'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fe55e815-083c-4eb4-8e7f-c57cb6ab4291
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2025-03-05T10:37:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3a5a89e1-13d4-49eb-ae0c-ab882300ac0a # Banner layout
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Main Banner Slider Layout'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 09f010ae-7a40-4e8e-8b79-08cdb370dfe0
+            userCondition: null
+            warning: null
+            width: 25
+        name: Page
+        uid: 289ebe1a-7156-41e5-8c5e-d95d2d887e0b
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-09-18T10:06:11+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b16eb725-d50a-45ee-8c76-bcaa039b4054 # Matrix Container
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8c49f53d-ebe5-436e-864c-8f86bc3bb85d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0b1e3284-82fb-4042-9200-20671cfd89ca
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-09-12T11:49:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 48ac3790-5f1b-4a76-b88b-941f3a65531c # Basic Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2d8b066e-49a4-49ff-aa97-4dae93d56110
+            userCondition: null
+            warning: null
+            width: 100
+        name: Seo
+        uid: 2cc04dab-55fe-43de-b26a-a17feab5dcc9
+        userCondition: null
+handle: home
+hasTitleField: true
+icon: house
+name: Home
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

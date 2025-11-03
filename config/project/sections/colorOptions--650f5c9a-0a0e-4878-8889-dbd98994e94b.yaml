@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: d7f0ffbb-44a4-4f10-9dfd-ff3703d78886 # Color Options
+handle: colorOptions
+maxAuthors: 1
+name: 'Color Library'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - refresh
+        - '1'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: c51de66f-5a8b-42cb-b956-9ac3b3a53a11
+type: structure

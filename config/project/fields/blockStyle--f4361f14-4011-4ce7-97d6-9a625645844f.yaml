@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: blockStyle
+instructions: null
+name: 'Block Style'
+searchable: false
+settings:
+  createButtonLabel: 'Add a block style'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 5c604219-4ad6-47fa-b23e-2d5f37fa9974 # Block Style
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

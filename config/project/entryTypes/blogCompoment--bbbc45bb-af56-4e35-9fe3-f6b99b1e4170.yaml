@@ -1,0 +1,87 @@
+color: null
+description: null
+fieldLayouts:
+  20be486b-02b3-4fdf-88c6-ac344bbb2780:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-11-13T11:53:20+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: f4ffeb1d-673d-46eb-9f7c-2b129d2ddc47
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-13T12:04:17+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d4602f76-0cea-40e6-a237-67155989c435 # Select Blog Component
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0d504031-fd26-49cf-a685-da918b09548f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-13T11:55:57+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5aa9ddb6-71e7-4ae7-b6e7-3abd7fad34f1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 15e385fc-b794-4537-8441-43ac82880914
+        userCondition: null
+handle: blogCompoment
+hasTitleField: true
+icon: null
+name: 'Blog Compoment'
+showSlugField: true
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

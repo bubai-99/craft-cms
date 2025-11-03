@@ -1,4 +1,4 @@
-dateModified: 1762156547
+dateModified: 1762161893
 email:
   fromEmail: binugede@gmail.com
   fromName: 'Craft CMS'
@@ -13,13 +13,228 @@ fs:
     url: '@web'
 meta:
   __names__:
+    0b3036af-d40d-46e5-9c68-2f59a27225d7: 'Single Page Block Style' # Single Page Block Style
+    0bb36bfd-2b29-4f6a-b9f4-77167a699836: 'Gallery Display View' # Gallery Display View
+    0c577327-0800-4540-a2c3-bc53342bbdd2: 'Display Mode' # Display Mode
+    0e5f0235-c8d1-4cd2-bcf8-de64e3b81f51: Pagination # Pagination
+    0f754d5c-6136-4ef1-823b-8f8838b33f05: Icon # Icon
+    1a4a1602-0b49-486a-bbe0-9fda2bc555fa: 'Divider Position' # Divider Position
+    1a58e4a5-7144-46e8-b5ef-9b6fea69cab9: 'Stretch Section' # Stretch Section
+    1b0d3ba0-467a-43ed-9c38-25d44c43652e: 'Contact Page Layout' # Contact Page Layout
+    1dec504a-7d29-406d-bbc1-19548f1e0f5c: Timing # Timing
+    1ff2e1dc-a5df-4042-8009-ffc4f49dae11: 'Comment Widget' # Comment Widget
+    2b44b0f4-8f0e-4236-8577-3223ac49483d: 'Color Palette' # Color Palette
     2c5c1e3c-6a7d-4849-9270-00d6e567d1c4: 'Craft CMS' # Craft CMS
+    2dab540b-af13-406a-8f25-462189148f89: 'Single Container Width' # Single Container Width
+    2de2c443-21db-4c41-bec6-937862d05907: 'Container Width' # Container Width
+    2f1a4a0f-a931-42c0-93ff-81370cbf18c1: 'Switch Default Off' # Switch Default Off
+    3a5a89e1-13d4-49eb-ae0c-ab882300ac0a: 'Banner layout' # Banner layout
+    3aaefd28-eb87-4453-b22d-1ac377260247: 'Page Banner' # Page Banner
+    3bed419f-03d7-4ccd-96f4-8472978dbbfa: Awards # Awards
+    3c235d6f-c0de-444a-817d-10f06c373b3e: Checkbox # Checkbox
+    3d150be1-2586-43d5-bf07-88eecf611efc: 'App links' # App links
+    3d4982de-c56f-488e-be27-be0b8949eaed: Tags # Tags
+    3f00daff-0903-44b4-bad3-bd4dc61b94af: 'Author Widget' # Author Widget
+    4a9cf515-6a23-4852-85f0-091932828dcc: 'Service Style' # Service Style
+    4a547c2b-d3e5-47b5-a4d2-b795e65817e8: 'Case Studies' # Case Studies
+    04ad650c-288d-43f5-bd23-668bf6ac8bba: 'Column Reverse ' # Column Reverse 
+    4b1a2bc2-f6ba-4cc2-bec2-99293fba3cfb: Single-image # Single-image
+    4f828181-efd2-4493-be11-2ed04bf5b920: 'Date and Time' # Date and Time
+    5b70d93c-ad3c-45fe-92e8-d55d788c7f76: Video # Video
+    5bf72f12-08fa-400e-b0c0-eee6178066f1: 'Blog Matrix' # Blog Matrix
+    5c604219-4ad6-47fa-b23e-2d5f37fa9974: 'Block Style' # Block Style
+    5cee543e-fd94-4c30-b437-44a2e5965997: 'Tag Dropdown Option' # Tag Dropdown Option
+    5d6ea135-fb5b-4c53-97b4-b2913a2cd7d6: Positioning # Positioning
+    5f30c96a-ace0-4715-82cc-f0bff05a2574: 'Matrix Column' # Matrix Column
+    5f226cb3-874c-49e6-be6e-5f0b06654704: 'Select Any Entry' # Select Any Entry
+    6aad66a7-883c-4814-a069-be6b60a4e5e0: Divider # Divider
+    6b8092d6-58b9-4fd9-b12c-3a731975e12a: Service # Service
+    6bbf32fb-e157-4619-8e79-f324421f2994: 'Color Library' # Color Library
+    6c71b602-5171-4c36-ac04-9e0a1c29421d: 'Feature Groups' # Feature Groups
+    6c361976-cd4e-4607-97ca-ece16bd21538: 'Border Radius' # Border Radius
+    6d884fdd-3cb4-442f-bfb1-c92245f1089e: Number # Number
+    6e97cb7b-bff1-4871-88ae-2ef6dc6a872e: 'Table Feature' # Table Feature
+    6eda18ae-a0eb-4e29-b0c8-2561c01ca753: Blogs # Blogs
+    6efa35d4-d68b-48c8-be06-3abe08c3f6d4: Carousel # Carousel
+    7add496e-6be7-4638-addb-1c38c7d7f734: Divider # Divider
+    7bb1f63d-7b20-4449-bb07-f14fc0bec893: 'Client Logos' # Client Logos
+    7c0945d2-fb66-48a9-8446-ce05b6647416: 'Images with Captions' # Images with Captions
+    7d476e1e-b365-41c2-8626-f87b1819828f: 'Testimonial Layouts' # Testimonial Layouts
+    7de14243-2ffd-48d9-b0ec-d863195f9e7d: 'Section Style' # Section Style
+    7f23f593-6ae8-47bc-9358-137e98b26d7e: 'Matrix Row' # Matrix Row
+    7fbc114a-4c00-4c47-b7eb-0bad6e4f3fa6: Logo # Logo
+    8f1b75d1-5469-4715-a4a0-7a6547431baf: 'Contact Page' # Contact Page
+    9a975a51-dca4-4b5d-879f-5af20536a104: 'Image Title & Link' # Image Title & Link
+    9ad900d0-9bb2-4fb5-ade4-2f70b6fe1a07: 'Select Team Members' # Select Team Members
+    9ae38fea-e0ca-49f1-b11d-28d323560f59: Casestudy # Casestudy
+    9af958b1-069d-42c0-9329-4f22687c6d4f: Pagination # Pagination
+    9b2ad1da-fd80-4a72-82c7-513e06fa2096: 'Footer layout' # Footer layout
+    9b141fd6-155b-419f-b6d6-de5dd3403b1b: 'Color Code' # Color Code
+    9c75daec-0664-4167-91c3-d3eba44c280c: 'Entries (Card Grid)' # Entries (Card Grid)
+    9c757d01-c77b-4635-a8e1-dcda41e12ab5: Button # Button
+    9f6986e8-9af9-4468-ac6f-59344201199f: 'Accordion Style' # Accordion Style
+    19ba678d-9389-4962-b137-c5aafd263b02: 'Table Feature' # Table Feature
+    20b60dff-9b0d-473e-b264-c2e6e4a401b8: 'Packages Service' # Packages Service
+    26ae0e83-cfd7-4934-a33c-322a32fd0004: 'Select Display Option' # Select Display Option
+    30c4f5aa-b0dc-41ad-ac54-fa80f96c76ba: Gallery # Gallery
+    31f6b348-6d3a-4a34-96fe-03a44e76d6b4: 'Package Features' # Package Features
+    38a0bdbc-a972-42bf-b25a-5f41d85d812b: Padding # Padding
+    39b1c9b1-7678-4a13-a2a3-3cfa4bdc089d: 'CTA Banner' # CTA Banner
+    39da9e8d-7422-4d23-941e-fe30c53fa248: Align # Align
+    40c55e98-ea27-4648-b05e-19dbb6d8c4d6: 'Select Blogs' # Select Blogs
+    43c9b4f0-de59-4b61-9545-c7afb2338640: Table # Table
+    45e5d8b7-6e5f-4d58-a890-a4199378c895: Portfolios # Portfolios
+    46f4807d-b79a-49f4-b508-22e1e41f89c5: 'Code JS' # Code JS
+    48ac3790-5f1b-4a76-b88b-941f3a65531c: 'Basic Seo' # Basic Seo
+    048da29d-23c9-4467-82c3-29a91753dc5a: 'Column Slide per row' # Column Slide per row
+    49af9f8a-72c4-4f8c-a512-bad79361b0ea: 'Award Content Group' # Award Content Group
+    53a8a487-6e2f-45b8-b318-e45fa0b79864: 'Theme setup' # Theme setup
+    54fc03bd-b346-44c8-b490-f9a863415193: Theme # Theme
+    55df0d9e-40dc-479a-98c0-9404aaf2eb88: 'Gallery Images' # Gallery Images
+    56eae4a8-b9c0-421c-8c34-994bb30664da: 'Matrix Container' # Matrix Container
+    59c1fb9b-97f9-467d-add6-cac310907c26: 'Post Preview' # Post Preview
+    60fc2899-ec28-453f-8c64-183e29946d71: Background # Background
+    61cd471e-f64c-4aa0-b5ca-41cc805c61ce: Margin # Margin
+    67b7863f-e411-46fb-a8f5-7cf4e4df7529: 'Short Description' # Short Description
+    68f38d50-327b-48f4-bd8a-e62871608a59: 'Font Options' # Font Options
+    72b396f6-f0a3-4f2d-be98-f45843a94718: 'Select Form' # Select Form
+    72d2486a-cdf4-4c64-a014-3d58da8f5f89: 'Editor (full)' # Editor (full)
+    75f1f897-0b83-4cc6-87a5-46993198f215: 'Text Align' # Text Align
+    76d00c6d-1cfa-4977-8322-0bfa2e297408: 'Plain Text' # Plain Text
+    79b40454-cc32-43a9-af44-6202bffac601: 'Select Entries' # Select Entries
+    84fa5941-658a-4526-ae47-8cb3b63a20eb: Slider # Slider
+    86ea2ace-31d2-40b5-988f-9fa771263646: 'Matrix Content Blocks' # Matrix Content Blocks
+    88e5c0cd-cfb6-4ad8-b69f-e03328ebb9ec: 'Heading Tags' # Heading Tags
+    91e730ae-c7f7-4939-a162-b7168e4a006a: 'Gallery Image' # Gallery Image
+    92be5f52-e323-4130-ad3e-3a7d6d25d9ca: Home # Home
+    93e7aeca-f53a-4d92-bdeb-230263d19be1: 'Section Heading + Content' # Section Heading + Content
+    96a82c8f-a3a4-45f2-84f2-695c2d4a7fa2: 'CSS Classes' # CSS Classes
+    0097e64d-74ae-4f7d-b0b9-164fe283667c: 'Page Banner' # Page Banner
+    133ed570-a003-4812-b0e5-846df1f849d5: 'Entries (List)' # Entries (List)
+    369d6c1e-3c64-4228-94a9-35ab8a3cb17e: 'Team Members' # Team Members
+    490b9c81-441a-425a-9207-cd6f08531df4: Typography # Typography
+    569c3bf1-8745-4089-9f45-cc40a85f0ac0: Teams # Teams
     636ac41c-eb92-4d39-b153-fddbb5dcf3b7: 'Main Menu' # Main Menu
+    661f47cd-1b0b-4706-8cf1-e5a258dc7479: 'Text Color' # Text Color
+    698bb1f9-fe50-4eb2-baf7-a63e13fb39ec: 'Font Library' # Font Library
+    797d8397-29ad-429f-9f87-60e4c1e3b8b1: 'Service Per Row' # Service Per Row
+    839c2646-ed8d-4c8f-895b-ec17db8d3a09: 'Expandable Content' # Expandable Content
+    841d5d31-b4c7-4955-ab98-7baad886a211: 'Link url' # Link url
+    860a2cd0-857e-4cf2-a01f-59a07edcff95: 'Standard Page Banner Item' # Standard Page Banner Item
+    919d7529-ee9e-4b4c-9fc1-0693659bbe89: 'Standard Banner Slider' # Standard Banner Slider
+    941bf943-98a8-48f9-bcbf-ca5c5612bba7: 'App links' # App links
+    945e43c1-21b8-4b96-bcc8-0c484ec7b954: 'Vertical Align' # Vertical Align
+    2886d8bb-1a15-41d4-9ac7-dcaeef982db4: Review # Review
+    3854ecec-0e98-44f3-a1aa-26245c51e0fa: 'Award Contents' # Award Contents
+    4223e591-870a-487b-a927-3f760463be84: 'Portfolio Categories' # Portfolio Categories
+    4227d4d3-78dc-46a0-a113-6fca08453b44: Image # Image
+    4986ef6b-1633-46ff-ad1d-7c21eb54a7a7: Images # Images
+    5572dbe1-afd5-430a-ab5f-7ce1c89540fb: 'Heading And Content' # Heading And Content
+    6489af44-e3cb-41b6-8910-7ce61265947f: 'Image with Text' # Image with Text
+    7510ad38-bcf1-453f-a963-297e9d70772a: 'Package Features Entry' # Package Features Entry
+    7898f7bb-f3a0-44a0-b9e6-0cfd3b96a227: 'Blog Categories' # Blog Categories
+    8186f930-2265-42f5-a70d-15420291b221: 'Accordion Display Style' # Accordion Display Style
+    8684b345-d4e4-40e0-ab39-33e1e86791dd: 'Header layout' # Header layout
+    9385a028-c2e4-482d-8672-f601d1bd5903: 'Image Gallery' # Image Gallery
+    12781b09-979c-42ed-beee-0413ce5e6a36: Image/Video # Image/Video
+    14067da4-f64b-4583-87a7-364c054486a0: Themes # Themes
+    28317e40-72d0-41e4-a176-6ee62ffdc0d4: 'Banner Heading Tags' # Banner Heading Tags
+    58121fac-a08a-4878-81ef-b08c6a8d6fad: 'Select Value Type' # Select Value Type
+    61428e0d-753a-4df5-acdf-e0ed40357fa7: Date # Date
+    69157db1-8ee8-41ac-9b5c-8ff7021b9319: 'Hero Banner Slider' # Hero Banner Slider
+    70171ea4-41dd-442b-8485-30fb0a66796c: 'Form Background' # Form Background
+    73964a4a-639d-42ff-8e7f-2b4c6bbcc957: 'Social Media' # Social Media
+    76712bbf-ec00-43c4-8e08-a515e0ea09bf: Settings # Settings
+    99900f3a-5e8c-4f04-a985-bd8cbd04b7d9: 'Select Gallery' # Select Gallery
+    583022f4-6c8e-4a40-ab0c-c2b0dd037a8a: 'Switch Default On' # Switch Default On
+    917613fa-4257-40dd-87c5-7938284f9173: 'Additional CSS & JS' # Additional CSS & JS
+    03411308-e325-453e-9d53-a6a2e706d59b: 'Text image' # Text image
     09880460-87e6-400f-8aca-b3e30b2e3634: 'Public Schema' # Public Schema
+    26558190-679b-40f1-bbe0-a83d1b5bde1b: Favicon # Favicon
+    37143010-f0aa-435e-9bb7-7c21969409dd: 'Select Author Widget Layout' # Select Author Widget Layout
+    56382840-5697-45b9-80eb-bd4d1ec48550: 'Column per row' # Column per row
+    77866065-1d77-492b-b03d-288d7dea3c28: Ratings # Ratings
+    78507861-ed14-4d42-a42d-525ddca79548: Email # Email
+    a0d2318d-5142-4949-afb8-e9cb92d0f045: 'Hero Banner Item' # Hero Banner Item
+    a0defa36-1e21-4f86-adc2-e7eedf1b4e37: General # General
+    a04234cf-f292-41ee-867f-ec45d78adace: 'Accordion Display Mode' # Accordion Display Mode
+    a1cf70be-9fcd-44cd-88b5-3ec49ce3dc12: HeaderNotification # HeaderNotification
+    a3ab1ae4-fbef-417e-8560-71746141cf62: 'Site Color settings' # Site Color settings
+    a6e8b7ef-f15d-497a-90dd-3d5bf8e0e341: 'Column Width' # Column Width
+    a6f630ce-58eb-49af-a58c-06d7334c9225: Form # Form
+    a6fcc1ff-77b4-473d-b55d-567b2e4fc6f6: 'Page Maintenance' # Page Maintenance
+    a9ccbd30-ea9b-4c64-8527-b375a8ef10a4: 'Section Style ' # Section Style 
+    ac092263-34d7-423a-a808-637bad3d16bd: 'Display View' # Display View
+    aecd212f-7bee-4094-8a2f-7be8c709545b: 'Single Select' # Single Select
+    aeedb257-9119-4467-9179-1ef9510ef5a3: 'Package Features Item' # Package Features Item
+    af4654b6-28f2-45c2-8d54-48f3e94cae83: 'Select Testimonials' # Select Testimonials
+    b4ef9fdb-5664-4b18-9c8a-e85649d91a91: Map # Map
+    b5d8fb76-3f66-4448-88d9-4beed0ee49f7: Header # Header
+    b7a10f6b-d5bc-4e8c-9e6c-7d4e60218f06: 'Code CSS' # Code CSS
+    b16eb725-d50a-45ee-8c76-bcaa039b4054: 'Matrix Container' # Matrix Container
+    b99e6f30-852f-4d75-9a93-38e3613f047a: 'Icon Image Or Class' # Icon Image Or Class
+    b614767d-36bf-4981-911a-09ac70d628a0: Button # Button
+    bac1acfa-2c9b-4053-bb1f-27a55078446c: 'Standard Pages' # Standard Pages
+    bb1f82ec-197f-43c5-ae1e-4afb3eeb3771: 'Check List Show Table' # Check List Show Table
+    bbbc45bb-af56-4e35-9fe3-f6b99b1e4170: 'Blog Compoment' # Blog Compoment
+    bc7bef00-73a0-44bf-a72b-cbc3acd82660: 'Matrix Row' # Matrix Row
+    bd4d0393-d2ad-4711-af3b-29baedcf5c80: 'Testimonial Entry' # Testimonial Entry
+    be6c3fa9-14be-40b8-86e0-e0d63231aec0: 'Radio Button' # Radio Button
+    c080e598-cafa-4c95-9d6b-f9a7a1b0a289: 'Border Style' # Border Style
+    c3b2c92b-9d34-4d3c-a2d2-d8e2fb36240d: 'Side Switch' # Side Switch
+    c5b7fb80-8804-458d-9794-736bcfa2a73c: 'Expandable Content' # Expandable Content
+    c6cc8d16-0f5c-486d-9f86-82ba58669077: 'Select Feature' # Select Feature
+    c7c45680-8043-4bf8-8ad5-265af0152ee8: 'Select Feature Group' # Select Feature Group
+    c9b49977-2298-4a35-bfd2-714c06f8ad89: 'Select Portfolios' # Select Portfolios
+    c45f2791-6d13-4a6e-8687-36021e0d934b: 'Media Screen' # Media Screen
+    c97ea17c-8282-4773-88d1-d34552e4fca9: 'Button Shape' # Button Shape
+    c652f0ad-ab09-4294-82f0-408c6300e72d: 'Column Style' # Column Style
+    c748eff2-e8b8-492d-ab0d-5ae629243b89: 'Carousel Layout' # Carousel Layout
+    c3799c39-ebca-48f0-a668-2d893918881c: Background # Background
+    c75760e9-f2d5-47f2-ab5a-7498cd972973: 'Select Case Studies' # Select Case Studies
+    c2049493-e863-498c-87d5-6b6e67ebad0d: Typography # Typography
+    cbe1aebf-c053-4ef9-a1b9-385a2271f486: 'Heading + Content' # Heading + Content
+    cce55ca2-b298-4c1a-a7bc-e5f0272a0eb4: 'Column Style' # Column Style
     ce87f009-351e-4a71-acdb-cd1b4d487d57: news # news
+    d1dbedac-e615-4cf4-8357-91ea81703c07: Packages # Packages
+    d2a68217-51a8-4bb6-a41a-678ecf568d9b: 'Matrix Container Width' # Matrix Container Width
+    d3e3d189-26c0-4600-9328-4bf8961334f8: 'Contact ' # Contact 
+    d4d42a2d-02bd-4221-aafe-2b1fa105ab15: 'Select Products' # Select Products
+    d6d65024-1670-42c4-86f3-c3cd99a8f9e0: 'Image Title Links' # Image Title Links
+    d7f0ffbb-44a4-4f10-9dfd-ff3703d78886: 'Color Options' # Color Options
     d70c2279-51bd-4f14-85f1-cea184ebb831: 'Craft CMS' # Craft CMS
+    d76e60fa-d050-4127-bd8c-b10be37a5f86: Border # Border
+    d155f34e-acdd-4499-a72a-c41e9f2a7888: 'Feature Item Table' # Feature Item Table
+    d290e87e-2dc0-4cda-a74d-b9dcaffac97a: Border # Border
+    d309e230-a2e1-4b22-8da0-982c03448028: 'Accordion Style' # Accordion Style
     d408f2c3-00f8-438b-ab96-3b403b42bd5a: Simple # Simple
+    d644baf5-3733-4a16-986e-ef5b459b8fcf: Accordion # Accordion
+    d647ec36-b280-436a-b18d-726511d379af: 'Entries (Card)' # Entries (Card)
+    d4602f76-0cea-40e6-a237-67155989c435: 'Select Blog Component' # Select Blog Component
+    ddd74a92-2a04-4391-98fe-315ca2492f5e: 'Layout Style' # Layout Style
+    de9c3ab8-f3bf-4eb5-a2df-7035fbb0653f: Spacing # Spacing
+    de19c65d-e7ac-4883-ad48-b315dc6d9410: 'Social Media' # Social Media
+    dfab0b89-08b3-4f43-b5a2-921e6dce529e: 'Single Page Block Style' # Single Page Block Style
+    e0223dd2-64b5-4587-bdf1-fdbd7af83af1: Products # Products
+    e2b0e4d5-9882-4041-865e-7c7586e7970b: 'Select Blog Details Layout' # Select Blog Details Layout
+    e3d4ce5a-3acf-4dfc-b551-619fb9c739b8: Multi-image # Multi-image
     e5efe4c1-60e8-4854-bc46-927964cc3940: 'Public Asset' # Public Asset
+    e8d9a30a-86c6-4905-95a2-4305fee1103a: 'Accordian With Image' # Accordian With Image
+    e9ce6ef9-7447-4df9-8e83-ac2005625aa7: Services # Services
+    e35f9817-80a3-4fa9-94c4-bc4c3fc091b2: 'Pagination Display Style' # Pagination Display Style
+    e42f3d46-68ab-45db-9d27-16605a988ce9: 'Gallery Category' # Gallery Category
+    e8467cfa-8f43-48b0-8690-f33e826e81c0: Portfolio # Portfolio
+    ead4680f-8e28-42ab-84b4-ae0c2a3d2e32: 'Select Package' # Select Package
+    eb5b5932-0853-4605-917f-7c5ddc16a740: Footer # Footer
+    ec86ba4d-7b62-4b98-a425-165b38017c66: 'Service Style' # Service Style
+    ef766566-ada3-4e58-a45d-490756dd345b: 'Select Services' # Select Services
+    f0480b52-be0e-408d-bc85-e9c928b78d9f: Testimonials # Testimonials
+    f8a46a63-7bb5-47bc-a03d-074e1cbc4edd: Single-vIdeo # Single-vIdeo
+    f9c8e06b-8c89-408d-9a7b-177b9cf7bf36: 'Pricing and Compare' # Pricing and Compare
+    f57baac9-d0c0-4a0c-bdc7-568181cbc836: 'Blog ' # Blog 
+    f4361f14-4011-4ce7-97d6-9a625645844f: 'Block Style' # Block Style
+    fc3d77e1-4c37-46b8-8e64-08e320a7473a: Spacing # Spacing
+    fee4a1a9-1a3d-4d2c-b9f6-6f31206ce3b4: Product # Product
 plugins:
   assetlocations:
     edition: standard

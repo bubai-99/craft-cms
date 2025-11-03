@@ -1,0 +1,104 @@
+color: null
+description: null
+fieldLayouts:
+  d2e2ab4f-fd9e-40f0-b48e-864dd6c174f7:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-02-06T11:04:12+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: cc5ddc4a-3520-47fd-9164-a222be6cad2b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-06T12:04:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a1cf70be-9fcd-44cd-88b5-3ec49ce3dc12 # HeaderNotification
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 13a727c8-6a4d-4b7b-827d-1ab83851b316
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-06T12:04:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 839c2646-ed8d-4c8f-895b-ec17db8d3a09 # Expandable Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24dd3f12-babc-4c93-b942-7bdc09af53b2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-06T12:04:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 74f0c5e8-3d54-4119-9c4f-174daf6c37f7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a73aff63-b708-4df4-9839-1bbb3f78139a
+        userCondition: null
+handle: accordianWithImage
+hasTitleField: true
+icon: null
+name: 'Accordian With Image'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

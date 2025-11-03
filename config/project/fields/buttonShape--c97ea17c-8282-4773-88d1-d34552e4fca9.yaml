@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: buttonShape
+instructions: null
+name: 'Button Shape'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Default
+        -
+          - value
+          - default
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Soft Rounded Button'
+        -
+          - value
+          - softRoundedButton
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Fully Rounded Button'
+        -
+          - value
+          - fullyRoundedButton
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Square Button'
+        -
+          - value
+          - squareButton
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

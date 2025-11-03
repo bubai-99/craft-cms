@@ -1,0 +1,104 @@
+color: lime
+description: null
+fieldLayouts:
+  1e16f4e5-39c4-468d-877a-3ac89f10ff5d:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-02T10:52:13+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 0a8718be-6bc9-4b95-8d37-2923e722c856
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-02T11:41:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: serviceBackground
+            includeInCards: false
+            instructions: null
+            label: 'Service Background'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a034da23-4477-4fbd-8429-1f400e2ef0a6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-02T11:41:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: titleColor
+            includeInCards: false
+            instructions: null
+            label: 'Title Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3e62d173-c3e2-45c4-a165-c19e12d77173
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-02T11:41:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 661f47cd-1b0b-4706-8cf1-e5a258dc7479 # Text Color
+            handle: contentColor
+            includeInCards: false
+            instructions: null
+            label: 'Content Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 579141d3-6000-42c1-97ea-d2a14adec7c4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 084e23ce-ade4-4040-ba14-32030b7a4f77
+        userCondition: null
+handle: serviceStyle
+hasTitleField: false
+icon: angle-down
+name: 'Service Style'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

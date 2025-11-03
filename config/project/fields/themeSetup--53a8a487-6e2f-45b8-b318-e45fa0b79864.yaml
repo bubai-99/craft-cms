@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: themeSetup
+instructions: null
+name: 'Theme setup'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - a3ab1ae4-fbef-417e-8560-71746141cf62 # Site Color settings
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

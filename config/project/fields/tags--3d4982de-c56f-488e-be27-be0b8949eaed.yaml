@@ -1,0 +1,23 @@
+columnSuffix: null
+handle: tags
+instructions: null
+name: Tags
+searchable: true
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: true
+  source: 'taggroup:ea4a66c3-b4fb-45c1-873d-68df3a8162d6'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Tags

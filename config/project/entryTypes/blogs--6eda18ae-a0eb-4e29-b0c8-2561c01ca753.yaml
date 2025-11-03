@@ -1,0 +1,172 @@
+color: pink
+description: null
+fieldLayouts:
+  99d1aa19-0748-4965-b1cb-311529f56999:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-06T13:02:34+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 581bd25a-2a48-450c-ac77-65a075581177
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-12T07:33:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 046ccbc5-92fa-4562-a2a9-3b961463d833
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T12:41:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 40c55e98-ea27-4648-b05e-19dbb6d8c4d6 # Select Blogs
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 53c12c9b-f1de-4e2b-8ee2-c0dbbf09cd01
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-06T13:05:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cc6924cd-1a7e-4f27-8051-59c11fd3af0a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-12T07:37:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ac092263-34d7-423a-a808-637bad3d16bd # Display View
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 480d6a6e-1b0e-466c-a160-f3dbdb1bc7ac
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-09-02T08:02:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 048da29d-23c9-4467-82c3-29a91753dc5a # Column Slide per row
+            handle: blogPerRow
+            includeInCards: false
+            instructions: null
+            label: 'Blog Per Row'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c83b9c57-99a5-4b64-85df-c90947e92cae
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-08-27T09:51:47+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9af958b1-069d-42c0-9329-4f22687c6d4f # Pagination
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dca909c9-619a-4e29-a81a-67c6ff87315f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-02T08:02:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: displayBlogFilter
+            includeInCards: false
+            instructions: null
+            label: 'Display Blog Filter'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7552b52d-b32b-42b4-8879-9f8e0f7aa3c1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 53e1a7c1-000f-4cb6-9898-150d543a5f08
+        userCondition: null
+handle: blogs
+hasTitleField: false
+icon: rss
+name: Blogs
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,54 @@
+columnSuffix: null
+handle: linkUrl
+instructions: null
+name: 'Link url'
+searchable: false
+settings:
+  fullGraphqlData: false
+  maxLength: 255
+  showLabelField: false
+  typeSettings:
+    __assoc__:
+      -
+        - url
+        -
+          __assoc__:
+            -
+              - allowRootRelativeUrls
+              - ''
+            -
+              - allowAnchors
+              - ''
+      -
+        - asset
+        -
+          __assoc__:
+            -
+              - allowedKinds
+              -
+                - audio
+                - captionsSubtitles
+                - image
+                - pdf
+                - word
+            -
+              - showUnpermittedVolumes
+              - ''
+            -
+              - showUnpermittedFiles
+              - ''
+      -
+        - entry
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+  types:
+    - url
+    - asset
+    - category
+    - entry
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Link

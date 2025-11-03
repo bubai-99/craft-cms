@@ -1,0 +1,302 @@
+color: cyan
+description: null
+fieldLayouts:
+  9a6ac725-e334-4261-8920-de70f71d8e80:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-12T10:16:49+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 440c83e4-a61d-4b36-a09a-49d3795428d1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-12T10:38:45+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: featureImage
+            includeInCards: false
+            instructions: null
+            label: 'Feature Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8ed2c623-7d2e-496c-9fb7-eebb87cb04b5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-12T10:38:45+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: image
+            includeInCards: false
+            instructions: null
+            label: 'Product Thumb Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 74ce9d43-4027-4290-b975-4715fd312dbc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-14T08:08:47+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4986ef6b-1633-46ff-ad1d-7c21eb54a7a7 # Images
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Product Gallery Images'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: af29602c-292a-4a2c-a2d0-0b1840d2e0ed
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-12T10:38:45+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3d4982de-c56f-488e-be27-be0b8949eaed # Tags
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 40e2d630-3b0b-46ca-b6f7-439136355851
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-09-11T07:24:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: productDiscount
+            includeInCards: false
+            instructions: null
+            label: 'Product Discount'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 25db44b2-f1d9-4b0f-8240-4c34adb4b884
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-08-13T13:05:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: price
+            includeInCards: false
+            instructions: null
+            label: Price
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 36598165-8b81-4305-bbd0-eeccb17dc0fd
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-08-12T10:38:45+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 25db44b2-f1d9-4b0f-8240-4c34adb4b884
+                  uid: 940a6309-fbb1-4fa8-a9b5-ff048306e49a
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: discountPrice
+            includeInCards: false
+            instructions: null
+            label: 'Discount Price'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 934ecdf4-4568-4cbd-950c-eb0498449f98
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-08-18T09:33:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d155f34e-acdd-4499-a72a-c41e9f2a7888 # Feature Item Table
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8906f120-68e8-46aa-b34c-7bae8a546c22
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-14T12:34:47+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9c757d01-c77b-4635-a8e1-dcda41e12ab5 # Button
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a22846f8-dc32-4000-be20-de5c797590f6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-14T07:17:22+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 9199519e-e81e-42a9-92dc-55ac9e556257
+            userCondition: null
+          -
+            dateAdded: '2025-08-14T07:17:22+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 67b7863f-e411-46fb-a8f5-7cf4e4df7529 # Short Description
+            handle: productDiscription
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f11b065f-ef7d-4884-afa3-c9c83ea0f4f4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-17T13:46:15+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: dfab0b89-08b3-4f43-b5a2-921e6dce529e # Single Page Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1d41725a-91ae-49a4-b13e-60e8aea5bed2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Page
+        uid: 1298d9b6-f925-4abf-ab62-dab75c0f7edf
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-08-12T10:49:02+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b16eb725-d50a-45ee-8c76-bcaa039b4054 # Matrix Container
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9712c46c-41b6-418d-9e12-65a14d810544
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b6c1a91a-cce0-44fe-9578-25bc5dfe2e9d
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-08-12T10:49:02+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 48ac3790-5f1b-4a76-b88b-941f3a65531c # Basic Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7521797e-d93a-42f5-b31c-f7a41bd9e4d4
+            userCondition: null
+            warning: null
+            width: 100
+        name: SCO
+        uid: 6cafe5d9-7590-40c2-a891-e0add0da970e
+        userCondition: null
+handle: productET
+hasTitleField: true
+icon: rectangle-history
+name: Product
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

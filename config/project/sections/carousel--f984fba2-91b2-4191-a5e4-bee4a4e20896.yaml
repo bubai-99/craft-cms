@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 84fa5941-658a-4526-ae47-8cb3b63a20eb # Slider
+handle: carousel
+maxAuthors: 1
+name: Carousel
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  d70c2279-51bd-4f14-85f1-cea184ebb831: # Craft CMS
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'carousel/{slug}'
+structure:
+  maxLevels: null
+  uid: 7ad7438a-5f14-4983-8805-a28c8afef49d
+type: structure

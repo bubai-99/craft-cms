@@ -1,0 +1,167 @@
+color: fuchsia
+description: null
+fieldLayouts:
+  1267a38f-6e7d-40c0-9919-b0e2c2743c4c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-09T11:42:42+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: f97cbb7e-385a-4afe-a829-e6534a3026c2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-07T06:15:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5cb98f2a-d8de-4be2-8da7-0fde819f65ed
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-09T11:44:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9a975a51-dca4-4b5d-879f-5af20536a104 # Image Title & Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Client Logos'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2a8bbbbd-5318-4b26-85d2-dd5b432d6b59
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-09T11:44:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 73e7fb45-67b4-4543-b1c9-7a6aa1b50d69
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-09T12:07:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0c577327-0800-4540-a2c3-bc53342bbdd2 # Display Mode
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8ee9f279-1b99-4458-9b3b-fb583d5c8f09
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-12-09T12:33:20+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 0c577327-0800-4540-a2c3-bc53342bbdd2 # Display Mode
+                  layoutElementUid: 8ee9f279-1b99-4458-9b3b-fb583d5c8f09
+                  operator: in
+                  uid: af2ff23a-14ef-46ab-8a15-507aae1baca3
+                  values:
+                    - gridView
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 56382840-5697-45b9-80eb-bd4d1ec48550 # Column per row
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Display Item Per Row'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9311cd89-1b5d-470c-8607-35dc5fbb9929
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-05-03T07:33:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: logoTitleDisplay
+            includeInCards: false
+            instructions: null
+            label: 'Logo Title Display'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a0ea499a-3f7f-46a8-bbe3-2c75e0cddddc
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: 0d2b2f81-179e-4c26-b7f4-3fa856d95e92
+        userCondition: null
+handle: clientLogos
+hasTitleField: false
+icon: user
+name: 'Client Logos'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

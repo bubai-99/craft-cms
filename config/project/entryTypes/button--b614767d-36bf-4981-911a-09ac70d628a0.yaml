@@ -1,0 +1,165 @@
+color: lime
+description: null
+fieldLayouts:
+  561051d4-3b6e-494f-b5ec-62a51251669c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-04T09:44:46+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6bb48d3e-cbb4-41c1-a3e7-79d404703c80
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T09:55:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 841d5d31-b4c7-4955-ab98-7baad886a211 # Link url
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 83ff2d4c-3cf8-4d76-bcce-e1de904f2dc0
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-04T09:55:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Link label'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c405c41b-5f44-4913-867e-c16202febbf9
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-12-04T09:57:32+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2b44b0f4-8f0e-4236-8577-3223ac49483d # Color Palette
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Link Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9e88a0b7-c052-4c1b-9eec-98387fa9b433
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-10T08:17:45+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 96a82c8f-a3a4-45f2-84f2-695c2d4a7fa2 # CSS Classes
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Button Classes'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 27eaa460-9def-45a1-a485-8fc205a367f5
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-10T08:17:45+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: displayIcon
+            includeInCards: false
+            instructions: null
+            label: 'Display Icon'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 32befaf4-cbac-4f1d-9f17-161cdc73437f
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-01-10T08:17:45+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 32befaf4-cbac-4f1d-9f17-161cdc73437f
+                  uid: d7158299-f106-4ae1-9583-a31e3163b119
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 96a82c8f-a3a4-45f2-84f2-695c2d4a7fa2 # CSS Classes
+            handle: buttonIconClasses
+            includeInCards: false
+            instructions: null
+            label: 'Button Icon Classes'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 75d0a4fc-dba9-42e0-92e6-0d2cc17dff40
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: b35b96b5-1c08-4450-8b8c-71dd526a241f
+        userCondition: null
+handle: button
+hasTitleField: false
+icon: link
+name: Button
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

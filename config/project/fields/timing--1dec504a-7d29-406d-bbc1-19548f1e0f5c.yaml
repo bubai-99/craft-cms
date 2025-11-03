@@ -1,0 +1,69 @@
+columnSuffix: null
+handle: timing
+instructions: null
+name: Timing
+searchable: false
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Day
+            -
+              - handle
+              - day
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Start Time'
+            -
+              - handle
+              - startTime
+            -
+              - width
+              - ''
+            -
+              - type
+              - time
+      -
+        - col4
+        -
+          __assoc__:
+            -
+              - heading
+              - 'End Time'
+            -
+              - handle
+              - endTime
+            -
+              - width
+              - ''
+            -
+              - type
+              - time
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

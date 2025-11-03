@@ -1,0 +1,124 @@
+color: null
+description: null
+fieldLayouts:
+  457b2dd2-f5b6-4b07-a8f2-cac2baf584d6:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-27T08:01:10+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 37d10a39-8182-42bc-83b8-bc4eaaf1fe95
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2025-08-27T08:08:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: displayPagination
+            includeInCards: false
+            instructions: null
+            label: 'Display Pagination'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6f2ba9f9-81da-4dd2-b3c8-014d05fd0073
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-27T08:08:29+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 6f2ba9f9-81da-4dd2-b3c8-014d05fd0073
+                  uid: 0a06faf6-d72e-46d6-b387-1aeee0577ad2
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 6d884fdd-3cb4-442f-bfb1-c92245f1089e # Number
+            handle: records_per_page
+            includeInCards: false
+            instructions: null
+            label: 'Records per page'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 54439495-5e6e-430b-8e44-39fd5f41f7bc
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-08-27T09:48:58+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: 6f2ba9f9-81da-4dd2-b3c8-014d05fd0073
+                  uid: 6e6815e7-1912-4bc9-885a-6a7b80bc4807
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: e35f9817-80a3-4fa9-94c4-bc4c3fc091b2 # Pagination Display Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9c2f31ad-0d90-4cef-bbcc-566692a4d4d8
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: fc4d9ec1-968f-4f21-9c8f-ec741237560e
+        userCondition: null
+handle: paginationET
+hasTitleField: false
+icon: null
+name: Pagination
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

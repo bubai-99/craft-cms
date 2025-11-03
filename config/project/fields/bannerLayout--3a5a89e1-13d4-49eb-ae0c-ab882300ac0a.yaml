@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: bannerLayout
+instructions: null
+name: 'Banner layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Slider Layout 1'
+        -
+          - value
+          - sliderLayout1
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Slider Layout 2'
+        -
+          - value
+          - sliderLayout2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Slider Layout 3'
+        -
+          - value
+          - sliderLayout3
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

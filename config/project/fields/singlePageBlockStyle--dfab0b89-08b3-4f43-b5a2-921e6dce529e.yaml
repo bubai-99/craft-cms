@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: singlePageBlockStyle
+instructions: null
+name: 'Single Page Block Style'
+searchable: false
+settings:
+  createButtonLabel: 'Add a block style'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 0b3036af-d40d-46e5-9c68-2f59a27225d7 # Single Page Block Style
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

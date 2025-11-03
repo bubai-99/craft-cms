@@ -1,0 +1,104 @@
+color: null
+description: null
+fieldLayouts:
+  04083bbd-3d24-45ba-8f59-23eee05b505b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-12T11:38:18+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: 'Section heading'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 651f95ff-62ef-422b-8868-7a1a73aa6568
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-12T11:41:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 72d2486a-cdf4-4c64-a014-3d58da8f5f89 # Editor (full)
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Section content'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a5c1cdfe-c47c-4f8a-bf00-8f46b0f1b317
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-12T11:41:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d647ec36-b280-436a-b18d-726511d379af # Entries (Card)
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Select Any Entries'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bdb51023-3080-4792-98a5-024e32227571
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-16T11:19:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a9ccbd30-ea9b-4c64-8527-b375a8ef10a4 # Section Style 
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 534c2b65-a8e9-401d-847e-c715a65c6da2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e8dc3c9a-0123-42d5-9930-2879a60b5665
+        userCondition: null
+handle: selectAnyEntry
+hasTitleField: true
+icon: null
+name: 'Select Any Entry'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

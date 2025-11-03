@@ -1,0 +1,53 @@
+color: red
+description: null
+fieldLayouts:
+  e7e9f608-a9b9-4e46-9b0f-26f83776f850:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-30T07:49:48+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: fbd077f2-6a1f-4ea8-a0e3-4fc035528d96
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 3a8d1f30-6516-423c-bcb2-5048c118cb36
+        userCondition: null
+handle: packagesService
+hasTitleField: true
+icon: cube
+name: 'Packages Service'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

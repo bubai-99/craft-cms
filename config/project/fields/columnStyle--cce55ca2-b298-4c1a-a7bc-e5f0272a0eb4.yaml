@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: columnStyle
+instructions: null
+name: 'Column Style'
+searchable: false
+settings:
+  createButtonLabel: 'Add a column style'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - c652f0ad-ab09-4294-82f0-408c6300e72d # Column Style
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: selectProducts
+instructions: null
+name: 'Select Products'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:584ca52e-5780-48a4-8237-eafd87560cf5'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

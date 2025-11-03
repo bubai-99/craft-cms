@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: selectServices
+instructions: null
+name: 'Select Services'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:f4ca4456-edff-4e1a-9f49-d0ee577aa357'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

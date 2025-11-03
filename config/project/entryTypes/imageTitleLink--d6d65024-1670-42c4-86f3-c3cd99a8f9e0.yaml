@@ -1,0 +1,87 @@
+color: lime
+description: null
+fieldLayouts:
+  aea8e16a-bd94-44d0-8d19-9fd127b02da3:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-09T11:25:55+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 49c6dd7e-5f9e-41bc-aa78-6d696e0204e9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-09T11:38:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4525e6a1-ad91-426b-a62b-326f315ca4fb
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-09T11:38:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 841d5d31-b4c7-4955-ab98-7baad886a211 # Link url
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Link
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b30d7153-32d8-4736-91b8-8386a22df57e
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: a86ccbb4-e9cc-4ce4-b4b7-4e68773dd22b
+        userCondition: null
+handle: imageTitleLink
+hasTitleField: true
+icon: image-polaroid
+name: 'Image Title Links'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

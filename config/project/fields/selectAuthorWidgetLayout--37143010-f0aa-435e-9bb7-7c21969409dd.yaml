@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: selectAuthorWidgetLayout
+instructions: null
+name: 'Select Author Widget Layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Author Widget layout 1'
+        -
+          - value
+          - authorWidgetLayout1
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Author Widget layout 2'
+        -
+          - value
+          - authorWidgetLayout2
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

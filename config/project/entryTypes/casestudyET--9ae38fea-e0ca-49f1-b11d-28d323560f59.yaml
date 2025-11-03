@@ -1,0 +1,201 @@
+color: orange
+description: null
+fieldLayouts:
+  88f6f3e4-ef3f-4d32-978e-051cbf7705d9:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-06T10:20:24+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: d5060d5d-d939-4a98-9258-ee83cdfe3451
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T10:25:42+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: featureImage
+            includeInCards: false
+            instructions: null
+            label: 'Feature Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 62dfebea-67de-40bf-a18a-e97234f1250e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T10:25:42+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: image
+            includeInCards: false
+            instructions: null
+            label: 'Case Thumb Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 09d2b656-7ee9-4aae-9535-619b3922e8e6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T12:19:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3d4982de-c56f-488e-be27-be0b8949eaed # Tags
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Skills
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84f1ad84-b461-4ff6-b30e-52eed440d452
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T12:14:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: industry
+            includeInCards: false
+            instructions: null
+            label: Industry
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4c00880f-034f-4cde-882c-d9db1040f5bd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T12:09:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 67b7863f-e411-46fb-a8f5-7cf4e4df7529 # Short Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ee021e8f-b7b0-4d69-b730-794d9daf41b5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-19T07:10:23+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: dfab0b89-08b3-4f43-b5a2-921e6dce529e # Single Page Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70ff3bfa-746b-4d80-b7b8-c9a0b68268ab
+            userCondition: null
+            warning: null
+            width: 100
+        name: Page
+        uid: 79538dc1-61d0-4592-859d-9b5ddcb2014e
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-08-06T10:25:42+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b16eb725-d50a-45ee-8c76-bcaa039b4054 # Matrix Container
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2806f9fd-a6d7-40db-84d3-612b5de02b17
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5559ee24-00f9-4e33-9efa-2e2b1ac95744
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-08-06T10:25:42+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 48ac3790-5f1b-4a76-b88b-941f3a65531c # Basic Seo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 55e7fe09-5058-41fe-9102-bec80a037819
+            userCondition: null
+            warning: null
+            width: 100
+        name: SCO
+        uid: 6c2f27b6-74d7-4fe9-b0df-8294898c675b
+        userCondition: null
+handle: casestudyET
+hasTitleField: true
+icon: book
+name: Casestudy
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

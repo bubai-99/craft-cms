@@ -1,0 +1,155 @@
+color: lime
+description: null
+fieldLayouts:
+  4db9af66-8fa7-4e47-bd90-26f52e5de350:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-18T11:08:47+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 2c47c38f-869b-44a6-967c-f0c10aef1f41
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T11:15:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 570b5f03-78d2-4a26-84a1-141c8d5876e5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T12:41:42+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c9b49977-2298-4a35-bfd2-714c06f8ad89 # Select Portfolios
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e450b1c5-1035-408b-947d-9b956e16615e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T11:15:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ac092263-34d7-423a-a808-637bad3d16bd # Display View
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8d463a82-a7a2-4f0f-b82d-bcbf3bdaae36
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-09-03T07:36:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 048da29d-23c9-4467-82c3-29a91753dc5a # Column Slide per row
+            handle: portfolioPerRow
+            includeInCards: false
+            instructions: null
+            label: 'Portfolio Per Row'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f99bc54-9885-4eac-978b-b5ea0732bf80
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-08-27T12:20:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9af958b1-069d-42c0-9329-4f22687c6d4f # Pagination
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4b4d9605-59e6-498b-a686-e0310e0e98ac
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T11:15:19+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 42ebf290-eb14-4fa0-afd8-3b8d1eb3373d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 7f16e7ce-ca12-436c-ba66-f17a9ca9f6a2
+        userCondition: null
+handle: portfolios
+hasTitleField: false
+icon: image-polaroid
+name: Portfolios
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

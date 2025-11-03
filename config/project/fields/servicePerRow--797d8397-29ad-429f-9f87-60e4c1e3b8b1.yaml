@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: servicePerRow
+instructions: null
+name: 'Service Per Row'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - '2 Items'
+        -
+          - value
+          - column2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - '3 Items'
+        -
+          - value
+          - column3
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - '4 Items'
+        -
+          - value
+          - column4
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

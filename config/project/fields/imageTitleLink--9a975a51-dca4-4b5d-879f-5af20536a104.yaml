@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: imageTitleLink
+instructions: null
+name: 'Image Title & Link'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - d6d65024-1670-42c4-86f3-c3cd99a8f9e0 # Image Title Links
+  includeTableView: false
+  maxEntries: null
+  minEntries: 1
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

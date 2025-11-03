@@ -1,0 +1,93 @@
+color: lime
+description: null
+fieldLayouts:
+  72c444b3-eae0-49f3-98c2-3cf376a6ba74:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-19T09:36:14+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: ffc7f45d-95de-4191-806d-c8fb77d94209
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-19T09:39:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b7a10f6b-d5bc-4e8c-9e6c-7d4e60218f06 # Code CSS
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Add Custom CSS'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c21febc5-9400-4b38-9462-3e431785c532
+            userCondition: null
+            warning: null
+            width: 100
+        name: CSS
+        uid: ee83fac6-b28d-44db-8f32-16530a08d611
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-09-19T09:40:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 46f4807d-b79a-49f4-b508-22e1e41f89c5 # Code JS
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Add Custom JS'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 183c98eb-c51c-40d4-b7bd-b399d7747ce5
+            userCondition: null
+            warning: null
+            width: 100
+        name: JS
+        uid: e19b829e-9deb-4e11-8574-7f5af61365e6
+        userCondition: null
+handle: codeMedia
+hasTitleField: false
+icon: code
+name: 'Additional CSS & JS'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

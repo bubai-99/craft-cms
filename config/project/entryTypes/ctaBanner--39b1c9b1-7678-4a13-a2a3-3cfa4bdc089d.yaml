@@ -1,0 +1,233 @@
+color: fuchsia
+description: null
+fieldLayouts:
+  548f4a75-2306-450b-b0c4-be1a89983460:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-06T07:36:30+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3905e043-606f-40a1-bc03-8554a9a0c82d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T07:46:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'CTA Heading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b43d57cb-03a6-4b76-9ab4-8d67df5255c7
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2024-12-06T08:13:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Show Subheading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ac1a6a96-08ba-490c-940e-92587b93131e
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2024-12-06T08:12:38+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+                  layoutElementUid: ac1a6a96-08ba-490c-940e-92587b93131e
+                  uid: e4822258-c34a-4198-aa55-a2602d3031d4
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 76d00c6d-1cfa-4977-8322-0bfa2e297408 # Plain Text
+            handle: plainTextSub
+            includeInCards: false
+            instructions: null
+            label: 'CTA Subheading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 60408152-0681-437b-b83e-3455deea925a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T07:46:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a1cf70be-9fcd-44cd-88b5-3ec49ce3dc12 # HeaderNotification
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'CTA Content'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a57f8ab2-4be3-43b3-b256-c042dfaaa5c4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T07:46:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 12781b09-979c-42ed-beee-0413ce5e6a36 # Image/Video
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'CTA BG Image/Video'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 924bef06-044a-4952-9fc3-19c729048a27
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-06T07:46:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4227d4d3-78dc-46a0-a113-6fca08453b44 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'CTA Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5448929-9365-43d5-8cb5-ff294de7ff85
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-06T11:40:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6bbf32fb-e157-4619-8e79-f324421f2994 # Color Library
+            handle: ctaBoxBackgroundColor
+            includeInCards: false
+            instructions: null
+            label: 'CTA Box Background Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 51190551-a20c-40d3-bb49-5f8ba889947c
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-06T11:18:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f1a4a0f-a931-42c0-93ff-81370cbf18c1 # Switch Default Off
+            handle: rounded
+            includeInCards: false
+            instructions: null
+            label: 'Border Rounded'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e6699628-6393-4ea1-8f9e-8eb8fddaaae5
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-12-06T07:46:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9c757d01-c77b-4635-a8e1-dcda41e12ab5 # Button
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'CTA Button'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a043cde0-38b7-46dc-a2f0-f2f14b9649c3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-06T07:46:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70b40ed3-8556-489f-a85f-beb469c297c2
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: adfff715-0a35-48d4-a689-cb1940d873eb
+        userCondition: null
+handle: ctaBanner
+hasTitleField: false
+icon: circle-dot
+name: 'CTA Banner'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

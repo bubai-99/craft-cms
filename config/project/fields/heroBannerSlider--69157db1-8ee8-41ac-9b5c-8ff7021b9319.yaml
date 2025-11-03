@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: heroBannerSlider
+instructions: null
+name: 'Hero Banner Slider'
+searchable: false
+settings:
+  createButtonLabel: 'Add a banner'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - a0d2318d-5142-4949-afb8-e9cb92d0f045 # Hero Banner Item
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

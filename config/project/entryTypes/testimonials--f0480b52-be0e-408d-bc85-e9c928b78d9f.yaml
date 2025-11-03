@@ -1,0 +1,138 @@
+color: teal
+description: null
+fieldLayouts:
+  1b9e5916-3b26-494d-85d0-34de53e46117:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-05-08T11:46:18+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6310a980-af0a-415d-aaf6-46eb9891e755
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-08T11:49:11+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5572dbe1-afd5-430a-ab5f-7ce1c89540fb # Heading And Content
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 12055ce0-071e-4584-bbbf-025914cf38c6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-08T11:49:11+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: af4654b6-28f2-45c2-8d54-48f3e94cae83 # Select Testimonials
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 77cb1dd5-001a-4d72-a610-3a7f5b78f65f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-08T12:53:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ac092263-34d7-423a-a808-637bad3d16bd # Display View
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 373e9111-c667-451c-aecf-35923995c840
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-09-03T06:52:49+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 048da29d-23c9-4467-82c3-29a91753dc5a # Column Slide per row
+            handle: testimonialPerRow
+            includeInCards: false
+            instructions: null
+            label: 'Testimonial Per Row'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c95bdefd-743a-4f5c-b1a1-c0c0a33e21d8
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-05-08T11:49:11+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f4361f14-4011-4ce7-97d6-9a625645844f # Block Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 954dfa6e-37ce-46c6-9cd2-ebf0b84c80e9
+            userCondition: null
+            warning: null
+            width: 50
+        name: Page
+        uid: 4a3db394-f8de-48ba-a90a-99465b821c4a
+        userCondition: null
+handle: testimonials
+hasTitleField: false
+icon: star
+name: Testimonials
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
